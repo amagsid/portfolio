@@ -10,6 +10,8 @@ export default {
 		bgMain: '#0a192f',
 		white: '#e6f1ff',
 		green: '#64ffda',
+		paleGreen: '#b0ddd2',
+
 		slate: '#8892b0',
 		lightestSlate: '#ccd6f6',
 

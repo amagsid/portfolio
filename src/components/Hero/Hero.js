@@ -14,7 +14,7 @@ import { useRef } from 'react';
 const Hero = () => {
 	return (
 		<StyleRoot>
-			<Section>
+			<Section nopadding>
 				<LeftSection>
 					<SmallHeading> Hi, My name is</SmallHeading>
 					<BigHeading main center style={{ color: '#ccd6f6' }}>
@@ -37,14 +37,21 @@ const Hero = () => {
 					<blobButton />
 
 					<a href="/Ahmad Magdy CV.pdf" download target="_blank">
-						<button className="offset" type="submit">
-							download my CV{' '}
-							<IoDocumentText
+						<button type="submit">
+							<span style={{ fontSize: '1.8rem' }}>what I'm listening to now </span>
+							<span style={{ display: 'block', fontSize: '1.2rem' }}>
+								{' '}
+								Apple music API integration goes here
+							</span>
+						</button>
+						{/* <button type="submit"> 
+							download my CV
+						 <IoDocumentText
 								className="pdf-icon"
 								size={20}
 								style={{ marginLeft: '5px' }}
 							/>
-						</button>
+						</button> */}
 					</a>
 				</LeftSection>
 			</Section>

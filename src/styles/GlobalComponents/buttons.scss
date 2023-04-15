@@ -13,147 +13,139 @@
 // Animate the size, inside
 .fill:hover,
 .fill:focus {
-  box-shadow: inset 0 0 0 2em var(--hover);
+	box-shadow: inset 0 0 0 2em var(--hover);
 }
 
 // Animate the size, outside
 .pulse:hover,
 .pulse:focus {
-  animation: pulse 1s;
-  box-shadow: 0 0 0 2em rgba(#fff, 0);
-  .send-icon {
-    color: #fc9c4e;
-  }
+	animation: pulse 1s;
+	box-shadow: 0 0 0 2em rgba(#fff, 0);
+	.send-icon {
+		color: #fc9c4e;
+	}
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 var(--hover);
-  }
+	0% {
+		box-shadow: 0 0 0 0 var(--hover);
+	}
 }
 
 // Stack multiple shadows, one from the left, the other from the right
 .close:hover,
 .close:focus {
-  box-shadow: inset -3.5em 0 0 0 var(--hover), inset 3.5em 0 0 0 var(--hover);
+	box-shadow: inset -3.5em 0 0 0 var(--hover), inset 3.5em 0 0 0 var(--hover);
 }
 
 // Size can also be negative; see how it's smaller than the element
 .raise:hover,
 .raise:focus {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
+	box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+	transform: translateY(-0.25em);
 }
 
 // Animating from the bottom
 .up:hover,
 .up:focus {
-  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+	box-shadow: inset 0 -3.25em 0 0 var(--hover);
 }
 
 // And from the left
 .slide:hover,
 .slide:focus {
-  box-shadow: inset 6.5em 0 0 0 var(--hover);
+	box-shadow: inset 6.5em 0 0 0 var(--hover);
 }
 
 // Multiple shadows, one on the outside, another on the inside
 .offset {
-  box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+	box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
 
-  &:hover,
-  &:focus {
-    box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
-    .pdf-icon {
-      color: white;
-    }
-  }
+	&:hover,
+	&:focus {
+		box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
+		.pdf-icon {
+			color: white;
+		}
+	}
 }
 
 //=== Set button colors
 // If you wonder why use Sass vars or CSS custom properties...
 // Make a map with the class names and matching colors
 $colors: (
-  fill: #19bc8b,
-  pulse: #ef6eae,
-  close: #ff7f82,
-  raise: #ffa260,
-  up: #e4cb58,
-  slide: #8fc866,
-  offset: #a972cb,
+	fill: #19bc8b,
+	pulse: #ef6eae,
+	close: #ff7f82,
+	raise: #ffa260,
+	up: #e4cb58,
+	slide: #8fc866,
+	offset: #a972cb,
 );
 
 // Sass variables compile to a static string; CSS variables are dynamic and inherited
 // Loop through the map and set CSS custom properties using Sass variables
 @each $button, $color in $colors {
-  .#{$button} {
-    --color: #{$color};
-    --hover: #{adjust-hue($color, 45deg)};
-  }
+	.#{$button} {
+		--color: #{$color};
+		--hover: #{adjust-hue($color, 45deg)};
+	}
 }
 
 // Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
-button {
-  color: var(--color);
-  transition: 0.25s;
-
-  &:hover,
-  &:focus {
-    border-color: var(--hover);
-    color: #fff;
-  }
-}
 
 //=== Pen styling, ignore
 body {
-  color: #fff;
-  background: hsl(227, 10%, 10%);
-  font: 300 1em 'Fira Sans', sans-serif;
+	color: #fff;
+	background: hsl(227, 10%, 10%);
+	font: 300 1em 'Fira Sans', sans-serif;
 
-  // Center everything ever
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  display: flex;
+	// Center everything ever
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 100vh;
+	display: flex;
 }
 
 // Basic button styles
 button {
-  background: none;
-  border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
-  padding: 1em 2em;
+	color: var(--color);
+	transition: 0.25s;
+	background: none;
+	border: 1px solid;
+	font: inherit;
+	line-height: 1;
+	margin: 0.5em;
+	padding: 1em 2em;
 }
 
 h1 {
-  font-weight: 400;
+	font-weight: 400;
 }
 
 code {
-  color: #e4cb58;
-  font: inherit;
+	color: #e4cb58;
+	font: inherit;
 }
 
 .pdf-icon {
-  color: white;
+	color: white;
 }
 
 ////@at-root
 
 $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 body {
-  background: #333;
-  font-family: $openSans;
+	background: #333;
+	font-family: $openSans;
 }
 
 .buttons {
-  margin-top: 50px;
-  text-align: center;
-  border-radius: 30px;
+	margin-top: 50px;
+	text-align: center;
+	border-radius: 30px;
 }
 
 $cyan: #0505a9;
@@ -161,107 +153,107 @@ $dark: #ffffff;
 $borderW: 2px;
 
 .blob-btn {
-  $numOfBlobs: 4;
-  z-index: 1;
-  position: relative;
-  padding: 20px 46px;
-  margin-bottom: 30px;
-  text-align: center;
-  text-transform: uppercase;
-  color: $cyan;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  transition: color 0.5s;
-  cursor: pointer;
-  border-radius: 30px;
+	$numOfBlobs: 4;
+	z-index: 1;
+	position: relative;
+	padding: 20px 46px;
+	margin-bottom: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	color: $cyan;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	transition: color 0.5s;
+	cursor: pointer;
+	border-radius: 30px;
 
-  &:before {
-    content: '';
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border: $borderW solid $cyan;
-    border-radius: 30px;
-  }
+	&:before {
+		content: '';
+		z-index: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		border: $borderW solid $cyan;
+		border-radius: 30px;
+	}
 
-  &:after {
-    content: '';
-    z-index: -2;
-    position: absolute;
-    left: $borderW * 1.5;
-    top: $borderW * 1.5;
-    width: 100%;
-    height: 100%;
+	&:after {
+		content: '';
+		z-index: -2;
+		position: absolute;
+		left: $borderW * 1.5;
+		top: $borderW * 1.5;
+		width: 100%;
+		height: 100%;
 
-    transition: all 0.3s 0.2s;
-    border-radius: 30px;
-  }
+		transition: all 0.3s 0.2s;
+		border-radius: 30px;
+	}
 
-  &:hover {
-    color: $dark;
-    border-radius: 30px;
+	&:hover {
+		color: $dark;
+		border-radius: 30px;
 
-    &:after {
-      transition: all 0.3s;
-      left: 0;
-      top: 0;
-      border-radius: 30px;
-    }
-  }
+		&:after {
+			transition: all 0.3s;
+			left: 0;
+			top: 0;
+			border-radius: 30px;
+		}
+	}
 
-  &__inner {
-    z-index: -1;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    background: #ffffff;
-  }
+	&__inner {
+		z-index: -1;
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 30px;
+		background: #ffffff;
+	}
 
-  // additional container created, because in FF blobs are breaking overflow:hidden of element with svg gooey filter
-  &__blobs {
-    position: relative;
-    display: block;
-    height: 100%;
-    filter: url('#goo');
-  }
+	// additional container created, because in FF blobs are breaking overflow:hidden of element with svg gooey filter
+	&__blobs {
+		position: relative;
+		display: block;
+		height: 100%;
+		filter: url('#goo');
+	}
 
-  &__blob {
-    position: absolute;
-    top: $borderW;
-    width: 100% / $numOfBlobs;
-    height: 100%;
-    background: $cyan;
-    border-radius: 100%;
-    transform: translate3d(0, 150%, 0) scale(1.7);
-    transition: transform 0.45s;
+	&__blob {
+		position: absolute;
+		top: $borderW;
+		width: 100% / $numOfBlobs;
+		height: 100%;
+		background: $cyan;
+		border-radius: 100%;
+		transform: translate3d(0, 150%, 0) scale(1.7);
+		transition: transform 0.45s;
 
-    @supports (filter: url('#goo')) {
-      transform: translate3d(0, 150%, 0) scale(1.4);
-    }
+		@supports (filter: url('#goo')) {
+			transform: translate3d(0, 150%, 0) scale(1.4);
+		}
 
-    @for $i from 1 through $numOfBlobs {
-      &:nth-child(#{$i}) {
-        left: ($i - 1) * (120% / $numOfBlobs);
-        transition-delay: ($i - 1) * 0.08s;
-      }
-    }
+		@for $i from 1 through $numOfBlobs {
+			&:nth-child(#{$i}) {
+				left: ($i - 1) * (120% / $numOfBlobs);
+				transition-delay: ($i - 1) * 0.08s;
+			}
+		}
 
-    .blob-btn:hover & {
-      transform: translateZ(0) scale(1.7);
+		.blob-btn:hover & {
+			transform: translateZ(0) scale(1.7);
 
-      @supports (filter: url('#goo')) {
-        transform: translateZ(0) scale(1.4);
-      }
-    }
-  }
+			@supports (filter: url('#goo')) {
+				transform: translateZ(0) scale(1.4);
+			}
+		}
+	}
 }
