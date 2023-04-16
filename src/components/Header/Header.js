@@ -1,58 +1,72 @@
 import Link from 'next/link';
-import React from 'react';
-import {
-  AiFillGithub,
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-} from 'react-icons/ai';
-import { DiCssdeck } from 'react-icons/di';
+import React, { useState } from 'react';
+// import { AiFillGithub, AiFillTwitterCircle, AiFillLinkedin } from 'react-icons/ai';
 import Logo from '../../../public/images/logo-white.png';
 
 import {
-  Container,
-  Div1,
-  Div2,
-  Div3,
-  NavLink,
-  SocialIcons,
-  Span,
+	Container,
+	LogoContainer,
+	NavLinksContainer,
+	Number,
+	Div3,
+	NavLink,
+	SocialIcons,
+	Span,
 } from './HeaderStyles';
 
-const Header = () => (
-  <Container>
-    <Div1>
-      <Link href='/'>
-        <a
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            color: 'white',
-            marginBottom: '20px',
-          }}
-        >
-          <img src={Logo} alt='logo' className='my-logo' />
-          {/* <DiCssdeck size='3rem' /> <Span> Portfolio</Span> */}
-        </a>
-      </Link>
-    </Div1>
-    <Div2>
-      <li>
-        <Link href='#projects'>
-          <NavLink>Projects</NavLink>
-        </Link>
-      </li>
-      <li>
-        <Link href='#tech'>
-          <NavLink>Technologies</NavLink>
-        </Link>
-      </li>
-      <li>
-        <Link href='#about'>
-          <NavLink>About</NavLink>
-        </Link>
-      </li>
-    </Div2>
-    <Div3>
+function Header() {
+	const [theme, setTheme] = useState('dark');
+	const toggleTheme = () => {
+		if (theme === 'dark') {
+			setTheme('light');
+		} else {
+			setTheme('dark');
+		}
+	};
+
+	return (
+		<Container>
+			<LogoContainer>
+				<Link href="/">signature logo goes here</Link>
+			</LogoContainer>
+
+			<NavLinksContainer>
+				<li>
+					 <button onClick={toggleTheme}>Toggle Theme</button>
+				</li>
+				<li>
+					<Link href="#about">
+						<NavLink>
+							{' '}
+							<Number>01. </Number>About
+						</NavLink>
+					</Link>
+				</li>
+				<li>
+					<Link href="#projects">
+						<NavLink>
+							<Number>02. </Number>Experience
+						</NavLink>
+					</Link>
+				</li>
+				<li>
+					<Link href="#tech">
+						<NavLink>
+							{' '}
+							<Number>03. </Number>Work
+						</NavLink>
+					</Link>
+				</li>
+				<li>
+					<Link href="#tech">
+						<NavLink>
+							{' '}
+							<Number>04. </Number>Contact
+						</NavLink>
+					</Link>
+				</li>
+			</NavLinksContainer>
+			{/* <Div3>
       <SocialIcons href='https://github.com/amagsid' target='_blank'>
         <AiFillGithub size='3rem'></AiFillGithub>
       </SocialIcons>
@@ -65,8 +79,9 @@ const Header = () => (
       <SocialIcons href='https://twitter.com/isahmad_true' target='_blank'>
         <AiFillTwitterCircle size='3rem'></AiFillTwitterCircle>
       </SocialIcons>
-    </Div3>
-  </Container>
-);
+    </Div3> */}
+		</Container>
+	);
+}
 
 export default Header;

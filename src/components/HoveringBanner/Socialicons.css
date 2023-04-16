@@ -1,0 +1,10 @@
+.icon {
+	stroke-width: 0.9;
+	width: 20px;
+}
+.icon:hover {
+	transform: translateY(-3px);
+	/* color: '#64ffda'; */
+	color: 'red';
+	background-color: 'red';
+}

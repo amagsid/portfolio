@@ -2,7 +2,7 @@ import React from 'react';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
-import HoveringBanner from '../components/HoveringBanner/HoveringBanner';
+import HoveringBanners from '../components/HoveringBanner/HoveringBanner';
 import { Container } from './LayoutStyles';
 
 export const Layout = ({ children }) => {
@@ -10,14 +10,7 @@ export const Layout = ({ children }) => {
 		<Container>
 			<Header />
 			<main>{children}</main>
-			<HoveringBanner
-				position="right"
-				content="amagsid@gmail.com"
-				orientation="vertical"
-				style={{ display: 'flex', flexDirection: 'column' }}
-			/>
-			<HoveringBanner position="left" content="icons" />
-
+			<HoveringBanners />
 			<Footer />
 		</Container>
 	);

@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.main};
     font-size: 1.6rem;
     background: ${(props) => props.theme.colors.bgMain};
-  
+  // width:2000px;
     cursor: default;
 
   }

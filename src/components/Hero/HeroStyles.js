@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const LeftSection = styled.div`
-	// width: 100%;
+	width: 100%;
 	height: 80vh;
 	min-height: 85vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: start;
+	padding-top: 2em;
 	@media ${(props) => props.theme.breakpoints.sm} {
 		width: 80%;
 		display: flex;
@@ -14,18 +15,18 @@ export const LeftSection = styled.div`
 
 		margin: 0 auto;
 	}
-	@media ${(props) => props.theme.breakpoints.md} {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
+	// @media ${(props) => props.theme.breakpoints.md} {
+	// 	padding-top: 18em;
+	// }
 
-		margin: 0 auto;
+	@media ${(props) => props.theme.breakpoints.xxl} {
+		padding-top: 18em;
 	}
 `;
 
 export const SmallHeading = styled.h1`
-	// font-weight: 800;
 	font-size: ${(props) => (props.main ? '20px' : '15px')};
+	font-family: ${(props) => props.theme.fonts.mono};
 	line-height: ${(props) => (props.main ? '72px' : '56px')};
 	width: max-content;
 	max-width: 100%;
@@ -45,9 +46,12 @@ export const SmallHeading = styled.h1`
 		max-width: 100%;
 	}
 `;
+
 export const BigHeading = styled.h2`
 	font-weight: 800;
 	font-size: ${(props) => (props.main ? '65px' : '56px')};
+	// font-size: 3vw;
+	font-size: clamp(5rem, 3vw, 10rem);
 	line-height: ${(props) => (props.main ? '72px' : '56px')};
 	width: max-content;
 	max-width: 100%;

@@ -17,6 +17,7 @@ const Hero = () => {
 			<Section nopadding>
 				<LeftSection>
 					<SmallHeading> Hi, My name is</SmallHeading>
+
 					<BigHeading main center style={{ color: '#ccd6f6' }}>
 						Ahmad Magdy.
 					</BigHeading>
@@ -38,7 +39,9 @@ const Hero = () => {
 
 					<a href="/Ahmad Magdy CV.pdf" download target="_blank">
 						<button type="submit">
-							<span style={{ fontSize: '1.8rem' }}>what I'm listening to now </span>
+							<span style={{ fontSize: '1.8rem' }}>
+								what I'm (probably) listening to now{' '}
+							</span>
 							<span style={{ display: 'block', fontSize: '1.2rem' }}>
 								{' '}
 								Apple music API integration goes here
