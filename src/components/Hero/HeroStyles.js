@@ -7,7 +7,7 @@ export const LeftSection = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
-	padding-top: 2em;
+	padding: 2em 4em;
 	@media ${(props) => props.theme.breakpoints.sm} {
 		width: 80%;
 		display: flex;
@@ -50,12 +50,11 @@ export const SmallHeading = styled.h1`
 export const BigHeading = styled.h2`
 	font-weight: 800;
 	font-size: ${(props) => (props.main ? '65px' : '56px')};
-	// font-size: 3vw;
-	font-size: clamp(5rem, 3vw, 10rem);
+	font-size: clamp(5rem, 3.5vw, 10rem);
 	line-height: ${(props) => (props.main ? '72px' : '56px')};
 	width: max-content;
 	max-width: 100%;
-	color: white;
+	color: ${(props) => props.theme.colors.lightestSlate};
 	// margin-bottom: 16px;
 	// padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
 

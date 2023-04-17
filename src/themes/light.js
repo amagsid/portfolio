@@ -8,13 +8,13 @@ export default {
 	// Colors for layout
 	colors: {
 		// primary1: 'hsl(204,23.8%,95.9%)',
-		bgMain: '#0a192f',
+		navItems: '#0a192f',
+		bgMain: '#fffcf6',
 		white: '#e6f1ff',
-		green: '#64ffda',
+		green: '#d25276', //now burgandy in light theme
 		paleGreen: '#b0ddd2',
-
-		slate: '#8892b0',
-		lightestSlate: '#ccd6f6',
+		slate: '#30568e',
+		lightestSlate: '#30568e',
 
 		// accent1: 'hsl(34.9,98.6%,72.9%)',
 		// button: 'hsl(205.1,100%,36.1%)',

@@ -8,3 +8,11 @@
 	color: 'red';
 	background-color: 'red';
 }
+
+.switch-icon {
+	width: 30px;
+	padding: 2px;
+	stroke-width: 0.8;
+	/* text-align: center;
+	height: 1px; */
+}

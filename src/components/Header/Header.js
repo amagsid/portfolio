@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-// import { AiFillGithub, AiFillTwitterCircle, AiFillLinkedin } from 'react-icons/ai';
+import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import Logo from '../../../public/images/logo-white.png';
 
 import {
@@ -15,24 +15,24 @@ import {
 } from './HeaderStyles';
 
 function Header() {
-	const [theme, setTheme] = useState('dark');
-	const toggleTheme = () => {
-		if (theme === 'dark') {
-			setTheme('light');
-		} else {
-			setTheme('dark');
-		}
-	};
-
 	return (
 		<Container>
 			<LogoContainer>
-				<Link href="/">signature logo goes here</Link>
+				<Link style={{ fontSize: '10px' }} href="/">
+					<h4 style={{ color: '#d25276' }}> handwritten signature goes here </h4>
+				</Link>
 			</LogoContainer>
 
 			<NavLinksContainer>
-				<li>
-					 <button onClick={toggleTheme}>Toggle Theme</button>
+				<li
+				// style={{
+				// 	display: 'flex',
+				// 	justifyContent: 'center',
+				// 	alignItems: 'center',
+				// 	flexDirection: 'row',
+				// }}
+				>
+					 <ThemeSwitch />
 				</li>
 				<li>
 					<Link href="#about">

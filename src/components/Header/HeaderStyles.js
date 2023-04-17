@@ -24,7 +24,7 @@ export const NavLink = styled.a`
 	font-size: 1.5rem;
 	font-weight: 300;
 	line-height: 32px;
-	color: rgba(255, 255, 255, 0.75);
+	color: ${(props) => props.theme.colors.navItems};
 	transition: 0.4s ease;
 	&:hover {
 		color: #fff;

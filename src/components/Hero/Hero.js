@@ -18,7 +18,7 @@ const Hero = () => {
 				<LeftSection>
 					<SmallHeading> Hi, My name is</SmallHeading>
 
-					<BigHeading main center style={{ color: '#ccd6f6' }}>
+					<BigHeading main center>
 						Ahmad Magdy.
 					</BigHeading>
 					<BigHeading style={{ color: '#8892b0' }}>
