@@ -39,9 +39,8 @@ export const SocialContainer = styled.ul`
 export const Line = styled.div`
 	content: '';
 	display: block;
-	width: 0.95px;
-	height: 90px;
-	margin: 0px auto;
+	width: ${(props) => (props.horizontal ? '90px' : '0.95px')};
+	height: ${(props) => (props.horizontal ? '0.95px' : '90px')};
 	background-color: ${(props) => props.theme.colors.slate}; ;
 `;
 export const Container = styled.div`

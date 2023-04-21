@@ -5,9 +5,9 @@ import { IoDocumentText } from 'react-icons/io5';
 import blobButton from '../blobButton';
 import Radium, { StyleRoot } from 'radium';
 
-import { Section, SectionText, SectionTitle } from '../../styles/GlobalComponents';
+import { Section, SectionText, HighlightedText, BigHeading } from '../../styles/GlobalComponents';
 
-import { LeftSection, SmallHeading, BigHeading } from './HeroStyles';
+import { LeftSection } from './HeroStyles';
 
 import { useRef } from 'react';
 
@@ -16,7 +16,7 @@ const Hero = () => {
 		<StyleRoot>
 			<Section nopadding>
 				<LeftSection>
-					<SmallHeading> Hi, My name is</SmallHeading>
+					<HighlightedText> Hi, My name is</HighlightedText>
 
 					<BigHeading main center>
 						Ahmad Magdy.

@@ -36,11 +36,7 @@ export const NavLink = styled.a`
 	}
 `;
 
-//index numbers for nav links
-export const Number = styled.span`
-	color: ${(props) => props.theme.colors.green};
-	font-weight: 400;
-`;
+
 
 export const LogoContainer = styled.div`
 	display: flex;

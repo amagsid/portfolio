@@ -4,8 +4,9 @@ export const Section = styled.section`
 	display: ${(props) => (props.grid ? 'grid' : 'flex')};
 	flex-direction: ${(props) => (props.row ? 'row' : 'column')};
 	padding: ${(props) => (props.nopadding ? '0' : '32px 80px 0')};
-	margin: 0 auto;
+	margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
 	max-width: 2040px;
+	align-items: ${(props) => (props.center ? 'center' : props.end ? 'flex-end' : 'unset')};
 	box-sizing: border-box;
 	position: relative;
 	overflow: hidden;
@@ -22,6 +23,103 @@ export const Section = styled.section`
 		width: calc(100vw - 32px);
 		flex-direction: column;
 	}
+`;
+
+export const HighlightedText = styled.h1`
+	font-size: ${(props) => (props.main ? '20px' : '15px')};
+	font-family: ${(props) => props.theme.fonts.mono};
+	line-height: ${(props) => (props.main ? '72px' : '56px')};
+	width: max-content;
+	max-width: 100%;
+	word-spacing: 5px;
+	color: ${(props) => props.theme.colors.green};
+	padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
+
+	@media ${(props) => props.theme.breakpoints.md} {
+		line-height: ${(props) => (props.main ? '56px' : '48px')};
+		padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
+	}
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		line-height: 40px;
+		line-height: ${(props) => (props.main ? '32px' : '40px')};
+		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+		max-width: 100%;
+	}
+`;
+
+export const SmallHeading = styled.h4`
+	font-weight: 500;
+	font-size: clamp(1rem, 1.5vw, 2.5rem);
+	width: max-content;
+	max-width: 100%;
+	color: ${(props) => props.theme.colors.lightestSlate};
+	// margin-bottom: 16px;
+	// padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
+
+	// &:after {
+	// 	content: '';
+	// 	display: block;
+	// 	position: relative;
+	// 	top: -5px;
+	// 	width: 300px;
+	// 	height: 1px;
+	// 	margin-left: 20px;
+	// 	background-color: white;
+	// }
+
+	@media ${(props) => props.theme.breakpoints.md} {
+		font-size: ${(props) => (props.main ? '56px' : '48px')};
+		line-height: ${(props) => (props.main ? '56px' : '48px')};
+		// margin-bottom: 12px;
+		padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
+	}
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 32px;
+		line-height: 40px;
+		font-size: ${(props) => (props.main ? '28px' : '32px')};
+		line-height: ${(props) => (props.main ? '32px' : '40px')};
+		// margin-bottom: 8px;
+		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+		max-width: 100%;
+	}
+`;
+export const BigHeading = styled.h2`
+	font-weight: 800;
+	font-size: ${(props) => (props.main ? '65px' : '56px')};
+	font-size: clamp(5rem, 3.5vw, 10rem);
+	line-height: ${(props) => (props.main ? '72px' : '56px')};
+	width: max-content;
+	max-width: 100%;
+	color: ${(props) => props.theme.colors.lightestSlate};
+	// margin-bottom: 16px;
+	// padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
+
+	@media ${(props) => props.theme.breakpoints.md} {
+		font-size: ${(props) => (props.main ? '56px' : '48px')};
+		line-height: ${(props) => (props.main ? '56px' : '48px')};
+		// margin-bottom: 12px;
+		padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
+	}
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 32px;
+		line-height: 40px;
+		font-size: ${(props) => (props.main ? '28px' : '32px')};
+		line-height: ${(props) => (props.main ? '32px' : '40px')};
+		// margin-bottom: 8px;
+		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+		max-width: 100%;
+	}
+`;
+
+//index numbers for nav links
+export const Number = styled.span`
+	color: ${(props) => props.theme.colors.green};
+	font-weight: 400;
+	font-size: ${(props) => (props.small ? '20px' : 'unset')};
+	font-family: Noto Sans Mono, monospace;
 `;
 
 export const SectionTitle = styled.h2`

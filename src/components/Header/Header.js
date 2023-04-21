@@ -7,12 +7,13 @@ import {
 	Container,
 	LogoContainer,
 	NavLinksContainer,
-	Number,
 	Div3,
 	NavLink,
 	SocialIcons,
 	Span,
 } from './HeaderStyles';
+
+import { Number } from '../../styles/GlobalComponents/index';
 
 function Header() {
 	return (
