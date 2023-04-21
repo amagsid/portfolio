@@ -7,13 +7,18 @@ export default {
 	},
 	// Colors for layout
 	colors: {
-		// primary1: 'hsl(204,23.8%,95.9%)',
 		navItems: '#0a192f',
+		horizontlLine: '#d25276',
 		bgMain: '#fffcf6',
-		white: '#e6f1ff',
-		green: '#d25276', //now burgandy in light theme
+		links: '#d25276', //links and nav numbers
+		indexNumbers: '#d25276', //links and nav numbers
+		heading: '#40659a',
+		secondaryHeading: '#e77878',
+
+		// slate: '#30568e',
+
 		paleGreen: '#b0ddd2',
-		slate: '#30568e',
+
 		lightestSlate: '#30568e',
 
 		// accent1: 'hsl(34.9,98.6%,72.9%)',

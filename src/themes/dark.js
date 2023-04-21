@@ -1,3 +1,6 @@
+const lightestNavy = '#233554';
+const lightestSlate = '#ccd6f6';
+
 export default {
 	// Temp fonts
 	fonts: {
@@ -7,12 +10,16 @@ export default {
 	},
 	// Colors for layout
 	colors: {
-		// primary1: 'hsl(204,23.8%,95.9%)',
 		navItems: '#ccd6f6',
+		horizontlLine: lightestNavy,
 		bgMain: '#0a192f',
-		// white: '#e6f1ff',
-		green: '#64ffda', //links and nav numbers
+		links: '#64ffda', //links and nav numbers
+		indexNumbers: '#64ffda', //links and nav numbers
+		heading: '#ccd6f6',
+		secondaryHeading: '#8892b0',
+
 		paleGreen: '#b0ddd2',
+
 		slate: '#8892b0', //secondary title
 		lightestSlate: '#ccd6f6', //main title
 

@@ -32,7 +32,7 @@ export const HighlightedText = styled.h1`
 	width: max-content;
 	max-width: 100%;
 	word-spacing: 5px;
-	color: ${(props) => props.theme.colors.green};
+	color: ${(props) => props.theme.colors.indexNumbers};
 	padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
 
 	@media ${(props) => props.theme.breakpoints.md} {
@@ -92,7 +92,8 @@ export const BigHeading = styled.h2`
 	line-height: ${(props) => (props.main ? '72px' : '56px')};
 	width: max-content;
 	max-width: 100%;
-	color: ${(props) => props.theme.colors.lightestSlate};
+	color: ${(props) =>
+		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading}; };
 	// margin-bottom: 16px;
 	// padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
 
@@ -116,7 +117,7 @@ export const BigHeading = styled.h2`
 
 //index numbers for nav links
 export const Number = styled.span`
-	color: ${(props) => props.theme.colors.green};
+	color: ${(props) => props.theme.colors.indexNumbers};
 	font-weight: 400;
 	font-size: ${(props) => (props.small ? '20px' : 'unset')};
 	font-family: Noto Sans Mono, monospace;

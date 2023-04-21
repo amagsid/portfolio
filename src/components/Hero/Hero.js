@@ -21,9 +21,7 @@ const Hero = () => {
 					<BigHeading main center>
 						Ahmad Magdy.
 					</BigHeading>
-					<BigHeading style={{ color: '#8892b0' }}>
-						I build things for the web.
-					</BigHeading>
+					<BigHeading>I build things for the web.</BigHeading>
 					<SectionText className="mt-5" style={{ width: '700px' }}>
 						<p>
 							I’m a software engineer specializing in building (and occasionally

@@ -29,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
   
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.green};
+    color: ${(props) => props.theme.colors.links};
   }
   li{
     list-style: none;

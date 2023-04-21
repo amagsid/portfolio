@@ -78,7 +78,7 @@ const Timeline = () => {
 				for a junior role that puts me on a professional development journey
 			</SectionText>
 
-			<CarouselContainer ref={carouselRef} onScroll={handleScroll}>
+			{/* <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
 				<>
 					{TimeLineData.map((item, index) => (
 						<CarouselMobileScrollNode
@@ -132,8 +132,8 @@ const Timeline = () => {
 						</CarouselMobileScrollNode>
 					))}
 				</>
-			</CarouselContainer>
-			<CarouselButtons>
+			</CarouselContainer> */}
+			{/* <CarouselButtons>
 				{TimeLineData.map((item, index) => (
 					<CarouselButton
 						key={index}
@@ -145,8 +145,7 @@ const Timeline = () => {
 						<CarouselButtonDot active={activeItem} />
 					</CarouselButton>
 				))}
-			</CarouselButtons>
-			<SectionDivider />
+			</CarouselButtons> */}
 		</Section>
 	);
 };
