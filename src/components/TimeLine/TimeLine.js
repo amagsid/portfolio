@@ -73,7 +73,7 @@ const Timeline = () => {
 				<SmallHeading>A little More About Me</SmallHeading>
 				<Line s horizontal />
 			</Section>
-			<SectionText>
+			<SectionText className="mt-5">
 				Achieving a life-long dream to become a programmer, I'm currently activly looking
 				for a junior role that puts me on a professional development journey
 			</SectionText>
