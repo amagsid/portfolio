@@ -1,5 +1,4 @@
 import Theme from '../styles/theme';
-import '../styles/GlobalComponents/buttons.scss';
 import styles from '../components/Header/header.css';
 import styles2 from '../components/HoveringBanner/Socialicons.css';
 import { useState, useEffect } from 'react';

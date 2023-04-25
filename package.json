@@ -5,18 +5,19 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
     "emailjs-com": "^3.2.0",
+    "eslint-config-next": "^13.3.1",
     "framer-motion": "^10.12.4",
-    "next": "10.2.3",
+    "next": "^13.3.1",
     "next-images": "^1.8.4",
     "radium": "^0.26.2",
-    "react": "17.0.2",
     "react-bootstrap": "^2.7.2",
-    "react-dom": "17.0.2",
     "react-fade-in": "^2.0.1",
     "react-feather": "^2.0.10",
     "react-hook-form": "^7.43.9",
@@ -26,6 +27,16 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
-    "sass": "^1.60.0"
+    "@storybook/addon-essentials": "^7.0.7",
+    "@storybook/addon-interactions": "^7.0.7",
+    "@storybook/addon-links": "^7.0.7",
+    "@storybook/blocks": "^7.0.7",
+    "@storybook/nextjs": "^7.0.7",
+    "@storybook/react": "^7.0.7",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.60.0",
+    "storybook": "^7.0.7"
   }
 }

@@ -2,16 +2,13 @@ import React from 'react';
 // import CV from '../../constants/CV.pdf';
 // import { Button } from 'react-bootstrap';
 import { IoDocumentText } from 'react-icons/io5';
-import blobButton from '../blobButton';
 import Radium, { StyleRoot } from 'radium';
 import BgAnimation from '../../components/BackgrooundAnimation/BackgroundAnimation';
-// import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { Section, SectionText, HighlightedText, BigHeading } from '../../styles/GlobalComponents';
 
 import { LeftSection } from './HeroStyles';
-
-import { useRef } from 'react';
 
 const Hero = () => {
 	return (
@@ -35,31 +32,34 @@ const Hero = () => {
 					</SectionText>
 					<blobButton />
 
-					<a href="/Ahmad Magdy CV.pdf" download target="_blank">
+					<motion.div
+						whileHover={{ scale: 1.2, originX: 0, textShadow: '1px 1px 2px pink' }}
+						transition={{
+							type: 'spring',
+							stiffness: 300,
+						}}
+						className="apple-music"
+					>
+						<span style={{ fontSize: '1.8rem' }}>
+							what I'm (probably) listening to now{' '}
+						</span>
+						<span style={{ display: 'block', fontSize: '1.2rem' }}>
+							{' '}
+							Apple music API integration goes here
+						</span>
+					</motion.div>
+
+					{/* <a href="/Ahmad Magdy CV.pdf" download target="_blank">
 						<button type="submit">
-							<span style={{ fontSize: '1.8rem' }}>
-								what I'm (probably) listening to now{' '}
-							</span>
-							<span style={{ display: 'block', fontSize: '1.2rem' }}>
-								{' '}
-								Apple music API integration goes here
-							</span>
-						</button>
-						{/* <button type="submit">
 							download my CV
 							<IoDocumentText
 								className="pdf-icon"
 								size={20}
 								style={{ marginLeft: '5px' }}
 							/>
-						</button> */}
-						{/* 
-						<motion.div
-							className="animation"
-							whileHover={{ scale: 1.2, rotate: 90 }}
-							whileTap={{ scale: 0.8, rotate: -90, borderRadius: '100%' }}
-						/> */}
-					</a>
+						</button>
+					</a> */}
+
 					{/* <BgAnimation className="bg-animation" style={{ position: 'relative' }} /> */}
 				</LeftSection>
 			</Section>

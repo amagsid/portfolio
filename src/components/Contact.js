@@ -5,7 +5,7 @@ import { BiMailSend } from 'react-icons/bi';
 import { init, sendForm } from 'emailjs-com';
 init('user_x4FGTrgTjdeEVdrn9HdcN');
 
-import portrait from '../../public/images/portrait.jpg';
+// import portrait from '../../public/images/portrait.jpg';
 
 import { Form, Row, Col, Container } from 'react-bootstrap';
 
@@ -95,7 +95,7 @@ function Contact() {
 					</Form>{' '}
 				</Col>
 				<Col md={4} xs={2}>
-					<img className="portrait" src={portrait}></img>{' '}
+					{/* <img className="portrait" src={portrait}></img>{' '} */}
 				</Col>
 			</Row>
 		</Container>

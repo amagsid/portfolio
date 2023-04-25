@@ -35,11 +35,13 @@ const GlobalStyles = createGlobalStyle`
     
   }
 
-  .animation {
-      width: 150px;
+
+.apple-music {
+  width: 884px;
   height: 150px;
-  background: white;
-  border-radius: 30px;
+border: dashed ${(props) => props.theme.colors.secondaryHeading};
+color: ${(props) => props.theme.colors.secondaryHeading};
+
   }
 
   .social-container a {
@@ -86,14 +88,14 @@ const GlobalStyles = createGlobalStyle`
       color: ${(props) => props.theme.colors.navItems};
     	font-family: Noto Sans Mono, monospace;
       letter-spacing: .5rem;
-          -webkit-transition: all .2s ease-out;
-    &:hover {
-       letter-spacing: .7rem;
-      padding-bottom: .8rem;
-          -webkit-transition: all .4s ease-out;
-           color: ${(props) => props.theme.colors.links};
+          -webkit-transition: all .01s ease-out;
+    // &:hover {
+    //    letter-spacing: .7rem;
+    //   padding-bottom: .8rem;
+    //       -webkit-transition: all .4s ease-out;
+    //        color: ${(props) => props.theme.colors.links};
 
-    }
+    // }
     
   }
 
