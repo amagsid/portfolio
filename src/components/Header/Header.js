@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
-import Logo from '../../../public/images/logo-white.png';
+// import Logo from '../../../public/images/logo-white.png';
 
 import {
 	Container,
