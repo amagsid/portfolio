@@ -5,7 +5,7 @@ import { IoDocumentText } from 'react-icons/io5';
 import blobButton from '../blobButton';
 import Radium, { StyleRoot } from 'radium';
 import BgAnimation from '../../components/BackgrooundAnimation/BackgroundAnimation';
-import { AnimatePresence, motion } from 'framer-motion';
+// import { AnimatePresence, motion } from 'framer-motion';
 
 import { Section, SectionText, HighlightedText, BigHeading } from '../../styles/GlobalComponents';
 
@@ -53,12 +53,12 @@ const Hero = () => {
 								style={{ marginLeft: '5px' }}
 							/>
 						</button> */}
-
+						{/* 
 						<motion.div
 							className="animation"
 							whileHover={{ scale: 1.2, rotate: 90 }}
 							whileTap={{ scale: 0.8, rotate: -90, borderRadius: '100%' }}
-						/>
+						/> */}
 					</a>
 					{/* <BgAnimation className="bg-animation" style={{ position: 'relative' }} /> */}
 				</LeftSection>
