@@ -4,7 +4,7 @@ import SocialIcons from './Socialicons';
 
 const HoveringBanner = (props) => {
 	return (
-		<Banner position={props.position}>
+		<Banner className="social-container" position={props.position}>
 			<div
 				className="pb-5"
 				style={{
@@ -12,7 +12,11 @@ const HoveringBanner = (props) => {
 				}}
 			>
 				{props.position == 'left' && <SocialIcons />}
-				{props.content}
+				{props.position == 'right' && (
+					<a href="https://www.w3schools.com" target="_blank">
+						<h5 className="email-link">amagsid@gmail.com </h5>
+					</a>
+				)}
 			</div>
 			<Line> </Line>
 		</Banner>
@@ -21,7 +25,11 @@ const HoveringBanner = (props) => {
 const HoveringBanners = () => {
 	return (
 		<>
-			<HoveringBanner position="right" content="amagsid@gmail.com" orientation="vertical" />
+			<HoveringBanner
+				position="right"
+				content="amagsid@gmail.com"
+				orientation="vertical"
+			></HoveringBanner>
 			<HoveringBanner orientation="horizontal" position="left"></HoveringBanner>
 		</>
 	);

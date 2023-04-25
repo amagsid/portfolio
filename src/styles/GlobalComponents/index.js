@@ -159,7 +159,7 @@ export const SectionText = styled.p`
 	line-height: 1.5em;
 	font-weight: 300;
 	padding-bottom: 3.6rem;
-	color: ${(props) => props.theme.colors.slate};
+	color: ${(props) => props.theme.colors.paragraphHeading};
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		max-width: 670px;

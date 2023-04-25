@@ -4,6 +4,8 @@ import React from 'react';
 import { IoDocumentText } from 'react-icons/io5';
 import blobButton from '../blobButton';
 import Radium, { StyleRoot } from 'radium';
+import BgAnimation from '../../components/BackgrooundAnimation/BackgroundAnimation';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { Section, SectionText, HighlightedText, BigHeading } from '../../styles/GlobalComponents';
 
@@ -18,20 +20,18 @@ const Hero = () => {
 				<LeftSection>
 					<HighlightedText> Hi, My name is</HighlightedText>
 
-					<BigHeading main center>
+					<BigHeading className="pb-4" main center>
 						Ahmad Magdy.
 					</BigHeading>
 					<BigHeading>I build things for the web.</BigHeading>
 					<SectionText className="mt-5" style={{ width: '700px' }}>
-						<p>
-							I’m a software engineer specializing in building (and occasionally
-							designing) exceptional digital experiences. Currently, I’m focused on
-							building accessible, human-centered products at{' '}
-							<a href="https://www.ambassadors.com/" target="_blank">
-								Ambassadors
-							</a>
-							.
-						</p>
+						I’m a software engineer specializing in building (and occasionally
+						designing) exceptional digital experiences. Currently, I’m focused on
+						building accessible, human-centered products at{' '}
+						<a href="https://www.ambassadors.com/" target="_blank">
+							Ambassadors
+						</a>
+						.
 					</SectionText>
 					<blobButton />
 
@@ -45,15 +45,22 @@ const Hero = () => {
 								Apple music API integration goes here
 							</span>
 						</button>
-						{/* <button type="submit"> 
+						{/* <button type="submit">
 							download my CV
-						 <IoDocumentText
+							<IoDocumentText
 								className="pdf-icon"
 								size={20}
 								style={{ marginLeft: '5px' }}
 							/>
 						</button> */}
+
+						<motion.div
+							className="animation"
+							whileHover={{ scale: 1.2, rotate: 90 }}
+							whileTap={{ scale: 0.8, rotate: -90, borderRadius: '100%' }}
+						/>
 					</a>
+					{/* <BgAnimation className="bg-animation" style={{ position: 'relative' }} /> */}
 				</LeftSection>
 			</Section>
 		</StyleRoot>

@@ -29,7 +29,7 @@ export const Banner = styled.div`
 	// }
 `;
 export const SocialContainer = styled.ul`
-	height: 183px;
+	height: 207px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

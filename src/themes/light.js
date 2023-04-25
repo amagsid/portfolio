@@ -14,6 +14,7 @@ export default {
 		indexNumbers: '#d25276', //links and nav numbers
 		heading: '#40659a',
 		secondaryHeading: '#e77878',
+		paragraphHeading: '#e77878',
 
 		// slate: '#30568e',
 

@@ -10,16 +10,10 @@ import {
 	CarouselItemText,
 	CarouselItemTitle,
 	CarouselMobileScrollNode,
+	SkillsList,
+	SkillsListItem,
 } from './TimeLineStyles';
-import {
-	Section,
-	SectionDivider,
-	SectionText,
-	SectionTitle,
-	HighlightedText,
-	SmallHeading,
-	Number,
-} from '../../styles/GlobalComponents';
+import { Section, SectionText, SmallHeading, Number } from '../../styles/GlobalComponents';
 import { Line } from '../../components/HoveringBanner/HoveringBannerStyles';
 import { TimeLineData } from '../../constants/constants';
 
@@ -77,6 +71,15 @@ const Timeline = () => {
 				Achieving a life-long dream to become a programmer, I'm currently activly looking
 				for a junior role that puts me on a professional development journey
 			</SectionText>
+
+			<SkillsList>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+			</SkillsList>
 
 			{/* <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
 				<>

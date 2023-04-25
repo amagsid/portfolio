@@ -5,11 +5,22 @@ import { SocialContainer } from './HoveringBannerStyles';
 function Icons() {
 	return (
 		<SocialContainer>
-			<GitHub className="icon" color="white" classNamne="gitgit" />
-			<Instagram className="icon" color="white" />
-			<Twitter className="icon" color="white" />
-			<Linkedin className="icon" color="white" />
-			<Gitlab className="icon" color="white" />
+			<a href="https://www.w3schools.com" target="_blank">
+				<GitHub className="icon" classNamne="gitgit" />
+			</a>
+			<a href="https://www.w3schools.com" target="_blank">
+				<Instagram className="icon" />
+			</a>
+
+			<a href="https://www.w3schools.com" target="_blank">
+				<Twitter className="icon" />
+			</a>
+			<a href="https://www.w3schools.com" target="_blank">
+				<Linkedin className="icon" />
+			</a>
+			<a href="https://www.w3schools.com" target="_blank">
+				<Gitlab className="icon" />
+			</a>
 		</SocialContainer>
 	);
 }

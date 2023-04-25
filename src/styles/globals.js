@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.main};
     font-size: 1.6rem;
     background: ${(props) => props.theme.colors.bgMain};
+
   // width:2000px;
     cursor: default;
 
@@ -25,12 +26,111 @@ const GlobalStyles = createGlobalStyle`
   h1,h2,h3,h4,h5,h6,button {
     margin: unset;
     font-family: ${(props) => props.theme.fonts.title};
+  
   }
   
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.links};
+    color: ${(props) => props.theme.colors.secondaryHeading};
+    
   }
+
+  .animation {
+      width: 150px;
+  height: 150px;
+  background: white;
+  border-radius: 30px;
+  }
+
+  .social-container a {
+      // color: ${(props) => props.theme.colors.secondaryHeading};
+    text-decoration: none;
+    	 -webkit-transition: transform .1s ease-in-out;
+       
+
+    &:hover {
+    transform: translateY(-6px);
+	 -webkit-transition: transform .3s ease-in-out;
+    color: ${(props) => props.theme.colors.links};
+    }
+    
+  }
+
+
+  .icon {
+	stroke-width: 0.9;
+	width: 20px;
+  	//  -webkit-transition: all .5s ease-out;
+        color: ${(props) => props.theme.colors.navItems};
+
+
+     &:hover {
+    stroke-width: 1.5;
+	 -webkit-transition: all 1s ease-out;
+    stroke: ${(props) => props.theme.colors.links};
+    	// width: 23px;
+    }
+}
+
+.switch-icon {
+	width: 30px;
+	padding: 2px;
+	stroke-width: 0.8;
+	/* text-align: center;
+	height: 1px; */
+}
+
+
+
+  .email-link {
+      color: ${(props) => props.theme.colors.navItems};
+    	font-family: Noto Sans Mono, monospace;
+      letter-spacing: .5rem;
+          -webkit-transition: all .2s ease-out;
+    &:hover {
+       letter-spacing: .7rem;
+      padding-bottom: .8rem;
+          -webkit-transition: all .4s ease-out;
+           color: ${(props) => props.theme.colors.links};
+
+    }
+    
+  }
+
+//links after paragraphs
+  p > a {
+    position: relative;
+    text-decoration: none;
+    font-weight: 400;
+    color: ${(props) => props.theme.colors.links};
+    transition: all .05s ease;
+
+    &::before {
+        content: ""; 
+        position: absolute;
+        width: 100%;
+        height: .5px;
+        bottom: 0;
+        left: 0;
+        background-color: ${(props) => props.theme.colors.links};
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s; 
+    }   
+
+    &:hover {
+     color: ${(props) => props.theme.colors.links};
+
+        &::before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }   
+    }   
+  }
+
+  
   li{
     list-style: none;
   }
