@@ -27,8 +27,10 @@ export const Section = styled.section`
 
 export const HighlightedText = styled.h1`
 	font-size: ${(props) => (props.main ? '20px' : '15px')};
+	font-size: clamp(1rem, 1.5vw, 2rem);
 	font-family: ${(props) => props.theme.fonts.mono};
-	line-height: ${(props) => (props.main ? '72px' : '56px')};
+	line-height: 50px;
+	letter-spacing: 15px;
 	width: max-content;
 	max-width: 100%;
 	word-spacing: 5px;
@@ -48,7 +50,7 @@ export const HighlightedText = styled.h1`
 	}
 `;
 
-export const SmallHeading = styled.h4`
+export const SectionHeading = styled.h4`
 	font-weight: 500;
 	font-size: clamp(1rem, 1.5vw, 2.5rem);
 	width: max-content;
@@ -87,8 +89,7 @@ export const SmallHeading = styled.h4`
 `;
 export const BigHeading = styled.h2`
 	font-weight: 800;
-	font-size: ${(props) => (props.main ? '65px' : '56px')};
-	font-size: clamp(5rem, 3.5vw, 10rem);
+	font-size: clamp(5rem, 6vw, 10rem);
 	line-height: ${(props) => (props.main ? '72px' : '56px')};
 	width: max-content;
 	max-width: 100%;
@@ -113,6 +114,14 @@ export const BigHeading = styled.h2`
 		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
 		max-width: 100%;
 	}
+`;
+export const MedHeading = styled.h2`
+	font-weight: 600;
+	font-size: clamp(5rem, 7vw, 8rem);
+	width: max-content;
+
+	color: ${(props) => props.theme.colors.secondaryHeading};
+	line-height: 70px;
 `;
 
 //index numbers for nav links
@@ -154,11 +163,11 @@ export const SectionTitle = styled.h2`
 `;
 
 export const SectionText = styled.p`
-	max-width: 600px;
-	font-size: 1.5rem;
+	max-width: 70%;
+	font-size: clamp(2rem, 2.5vw, 1rem);
 	line-height: 1.5em;
 	font-weight: 300;
-	padding-bottom: 3.6rem;
+	// padding-bottom: 3.6rem;
 	color: ${(props) => props.theme.colors.paragraphHeading};
 
 	@media ${(props) => props.theme.breakpoints.md} {

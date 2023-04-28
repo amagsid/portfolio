@@ -15,15 +15,20 @@ import {
 	Img,
 } from './ProjectsStyles';
 import { Number } from '../../styles/GlobalComponents';
-import { Section, SectionDivider, SectionTitle, SmallHeading } from '../../styles/GlobalComponents';
+import {
+	Section,
+	SectionDivider,
+	SectionTitle,
+	SectionHeading,
+} from '../../styles/GlobalComponents';
 import { projects } from '../../constants/constants';
 
 const Projects = () => (
 	<Section>
 		<Section id="projects">
-			<SmallHeading main>
+			<SectionHeading main>
 				<Number small>02.</Number>Projects
-			</SmallHeading>
+			</SectionHeading>
 
 			{/* <div className='card-anim transition'>
       <h2 className='transition card-h2'>Awesome Headline</h2>

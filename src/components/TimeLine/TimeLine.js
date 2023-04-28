@@ -13,7 +13,7 @@ import {
 	SkillsList,
 	SkillsListItem,
 } from './TimeLineStyles';
-import { Section, SectionText, SmallHeading, Number } from '../../styles/GlobalComponents';
+import { Section, SectionText, SectionHeading, Number } from '../../styles/GlobalComponents';
 import { Line } from '../../components/HoveringBanner/HoveringBannerStyles';
 import { TimeLineData } from '../../constants/constants';
 
@@ -64,7 +64,7 @@ const Timeline = () => {
 		<Section id="about">
 			<Section nopadding row end>
 				<Number small>01. </Number>
-				<SmallHeading>A little More About Me</SmallHeading>
+				<SectionHeading>A little More About Me</SectionHeading>
 				<Line s horizontal />
 			</Section>
 			<SectionText className="mt-5">
