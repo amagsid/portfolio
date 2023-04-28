@@ -12,7 +12,9 @@ import {
 	CarouselMobileScrollNode,
 	SkillsList,
 	SkillsListItem,
+	ClientsLogoContainer,
 } from './TimeLineStyles';
+import Logos from '../Logos/logos';
 import { Section, SectionText, SectionHeading, Number } from '../../styles/GlobalComponents';
 import { Line } from '../../components/HoveringBanner/HoveringBannerStyles';
 import { TimeLineData } from '../../constants/constants';
@@ -23,12 +25,14 @@ const Timeline = () => {
 	const [activeItem, setActiveItem] = useState(0);
 	const carouselRef = useRef();
 
-	const scroll = (node, left) => {
-		return node.scrollTo({ left, behavior: 'smooth' });
+	const scroll = (window, left) => {
+		return window.scrollTo({ left, behavior: 'smooth' });
 	};
 
-	const handleClick = (e, i) => {
-		e.preventDefault();
+	const handleClick = (event, i) => {
+		if (event && event.preventDefault) {
+			event.preventDefault();
+		}
 
 		if (carouselRef.current) {
 			const scrollLeft = Math.floor(
@@ -67,21 +71,12 @@ const Timeline = () => {
 				<SectionHeading>A little More About Me</SectionHeading>
 				<Line s horizontal />
 			</Section>
-			<SectionText className="mt-5">
+			<SectionText className="mt-5 mb-5">
 				Achieving a life-long dream to become a programmer, I'm currently activly looking
 				for a junior role that puts me on a professional development journey
 			</SectionText>
 
-			<SkillsList>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-			</SkillsList>
-
-			{/* <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
+			<CarouselContainer className="mt-5 mb-5" ref={carouselRef} onScroll={handleScroll}>
 				<>
 					{TimeLineData.map((item, index) => (
 						<CarouselMobileScrollNode
@@ -92,7 +87,7 @@ const Timeline = () => {
 								index={index}
 								id={`carousel__item-${index}`}
 								active={activeItem}
-								onClick={(e) => handleClick(e.index)}
+								onClick={(event) => handleClick(event.index)}
 							>
 								<CarouselItemTitle>
 									{item.year}
@@ -135,20 +130,41 @@ const Timeline = () => {
 						</CarouselMobileScrollNode>
 					))}
 				</>
-			</CarouselContainer> */}
-			{/* <CarouselButtons>
+			</CarouselContainer>
+			<CarouselButtons>
 				{TimeLineData.map((item, index) => (
 					<CarouselButton
 						key={index}
 						index={index}
 						active={activeItem}
-						onClick={(e) => handleClick(e.index)}
+						onClick={(event) => handleClick(event.index)}
 						type="button"
 					>
 						<CarouselButtonDot active={activeItem} />
 					</CarouselButton>
 				))}
-			</CarouselButtons> */}
+			</CarouselButtons>
+
+			<SectionText className="mt-5 mb-5">
+				Throughtout my proferssional growth journey, I have gained experience in
+			</SectionText>
+
+			<SkillsList>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+				<SkillsListItem> React</SkillsListItem>
+			</SkillsList>
+
+			<SectionText className="mt-5 mb-5">and had the chance to deliver work for:</SectionText>
+
+			{/* <h1> Booking.com</h1>
+				<h1> Uber</h1>
+				<h1> Bol.com</h1>
+				<h1> SquareSpace</h1> */}
+			<Logos></Logos>
 		</Section>
 	);
 };

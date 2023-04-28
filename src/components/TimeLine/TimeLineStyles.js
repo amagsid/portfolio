@@ -29,9 +29,14 @@ export const SkillsListItem = styled.li`
 	}
 `;
 
+export const ClientsLogoContainer = styled.div`
+	display: flex;
+	color: ${(props) => props.theme.colors.paragraphHeading};
+	justify-content: space-around;
+`;
 export const CarouselContainer = styled.ul`
 	max-width: 1040px;
-	background: #0f1624;
+	background: ${(props) => props.theme.colors.mainBg};
 	padding: 0rem;
 	list-style: none;
 	display: flex;
@@ -69,7 +74,7 @@ export const CarouselMobileScrollNode = styled.div`
 `;
 
 export const CarouselItem = styled.div`
-	background: #0f1624;
+	background: ${(props) => props.theme.colors.mainBg};
 	border-radius: 3px;
 	max-width: 196px;
 
@@ -94,13 +99,12 @@ export const CarouselItem = styled.div`
 `;
 
 export const CarouselItemTitle = styled.h4`
-	font-weight: bold;
+	font-family: ${(props) => props.theme.fonts.mono};
 	font-size: 24px;
 	line-height: 32px;
-	letter-spacing: 0.02em;
+	letter-spacing: 0.1em;
 	display: flex;
-	/* This gradient is different due to the size of the Title container, it must transition sooner to be visible on the text */
-	background: linear-gradient(121.57deg, #ffffff 10%, rgba(255, 255, 255, 0.66) 30.15%);
+	background: ${(props) => props.theme.colors.indexNumbers};
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	margin-bottom: 8px;
@@ -132,7 +136,7 @@ export const CarouselItemText = styled.p`
 	font-size: 14px;
 	line-height: 22px;
 	letter-spacing: 0.02em;
-	color: rgba(255, 255, 255, 0.75);
+	color: ${(props) => props.theme.colors.paragraphHeading};
 	padding-right: 16px;
 
 	@media ${(props) => props.theme.breakpoints.md} {
