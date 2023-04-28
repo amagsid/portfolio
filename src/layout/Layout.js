@@ -9,12 +9,12 @@ import { Container } from './LayoutStyles';
 export const Layout = ({ children }) => {
 	return (
 		<Container>
-			<FadeIn delay={50}>
-				<Header />
-				<main>{children}</main>
-				<HoveringBanners />
-				<Footer />
-			</FadeIn>
+			{/* <FadeIn delay={50}> */}
+			<Header />
+			<main>{children}</main>
+			<HoveringBanners />
+			<Footer />
+			{/* </FadeIn> */}
 		</Container>
 	);
 };

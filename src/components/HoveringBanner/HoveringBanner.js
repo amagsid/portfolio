@@ -21,14 +21,14 @@ const HoveringBanner = (props) => {
 					<a href="https://www.w3schools.com" target="_blank">
 						<motion.h5
 							whileHover={{
-								scale: 1.1,
+								scale: 1.09,
 								originY: 1,
 								letterSpacing: '8px',
 								color: theme == 'dark' ? '#64ffda' : '#d25276',
 							}}
 							transition={{
 								type: 'spring',
-								stiffness: 100,
+								stiffness: 400,
 								duration: 0.2,
 								// x: { duration: 0.1 },
 								// y: { duration: 0.1 },

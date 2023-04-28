@@ -5,8 +5,16 @@ import { IoDocumentText } from 'react-icons/io5';
 import Radium, { StyleRoot } from 'radium';
 import BgAnimation from '../../components/BackgrooundAnimation/BackgroundAnimation';
 import { AnimatePresence, motion } from 'framer-motion';
+import MusicContainer from '../AnimatedUL/MusicContainer';
 
-import { Section, SectionText, HighlightedText, BigHeading } from '../../styles/GlobalComponents';
+import {
+	Section,
+	SectionText,
+	HighlightedText,
+	BigHeading,
+	SmallHeading,
+	MedHeading,
+} from '../../styles/GlobalComponents';
 
 import { LeftSection } from './HeroStyles';
 
@@ -15,40 +23,23 @@ const Hero = () => {
 		<StyleRoot>
 			<Section nopadding>
 				<LeftSection>
-					<HighlightedText> Hi, My name is</HighlightedText>
+					<HighlightedText> Hey there, my name is</HighlightedText>
 
 					<BigHeading className="pb-4" main center>
 						Ahmad Magdy.
 					</BigHeading>
-					<BigHeading>I build things for the web.</BigHeading>
-					<SectionText className="mt-5" style={{ width: '700px' }}>
-						I’m a software engineer specializing in building (and occasionally
-						designing) exceptional digital experiences. Currently, I’m focused on
-						building accessible, human-centered products at{' '}
+					<MedHeading className="mt-4"> I build digital experiences. </MedHeading>
+					<SectionText className="mt-5 mb-5">
+						Front-end developer specializing in UI. Currently, I’m helping brands
+						automate their creative material workflow by building custom, scalable and
+						UI-centered web editable video templates at{' '}
 						<a href="https://www.ambassadors.com/" target="_blank">
 							Ambassadors
 						</a>
 						.
 					</SectionText>
 					<blobButton />
-
-					<motion.div
-						whileHover={{ scale: 1.2, originX: 0, textShadow: '1px 1px 2px pink' }}
-						transition={{
-							type: 'spring',
-							stiffness: 300,
-						}}
-						className="apple-music"
-					>
-						<span style={{ fontSize: '1.8rem' }}>
-							what I'm (probably) listening to now{' '}
-						</span>
-						<span style={{ display: 'block', fontSize: '1.2rem' }}>
-							{' '}
-							Apple music API integration goes here
-						</span>
-					</motion.div>
-
+					<MusicContainer className="pt-4" />
 					{/* <a href="/Ahmad Magdy CV.pdf" download target="_blank">
 						<button type="submit">
 							download my CV

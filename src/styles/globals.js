@@ -35,14 +35,130 @@ const GlobalStyles = createGlobalStyle`
     
   }
 
-
-.apple-music {
-  width: 884px;
-  height: 150px;
-border: dashed ${(props) => props.theme.colors.secondaryHeading};
+  .music-container {
+    display: flex;
+        flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+      width: 884px;
+  height: 250px;
+border: 1px solid ${(props) => props.theme.colors.secondaryHeading};
 color: ${(props) => props.theme.colors.secondaryHeading};
+  }
+
+  .music-container div {
+    width:100%
+  }
+
+  .music-list {
+        display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-left:0;
 
   }
+  .music-list-item {
+     box-shadow: 0 10px 30px -15px black;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    // // -webkit-box-align: center;
+    flex-direction: column;
+    // // align-items: flex-start;
+    position: relative;
+
+    padding: 2rem 1.75rem;
+    border-radius: 20px;
+    background-color:#0d1f38;
+    // // transition: var(--transition);
+    // // overflow: auto;
+
+  }
+
+  /////////
+
+//   button {
+//   width: 150px;
+//   height: 150px;
+//   font-size:30px;
+//   color: #fff;
+//   background: none;
+//   border: none;
+//   border-radius: 50%; 
+//   position: relative;
+//   z-index: 0;
+//   transition: .3s;
+//   cursor: pointer;
+// }
+// button:before {
+//   content: "";
+//   position: absolute;
+//   inset: -8px;
+//   padding: 10px;
+//   border-radius: 50%; 
+//   background: conic-gradient(
+//         #ff53bb ,
+//         #0000 30deg 120deg,
+//         #00f8d3 150deg 180deg,
+//         #0000 210deg 300deg,
+//         #ff53bb 330deg
+//     );
+//   -webkit-mask:
+//     linear-gradient(#000 0 0) content-box,
+//     linear-gradient(#000 0 0);
+//   -webkit-mask-composite: xor;
+//           mask-composite: intersect
+// }
+// button:after {
+//   content: "";
+//   position: absolute;
+//   inset: -100px;
+//   background:
+//     radial-gradient(200px at left  400px top 150px,#ff53bb 100%,#0000),
+//     radial-gradient(200px at right 400px bottom 150px,#00f8d3 100%,#0000);
+//   filter: blur(120px);
+//   opacity: .5;
+// }
+
+// button:before,
+// button:after {
+//   transition:.5s, 99999s 99999s transform;
+// }
+// button:hover {
+//   box-shadow: 0 0 0 1px #666;
+// }
+
+// button:hover:before,
+// button:hover:after {
+//   // transform: rotate(36000deg);
+//   // transition: .5s,600s linear transform;
+// }
+// button:before {
+//   background-color: #222;
+//     border: 1px solid #333;
+// }
+
+
+// button>img{
+//     border-radius: 50%;
+
+//     position: relative;
+//     top: 2px;
+//     width: 139px;
+//     opacity:0.9;
+// }
+
+
+  ////////
+
+  .box{
+    background-color: white;
+  }
+
+
+
+
 
   .social-container a {
       // color: ${(props) => props.theme.colors.secondaryHeading};
