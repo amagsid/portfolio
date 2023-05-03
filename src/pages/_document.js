@@ -31,14 +31,60 @@ export default class MyDocument extends Document {
 			<Html lang="en-GB">
 				<Head>
 					<link
-						href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
 						rel="stylesheet"
 					/>
+
+					<style>
+						@import
+						url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+						@import
+						url('https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&display=swap');
+						@import
+						url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap');
+					</style>
+
+					<link
+						href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@200;300;400;500;600;700;800;900&display=swap"
+						rel="stylesheet"
+					/>
+
+					{/* ralewat font */}
+					<link rel="preconnect" href="https://fonts.googleapis.com" />
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+					<link
+						href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap"
+						rel="stylesheet"
+					/>
+
+					{/* poppins */}
 
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 					<link
-						href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@200;300;400;500;600;700;800;900&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Raleway:wght@800&display=swap"
+						rel="stylesheet"
+					/>
+					<link
+						href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap"
+						rel="stylesheet"
+					></link>
+
+					{/* cairo */}
+
+					<link rel="preconnect" href="https://fonts.googleapis.com" />
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+					<link
+						href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&display=swap"
+						rel="stylesheet"
+					/>
+
+					{/* CHIVO */}
+
+					<link rel="preconnect" href="https://fonts.googleapis.com" />
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+					<link
+						href="https://fonts.googleapis.com/css2?family=Chivo:wght@800&display=swap"
 						rel="stylesheet"
 					/>
 				</Head>

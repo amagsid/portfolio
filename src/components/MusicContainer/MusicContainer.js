@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HighlightedText } from '../../styles/GlobalComponents';
+import MovingSectionTitle from '../SectionTitle/SectionTitle';
 
 function MusicContainer() {
 	const music = [
@@ -22,16 +23,8 @@ function MusicContainer() {
 		{ song: 'The Runner', artist: 'Foals', image: 'songartwork.jpeg' },
 	];
 	return (
-		<motion.div
-			whileHover={{ scale: 1.2, originX: 0 }}
-			transition={{
-				type: 'spring',
-				stiffness: 300,
-			}}
-		>
-			<span>
-				<HighlightedText> now (probably) listening to </HighlightedText>
-			</span>
+		<div style={{ width: '100%' }}>
+			<MovingSectionTitle sectionTitle="NOW (PROBABLY) LISTENING TO"></MovingSectionTitle>
 			<div className="music-container">
 				<div className={'songs-container'}>
 					<h4> songs</h4>
@@ -62,7 +55,7 @@ function MusicContainer() {
 					</ul>
 				</div>
 			</div>
-		</motion.div>
+		</div>
 	);
 }
 

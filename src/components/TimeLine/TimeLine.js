@@ -18,6 +18,7 @@ import Logos from '../Logos/logos';
 import { Section, SectionText, SectionHeading, Number } from '../../styles/GlobalComponents';
 import { Line } from '../../components/HoveringBanner/HoveringBannerStyles';
 import { TimeLineData } from '../../constants/constants';
+import MovingSectionTitle from '../SectionTitle/SectionTitle';
 
 const TOTAL_CAROUSEL_COUNT = TimeLineData.length;
 
@@ -67,10 +68,23 @@ const Timeline = () => {
 	return (
 		<Section id="about">
 			<Section nopadding row end>
-				<Number small>01. </Number>
-				<SectionHeading>A little More About Me</SectionHeading>
+				{/* <Number small>01. </Number> */}
+				{/* <SectionHeading>A little More About Me</SectionHeading> */}
+				<MovingSectionTitle sectionTitle="MORE ABOUT ME"></MovingSectionTitle>
 				<Line s horizontal />
 			</Section>
+
+			<SectionText className="mt-5 mb-5">
+				Front-end developer specializing in UI. Currently, I’m helping brands automate their
+				creative material workflow by building custom, scalable and UI-centered web editable
+				video templates at{' '}
+				<a href="https://www.ambassadors.com/" target="_blank">
+					Ambassadors
+				</a>
+				.
+			</SectionText>
+			<blobButton />
+
 			<SectionText className="mt-5 mb-5">
 				Achieving a life-long dream to become a programmer, I'm currently activly looking
 				for a junior role that puts me on a professional development journey

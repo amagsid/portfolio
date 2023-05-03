@@ -8,6 +8,7 @@ import Timeline from '../components/TimeLine/TimeLine';
 import { Layout } from '../layout/Layout';
 import { Section } from '../styles/GlobalComponents';
 import { AnimatePresence, motion } from 'framer-motion';
+import MusicContainer from '../components/MusicContainer/MusicContainer';
 
 const Home = () => {
 	return (
@@ -19,6 +20,7 @@ const Home = () => {
 					transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
 				>
 					<Hero />
+					<MusicContainer className="pt-4" />
 				</motion.div>
 
 				<Timeline />

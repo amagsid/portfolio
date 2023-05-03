@@ -1,27 +1,51 @@
 import styled from 'styled-components';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 
-export const LeftSection = styled.div`
-	width: 100%;
-	height: 80vh;
-	min-height: 85vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: start;
-	padding: 2em 4em;
+export const HeroWrapper = styled(motion.div)`
+	display: 'flex';
+	flex-direction: 'row';
+	// align-items: center;
+`;
+
+export const BigHeading = styled(motion.h2)`
+	font-size: clamp(30rem, 39vw, 39rem);
+	line-height: 300px;
+	// width: max-content;
+	max-width: 100%;
+	padding: 100px 0 50px 0;
+	color: ${(props) =>
+		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading};
+
+	@media ${(props) => props.theme.breakpoints.md} {
+		font-size: ${(props) => (props.main ? '56px' : '48px')};
+
+		// line-height: ${(props) => (props.main ? '56px' : '48px')};
+		// margin-bottom: 12px;
+		padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
+	}
+
 	@media ${(props) => props.theme.breakpoints.sm} {
-		width: 80%;
-		display: flex;
-		flex-direction: column;
-
-		margin: 0 auto;
+		font-size: 32px;
+		line-height: 40px;
+		font-size: ${(props) => (props.main ? '28px' : '32px')};
+		line-height: ${(props) => (props.main ? '32px' : '40px')};
+		// margin-bottom: 8px;
+		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+		max-width: 100%;
 	}
-	// @media ${(props) => props.theme.breakpoints.md} {
-	// 	padding-top: 18em;
-	// }
+`;
 
-	@media ${(props) => props.theme.breakpoints.xxl} {
-		padding-top: 18em;
-	}
+export const MedHeading = styled(motion.h2)`
+	font-weight: 600;
+	font-size: clamp(5rem, 7vw, 8rem);
+	width: 100%;
+	letter-spacing: -5px;
+	text-align: center;
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	animation-timing-function: linear;
+
+	color: ${(props) => props.theme.colors.heading};
+	line-height: 70px;
 `;
 export const MusicButton = styled.button`
 	width: 600px;

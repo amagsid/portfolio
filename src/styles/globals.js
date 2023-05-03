@@ -40,9 +40,9 @@ const GlobalStyles = createGlobalStyle`
         flex-direction: column;
     align-items: center;
     justify-content: space-around;
-      width: 884px;
-  height: 250px;
-border: 1px solid ${(props) => props.theme.colors.secondaryHeading};
+
+  height: 75vh;
+// border: 1px solid ${(props) => props.theme.colors.secondaryHeading};
 color: ${(props) => props.theme.colors.secondaryHeading};
   }
 

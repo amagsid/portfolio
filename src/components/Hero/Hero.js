@@ -1,58 +1,129 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 // import CV from '../../constants/CV.pdf';
-// import { Button } from 'react-bootstrap';
-import { IoDocumentText } from 'react-icons/io5';
 import Radium, { StyleRoot } from 'radium';
-import BgAnimation from '../../components/BackgrooundAnimation/BackgroundAnimation';
-import { AnimatePresence, motion } from 'framer-motion';
-import MusicContainer from '../AnimatedUL/MusicContainer';
+import { AnimatePresence, motion, useAnimation, useTransform, useScroll } from 'framer-motion';
+import { Section, HighlightedText } from '../../styles/GlobalComponents';
+import { BigHeading, HeroWrapper, MedHeading } from './HeroStyles';
 
-import {
-	Section,
-	SectionText,
-	HighlightedText,
-	BigHeading,
-	SmallHeading,
-	MedHeading,
-} from '../../styles/GlobalComponents';
-
-import { LeftSection } from './HeroStyles';
+const NameAnimation = {
+	hover: {
+		y: -290,
+		scale: 2,
+	},
+	initial: {
+		y: 0,
+		scale: 1,
+	},
+};
 
 const Hero = () => {
+	const { scrollY, scrollYProgress } = useScroll();
+	const scale = useTransform(scrollYProgress, [0, 4], [1, 50]);
+
+	//hoverstate
+	// const [isHovered, setIsHovered] = useState(false);
+	// function handleMouseEnter() {
+	// 	setIsHovered(true);
+	// }
+
+	// function handleMouseLeave() {
+	// 	setIsHovered(false);
+	// }
+	const greetings = ['Hello', 'Hola', 'CIAO', 'أهلاً'];
+	const [newGreeting, setnewGreeting] = useState('');
+	let count = 0;
+
+	const shuffle = useCallback(() => {
+		setnewGreeting(greetings[count]);
+		count++;
+		if (count === greetings.length) {
+			count = 0;
+		}
+	}, []);
+
+	useEffect(() => {
+		const intervalID = setInterval(shuffle, 500);
+		return () => clearInterval(intervalID);
+	}, [shuffle]);
+
 	return (
 		<StyleRoot>
-			<Section nopadding>
-				<LeftSection>
-					<HighlightedText> Hey there, my name is</HighlightedText>
+			<Section main nopadding>
+				<HeroWrapper
+					// onMouseEnter={handleMouseEnter}
+					// onMouseLeave={handleMouseLeave}
+					style={{ height: '90vh', display: 'flex', flexDirection: 'column' }}
+				>
+					<motion.div>
+						{newGreeting == '' && (
+							<BigHeading
+								style={{
+									fontFamily: 'Poppins',
+									fontWeight: 700,
+									textAlign: 'center',
+								}}
+							>
+								{' '}
+								Hello
+							</BigHeading>
+						)}
+						{newGreeting == 'Hello' && (
+							<BigHeading
+								style={{
+									fontFamily: 'Poppins',
+									fontWeight: 700,
+									textAlign: 'center',
+								}}
+							>
+								Hello
+							</BigHeading>
+						)}
+						{newGreeting == 'Hola' && (
+							<BigHeading
+								style={{
+									fontFamily: 'Poppins',
+									fontWeight: 100,
+									fontStyle: 'italic',
+									textAlign: 'center',
+								}}
+							>
+								Hola
+							</BigHeading>
+						)}
+						{newGreeting == 'CIAO' && (
+							<BigHeading style={{ fontFamily: 'Chivo', textAlign: 'center' }}>
+								CIAO
+							</BigHeading>
+						)}
+						{newGreeting == 'أهلاً' && (
+							<BigHeading
+								style={{
+									fontFamily: 'Cairo',
+									textAlign: 'center',
+									fontWeight: 800,
+								}}
+							>
+								أهلاً
+							</BigHeading>
+						)}
+					</motion.div>
 
-					<BigHeading className="pb-4" main center>
-						Ahmad Magdy.
-					</BigHeading>
-					<MedHeading className="mt-4"> I build digital experiences. </MedHeading>
-					<SectionText className="mt-5 mb-5">
-						Front-end developer specializing in UI. Currently, I’m helping brands
-						automate their creative material workflow by building custom, scalable and
-						UI-centered web editable video templates at{' '}
-						<a href="https://www.ambassadors.com/" target="_blank">
-							Ambassadors
-						</a>
-						.
-					</SectionText>
-					<blobButton />
-					<MusicContainer className="pt-4" />
-					{/* <a href="/Ahmad Magdy CV.pdf" download target="_blank">
-						<button type="submit">
-							download my CV
-							<IoDocumentText
-								className="pdf-icon"
-								size={20}
-								style={{ marginLeft: '5px' }}
-							/>
-						</button>
-					</a> */}
-
-					{/* <BgAnimation className="bg-animation" style={{ position: 'relative' }} /> */}
-				</LeftSection>
+					<div style={{ display: 'flex', flexDirection: 'column' }}>
+						<HighlightedText main>my name is</HighlightedText>
+						<MedHeading
+							style={{
+								scale,
+								zIndex: 100,
+								position: 'relative',
+							}}
+							// variants={NameAnimation}
+							// animate={isHovered ? 'hover' : 'initial'}
+							// transition={{ delay: 0.3 }}
+						>
+							Ahmad Magdy.
+						</MedHeading>
+					</div>
+				</HeroWrapper>
 			</Section>
 		</StyleRoot>
 	);

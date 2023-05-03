@@ -1,15 +1,45 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
+export const SectionTitle = styled(motion.h2)`
+	font-weight: 800;
+	// font-size: ${(props) => (props.main ? '65px' : '56px')};
+	line-height: ${(props) => (props.main ? '72px' : '56px')};
+	// width: max-content;
+	width: 100%;
+	background-color: red;
+	// -webkit-background-clip: text;
+	// -webkit-text-fill-color: transparent;
+
+	@media ${(props) => props.theme.breakpoints.md} {
+		// font-size: ${(props) => (props.main ? '56px' : '48px')};
+		// line-height: ${(props) => (props.main ? '56px' : '48px')};
+		// margin-bottom: 12px;
+		// padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
+	}
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		// font-size: 32px;
+		// line-height: 40px;
+		// font-size: ${(props) => (props.main ? '28px' : '32px')};
+		// line-height: ${(props) => (props.main ? '32px' : '40px')};
+		// margin-bottom: 8px;
+		// padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+		// max-width: 100%;
+	}
+`;
 
 export const Section = styled.section`
 	display: ${(props) => (props.grid ? 'grid' : 'flex')};
 	flex-direction: ${(props) => (props.row ? 'row' : 'column')};
 	padding: ${(props) => (props.nopadding ? '0' : '32px 80px 0')};
 	margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
+	height: 100%;
 	max-width: 2040px;
 	align-items: ${(props) => (props.center ? 'center' : props.end ? 'flex-end' : 'unset')};
 	box-sizing: border-box;
 	position: relative;
-	overflow: hidden;
+	overflow:  ${(props) => !props.main && 'hidden'}; hidden;
 	grid-template-columns: 1fr 1fr;
 
 	@media ${(props) => props.theme.breakpoints.md} {
@@ -25,17 +55,21 @@ export const Section = styled.section`
 	}
 `;
 
-export const HighlightedText = styled.h1`
+export const HighlightedText = styled(motion.h1)`
 	font-size: ${(props) => (props.main ? '20px' : '15px')};
-	font-size: clamp(1rem, 1.5vw, 2rem);
+	font-size: ${(props) => (props.main ? 'clamp(1rem,2vw,2.5rem);' : 'clamp(1rem, 1.5vw, 2rem)')};
 	font-family: ${(props) => props.theme.fonts.mono};
-	line-height: 50px;
-	letter-spacing: 15px;
-	width: max-content;
-	max-width: 100%;
+	line-height: 20px;
+	letter-spacing: 27.5px;
+	// width:  ${(props) => (props.main ? '41%' : 'unset')}; 
+	position:relative;
+	// max-width: 50%;
+	margin:  ${(props) => (props.main ? ' 0 auto' : 'unset')}; 
+	text-align:  (props.main ? 'left' : 'unset')};
+	font-weight: 500;
 	word-spacing: 5px;
 	color: ${(props) => props.theme.colors.indexNumbers};
-	padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
+	// padding-left: ${(props) => (props.main ? '10px' : '0')};
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		line-height: ${(props) => (props.main ? '56px' : '48px')};
@@ -87,42 +121,6 @@ export const SectionHeading = styled.h4`
 		max-width: 100%;
 	}
 `;
-export const BigHeading = styled.h2`
-	font-weight: 800;
-	font-size: clamp(5rem, 6vw, 10rem);
-	line-height: ${(props) => (props.main ? '72px' : '56px')};
-	width: max-content;
-	max-width: 100%;
-	color: ${(props) =>
-		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading}; };
-	// margin-bottom: 16px;
-	// padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
-
-	@media ${(props) => props.theme.breakpoints.md} {
-		font-size: ${(props) => (props.main ? '56px' : '48px')};
-		line-height: ${(props) => (props.main ? '56px' : '48px')};
-		// margin-bottom: 12px;
-		padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
-	}
-
-	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 32px;
-		line-height: 40px;
-		font-size: ${(props) => (props.main ? '28px' : '32px')};
-		line-height: ${(props) => (props.main ? '32px' : '40px')};
-		// margin-bottom: 8px;
-		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
-		max-width: 100%;
-	}
-`;
-export const MedHeading = styled.h2`
-	font-weight: 600;
-	font-size: clamp(5rem, 7vw, 8rem);
-	width: max-content;
-
-	color: ${(props) => props.theme.colors.secondaryHeading};
-	line-height: 70px;
-`;
 
 //index numbers for nav links
 export const Number = styled.span`
@@ -130,36 +128,6 @@ export const Number = styled.span`
 	font-weight: 400;
 	font-size: ${(props) => (props.small ? '20px' : 'unset')};
 	font-family: Noto Sans Mono, monospace;
-`;
-
-export const SectionTitle = styled.h2`
-	font-weight: 800;
-	// font-size: ${(props) => (props.main ? '65px' : '56px')};
-	line-height: ${(props) => (props.main ? '72px' : '56px')};
-	width: max-content;
-	max-width: 100%;
-	background: linear-gradient(121.57deg, #ffffff 18.77%, rgba(255, 255, 255, 0.66) 60.15%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	// margin-bottom: 16px;
-	padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
-
-	@media ${(props) => props.theme.breakpoints.md} {
-		font-size: ${(props) => (props.main ? '56px' : '48px')};
-		line-height: ${(props) => (props.main ? '56px' : '48px')};
-		margin-bottom: 12px;
-		padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
-	}
-
-	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 32px;
-		line-height: 40px;
-		font-size: ${(props) => (props.main ? '28px' : '32px')};
-		line-height: ${(props) => (props.main ? '32px' : '40px')};
-		margin-bottom: 8px;
-		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
-		max-width: 100%;
-	}
 `;
 
 export const SectionText = styled.p`

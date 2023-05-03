@@ -4,7 +4,7 @@ const lightestSlate = '#ccd6f6';
 export default {
 	// Temp fonts
 	fonts: {
-		title: 'Space Grotesk, sans-serif',
+		title: 'Fjalla One, sans-serif',
 		main: 'Space Grotesk, sans-serif',
 		mono: 'Noto Sans Mono, monospace',
 	},
