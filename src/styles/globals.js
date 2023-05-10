@@ -34,7 +34,6 @@ const GlobalStyles = createGlobalStyle`
     color: ${(props) => props.theme.colors.secondaryHeading};
     
   }
-
   .music-container {
     display: flex;
         flex-direction: column;

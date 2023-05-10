@@ -7,6 +7,13 @@ export const Img = styled.img`
 	overflow: hidden;
 `;
 
+export const ClientsLogoContainer = styled.div`
+	display: flex;
+	color: ${(props) => props.theme.colors.paragraphHeading};
+	justify-content: space-between;
+	align-items: center;
+`;
+
 export const GridContainer = styled.section`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));

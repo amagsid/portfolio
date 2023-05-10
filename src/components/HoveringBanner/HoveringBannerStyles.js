@@ -11,8 +11,8 @@ export const Banner = styled.div`
 	font-family: ${(props) => props.theme.fonts.mono};
 	position: fixed;
 	bottom: 0px;
-	right: ${(props) => props.position == 'right' && '50px'};
-	left: ${(props) => props.position == 'left' && '50px'};
+	right: ${(props) => props.position == 'right' && '30px'};
+	left: ${(props) => props.position == 'left' && '30px'};
 	font-size: 12px;
 	letter-spacing: 0.3em;
 

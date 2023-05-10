@@ -40,7 +40,8 @@ export const Section = styled.section`
 	box-sizing: border-box;
 	position: relative;
 	overflow:  ${(props) => !props.main && 'hidden'}; hidden;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr
+	z-index: 50;
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		padding: 24px 48px 0;

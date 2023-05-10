@@ -6,7 +6,6 @@ import { Sun, Moon } from 'react-feather';
 
 function ThemeSwitch() {
 	const { theme, toggleTheme } = useContext(ThemeContext);
-	console.log(Sun, 'sun');
 	return (
 		<Switch
 			onChange={toggleTheme}

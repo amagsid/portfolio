@@ -2,13 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Acomplishments from '../components/Acomplishments/Acomplishments';
 
 import Hero from '../components/Hero/Hero';
-import Projects from '../components/Projects/Projects';
+import PastWork from '../components/PastWork/PastWork';
 import Technologies from '../components/Technologies/Technologies';
-import Timeline from '../components/TimeLine/TimeLine';
+import Timeline from '../components/AboutMe/AboutMe';
 import { Layout } from '../layout/Layout';
 import { Section } from '../styles/GlobalComponents';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import MusicContainer from '../components/MusicContainer/MusicContainer';
+import Contact from '../components/Contact/Contact';
 
 const Home = () => {
 	return (
@@ -25,10 +26,9 @@ const Home = () => {
 
 				<Timeline />
 			</Section>
-			<Projects />
-			<Technologies />
-
-			<Acomplishments />
+			<PastWork />
+			{/* <Technologies /> */}
+			<Contact />
 		</Layout>
 	);
 };

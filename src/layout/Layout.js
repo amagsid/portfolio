@@ -3,7 +3,6 @@ import React from 'react';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import HoveringBanners from '../components/HoveringBanner/HoveringBanner';
-import FadeIn from 'react-fade-in';
 import { AnimatePresence, motion, useAnimation, useScroll } from 'framer-motion';
 import { Container } from './LayoutStyles';
 
@@ -14,7 +13,7 @@ export const Layout = ({ children }) => {
 		<Container>
 			<motion.div
 				style={{
-					// position: '-webkit-sticky' /* Safari */,
+					position: '-webkit-sticky' /* Safari */,
 					position: 'fixed',
 					zIndex: 100,
 					top: 0,
@@ -24,13 +23,10 @@ export const Layout = ({ children }) => {
 					scaleX: scrollYProgress,
 				}}
 			/>
-
-			{/* <FadeIn delay={50}> */}
 			<Header />
 			<main>{children}</main>
 			<HoveringBanners />
 			<Footer />
-			{/* </FadeIn> */}
 		</Container>
 	);
 };

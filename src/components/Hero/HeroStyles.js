@@ -8,8 +8,8 @@ export const HeroWrapper = styled(motion.div)`
 `;
 
 export const BigHeading = styled(motion.h2)`
-	font-size: clamp(30rem, 39vw, 39rem);
-	line-height: 300px;
+	font-size: clamp(20rem, 30vw, 32rem);
+	line-height: 250px;
 	// width: max-content;
 	max-width: 100%;
 	padding: 100px 0 50px 0;
@@ -40,6 +40,7 @@ export const MedHeading = styled(motion.h2)`
 	font-size: clamp(5rem, 7vw, 8rem);
 	width: 100%;
 	letter-spacing: -5px;
+	z-index: 100;
 	text-align: center;
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
 	animation-timing-function: linear;

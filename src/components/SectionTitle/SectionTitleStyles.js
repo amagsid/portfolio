@@ -7,6 +7,7 @@ export const SectionTitle = styled(motion.div)`
 	text-overflow: clip;
 	overflow: hidden;
 	white-space: nowrap;
+	z-index: 90;
 `;
 export const Item = styled(motion.h3)`
 	line-height: 70px;

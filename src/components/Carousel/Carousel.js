@@ -10,19 +10,12 @@ import {
 	CarouselItemText,
 	CarouselItemTitle,
 	CarouselMobileScrollNode,
-	SkillsList,
-	SkillsListItem,
-	ClientsLogoContainer,
-} from './TimeLineStyles';
-import Logos from '../Logos/logos';
-import { Section, SectionText, SectionHeading, Number } from '../../styles/GlobalComponents';
-import { Line } from '../../components/HoveringBanner/HoveringBannerStyles';
+} from '../Carousel/CarouselSTyles';
 import { TimeLineData } from '../../constants/constants';
-import MovingSectionTitle from '../SectionTitle/SectionTitle';
 
 const TOTAL_CAROUSEL_COUNT = TimeLineData.length;
 
-const Timeline = () => {
+function Carousel() {
 	const [activeItem, setActiveItem] = useState(0);
 	const carouselRef = useRef();
 
@@ -64,32 +57,8 @@ const Timeline = () => {
 
 		window.addEventListener('resize', handleResize);
 	}, []);
-
 	return (
-		<Section id="about">
-			<Section nopadding row end>
-				{/* <Number small>01. </Number> */}
-				{/* <SectionHeading>A little More About Me</SectionHeading> */}
-				<MovingSectionTitle sectionTitle="MORE ABOUT ME"></MovingSectionTitle>
-				<Line s horizontal />
-			</Section>
-
-			<SectionText className="mt-5 mb-5">
-				Front-end developer specializing in UI. Currently, I’m helping brands automate their
-				creative material workflow by building custom, scalable and UI-centered web editable
-				video templates at{' '}
-				<a href="https://www.ambassadors.com/" target="_blank">
-					Ambassadors
-				</a>
-				.
-			</SectionText>
-			<blobButton />
-
-			<SectionText className="mt-5 mb-5">
-				Achieving a life-long dream to become a programmer, I'm currently activly looking
-				for a junior role that puts me on a professional development journey
-			</SectionText>
-
+		<>
 			<CarouselContainer className="mt-5 mb-5" ref={carouselRef} onScroll={handleScroll}>
 				<>
 					{TimeLineData.map((item, index) => (
@@ -158,29 +127,8 @@ const Timeline = () => {
 					</CarouselButton>
 				))}
 			</CarouselButtons>
-
-			<SectionText className="mt-5 mb-5">
-				Throughtout my proferssional growth journey, I have gained experience in
-			</SectionText>
-
-			<SkillsList>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-				<SkillsListItem> React</SkillsListItem>
-			</SkillsList>
-
-			<SectionText className="mt-5 mb-5">and had the chance to deliver work for:</SectionText>
-
-			{/* <h1> Booking.com</h1>
-				<h1> Uber</h1>
-				<h1> Bol.com</h1>
-				<h1> SquareSpace</h1> */}
-			<Logos></Logos>
-		</Section>
+		</>
 	);
-};
+}
 
-export default Timeline;
+export default Carousel;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HighlightedText } from '../../styles/GlobalComponents';
+import { HighlightedText, Section } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 
 function MusicContainer() {
@@ -23,8 +23,8 @@ function MusicContainer() {
 		{ song: 'The Runner', artist: 'Foals', image: 'songartwork.jpeg' },
 	];
 	return (
-		<div style={{ width: '100%' }}>
-			<MovingSectionTitle sectionTitle="NOW (PROBABLY) LISTENING TO"></MovingSectionTitle>
+		<Section className="pt-5" style={{ width: '100%' }}>
+			<MovingSectionTitle sectionTitle="NOW LISTENING TO"></MovingSectionTitle>
 			<div className="music-container">
 				<div className={'songs-container'}>
 					<h4> songs</h4>
@@ -55,7 +55,7 @@ function MusicContainer() {
 					</ul>
 				</div>
 			</div>
-		</div>
+		</Section>
 	);
 }
 
