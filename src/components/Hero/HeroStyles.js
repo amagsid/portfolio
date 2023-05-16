@@ -10,9 +10,12 @@ export const HeroWrapper = styled(motion.div)`
 export const BigHeading = styled(motion.h2)`
 	font-size: clamp(20rem, 30vw, 32rem);
 	line-height: 250px;
+	position: fixed;
+	padding-bottom: 180px;
+	// width: 100%;
 	// width: max-content;
 	max-width: 100%;
-	padding: 100px 0 50px 0;
+	// padding: 100px 0 50px 0;
 	color: ${(props) =>
 		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading};
 
@@ -44,6 +47,7 @@ export const MedHeading = styled(motion.h2)`
 	text-align: center;
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
 	animation-timing-function: linear;
+	position: fixed;
 
 	color: ${(props) => props.theme.colors.heading};
 	line-height: 95px;

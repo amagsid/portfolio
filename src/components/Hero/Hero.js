@@ -75,59 +75,6 @@ const Hero = () => {
 		['#ccd6f6', '#64ffda', '#ccd6f6']
 	);
 
-	//hellos
-	// const greetings = ['Hello', 'Hola', 'CIAO', 'أهلاً'];
-	// const greetingsComponents = [
-	// 	{
-	// 		greeting: 'Hello',
-	// 		style: {
-	// 			fontFamily: 'Poppins',
-	// 			fontWeight: 700,
-	// 			textAlign: 'center',
-	// 		},
-	// 	},
-	// 	{
-	// 		greeting: 'Hola',
-	// 		style: {
-	// 			fontFamily: 'Poppins',
-	// 			fontWeight: 100,
-	// 			fontStyle: 'italic',
-	// 			textAlign: 'center',
-	// 		},
-	// 	},
-	// 	{
-	// 		greeting: 'CIAO',
-	// 		style: { fontFamily: 'Chivo', textAlign: 'center' },
-	// 	},
-	// 	{
-	// 		greeting: 'أهلاً',
-	// 		style: {
-	// 			fontFamily: 'Cairo',
-	// 			textAlign: 'center',
-	// 			fontWeight: 800,
-	// 		},
-	// 	},
-	// ];
-
-	// console.log(mousePos.x, prevCountRef.current.x);
-
-	//changing greetings based on seconds
-
-	// const [newGreeting, setnewGreeting] = useState('');
-
-	// const shuffle = useCallback(() => {
-	// 	setnewGreeting(greetings[count]);
-	// 	count++;
-	// 	if (count === greetings.length) {
-	// 		count = 0;
-	// 	}
-	// }, []);
-
-	// useEffect(() => {
-	// 	const intervalID = setInterval(shuffle, 500);
-	// 	return () => clearInterval(intervalID);
-	// }, [shuffle]);
-
 	return (
 		<StyleRoot>
 			<Section
@@ -135,134 +82,87 @@ const Hero = () => {
 				style={{
 					height: '85vh',
 					display: 'flex',
-					alignContent: 'space-between',
-					justifyContent: 'flex-start',
+					justifyContent: 'center',
+					alignItems: 'center',
 				}}
 			>
-				<HeroWrapper>
-					{/* <div
+				{/* <motion.div style={{ scale: greetingScale, translateY: greetingYposition }}> */}{' '}
+				{count == 0 && (
+					<BigHeading
+						variants={container}
+						initial="hidden"
+						animate="show"
 						style={{
-							width: 400,
-							height: 400,
-							// ...props.style,
-							display: 'flex',
-							placeItems: 'center',
-							placeContent: 'center',
-							perspective: 400,
+							fontFamily: 'Poppins',
+							fontWeight: 700,
+							textAlign: 'center',
 						}}
 					>
-						<motion.div
-							style={{
-								width: 150,
-								height: 150,
-								borderRadius: 30,
-								backgroundColor: '#fff',
-								rotateX: rotateX,
-								rotateY: rotateY,
-							}}
-						/>
-					</div> */}
-
-					{/* {
-						<BigHeading
-							variants={container}
-							initial="hidden"
-							animate="show"
-							style={greetingsComponents[count].style}
-						>
-							{greetingsComponents[count].greeting}
-						</BigHeading>
-					} */}
-					{/* <h1>
-						{' '}
-						Now: {mousePos.x}, before: {prevCountRef.current.x}
-					</h1> */}
-
-					{/* <motion.div> */}
-					{/* {newGreeting == '' && (
-							<BigHeading
-								style={{
-									fontFamily: 'Poppins',
-									fontWeight: 700,
-									textAlign: 'center',
-								}}
-							>
-								{' '}
-								Hello
-							</BigHeading>
-						)} */}
-					<motion.div style={{ scale: greetingScale, translateY: greetingYposition }}>
-						{count == 0 && (
-							<BigHeading
-								variants={container}
-								initial="hidden"
-								animate="show"
-								style={{
-									fontFamily: 'Poppins',
-									fontWeight: 700,
-									textAlign: 'center',
-								}}
-							>
-								Hello
-							</BigHeading>
-						)}
-						{count == 1 && (
-							<BigHeading
-								variants={container}
-								initial="hidden"
-								animate="show"
-								style={{
-									fontFamily: 'Poppins',
-									fontWeight: 100,
-									fontStyle: 'italic',
-									textAlign: 'center',
-								}}
-							>
-								Hola
-							</BigHeading>
-						)}
-						{count == 2 && (
-							<BigHeading
-								variants={container}
-								initial="hidden"
-								animate="show"
-								style={{ fontFamily: 'Chivo', textAlign: 'center' }}
-							>
-								CIAO
-							</BigHeading>
-						)}
-						{count == 3 && (
-							<BigHeading
-								variants={container}
-								initial="hidden"
-								animate="show"
-								style={{
-									fontFamily: 'Cairo',
-									textAlign: 'center',
-									fontWeight: 800,
-								}}
-							>
-								أهلاً
-							</BigHeading>
-						)}
-					</motion.div>
-					{/* </motion.div> */}
-
-					<div style={{ display: 'flex', flexDirection: 'column' }}>
-						<HighlightedText main style={{ translateY: myNameIsYposition }}>
-							my name is
-						</HighlightedText>
-						<MedHeading
-							style={{
-								scale: nameScale,
-								position: 'relative',
-								color: titleColor,
-							}}
-						>
-							Ahmad Magdy
-						</MedHeading>
-					</div>
-				</HeroWrapper>
+						Hello
+					</BigHeading>
+				)}
+				{count == 1 && (
+					<BigHeading
+						variants={container}
+						initial="hidden"
+						animate="show"
+						style={{
+							fontFamily: 'Poppins',
+							fontWeight: 100,
+							fontStyle: 'italic',
+							textAlign: 'center',
+						}}
+					>
+						Hola
+					</BigHeading>
+				)}
+				{count == 2 && (
+					<BigHeading
+						variants={container}
+						initial="hidden"
+						animate="show"
+						style={{ fontFamily: 'Chivo', textAlign: 'center' }}
+					>
+						CIAO
+					</BigHeading>
+				)}
+				{count == 3 && (
+					<BigHeading
+						variants={container}
+						initial="hidden"
+						animate="show"
+						style={{
+							fontFamily: 'Cairo',
+							textAlign: 'center',
+							fontWeight: 800,
+						}}
+					>
+						أهلاً
+					</BigHeading>
+				)}
+				{/* </motion.div> */}
+				{/* </motion.div> */}
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						paddingTop: '158px',
+						position: 'fixed',
+					}}
+				>
+					<HighlightedText main style={{ translateY: myNameIsYposition }}>
+						my name is
+					</HighlightedText>
+					<MedHeading
+						style={{
+							// scale: nameScale,
+							position: 'relative',
+							color: titleColor,
+						}}
+					>
+						Ahmad Magdy
+					</MedHeading>
+				</div>
 			</Section>
 		</StyleRoot>
 	);
