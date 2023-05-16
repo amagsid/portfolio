@@ -25,8 +25,6 @@ const AboutMe = () => {
 			{/* <Carousel></Carousel> */}
 
 			<MovingStrip />
-
-			<SectionText className="mt-5 mb-5">and had the chance to deliver work for:</SectionText>
 		</Section>
 	);
 };

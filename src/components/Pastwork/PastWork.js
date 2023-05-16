@@ -1,6 +1,8 @@
 import React from 'react';
 import Marquee from '../../elements/Marquee/Marquee';
 
+import SlideShow from '../Ticker/SlideShow';
+
 import {
 	BlogCard,
 	CardInfo,
@@ -20,15 +22,15 @@ import MovingSectionTitle from '../SectionTitle/SectionTitle';
 const PastWork = () => (
 	<Section>
 		<Section id="pastwork">
-			<MovingSectionTitle sectionTitle="PAST WORK" />
-
+			<MovingSectionTitle sectionTitle="PAST WORK & CLIENTS" />
 			<div
 				className="carousel"
 				style={{ width: '100%', color: 'white', textAlign: 'center', fontSize: '30px' }}
 			>
 				{' '}
-				/ carousel goes here /
 			</div>
+
+			<SlideShow></SlideShow>
 			<Marquee></Marquee>
 		</Section>
 	</Section>

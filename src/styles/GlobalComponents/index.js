@@ -35,7 +35,6 @@ export const Section = styled.section`
 	padding: ${(props) => (props.nopadding ? '0' : '32px 80px 0')};
 	margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
 	height: 100%;
-	max-width: 2040px;
 	align-items: ${(props) => (props.center ? 'center' : props.end ? 'flex-end' : 'unset')};
 	box-sizing: border-box;
 	position: relative;

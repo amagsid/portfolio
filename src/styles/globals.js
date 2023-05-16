@@ -18,8 +18,6 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.main};
     font-size: 1.6rem;
     background: ${(props) => props.theme.colors.bgMain};
-
-  // width:2000px;
     cursor: default;
 
   }
@@ -41,7 +39,6 @@ const GlobalStyles = createGlobalStyle`
     justify-content: space-around;
 
   height: 75vh;
-// border: 1px solid ${(props) => props.theme.colors.secondaryHeading};
 color: ${(props) => props.theme.colors.secondaryHeading};
   }
 
@@ -74,6 +71,31 @@ color: ${(props) => props.theme.colors.secondaryHeading};
     // // overflow: auto;
 
   }
+
+
+
+
+  .input-field {
+    background-color: rgba(255, 0, 0, 0.0);
+    color: white;
+    outline: none;
+    border: none;
+  border-bottom: 1px solid pink;
+
+        
+  }
+  .input-field:focus {
+    border: none;
+    background-color: rgba(255, 0, 0, 0.0);
+    border-bottom: 1px solid pink;
+    color: white;
+    // box-shadow: 0 0 0 0.55rem rgba(13,110,253,.0);
+    box-shadow: none;
+
+  }
+
+
+  
 
   /////////
 

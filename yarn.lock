@@ -4919,7 +4919,14 @@
   "resolved" "https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz"
   "version" "0.2.0"
 
-"framer-motion@^10.12.4":
+"framer-motion-ticker@^1.0.19":
+  "integrity" "sha512-7c0DaD3rc36TsTEysT3R0bQlChqJuYydbPFgAJDMHVrZrsw+h7oWU3y32ErK8Nm5/LT1TdQYGymL1+btwwUIcw=="
+  "resolved" "https://registry.npmjs.org/framer-motion-ticker/-/framer-motion-ticker-1.0.19.tgz"
+  "version" "1.0.19"
+  dependencies:
+    "framer-motion" "^10.9.1"
+
+"framer-motion@^10.12.4", "framer-motion@^10.9.1":
   "integrity" "sha512-9gLtv8T6dui0tujHROR+VM3kdJyKiFCFiD94IQE+0OuX6LaIyXtdVpviokVdrHSb1giWhmmX4yzoucALMx6mtw=="
   "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-10.12.4.tgz"
   "version" "10.12.4"

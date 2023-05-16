@@ -10,7 +10,8 @@ export const Layout = ({ children }) => {
 	const { scrollYProgress } = useScroll();
 
 	return (
-		<Container>
+		// <Container>
+		<>
 			<motion.div
 				style={{
 					position: '-webkit-sticky' /* Safari */,
@@ -27,6 +28,7 @@ export const Layout = ({ children }) => {
 			<main>{children}</main>
 			<HoveringBanners />
 			<Footer />
-		</Container>
+		</>
+		// {/* </Container> */}
 	);
 };

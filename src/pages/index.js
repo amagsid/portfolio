@@ -14,21 +14,21 @@ import Contact from '../components/Contact/Contact';
 const Home = () => {
 	return (
 		<Layout>
-			<Section>
-				<motion.div
-					initial={{ x: '-100vw ' }}
-					animate={{ x: 0 }}
-					transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
-				>
-					<Hero />
+			<motion.div
+				initial={{ x: '-100vw ' }}
+				animate={{ x: 0 }}
+				transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
+			>
+				<Hero />
+				<Section className="pt-0">
 					<MusicContainer className="pt-4" />
-				</motion.div>
 
-				<Timeline />
-			</Section>
-			<PastWork />
-			{/* <Technologies /> */}
-			<Contact />
+					<Timeline />
+				</Section>
+				<PastWork />
+				{/* <Technologies /> */}
+				<Contact />
+			</motion.div>
 		</Layout>
 	);
 };

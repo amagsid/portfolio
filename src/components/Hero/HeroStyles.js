@@ -37,7 +37,7 @@ export const BigHeading = styled(motion.h2)`
 
 export const MedHeading = styled(motion.h2)`
 	font-weight: 600;
-	font-size: clamp(5rem, 7vw, 8rem);
+	font-size: clamp(11rem, 11vw, 12rem);
 	width: 100%;
 	letter-spacing: -5px;
 	z-index: 100;
@@ -46,7 +46,7 @@ export const MedHeading = styled(motion.h2)`
 	animation-timing-function: linear;
 
 	color: ${(props) => props.theme.colors.heading};
-	line-height: 70px;
+	line-height: 95px;
 `;
 export const MusicButton = styled.button`
 	width: 600px;

@@ -10,7 +10,7 @@ export const Img = styled.img`
 export const ClientsLogoContainer = styled.div`
 	display: flex;
 	color: ${(props) => props.theme.colors.paragraphHeading};
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 `;
 
