@@ -20,11 +20,11 @@ const Home = () => {
 				transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
 			>
 				<Hero />
-				<Section className="pt-0">
-					<MusicContainer className="pt-4" />
 
-					<Timeline />
-				</Section>
+				<MusicContainer className="pt-4" />
+
+				<Timeline />
+
 				<PastWork />
 				{/* <Technologies /> */}
 				<Contact />

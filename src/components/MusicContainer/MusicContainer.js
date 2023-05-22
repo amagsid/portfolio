@@ -23,36 +23,48 @@ function MusicContainer() {
 		{ song: 'The Runner', artist: 'Foals', image: 'songartwork.jpeg' },
 	];
 	return (
-		<Section className="pt-5" style={{ width: '100%' }}>
-			<MovingSectionTitle sectionTitle="NOW LISTENING TO"></MovingSectionTitle>
-			<div className="music-container">
-				<div className={'songs-container'}>
-					<h4> songs</h4>
-					<ul className={'music-list'}>
-						{music.map((i) => {
-							return (
-								<li className={'music-list-item'}>
-									<h4>{i.song} </h4>
-									<h4>{i.artist} </h4>
-									<img src={i.image} alt={i.image} width="20" height="20"></img>
-								</li>
-							);
-						})}
-					</ul>
-				</div>
-				<div className="playlist-container">
-					<h4> playlists</h4>
-					<ul className={'music-list'}>
-						{music.map((i) => {
-							return (
-								<li className={'music-list-item'}>
-									<h4>{i.song} </h4>
-									<h4>{i.artist} </h4>
-									<img src={i.image} alt={i.image} width="20" height="20"></img>
-								</li>
-							);
-						})}
-					</ul>
+		<Section style={{ position: 'sticky', top: 0 }}>
+			<div style={{ width: '100%' }}>
+				<MovingSectionTitle sectionTitle="NOW LISTENING TO"></MovingSectionTitle>
+				<div className="music-container">
+					<div className={'songs-container'}>
+						<h4> songs</h4>
+						<ul className={'music-list'}>
+							{music.map((i) => {
+								return (
+									<li className={'music-list-item'}>
+										<h4>{i.song} </h4>
+										<h4>{i.artist} </h4>
+										<img
+											src={i.image}
+											alt={i.image}
+											width="20"
+											height="20"
+										></img>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+					<div className="playlist-container">
+						<h4> playlists</h4>
+						<ul className={'music-list'}>
+							{music.map((i) => {
+								return (
+									<li className={'music-list-item'}>
+										<h4>{i.song} </h4>
+										<h4>{i.artist} </h4>
+										<img
+											src={i.image}
+											alt={i.image}
+											width="20"
+											height="20"
+										></img>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</Section>

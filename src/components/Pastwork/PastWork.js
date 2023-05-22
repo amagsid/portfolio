@@ -20,19 +20,17 @@ import { Section } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 
 const PastWork = () => (
-	<Section>
-		<Section id="pastwork">
-			<MovingSectionTitle sectionTitle="PAST WORK & CLIENTS" />
-			<div
-				className="carousel"
-				style={{ width: '100%', color: 'white', textAlign: 'center', fontSize: '30px' }}
-			>
-				{' '}
-			</div>
+	<Section id="pastwork">
+		<MovingSectionTitle sectionTitle="PAST WORK & CLIENTS" />
+		<div
+			className="carousel"
+			style={{ width: '100%', color: 'white', textAlign: 'center', fontSize: '30px' }}
+		>
+			{' '}
+		</div>
 
-			<SlideShow></SlideShow>
-			<Marquee></Marquee>
-		</Section>
+		<SlideShow></SlideShow>
+		<Marquee></Marquee>
 	</Section>
 );
 

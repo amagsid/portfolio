@@ -32,7 +32,7 @@ export const SectionTitle = styled(motion.h2)`
 export const Section = styled.section`
 	display: ${(props) => (props.grid ? 'grid' : 'flex')};
 	flex-direction: ${(props) => (props.row ? 'row' : 'column')};
-	padding: ${(props) => (props.nopadding ? '0' : '32px 80px 0')};
+	padding: ${(props) => (props.nopadding ? '0' : '60px 160px 0')};
 	margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
 	height: 100%;
 	align-items: ${(props) => (props.center ? 'center' : props.end ? 'flex-end' : 'unset')};
