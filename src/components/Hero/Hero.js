@@ -11,7 +11,6 @@ import {
 } from 'framer-motion';
 import { Section, HighlightedText } from '../../styles/GlobalComponents';
 import { BigHeading, HeroWrapper, MedHeading } from './HeroStyles';
-import { CloudDrizzle } from 'react-feather';
 
 const Hero = () => {
 	//mouse position and count to set greeting index
@@ -63,7 +62,7 @@ const Hero = () => {
 		},
 	};
 
-	//parallex scroll
+	//parallex scroll animation
 	const targetRef = useRef();
 
 	const { scrollYProgress } = useScroll({
@@ -71,104 +70,96 @@ const Hero = () => {
 		offset: ['end end', 'end start'],
 	});
 
-	const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-	const nameScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.5]);
-	const greetingScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.5]);
-	const letterSpacing = useTransform(scrollYProgress, [0, 0.5], ['1px', '20px']);
-
+	const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+	const nameScale = useTransform(scrollYProgress, [0, 0.8], [0.8, 2.9]);
+	const greetingScale = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
+	const letterSpacing = useTransform(scrollYProgress, [0, 0.5], ['-15px', '30px']);
 	const greetingYposition = useTransform(scrollYProgress, [0, 0.7], ['0px', '-300px']);
 
-	//scroll animation
-	// const { scrollY, scrollYProgress } = useScroll();
-	// const nameScale = useTransform(scrollYProgress, [0, 20], [1, 45]);
-	// const greetingScale = useTransform(scrollYProgress, [0, 5], [1, -10]);
-	// const greetingYposition = useTransform(scrollYProgress, [0, 1], [0, 300]);
 	const myNameIsYposition = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
-	// const titleColor = useTransform(
-	// 	scrollYProgress,
-	// 	[0, 0.5, 1],
-	// 	['#ccd6f6', '#64ffda', '#ccd6f6']
-	// );
+	const titleColor = useTransform(scrollYProgress, [0, 0.5], ['#ccd6f6', '#64ffda']);
 
 	return (
 		<StyleRoot>
 			<motion.div
-				ref={targetRef}
 				style={{
 					opacity: opacity,
 				}}
 			>
 				<Section
+					ref={targetRef}
 					nopadding
 					style={{
-						height: '80vh',
+						height: '88vh',
 						display: 'flex',
 						justifyContent: 'center',
 						alignItems: 'center',
+						// backgroundColor: 'red',
 					}}
 				>
-					<motion.div>
-						{count == 0 && (
-							<BigHeading
-								variants={container}
-								initial="hidden"
-								animate="show"
-								style={{
-									fontFamily: 'Poppins',
-									fontWeight: 700,
-									textAlign: 'center',
-								}}
-							>
-								Hello
-							</BigHeading>
-						)}
-						{count == 1 && (
-							<BigHeading
-								variants={container}
-								initial="hidden"
-								animate="show"
-								style={{
-									fontFamily: 'Poppins',
-									fontWeight: 100,
-									fontStyle: 'italic',
-									textAlign: 'center',
-								}}
-							>
-								Hola
-							</BigHeading>
-						)}
-						{count == 2 && (
-							<BigHeading
-								variants={container}
-								initial="hidden"
-								animate="show"
-								style={{ fontFamily: 'Chivo', textAlign: 'center' }}
-							>
-								CIAO
-							</BigHeading>
-						)}
-						{count == 3 && (
-							<BigHeading
-								variants={container}
-								initial="hidden"
-								animate="show"
-								style={{
-									fontFamily: 'Cairo',
-									textAlign: 'center',
-									fontWeight: 800,
-								}}
-							>
-								أهلاً
-							</BigHeading>
-						)}
+					<motion.div style={{ scale: greetingScale, position: 'fixed' }}>
+						<motion.div>
+							{count == 0 && (
+								<BigHeading
+									variants={container}
+									initial="hidden"
+									animate="show"
+									style={{
+										fontFamily: 'Poppins',
+										fontWeight: 700,
+										textAlign: 'center',
+									}}
+								>
+									Hello
+								</BigHeading>
+							)}
+							{count == 1 && (
+								<BigHeading
+									variants={container}
+									initial="hidden"
+									animate="show"
+									style={{
+										fontFamily: 'Poppins',
+										fontWeight: 100,
+										fontStyle: 'italic',
+										textAlign: 'center',
+									}}
+								>
+									Hola
+								</BigHeading>
+							)}
+							{count == 2 && (
+								<BigHeading
+									variants={container}
+									initial="hidden"
+									animate="show"
+									style={{ fontFamily: 'Chivo', textAlign: 'center' }}
+								>
+									CIAO
+								</BigHeading>
+							)}
+							{count == 3 && (
+								<BigHeading
+									variants={container}
+									initial="hidden"
+									animate="show"
+									style={{
+										fontFamily: 'Cairo',
+										textAlign: 'center',
+										fontWeight: 800,
+									}}
+								>
+									أهلاً
+								</BigHeading>
+							)}
+						</motion.div>
 					</motion.div>
-					{/* </motion.div> */}
 					<div
 						style={{
 							display: 'flex',
 							flexDirection: 'column',
-							paddingTop: '158px',
+							paddingTop: '185px',
 							position: 'fixed',
 						}}
 					>
@@ -176,12 +167,11 @@ const Hero = () => {
 							my name is
 						</HighlightedText>
 						<MedHeading
-							// ref={targetRefsss}
 							style={{
 								letterSpacing,
 								scale: nameScale,
 								position: 'relative',
-								// color: titleColor,
+								color: titleColor,
 								// translateY: greetingYposition,
 							}}
 						>

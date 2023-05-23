@@ -38,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
     align-items: center;
     justify-content: space-around;
 
-  height: 75vh;
+  height: 85vh;
 color: ${(props) => props.theme.colors.secondaryHeading};
   }
 
