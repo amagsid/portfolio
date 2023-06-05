@@ -51,17 +51,11 @@ function MusicContainer(props) {
 		offset: ['start end', 'end start'],
 	});
 
-	const titleColor = useTransform(
-		scrollYProgress,
-		[0.2, 0.8, 1],
-		['#0d1f38', '#2D50B9', '#0d1f38']
-	);
-	const borderColor1 = useTransform(scrollYProgress, [0, 0.3], ['#fb243c', '#fa57c1']);
-	const borderColor = useTransform(scrollYProgress, [0.2, 0.5], ['#fa57c1', '#7572ff']);
-	const borderColor2 = useTransform(scrollYProgress, [0.8, 0.9], ['#fb243c', '#fa57c1']);
-	const borderColor3 = useTransform(scrollYProgress, [0.7, 1], ['#fa57c1', '#fa57c1']);
+	const containerColor1 = useTransform(scrollYProgress, [0, 0.3], ['#fc3c44', '#FB4776']);
+	const containerColor2 = useTransform(scrollYProgress, [0, 0.3], ['#fa57c1', '#fc3c44']);
+	const containerColor3 = useTransform(scrollYProgress, [0, 0.4], ['#fc3c44', '#fa57c1']);
 
-	const scale = useTransform(scrollYProgress, [0, 0.3], [0.3, 1]);
+	const scale = useTransform(scrollYProgress, [0, 0.3, 0.5, 1], [0, 1, 1, 0.6]);
 
 	//initiate animation when in view
 	const controls = useAnimation();
@@ -103,14 +97,13 @@ function MusicContainer(props) {
 					onMouseMove={handleMouseMove}
 					style={{
 						// paddingTop: '0px',
-
-						// border: '3px solid red',
+						border: '10xpx solid red',
 						borderRadius: '30px',
+						borderImage: useMotionTemplate`linear-gradient(90deg, red, yellow) 1`,
+						background: useMotionTemplate`radial-gradient(circle at ${mouseX}px ${mouseY}px, ${containerColor2} 10%, ${containerColor1} 60%, ${containerColor3} 100% )`,
 
-						// borderImage: useMotionTemplate`linear-gradient(90deg, ${borderColor1}, ${borderColor}, ${borderColor2}, ${borderColor3}) 1`,
-
-						background: useMotionTemplate`radial-gradient(circle at ${mouseX}px ${mouseY}px, ${borderColor1} 20%, ${borderColor} 100%)`,
-						// color: titleColor,
+						backdropFilter: 'blur(10px)',
+						WebkitBackdropFilter: blur('10px'),
 						scale,
 					}}
 					// animate={controls}
@@ -120,7 +113,7 @@ function MusicContainer(props) {
 				>
 					{/* <motion.div
 						style={{
-							borderImage: useMotionTemplate`linear-gradient(90deg, ${borderColor1}, ${borderColor}, ${borderColor2}, ${borderColor3}) 1`,
+							borderImage: useMotionTemplate`linear-gradient(90deg, ${containerColor1}, ${containerColor2}, ${containerColor3}, ${containerColor23}) 1`,
 						}}
 					> */}
 					<div className="music-container">
