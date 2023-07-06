@@ -57,7 +57,7 @@ const Hero = () => {
 		show: {
 			opacity: 1,
 			transition: {
-				delay: 0.06,
+				delay: 0.04,
 			},
 		},
 	};
@@ -70,11 +70,12 @@ const Hero = () => {
 		offset: ['end end', 'end start'],
 	});
 
-	const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+	const greetingOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+	const greetingScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.4]);
+	const nameOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0]);
 	const nameScale = useTransform(scrollYProgress, [0, 0.8], [0.8, 2.9]);
-	const greetingScale = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
-	const letterSpacing = useTransform(scrollYProgress, [0, 0.5], ['-15px', '30px']);
-	const greetingYposition = useTransform(scrollYProgress, [0, 0.7], ['0px', '-300px']);
+
+	const letterSpacing = useTransform(scrollYProgress, [0, 0.5], ['-5px', '30px']);
 
 	const myNameIsYposition = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
@@ -84,7 +85,7 @@ const Hero = () => {
 		<StyleRoot>
 			<motion.div
 				style={{
-					opacity: opacity,
+					opacity: greetingOpacity,
 				}}
 			>
 				<Section
@@ -172,7 +173,7 @@ const Hero = () => {
 								scale: nameScale,
 								position: 'relative',
 								color: titleColor,
-								// translateY: greetingYposition,
+								opacity: nameOpacity,
 							}}
 						>
 							Ahmad Magdy

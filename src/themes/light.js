@@ -11,10 +11,12 @@ export default {
 		horizontlLine: '#d25276',
 		bgMain: '#fffcf6',
 		links: '#d25276', //links and nav numbers
-		indexNumbers: '#d25276', //links and nav numbers
+		colorPop: '#d25276', //links and nav numbers
 		heading: '#40659a',
 		secondaryHeading: '#e77878',
 		paragraphHeading: '#e77878',
+		buttonText: '#0a192f',
+		inputField: '#f2f2f2',
 
 		// slate: '#30568e',
 

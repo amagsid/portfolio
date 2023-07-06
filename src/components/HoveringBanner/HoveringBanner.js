@@ -7,7 +7,25 @@ import { ThemeContext } from '../../pages/_app';
 
 const HoveringBanner = (props) => {
 	const { theme, toggleTheme } = useContext(ThemeContext);
-	console.log('theme', theme);
+
+	const containerAnimation = {
+		hidden: { opacity: 0 },
+		show: {
+			opacity: 1,
+			transition: {
+				delayChildren: 1,
+				staggerChildren: 0.05,
+				type: 'spring',
+				stiffness: 1000,
+			},
+		},
+	};
+
+	const ItemAnimation = {
+		hidden: { y: -20, opacity: 0 },
+		show: { y: 0, opacity: 1 },
+	};
+
 	return (
 		<Banner className="social-container" position={props.position}>
 			<div
@@ -20,6 +38,9 @@ const HoveringBanner = (props) => {
 				{props.position == 'right' && (
 					<a href="https://www.w3schools.com" target="_blank">
 						<motion.h5
+							variants={containerAnimation}
+							initial="hidden"
+							animate="show"
 							whileHover={{
 								scale: 1.09,
 								originY: 1,
@@ -30,12 +51,26 @@ const HoveringBanner = (props) => {
 								type: 'spring',
 								stiffness: 400,
 								duration: 0.2,
-								// x: { duration: 0.1 },
-								// y: { duration: 0.1 },
 							}}
 							className="email-link"
 						>
-							amagsid@gmail.com{' '}
+							<motion.span variants={ItemAnimation}>a</motion.span>
+							<motion.span variants={ItemAnimation}>m</motion.span>
+							<motion.span variants={ItemAnimation}>a</motion.span>
+							<motion.span variants={ItemAnimation}>g</motion.span>
+							<motion.span variants={ItemAnimation}>s</motion.span>
+							<motion.span variants={ItemAnimation}>i</motion.span>
+							<motion.span variants={ItemAnimation}>d</motion.span>
+							<motion.span variants={ItemAnimation}>@</motion.span>
+							<motion.span variants={ItemAnimation}>g</motion.span>
+							<motion.span variants={ItemAnimation}>m</motion.span>
+							<motion.span variants={ItemAnimation}>a</motion.span>
+							<motion.span variants={ItemAnimation}>i</motion.span>
+							<motion.span variants={ItemAnimation}>l</motion.span>
+							<motion.span variants={ItemAnimation}>.</motion.span>
+							<motion.span variants={ItemAnimation}>c</motion.span>
+							<motion.span variants={ItemAnimation}>o</motion.span>
+							<motion.span variants={ItemAnimation}>m</motion.span>
 						</motion.h5>
 					</a>
 				)}

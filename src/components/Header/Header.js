@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
-// import Logo from '../../../public/images/logo-white.png';
+import { motion } from 'framer-motion';
 
 import {
 	Container,
@@ -16,71 +16,76 @@ import {
 import { Number } from '../../styles/GlobalComponents/index';
 
 function Header() {
+	const navContainerAnimation = {
+		hidden: { opacity: 0 },
+		show: {
+			opacity: 1,
+			transition: {
+				// delayChildren: 0.1,
+				staggerChildren: 0.2,
+			},
+		},
+	};
+
+	const navItemAnimation = {
+		hidden: { y: -10, opacity: 0 },
+		show: { y: 0, opacity: 1 },
+	};
+
 	return (
 		<Container>
 			<LogoContainer>
-				<Link style={{ fontSize: '10px' }} href="/">
-					<h4 style={{ color: '#d25276' }}> handwritten signature goes here </h4>
-				</Link>
-			</LogoContainer>
-
-			<NavLinksContainer>
-				<li
-				// style={{
-				// 	display: 'flex',
-				// 	justifyContent: 'center',
-				// 	alignItems: 'center',
-				// 	flexDirection: 'row',
-				// }}
+				<motion.h4
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 2 }}
+					style={{ color: '#d25276' }}
 				>
-					 <ThemeSwitch />
-				</li>
-				<li>
-					<Link href="#about">
-						<NavLink>
-							{' '}
-							<Number>01. </Number>About
-						</NavLink>
-					</Link>
-				</li>
-				<li>
-					<Link href="#pastwork">
-						<NavLink>
-							<Number>02. </Number>Experience
-						</NavLink>
-					</Link>
-				</li>
-				<li>
-					<Link href="#tech">
-						<NavLink>
-							{' '}
-							<Number>03. </Number>Work
-						</NavLink>
-					</Link>
-				</li>
-				<li>
-					<Link href="#tech">
-						<NavLink>
-							{' '}
-							<Number>04. </Number>Contact
-						</NavLink>
-					</Link>
-				</li>
+					{' '}
+					handwritten signature goes here{' '}
+				</motion.h4>
+			</LogoContainer>
+			<NavLinksContainer>
+				<motion.ul
+					style={{ display: 'flex' }}
+					variants={navContainerAnimation}
+					initial="hidden"
+					animate="show"
+				>
+					<li
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignnavItemAnimations: 'center',
+							flexDirection: 'row',
+						}}
+					>
+						 <ThemeSwitch />
+					</li>
+					<motion.li variants={navItemAnimation}>
+						<Link href="#about">
+							<NavLink>
+								{/* <Number>01. </Number> */}
+								About
+							</NavLink>
+						</Link>
+					</motion.li>
+					<motion.li variants={navItemAnimation}>
+						<Link href="#pastwork">
+							<NavLink>Experience</NavLink>
+						</Link>
+					</motion.li>
+					<motion.li variants={navItemAnimation}>
+						<Link href="#contact">
+							<NavLink>Contact</NavLink>
+						</Link>
+					</motion.li>
+					<motion.li variants={navItemAnimation}>
+						{' '}
+						<NavLink>Resume </NavLink>
+					</motion.li>
+				</motion.ul>
 			</NavLinksContainer>
-			{/* <Div3>
-      <SocialIcons href='https://github.com/amagsid' target='_blank'>
-        <AiFillGithub size='3rem'></AiFillGithub>
-      </SocialIcons>
-      <SocialIcons
-        href='https://www.linkedin.com/in/ahmad-m-s/'
-        target='_blank'
-      >
-        <AiFillLinkedin size='3rem'></AiFillLinkedin>
-      </SocialIcons>
-      <SocialIcons href='https://twitter.com/isahmad_true' target='_blank'>
-        <AiFillTwitterCircle size='3rem'></AiFillTwitterCircle>
-      </SocialIcons>
-    </Div3> */}
 		</Container>
 	);
 }

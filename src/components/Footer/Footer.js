@@ -2,10 +2,10 @@ import React from 'react';
 import { AiFillGithub, AiFillTwitterCircle, AiFillLinkedin } from 'react-icons/ai';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaReact } from 'react-icons/fa';
-import { SiNextDotJs } from 'react-icons/si';
+import { SiExpress } from 'react-icons/si';
+import { TbBrandNextjs } from 'react-icons/tb';
 import { AiFillHeart } from 'react-icons/ai';
-
-import { SocialIcons } from '../Header/HeaderStyles';
+import { TbBrandFramerMotion } from 'react-icons/tb';
 import {
 	CompanyContainer,
 	FooterWrapper,
@@ -24,30 +24,12 @@ const Footer = () => {
 			<LinkList></LinkList>
 			<Row>
 				<Col>
-					<h5>
-						{/* made with <FaReact />, <SiNextDotJs />, Express.js and <AiFillHeart />.
-						Ahmad Magdy, 2021. */}
+					<h5 style={{ color: 'white', fontWeight: 300 }}>
+						made with <TbBrandNextjs className="tech-icon tech-icon-small" /> Next.js,{' '}
+						<TbBrandFramerMotion className="tech-icon tech-icon-small" />
+						Framer Motion, <SiExpress className="tech-icon" />
+						.js - Ahmad Magdy 2023.
 					</h5>
-				</Col>
-				<Col>
-					{' '}
-					<SocialIconsContainer>
-						<CompanyContainer></CompanyContainer>
-						<SocialContainer>
-							<SocialIcons href="https://github.com/amagsid" target="_blank">
-								<AiFillGithub size="3rem"></AiFillGithub>
-							</SocialIcons>
-							<SocialIcons
-								href="https://www.linkedin.com/in/ahmad-m-s/"
-								target="_blank"
-							>
-								<AiFillLinkedin size="3rem"></AiFillLinkedin>
-							</SocialIcons>
-							<SocialIcons href="https://twitter.com/isahmad_true" target="_blank">
-								<AiFillTwitterCircle size="3rem"></AiFillTwitterCircle>
-							</SocialIcons>
-						</SocialContainer>
-					</SocialIconsContainer>
 				</Col>
 			</Row>
 		</FooterWrapper>

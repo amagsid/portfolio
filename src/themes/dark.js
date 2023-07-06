@@ -14,12 +14,14 @@ export default {
 		horizontlLine: lightestNavy,
 		bgMain: '#0a192f',
 		links: '#64ffda', //links and nav numbers
-		indexNumbers: '#64ffda', //links and nav numbers
+		colorPop: '#64ffda', //links and nav numbers
 		heading: '#ccd6f6',
 		secondaryHeading: '#8892b0',
 		paragraphHeading: '#8892b0',
+		buttonText: '#0a192f',
 
 		paleGreen: '#b0ddd2',
+		inputField: '#233044',
 
 		slate: '#8892b0', //secondary title
 		lightestSlate: '#ccd6f6', //main title

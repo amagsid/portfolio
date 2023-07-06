@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
-	padding: 2rem 1rem;
+	padding: 2rem 5rem;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
 		display: grid;
@@ -35,8 +35,6 @@ export const NavLink = styled.a`
 		padding: 0.5rem;
 	}
 `;
-
-
 
 export const LogoContainer = styled.div`
 	display: flex;

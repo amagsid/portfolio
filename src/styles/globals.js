@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
     cursor: default;
 
   }
-  h1,h2,h3,h4,h5,h6,button {
+  h1,h2,h3,h4,h5,h6{
     margin: unset;
     font-family: ${(props) => props.theme.fonts.title};
   
@@ -74,105 +74,6 @@ color: ${(props) => props.theme.colors.secondaryHeading};
 
 
 
-
-  .input-field {
-    background-color: rgba(255, 0, 0, 0.0);
-    color: white;
-    outline: none;
-    border: none;
-  border-bottom: 1px solid pink;
-
-        
-  }
-  .input-field:focus {
-    border: none;
-    background-color: rgba(255, 0, 0, 0.0);
-    border-bottom: 1px solid pink;
-    color: white;
-    // box-shadow: 0 0 0 0.55rem rgba(13,110,253,.0);
-    box-shadow: none;
-
-  }
-
-
-  
-
-  /////////
-
-//   button {
-//   width: 150px;
-//   height: 150px;
-//   font-size:30px;
-//   color: #fff;
-//   background: none;
-//   border: none;
-//   border-radius: 50%; 
-//   position: relative;
-//   z-index: 0;
-//   transition: .3s;
-//   cursor: pointer;
-// }
-// button:before {
-//   content: "";
-//   position: absolute;
-//   inset: -8px;
-//   padding: 10px;
-//   border-radius: 50%; 
-//   background: conic-gradient(
-//         #ff53bb ,
-//         #0000 30deg 120deg,
-//         #00f8d3 150deg 180deg,
-//         #0000 210deg 300deg,
-//         #ff53bb 330deg
-//     );
-//   -webkit-mask:
-//     linear-gradient(#000 0 0) content-box,
-//     linear-gradient(#000 0 0);
-//   -webkit-mask-composite: xor;
-//           mask-composite: intersect
-// }
-// button:after {
-//   content: "";
-//   position: absolute;
-//   inset: -100px;
-//   background:
-//     radial-gradient(200px at left  400px top 150px,#ff53bb 100%,#0000),
-//     radial-gradient(200px at right 400px bottom 150px,#00f8d3 100%,#0000);
-//   filter: blur(120px);
-//   opacity: .5;
-// }
-
-// button:before,
-// button:after {
-//   transition:.5s, 99999s 99999s transform;
-// }
-// button:hover {
-//   box-shadow: 0 0 0 1px #666;
-// }
-
-// button:hover:before,
-// button:hover:after {
-//   // transform: rotate(36000deg);
-//   // transition: .5s,600s linear transform;
-// }
-// button:before {
-//   background-color: #222;
-//     border: 1px solid #333;
-// }
-
-
-// button>img{
-//     border-radius: 50%;
-
-//     position: relative;
-//     top: 2px;
-//     width: 139px;
-//     opacity:0.9;
-// }
-
-
-  ////////
-
   .box{
     background-color: white;
   }
@@ -196,19 +97,12 @@ color: ${(props) => props.theme.colors.secondaryHeading};
   }
 
 
-  .icon {
-	stroke-width: 0.9;
+  .tech-icon {
 	width: 20px;
-  	//  -webkit-transition: all .5s ease-out;
-        color: ${(props) => props.theme.colors.navItems};
-
-
-     &:hover {
-    stroke-width: 1.5;
-	 -webkit-transition: all 1s ease-out;
-    stroke: ${(props) => props.theme.colors.links};
-    	// width: 23px;
-    }
+	height: 20px;
+}
+  .tech-icon-small {
+	stroke-width: 0.9;
 }
 
 .switch-icon {
@@ -274,20 +168,16 @@ color: ${(props) => props.theme.colors.secondaryHeading};
     list-style: none;
   }
 
-  input {
-    width: 600px;
-  }
-  textarea {
-    height: 10em;
-    width: 600px;
-  }
-  
 
-  .message-chars-left {
-    width: 700px;
-    margin: auto;
-    text-align: left;
+  textarea {
+    width: 100%;
   }
+
+  textarea:focus-visible {
+    outline-offset: 0px;
+    outline: none;
+}
+
 
   .BgAnimation__svg {
     position: relative;

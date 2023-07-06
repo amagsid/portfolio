@@ -69,7 +69,8 @@ export const HighlightedText = styled(motion.h1)`
 	text-align:  (props.main ? 'left' : 'unset')};
 	font-weight: 500;
 	word-spacing: 5px;
-	color: ${(props) => props.theme.colors.indexNumbers};
+	color: ${(props) => props.theme.colors.colorPop};
+
 	// padding-left: ${(props) => (props.main ? '10px' : '0')};
 
 	@media ${(props) => props.theme.breakpoints.md} {
