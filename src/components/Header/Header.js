@@ -9,6 +9,7 @@ import {
 	NavLinksContainer,
 	Div3,
 	NavLink,
+	ResumeButton,
 	SocialIcons,
 	Span,
 } from './HeaderStyles';
@@ -82,7 +83,13 @@ function Header() {
 					</motion.li>
 					<motion.li variants={navItemAnimation}>
 						{' '}
-						<NavLink>Resume </NavLink>
+						<NavLink>
+							{' '}
+							<ResumeButton className="px-4 py-2 rounded-md text-[13px]">
+								{' '}
+								Resume{' '}
+							</ResumeButton>{' '}
+						</NavLink>
 					</motion.li>
 				</motion.ul>
 			</NavLinksContainer>

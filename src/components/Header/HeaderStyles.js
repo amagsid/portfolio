@@ -111,6 +111,18 @@ export const NavProductsIcon = styled(IoIosArrowDropdown)`
 		width: 15px;
 	}
 `;
+export const ResumeButton = styled.button`
+	color: ${(props) => props.theme.colors.colorPop};
+	border: solid 1px;
+	&:hover {
+		opacity: 1;
+	}
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		margin: 2px 0 0 2px;
+		width: 15px;
+	}
+`;
 
 // Social Icons
 
