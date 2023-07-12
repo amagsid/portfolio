@@ -48,7 +48,9 @@ export const Layout = ({ children }) => {
 					/>
 					<Header />
 					<main>{children}</main>
-					<HoveringBanners />
+					<div className="hidden lg:inline md:inline ">
+						<HoveringBanners />
+					</div>
 					<Footer />
 				</>
 			</Container>

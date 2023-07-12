@@ -12,15 +12,17 @@ export const SectionTitle = styled(motion.div)`
 export const Item = styled(motion.h3)`
 	line-height: 70px;
 	display: inline;
-	font-size: 3rem;
-	color: ${(props) => props.theme.colors.heading};
-	font-weight: 300;
-	letter-spacing: 7px;
-	padding-right: 12px;
+	font-size: ${(props) => (props.emailSent ? '1.5rem' : '3rem')};
+	color: ${(props) =>
+		props.emailSent ? props.theme.colors.colorPop : props.theme.colors.heading};
+	font-weight: ${(props) => (props.emailSent ? '500' : '300')};
+	letter-spacing: ${(props) => (props.emailSent ? '5px' : '7px')};
 
 	&:after {
 		content: '•';
-		padding-left: 20px;
+		// content: ${(props) => props.emailSent && '-- '};
+
+		padding-left: ${(props) => (props.emailSent ? '0px' : '12px')};
 	}
 `;
 // export const SectionTitle = styled(motion.h2)`

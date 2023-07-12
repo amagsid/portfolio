@@ -81,6 +81,27 @@ const Hero = () => {
 
 	const titleColor = useTransform(scrollYProgress, [0, 0.5], ['#ccd6f6', '#64ffda']);
 
+	//mobile version setInterval greetings
+
+	const greetings = ['Hello', 'Hola', 'CIAO', 'أهلاً'];
+
+	const [newGreeting, setnewGreeting] = useState('');
+
+	let intervalCount = 0;
+
+	const shuffle = useCallback(() => {
+		setnewGreeting(greetings[intervalCount]);
+		intervalCount++;
+		if (intervalCount === greetings.length) {
+			intervalCount = 0;
+		}
+	}, []);
+
+	useEffect(() => {
+		const intervalID = setInterval(shuffle, 500);
+		return () => clearInterval(intervalID);
+	}, [shuffle]);
+
 	return (
 		<StyleRoot>
 			<motion.div
@@ -96,12 +117,12 @@ const Hero = () => {
 						display: 'flex',
 						justifyContent: 'center',
 						alignItems: 'center',
-						// backgroundColor: 'red',
 					}}
 				>
 					<motion.div style={{ scale: greetingScale, position: 'fixed' }}>
 						<motion.div>
-							{count == 0 && (
+							{/* phone hero */}
+							<div className="phonesm:hidden">
 								<BigHeading
 									variants={container}
 									initial="hidden"
@@ -112,48 +133,68 @@ const Hero = () => {
 										textAlign: 'center',
 									}}
 								>
-									Hello
+									{newGreeting}
 								</BigHeading>
-							)}
-							{count == 1 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{
-										fontFamily: 'Poppins',
-										fontWeight: 100,
-										fontStyle: 'italic',
-										textAlign: 'center',
-									}}
-								>
-									Hola
-								</BigHeading>
-							)}
-							{count == 2 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{ fontFamily: 'Chivo', textAlign: 'center' }}
-								>
-									CIAO
-								</BigHeading>
-							)}
-							{count == 3 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{
-										fontFamily: 'Cairo',
-										textAlign: 'center',
-										fontWeight: 800,
-									}}
-								>
-									أهلاً
-								</BigHeading>
-							)}
+							</div>
+
+							<div className="hidden lg:inline md:inline phonesm:inline">
+								{count == 0 && (
+									<BigHeading
+										variants={container}
+										initial="hidden"
+										animate="show"
+										style={{
+											fontFamily: 'Poppins',
+											fontWeight: 700,
+											textAlign: 'center',
+										}}
+									>
+										Hello
+									</BigHeading>
+								)}
+								{count == 1 && (
+									<BigHeading
+										variants={container}
+										initial="hidden"
+										animate="show"
+										style={{
+											fontFamily: 'Poppins',
+											fontWeight: 100,
+											fontStyle: 'italic',
+											textAlign: 'center',
+										}}
+									>
+										Hola
+									</BigHeading>
+								)}
+								{count == 2 && (
+									<BigHeading
+										variants={container}
+										initial="hidden"
+										animate="show"
+										style={{ fontFamily: 'Chivo', textAlign: 'center' }}
+									>
+										CIAO
+									</BigHeading>
+								)}
+								{count == 3 && (
+									<div>
+										<BigHeading
+											variants={container}
+											initial="hidden"
+											animate="show"
+											style={{
+												fontFamily: 'Cairo',
+												textAlign: 'center',
+												fontWeight: 800,
+											}}
+										>
+											أهلاً
+										</BigHeading>
+										{/* <h6>əˈhlæn</h6> */}
+									</div>
+								)}
+							</div>
 						</motion.div>
 					</motion.div>
 					<div

@@ -26,7 +26,15 @@ function MovingSectionTitle(props) {
 					}}
 				>
 					{headline.map((el) => {
-						return <Item> {el}</Item>;
+						return (
+							<Item
+								emailSent={props.emailSent}
+								// style={props.emailSent && { fontSize: '1.5rem' }}
+							>
+								{' '}
+								{el}
+							</Item>
+						);
 					})}
 				</motion.div>
 			</SectionTitle>

@@ -21,17 +21,20 @@ import {
 const Footer = () => {
 	return (
 		<FooterWrapper>
-			<LinkList></LinkList>
-			<Row>
-				<Col>
-					<h5 style={{ color: 'white', fontWeight: 300 }}>
-						made with <TbBrandNextjs className="tech-icon tech-icon-small" /> Next.js,{' '}
-						<TbBrandFramerMotion className="tech-icon tech-icon-small" />
-						Framer Motion, <SiExpress className="tech-icon" />
-						.js - Ahmad Magdy 2023.
-					</h5>
-				</Col>
-			</Row>
+			<h5
+				style={{
+					color: 'white',
+					fontWeight: 300,
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
+				made with <TbBrandNextjs className="tech-icon tech-icon-small" /> Next.js,{' '}
+				<TbBrandFramerMotion className="tech-icon tech-icon-small" />
+				Framer Motion, <SiExpress className="tech-icon" />
+				.js - Ahmad Magdy 2023.
+			</h5>
 		</FooterWrapper>
 	);
 };

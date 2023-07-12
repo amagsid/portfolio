@@ -8,6 +8,7 @@ import MovingSectionTitle from '../SectionTitle/SectionTitle';
 import { Form, Container, Col, Row } from 'react-bootstrap';
 import { Input, CharAlert, CharCount, Placeholder } from './ContactStyles';
 import Button from '../../elements/SendButton/Button';
+import Confetti from '../../elements/confetti/confetti';
 
 function Contact() {
 	const {
@@ -44,9 +45,24 @@ function Contact() {
 
 	return (
 		<Section id="contact">
-			<MovingSectionTitle sectionTitle="GET IN TOUCH"></MovingSectionTitle>
+			{/* <Confetti> */}
+			{/* <div> */}
+			<MovingSectionTitle
+				sectionTitle={!emailSent ? 'GET IN TOUCH' : `SENT🚀I'LL BE IN TOUCH SHORTLY `}
+				emailSent={emailSent}
+			></MovingSectionTitle>
+			{emailSent && (
+				<div
+					className="bg-confetti-animated"
+					style={{ position: 'absolute', width: '100%', height: ' 100%' }}
+				></div>
+			)}
+			{/* </div>
+			{/* </Confetti> */}
+
 			<Container style={{ height: 220 }} fluid>
-				{emailSent && <p>🚀 Your message was sent , I'll get back to you shortly!</p>}
+				{/* {emailSent && <p> Your message was sent , I'll get back to you shortly!</p>} */}
+
 				<Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
 					<input type="hidden" name="contact_number" value={contactNumber} />
 
@@ -98,11 +114,7 @@ function Contact() {
 							<CharAlert className="message-chars-left">
 								<CharCount>{messageCharsLeft} </CharCount> characeters left
 							</CharAlert>
-							{/* send button */}
-							{/* <button className="form-button send-icon" type="submit" value="Send"> */}
-							{/* SEND */}
-							{/* <BiMailSend className="send-icon" size={20} /> */}
-							{/* </button> */}
+
 							<Button />
 						</Form.Group>
 					</Row>

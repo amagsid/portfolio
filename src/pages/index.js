@@ -3,7 +3,7 @@ import Acomplishments from '../components/Acomplishments/Acomplishments';
 
 import Hero from '../components/Hero/Hero';
 import PastWork from '../components/PastWork/PastWork';
-import Technologies from '../components/Technologies/Technologies';
+import Experience from '../components/Experience/Experience';
 import Timeline from '../components/AboutMe/AboutMe';
 import { Layout } from '../layout/Layout';
 import { Section } from '../styles/GlobalComponents';
@@ -26,7 +26,7 @@ const Home = () => {
 				<Timeline />
 
 				<PastWork />
-				{/* <Technologies /> */}
+				<Experience />
 				<Contact />
 			</motion.div>
 		</Layout>

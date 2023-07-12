@@ -6,13 +6,13 @@ export const Container = styled.div`
 	justify-content: space-between;
 	padding: 2rem 5rem;
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		grid-template-rows: repeat(2, 60px);
-		grid-column-gap: 0.5rem;
-		grid-row-gap: 0.5rem;
-	}
+	// @media ${(props) => props.theme.breakpoints.sm} {
+	// 	display: grid;
+	// 	grid-template-columns: repeat(5, 1fr);
+	// 	grid-template-rows: repeat(2, 60px);
+	// 	grid-column-gap: 0.5rem;
+	// 	grid-row-gap: 0.5rem;
+	// }
 `;
 
 export const Span = styled.span`
@@ -41,8 +41,8 @@ export const LogoContainer = styled.div`
 	flex: 1;
 	flex-direction: row;
 	align-content: center;
-	@media ${(props) => props.theme.breakpoints.sm} {
-		grid-area: 1 / 1 / 2 / 3;
+	// @media ${(props) => props.theme.breakpoints.sm} {
+	// 	grid-area: 1 / 1 / 2 / 3;
 	}
 `;
 export const NavLinksContainer = styled.div`
@@ -51,18 +51,8 @@ export const NavLinksContainer = styled.div`
 	align-items: center;
 	flex: 2;
 	justify-content: end;
-	@media ${(props) => props.theme.breakpoints.sm} {
-		grid-area: 2 / 2 / 3 / 5;
-	}
-`;
-export const Div3 = styled.div`
-	grid-area: 1 / 5 / 2 / 6;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	@media ${(props) => props.theme.breakpoints.sm} {
-		align-items: center;
-		grid-area: 1 / 4 / 2 / 6;
+	// @media ${(props) => props.theme.breakpoints.sm} {
+	// 	grid-area: 2 / 2 / 3 / 5;
 	}
 `;
 
@@ -115,7 +105,15 @@ export const ResumeButton = styled.button`
 	color: ${(props) => props.theme.colors.colorPop};
 	border: solid 1px;
 	&:hover {
-		opacity: 1;
+		background-color: ${(props) => props.theme.colors.colorPop}50;
+		text-shadow: 2px 2px 20px ${(props) => props.theme.colors.colorPop};
+		// color: white;
+		// -khtml-opacity: 0.5;
+		// -moz-opacity: 0.5;
+		// -ms-filter: ”alpha(opacity=50) ”;
+		// filter: alpha(opacity=50);
+		// filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+		// opacity: 0.2;
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
@@ -124,16 +122,12 @@ export const ResumeButton = styled.button`
 	}
 `;
 
-// Social Icons
+// hamburger icon
+export const BurgerLine = styled.span`
+	background-color: ${(props) => props.theme.colors.colorPop};
+`;
 
-export const SocialIcons = styled.a`
-	transition: 0.3s ease;
-	color: white;
-	border-radius: 50px;
-	padding: 8px;
-	&:hover {
-		background-color: #212d45;
-		transform: scale(1.2);
-		cursor: pointer;
-	}
+export const BurgerIcon = styled.div`
+	color: ${(props) => props.theme.colors.colorPop};
+	// background-color: ${(props) => props.theme.colors.colorPop};
 `;

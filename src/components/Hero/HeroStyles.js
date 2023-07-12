@@ -20,19 +20,21 @@ export const BigHeading = styled(motion.h2)`
 		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading};
 
 	@media ${(props) => props.theme.breakpoints.md} {
-		font-size: ${(props) => (props.main ? '56px' : '48px')};
+		font-size: clamp(20rem, 30vw, 32rem);
 
 		// line-height: ${(props) => (props.main ? '56px' : '48px')};
 		// margin-bottom: 12px;
+		padding-bottom: 190px;
 		padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
+		padding-bottom: 423px;
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
 		font-size: 32px;
 		line-height: 40px;
-		font-size: ${(props) => (props.main ? '28px' : '32px')};
-		line-height: ${(props) => (props.main ? '32px' : '40px')};
-		// margin-bottom: 8px;
+		font-size: clamp(15rem, 35vw, 42rem);
+		// line-height: ${(props) => (props.main ? '32px' : '40px')};
+		margin-bottom: 323px;
 		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
 		max-width: 100%;
 	}
