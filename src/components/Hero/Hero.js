@@ -119,10 +119,24 @@ const Hero = () => {
 						alignItems: 'center',
 					}}
 				>
-					<motion.div style={{ scale: greetingScale, position: 'fixed' }}>
-						<motion.div>
-							{/* phone hero */}
-							<div className="phonesm:hidden">
+					{/* phone hero */}
+					<div className="phonesm:hidden">
+						<BigHeading
+							variants={container}
+							initial="hidden"
+							animate="show"
+							style={{
+								fontFamily: 'Poppins',
+								fontWeight: 700,
+								textAlign: 'center',
+							}}
+						>
+							{newGreeting}
+						</BigHeading>
+					</div>
+					<motion.div style={{ scale: greetingScale }}>
+						<div className="hidden lg:inline md:inline phonesm:inline">
+							{count == 0 && (
 								<BigHeading
 									variants={container}
 									initial="hidden"
@@ -130,79 +144,55 @@ const Hero = () => {
 									style={{
 										fontFamily: 'Poppins',
 										fontWeight: 700,
-										textAlign: 'center',
 									}}
 								>
-									{newGreeting}
+									Hello
 								</BigHeading>
-							</div>
-
-							<div className="hidden lg:inline md:inline phonesm:inline">
-								{count == 0 && (
-									<BigHeading
-										variants={container}
-										initial="hidden"
-										animate="show"
-										style={{
-											fontFamily: 'Poppins',
-											fontWeight: 700,
-											textAlign: 'center',
-										}}
-									>
-										Hello
-									</BigHeading>
-								)}
-								{count == 1 && (
-									<BigHeading
-										variants={container}
-										initial="hidden"
-										animate="show"
-										style={{
-											fontFamily: 'Poppins',
-											fontWeight: 100,
-											fontStyle: 'italic',
-											textAlign: 'center',
-										}}
-									>
-										Hola
-									</BigHeading>
-								)}
-								{count == 2 && (
-									<BigHeading
-										variants={container}
-										initial="hidden"
-										animate="show"
-										style={{ fontFamily: 'Chivo', textAlign: 'center' }}
-									>
-										CIAO
-									</BigHeading>
-								)}
-								{count == 3 && (
-									<div>
-										<BigHeading
-											variants={container}
-											initial="hidden"
-											animate="show"
-											style={{
-												fontFamily: 'Cairo',
-												textAlign: 'center',
-												fontWeight: 800,
-											}}
-										>
-											أهلاً
-										</BigHeading>
-										{/* <h6>əˈhlæn</h6> */}
-									</div>
-								)}
-							</div>
-						</motion.div>
+							)}
+							{count == 1 && (
+								<BigHeading
+									variants={container}
+									initial="hidden"
+									animate="show"
+									style={{
+										fontFamily: 'Poppins',
+										fontWeight: 100,
+										fontStyle: 'italic',
+									}}
+								>
+									Hola
+								</BigHeading>
+							)}
+							{count == 2 && (
+								<BigHeading
+									variants={container}
+									initial="hidden"
+									animate="show"
+									style={{ fontFamily: 'Chivo', textAlign: 'center' }}
+								>
+									CIAO
+								</BigHeading>
+							)}
+							{count == 3 && (
+								<BigHeading
+									variants={container}
+									initial="hidden"
+									animate="show"
+									style={{
+										fontFamily: 'Cairo',
+										fontWeight: 800,
+									}}
+								>
+									أهلاً
+								</BigHeading>
+							)}
+						</div>
 					</motion.div>
 					<div
 						style={{
 							display: 'flex',
 							flexDirection: 'column',
-							paddingTop: '185px',
-							position: 'fixed',
+							position: 'sticky',
 						}}
 					>
 						<HighlightedText main style={{ translateY: myNameIsYposition }}>

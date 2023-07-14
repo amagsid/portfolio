@@ -4,18 +4,12 @@ import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 export const HeroWrapper = styled(motion.div)`
 	display: 'flex';
 	flex-direction: 'row';
-	// align-items: center;
 `;
 
 export const BigHeading = styled(motion.h2)`
 	font-size: clamp(20rem, 30vw, 32rem);
 	line-height: 250px;
-	// position: fixed;
-	padding-bottom: 180px;
-	// width: 100%;
-	// width: max-content;
 	max-width: 100%;
-	// padding: 100px 0 50px 0;
 	color: ${(props) =>
 		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading};
 
