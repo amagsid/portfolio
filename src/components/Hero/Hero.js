@@ -1,21 +1,69 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-// import CV from '../../constants/CV.pdf';
 import Radium, { StyleRoot } from 'radium';
-import {
-	AnimatePresence,
-	motion,
-	useAnimation,
-	useTransform,
-	useScroll,
-	useMotionValue,
-} from 'framer-motion';
+import useBreakpoints from '../../hooks/useMediaQueryIndex';
+import { motion, useTransform, useScroll, useDragControls } from 'framer-motion';
 import { Section, HighlightedText } from '../../styles/GlobalComponents';
-import { BigHeading, HeroWrapper, MedHeading } from './HeroStyles';
+import { BigHeading, MedHeading, DragMeSection } from './HeroStyles';
+import PhoneHero from './PhoneHero';
 
-const Hero = () => {
+const Hero = (props) => {
 	//mouse position and count to set greeting index
 	const [mousePos, setMousePos] = useState({});
+	const [touchPos, setTouchPos] = useState({});
+
 	const [count, setCount] = useState(0);
+
+	const { isSm, isMd, isLg, active } = useBreakpoints();
+
+	console.log(isSm, isMd, isLg, active);
+
+	//drag controls
+	const divRef = useRef(null);
+	const dragControls = useDragControls();
+	function startDrag(event) {
+		controls.start(event, { snapToCursor: true });
+	}
+
+	const prevxCount = usePrevious(mousePos.x);
+	const prevyCount = usePrevious(mousePos.y);
+	const prevTouchxCount = usePrevious(touchPos.x);
+	const prevTouchyCount = usePrevious(touchPos.y);
+
+	useEffect(() => {
+		const handleMouseMove = (event) => {
+			setMousePos({ x: event.clientX, y: event.clientY });
+		};
+
+		const handleTouch = (event) => {
+			setTouchPos({ x: event.clientX, y: event.clientY });
+			console.log('touched');
+
+			setCount(count + 1);
+		};
+		if (count === 4) {
+			setCount(0);
+		}
+
+		if (
+			mousePos.x - prevxCount >= 5 ||
+			prevxCount - mousePos.x >= 5 ||
+			mousePos.y - prevyCount >= 5
+		) {
+			setCount(count + 1);
+			// setCount((prev) => prev + 1);
+		}
+
+		if (count === 4) {
+			setCount(0);
+		}
+
+		divRef.current.addEventListener('mousemove', handleMouseMove);
+
+		return () => {
+			// window.removeEventListener('touchmove', handleMouseMove);
+			// window.removeEventListener('drag', handleDrag);
+		};
+	}, [prevxCount, count, prevTouchxCount]);
 
 	function usePrevious(value) {
 		const ref = useRef();
@@ -24,33 +72,6 @@ const Hero = () => {
 		}, [value]); //this code will run when the value of 'value' changes
 		return ref.current; //in the end, return the current ref value.
 	}
-
-	const prevxCount = usePrevious(mousePos.x);
-	const prevyCount = usePrevious(mousePos.y);
-
-	useEffect(() => {
-		const handleMouseMove = (event) => {
-			setMousePos({ x: event.clientX, y: event.clientY });
-		};
-
-		if (
-			mousePos.x - prevxCount >= 5 ||
-			prevxCount - mousePos.x >= 5 ||
-			mousePos.y - prevyCount >= 10
-		) {
-			setCount(count + 1);
-		}
-
-		if (count === 4) {
-			setCount(0);
-		}
-
-		window.addEventListener('mousemove', handleMouseMove);
-
-		return () => {
-			window.removeEventListener('mousemove', handleMouseMove);
-		};
-	}, [prevyCount, prevxCount]);
 
 	const container = {
 		hidden: { opacity: 0.3 },
@@ -81,138 +102,127 @@ const Hero = () => {
 
 	const titleColor = useTransform(scrollYProgress, [0, 0.5], ['#ccd6f6', '#64ffda']);
 
-	//mobile version setInterval greetings
-
-	const greetings = ['Hello', 'Hola', 'CIAO', 'أهلاً'];
-
-	const [newGreeting, setnewGreeting] = useState('');
-
-	let intervalCount = 0;
-
-	const shuffle = useCallback(() => {
-		setnewGreeting(greetings[intervalCount]);
-		intervalCount++;
-		if (intervalCount === greetings.length) {
-			intervalCount = 0;
-		}
-	}, []);
-
-	useEffect(() => {
-		const intervalID = setInterval(shuffle, 500);
-		return () => clearInterval(intervalID);
-	}, [shuffle]);
-
 	return (
-		<StyleRoot>
-			<motion.div
-				style={{
-					opacity: greetingOpacity,
-				}}
-			>
-				<Section
-					ref={targetRef}
-					nopadding
-					style={{
-						height: '88vh',
-						display: 'flex',
-						justifyContent: 'center',
-						alignItems: 'center',
-					}}
-				>
-					{/* phone hero */}
-					<div className="phonesm:hidden">
-						<BigHeading
-							variants={container}
-							initial="hidden"
-							animate="show"
-							style={{
-								fontFamily: 'Poppins',
-								fontWeight: 700,
-								textAlign: 'center',
-							}}
-						>
-							{newGreeting}
-						</BigHeading>
-					</div>
-					<motion.div style={{ scale: greetingScale }}>
-						<div className="hidden lg:inline md:inline phonesm:inline">
-							{count == 0 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{
-										fontFamily: 'Poppins',
-										fontWeight: 700,
-									}}
-								>
-									Hello
-								</BigHeading>
-							)}
-							{count == 1 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{
-										fontFamily: 'Poppins',
-										fontWeight: 100,
-										fontStyle: 'italic',
-									}}
-								>
-									Hola
-								</BigHeading>
-							)}
-							{count == 2 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{ fontFamily: 'Chivo', textAlign: 'center' }}
-								>
-									CIAO
-								</BigHeading>
-							)}
-							{count == 3 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{
-										fontFamily: 'Cairo',
-										fontWeight: 800,
-									}}
-								>
-									أهلاً
-								</BigHeading>
-							)}
-						</div>
-					</motion.div>
-					<div
+		<>
+			{isSm && <PhoneHero></PhoneHero>}
+			{!isSm && (
+				<StyleRoot>
+					<motion.div
 						style={{
-							display: 'flex',
-							flexDirection: 'column',
-							position: 'sticky',
+							opacity: greetingOpacity,
 						}}
 					>
-						<HighlightedText main style={{ translateY: myNameIsYposition }}>
-							my name is
-						</HighlightedText>
-						<MedHeading
+						<Section
+							ref={targetRef}
+							nopadding
 							style={{
-								letterSpacing,
-								scale: nameScale,
-								position: 'relative',
-								color: titleColor,
-								opacity: nameOpacity,
+								height: '88vh',
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'center',
 							}}
 						>
-							Ahmad Magdy
-						</MedHeading>
-					</div>
-				</Section>
-			</motion.div>
-		</StyleRoot>
+							<motion.div style={{ scale: greetingScale }}>
+								<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
+
+								<DragMeSection
+									className="dragme"
+									ref={divRef}
+									drag
+									dragControls={dragControls}
+									dragConstraints={{
+										bottom: 100,
+										top: 50,
+										right: 50,
+										left: 50,
+									}}
+								>
+									<div> drag me </div>
+									<div>
+										{count == 0 && (
+											<BigHeading
+												variants={container}
+												initial="hidden"
+												animate="show"
+												style={{
+													fontFamily: 'Poppins',
+													fontWeight: 700,
+												}}
+											>
+												Hello
+											</BigHeading>
+										)}
+										{count == 1 && (
+											<BigHeading
+												variants={container}
+												initial="hidden"
+												animate="show"
+												style={{
+													fontFamily: 'Poppins',
+													fontWeight: 100,
+													fontStyle: 'italic',
+												}}
+											>
+												Hola
+											</BigHeading>
+										)}
+										{count == 2 && (
+											<BigHeading
+												variants={container}
+												initial="hidden"
+												animate="show"
+												style={{
+													fontFamily: 'Chivo',
+													textAlign: 'center',
+												}}
+											>
+												CIAO
+											</BigHeading>
+										)}
+										{count == 3 && (
+											<BigHeading
+												variants={container}
+												initial="hidden"
+												animate="show"
+												style={{
+													fontFamily: 'Cairo',
+													fontWeight: 800,
+												}}
+											>
+												أهلاً
+											</BigHeading>
+										)}
+									</div>
+								</DragMeSection>
+							</motion.div>
+
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									position: 'sticky',
+								}}
+							>
+								<HighlightedText main style={{ translateY: myNameIsYposition }}>
+									my name is
+								</HighlightedText>
+								<MedHeading
+									style={{
+										letterSpacing,
+										scale: nameScale,
+										position: 'relative',
+										color: titleColor,
+										opacity: nameOpacity,
+									}}
+								>
+									Ahmad Magdy
+								</MedHeading>
+							</div>
+						</Section>
+					</motion.div>
+				</StyleRoot>
+			)}
+		</>
 	);
 };
 

@@ -6,6 +6,34 @@ export const HeroWrapper = styled(motion.div)`
 	flex-direction: 'row';
 `;
 
+export const HighlightedText = styled(motion.h1)`
+	font-size:  'clamp(1.5rem, 2vw, 2.5rem)');
+	font-family: ${(props) => props.theme.fonts.mono};
+	line-height: 20px;
+	letter-spacing: 10px;
+font-weight:300;
+	position:relative;
+	color: ${(props) => props.theme.colors.colorPop};
+
+	margin:  ${(props) => (props.main ? ' 0 auto' : 'unset')}; 
+	text-align:  (props.main ? 'left' : 'unset')};
+	font-weight: 500;
+	word-spacing: 5px;
+	color: ${(props) => props.theme.colors.colorPop};
+
+
+	@media ${(props) => props.theme.breakpoints.md} {
+	
+	}
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		// line-height: 40px;
+		// line-height: ${(props) => (props.main ? '32px' : '40px')};
+		// padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+		// max-width: 100%;
+	}
+`;
+
 export const BigHeading = styled(motion.h2)`
 	font-size: clamp(20rem, 30vw, 32rem);
 	line-height: 250px;

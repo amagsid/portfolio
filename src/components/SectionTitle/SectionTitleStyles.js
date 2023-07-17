@@ -8,6 +8,11 @@ export const SectionTitle = styled(motion.div)`
 	overflow: hidden;
 	white-space: nowrap;
 	z-index: 90;
+
+	//small mobile
+	@media ${(props) => props.theme.breakpoints.sm} {
+		overflow: unset;
+	}
 `;
 export const Item = styled(motion.h3)`
 	line-height: 70px;
@@ -20,9 +25,11 @@ export const Item = styled(motion.h3)`
 
 	&:after {
 		content: '•';
-		// content: ${(props) => props.emailSent && '-- '};
-
 		padding-left: ${(props) => (props.emailSent ? '0px' : '12px')};
+	}
+	//small mobile
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 1.5rem;
 	}
 `;
 // export const SectionTitle = styled(motion.h2)`

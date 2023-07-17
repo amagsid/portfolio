@@ -32,7 +32,7 @@ export default {
 	},
 	// Breakpoints for responsive design
 	breakpoints: {
-		iPoneX: 'screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3)',
+		xs: 'screen and (max-width: 375px)',
 		sm: 'screen and (max-width: 640px)',
 		md: 'screen and (max-width: 768px)',
 		lg: 'screen and (max-width: 1024px)',
