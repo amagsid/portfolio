@@ -9,7 +9,7 @@ export const HeroWrapper = styled(motion.div)`
 export const HighlightedText = styled(motion.h1)`
 	font-size:  'clamp(1.5rem, 2vw, 2.5rem)');
 	font-family: ${(props) => props.theme.fonts.mono};
-	line-height: 20px;
+
 	letter-spacing: 10px;
 font-weight:300;
 	position:relative;
@@ -67,7 +67,7 @@ export const MedHeading = styled(motion.h2)`
 	line-height: 95px;
 `;
 export const DragMeSection = styled(motion.div)`
-	border: 1px solid #fff;
+	// border: 1px solid #fff;
 `;
 
 export const MusicButton = styled.button`

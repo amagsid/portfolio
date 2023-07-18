@@ -10,7 +10,7 @@ export const BigHeading = styled(motion.h2)`
 	font-size: clamp(20rem, 30vw, 32rem);
 	line-height: 250px;
 	max-width: 100%;
-	color: ${(props) =>
+	// color: ${(props) =>
 		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading};
 
 	@media ${(props) => props.theme.breakpoints.md} {
@@ -39,7 +39,7 @@ export const MedHeading = styled(motion.h2)`
 	line-height: 95px;
 `;
 export const DragMeSection = styled(motion.div)`
-	border: 1px solid #fff;
+	// border: 1px solid #fff;
 `;
 
 export const MusicButton = styled.button`

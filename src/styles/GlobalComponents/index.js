@@ -36,7 +36,6 @@ export const HighlightedText = styled(motion.h1)`
 	font-size: ${(props) => (props.main ? 'clamp(1rem,2vw,2.5rem);' : 'clamp(1rem, 1.5vw, 2rem)')};
 	font-family: ${(props) => props.theme.fonts.mono};
 	text-align: center;
-	line-height: 20px;
 	letter-spacing: 27.5px;
 
 	position:relative;

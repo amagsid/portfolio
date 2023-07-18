@@ -1,15 +1,20 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import Radium, { StyleRoot } from 'radium';
 import useBreakpoints from '../../hooks/useMediaQueryIndex';
-import { motion, useTransform, useScroll, useDragControls } from 'framer-motion';
+import { motion, useTransform, useScroll, useDragControls, useMotionValue } from 'framer-motion';
 import { Section, HighlightedText } from '../../styles/GlobalComponents';
 import { BigHeading, MedHeading, DragMeSection } from './HeroStyles';
 import PhoneHero from './PhoneHero';
+import { ThemeContext } from '../../pages/_app';
+import SwipeLeftRight from '../../elements/swipeLeftRight';
 
 const Hero = (props) => {
+	const { theme, toggleTheme } = useContext(ThemeContext);
 	//mouse position and count to set greeting index
 	const [mousePos, setMousePos] = useState({});
 	const [touchPos, setTouchPos] = useState({});
+	const [isMouseMoving, setIsMouseMoving] = useState(false);
+	const [isDragging, setIsDragging] = useState(false);
 
 	const [count, setCount] = useState(0);
 
@@ -24,23 +29,43 @@ const Hero = (props) => {
 		controls.start(event, { snapToCursor: true });
 	}
 
+	//hero effects based on greeting drag
+	const x = useMotionValue(0);
+	const scale = useTransform(x, [-550, 0, 550], [1.3, 1, 1.3]);
+	const GreetingLetterSpacing = useTransform(x, [-450, 0, 450], ['-33px', '15px', '-33px']);
+
+	const color =
+		theme == 'dark'
+			? useTransform(
+					x,
+					[-550, -150, -100, 0, 100, 150, 500],
+					['#64ffda', '#64ffda', '#FC7273', '#ccd6f6', '#FC7273', '#64ffda', '#64ffda']
+			  )
+			: useTransform(x, [-350, 0, 350], ['#fff678', '#FD6723', '#FC7273']);
+	// : useTransform(x, [-350, 0, 350], ['#fff678', '#FD6723', '#FC7273']);
+	// const rotate = useTransform(x, [-150, 150], [-90, 90]);
+
 	const prevxCount = usePrevious(mousePos.x);
 	const prevyCount = usePrevious(mousePos.y);
 	const prevTouchxCount = usePrevious(touchPos.x);
 	const prevTouchyCount = usePrevious(touchPos.y);
+	const handleDrag = (event, info) => {
+		if (info) {
+			setIsDragging(true);
+		}
+	};
+	const handleDragEnd = (event, info) => {
+		if (info) {
+			setIsDragging(false);
+		}
+	};
 
 	useEffect(() => {
 		const handleMouseMove = (event) => {
 			setMousePos({ x: event.clientX, y: event.clientY });
 		};
 
-		const handleTouch = (event) => {
-			setTouchPos({ x: event.clientX, y: event.clientY });
-			console.log('touched');
-
-			setCount(count + 1);
-		};
-		if (count === 4) {
+		if (count === 5) {
 			setCount(0);
 		}
 
@@ -50,20 +75,25 @@ const Hero = (props) => {
 			mousePos.y - prevyCount >= 5
 		) {
 			setCount(count + 1);
-			// setCount((prev) => prev + 1);
 		}
 
-		if (count === 4) {
+		if (count === 5) {
 			setCount(0);
 		}
 
-		divRef.current.addEventListener('mousemove', handleMouseMove);
+		if (!isSm) {
+			divRef.current.addEventListener('mousemove', handleMouseMove);
+			window.addEventListener('drag', handleDrag);
+			window.addEventListener('mousemove', handleMouseMove);
+		}
 
 		return () => {
-			// window.removeEventListener('touchmove', handleMouseMove);
-			// window.removeEventListener('drag', handleDrag);
+			// divRef.current.removeEventListener('mousemove', handleMouseMove);
+			window.removeEventListener('mousemove', handleMouseMove);
 		};
 	}, [prevxCount, count, prevTouchxCount]);
+
+	console.log(isDragging, 'dragging');
 
 	function usePrevious(value) {
 		const ref = useRef();
@@ -94,7 +124,7 @@ const Hero = (props) => {
 	const greetingOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 	const greetingScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.4]);
 	const nameOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0]);
-	const nameScale = useTransform(scrollYProgress, [0, 0.8], [0.8, 2.9]);
+	const nameScale = useTransform(scrollYProgress, [0, 0.8], [1, 2.9]);
 
 	const letterSpacing = useTransform(scrollYProgress, [0, 0.5], ['-5px', '30px']);
 
@@ -120,24 +150,43 @@ const Hero = (props) => {
 								display: 'flex',
 								justifyContent: 'center',
 								alignItems: 'center',
+								overflow: 'visible',
+								position: 'relative',
 							}}
 						>
-							<motion.div style={{ scale: greetingScale }}>
-								<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
-
+							{/* <motion.div style={{ scale: greetingScale }}> */}
+							<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
+							{!isDragging && <SwipeLeftRight></SwipeLeftRight>}
+							<motion.div whileHover={{ scale: 1.05 }}>
 								<DragMeSection
+									dragElastic={0.2}
+									dragSnapToOrigin={true}
 									className="dragme"
+									onDrag={handleDrag}
+									// onDragEnd={handleDragEnd}
 									ref={divRef}
-									drag
+									drag="x"
+									style={{
+										x: x,
+										scale: scale,
+										cursor: 'grabbing',
+										color,
+										letterSpacing: GreetingLetterSpacing,
+									}}
 									dragControls={dragControls}
 									dragConstraints={{
-										bottom: 100,
-										top: 50,
-										right: 50,
-										left: 50,
+										top: -125,
+										right: 500,
+										bottom: 10,
+										left: -500,
 									}}
+									dragTransition={{ bounceStiffness: 600, bounceDamping: 15 }}
+									whileTap={{ scale: 0.9 }}
 								>
-									<div> drag me </div>
+									{/* <SwipeLeftRight
+									style={{ width: '30px', height: '30px' }}
+								></SwipeLeftRight> */}
+
 									<div>
 										{count == 0 && (
 											<BigHeading
@@ -180,22 +229,42 @@ const Hero = (props) => {
 											</BigHeading>
 										)}
 										{count == 3 && (
-											<BigHeading
-												variants={container}
-												initial="hidden"
-												animate="show"
-												style={{
-													fontFamily: 'Cairo',
-													fontWeight: 800,
-												}}
-											>
-												أهلاً
-											</BigHeading>
+											<div>
+												<BigHeading
+													variants={container}
+													initial="hidden"
+													animate="show"
+													style={{
+														fontFamily: 'Cairo',
+														fontWeight: 800,
+														GreetingLetterSpacing,
+													}}
+												>
+													أهلاً
+												</BigHeading>
+												{/* <span style={{ color: 'grey' }}> pronounced Ahlan</span> */}
+											</div>
+										)}
+										{count == 4 && (
+											<div>
+												<BigHeading
+													variants={container}
+													initial="hidden"
+													animate="show"
+													style={{
+														fontFamily: 'Poppins',
+														fontWeight: 800,
+													}}
+												>
+													Hoi
+												</BigHeading>
+												{/* <span style={{ color: 'grey' }}> pronounced Ahlan</span> */}
+											</div>
 										)}
 									</div>
 								</DragMeSection>
 							</motion.div>
-
+							{/* </motion.div> */}
 							<div
 								style={{
 									display: 'flex',

@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Section } from '../../styles/GlobalComponents';
-import { BigHeading, MedHeading, DragMeSection } from './HeroStyles';
+import { BigHeading, MedHeading, DragMeSection } from './PhoneHeroStyles';
 import { HighlightedText } from '../Hero/PhoneHeroStyles';
 import useBreakpoints from '../../hooks/useMediaQueryIndex';
 import { motion, useTransform, useScroll, useDragControls } from 'framer-motion';
@@ -41,7 +41,6 @@ function PhoneHero() {
 	useEffect(() => {
 		const handleTouch = (event) => {
 			setTouchPos({ x: event.clientX, y: event.clientY });
-			console.log('touched');
 			setCount(count + 1);
 		};
 		if (count === 4) {
@@ -109,9 +108,19 @@ function PhoneHero() {
 						className="dragme"
 						ref={divRef}
 						drag="y"
+						dragSnapToOrigin={true}
 						dragControls={dragControls}
-						dragConstraints={{ top: 50, bottom: 50 }}
+						// dragConstraints={{ top: 50, bottom: 50 }}
+
+						dragConstraints={{
+							top: -25,
+							// right: 125,
+							bottom: 70,
+							// left: -125,
+						}}
 						dragElastic={0.2}
+						dragTransition={{ bounceStiffness: 2000, bounceDamping: 10 }}
+						whileTap={{ cursor: 'grabbing' }}
 					>
 						<div style={{ color: '#fff' }}> swipe me </div>
 						<div>
