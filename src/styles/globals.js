@@ -11,7 +11,8 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     font-size: 62.5%;
-    scroll-behavior: smooth;
+ --scroll-behavior: smooth!important;
+scroll-behavior: smooth!important;
 
   }
   body {
@@ -26,11 +27,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.title};
   
   }
-  
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.secondaryHeading};
-    
   }
   .music-container {
     display: flex;

@@ -9,7 +9,7 @@ import { ThemeContext } from '../../pages/_app';
 import SwipeLeftRight from '../../elements/swipeLeftRight';
 
 const Hero = (props) => {
-	const { theme, toggleTheme } = useContext(ThemeContext);
+	const { theme } = useContext(ThemeContext);
 	//mouse position and count to set greeting index
 	const [mousePos, setMousePos] = useState({});
 	const [touchPos, setTouchPos] = useState({});
@@ -19,8 +19,6 @@ const Hero = (props) => {
 	const [count, setCount] = useState(0);
 
 	const { isSm, isMd, isLg, active } = useBreakpoints();
-
-	console.log(isSm, isMd, isLg, active);
 
 	//drag controls
 	const divRef = useRef(null);
@@ -42,22 +40,13 @@ const Hero = (props) => {
 					['#64ffda', '#64ffda', '#FC7273', '#ccd6f6', '#FC7273', '#64ffda', '#64ffda']
 			  )
 			: useTransform(x, [-350, 0, 350], ['#fff678', '#FD6723', '#FC7273']);
-	// : useTransform(x, [-350, 0, 350], ['#fff678', '#FD6723', '#FC7273']);
-	// const rotate = useTransform(x, [-150, 150], [-90, 90]);
 
 	const prevxCount = usePrevious(mousePos.x);
 	const prevyCount = usePrevious(mousePos.y);
 	const prevTouchxCount = usePrevious(touchPos.x);
 	const prevTouchyCount = usePrevious(touchPos.y);
 	const handleDrag = (event, info) => {
-		if (info) {
-			setIsDragging(true);
-		}
-	};
-	const handleDragEnd = (event, info) => {
-		if (info) {
-			setIsDragging(false);
-		}
+		setIsDragging(true);
 	};
 
 	useEffect(() => {
@@ -92,8 +81,6 @@ const Hero = (props) => {
 			window.removeEventListener('mousemove', handleMouseMove);
 		};
 	}, [prevxCount, count, prevTouchxCount]);
-
-	console.log(isDragging, 'dragging');
 
 	function usePrevious(value) {
 		const ref = useRef();
@@ -157,13 +144,13 @@ const Hero = (props) => {
 							{/* <motion.div style={{ scale: greetingScale }}> */}
 							<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
 							{!isDragging && <SwipeLeftRight></SwipeLeftRight>}
+
 							<motion.div whileHover={{ scale: 1.05 }}>
 								<DragMeSection
 									dragElastic={0.2}
 									dragSnapToOrigin={true}
 									className="dragme"
-									onDrag={handleDrag}
-									// onDragEnd={handleDragEnd}
+									onDragEnd={handleDrag}
 									ref={divRef}
 									drag="x"
 									style={{
@@ -183,10 +170,6 @@ const Hero = (props) => {
 									dragTransition={{ bounceStiffness: 600, bounceDamping: 15 }}
 									whileTap={{ scale: 0.9 }}
 								>
-									{/* <SwipeLeftRight
-									style={{ width: '30px', height: '30px' }}
-								></SwipeLeftRight> */}
-
 									<div>
 										{count == 0 && (
 											<BigHeading
