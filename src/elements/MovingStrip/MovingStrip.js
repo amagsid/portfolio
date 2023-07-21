@@ -18,7 +18,7 @@ function MovingStrip() {
 
 	//TODO: get starting and ending point to be based on real scroll
 
-	const StripBackgroundColor = useTransform(scrollYProgress, [0.6, 0.8], ['#a0d', '#64ffda']);
+	const StripBackgroundColor = useTransform(scrollYProgress, [0.6, 0.8], ['#0a192f', '#64ffda']);
 	const fontColor = useTransform(scrollYProgress, [0.6, 0.8], ['#ccd6f6', '#0a192f']);
 
 	//initiate animation when in view
