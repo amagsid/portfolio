@@ -19,7 +19,7 @@ module.exports = {
 		extend: {
 			screens: {
 				xs: '320px',
-				sm: '375px',
+				sm: '640px',
 				phonesm: '391px',
 				sml: '500px',
 				md: '667px',

@@ -20,15 +20,15 @@ const Home = () => {
 				transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
 			>
 				<Hero />
-
-				<MusicContainer className="pt-4" />
-
-				<Timeline />
-
-				<PastWork />
-				<Experience />
-				<Contact />
 			</motion.div>
+
+			<MusicContainer className="pt-4" />
+
+			<Timeline />
+
+			<PastWork />
+			<Experience />
+			<Contact />
 		</Layout>
 	);
 };

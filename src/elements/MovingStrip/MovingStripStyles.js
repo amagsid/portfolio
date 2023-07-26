@@ -7,16 +7,29 @@ export const Strip = styled(motion.div)`
 	text-overflow: clip;
 	overflow: hidden;
 	white-space: nowrap;
-	justify-content: center;
+	justify-content: space-between;
 	display: flex;
 `;
 
-export const Item = styled(motion.h3)`
+// export const Item = styled(motion.h3)`
+// 	line-height: 40px;
+
+// 	color: ${(props) => props.theme.colors.bgMain};
+// 	font-weight: 300;
+// 	letter-spacing: 3px;
+// 	padding-right: 2px;
+
+// 	// &:after {
+// 	// 	content: '•';
+// 	// 	padding-left: 2px;
+// 	// }
+// `;
+export const Item = styled(motion.span)`
 	line-height: 40px;
 
 	color: ${(props) => props.theme.colors.bgMain};
 	font-weight: 300;
-	letter-spacing: 3px;
+	letter-spacing: 4px;
 	padding-right: 2px;
 
 	// &:after {

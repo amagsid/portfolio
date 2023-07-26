@@ -10,6 +10,7 @@ export const BigHeading = styled(motion.h2)`
 	font-size: clamp(20rem, 30vw, 32rem);
 	line-height: 250px;
 	max-width: 100%;
+	text-align: center;
 	// color: ${(props) =>
 		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading};
 
@@ -33,9 +34,8 @@ export const MedHeading = styled(motion.h2)`
 	text-align: center;
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
 	animation-timing-function: linear;
-	// position: fixed;
 
-	color: ${(props) => props.theme.colors.heading};
+	color: ${(props) => props.theme.colors.secondaryHeading};
 	line-height: 95px;
 `;
 export const DragMeSection = styled(motion.div)`

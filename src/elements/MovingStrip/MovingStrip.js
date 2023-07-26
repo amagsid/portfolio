@@ -4,7 +4,7 @@ import { motion, useAnimation, useTransform, useScroll } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 let tech = [
-	'React •',
+	'React',
 	'Next.js •',
 	'Node •',
 	'TypeScript •',
@@ -18,8 +18,8 @@ function MovingStrip() {
 
 	//TODO: get starting and ending point to be based on real scroll
 
-	const StripBackgroundColor = useTransform(scrollYProgress, [0.6, 0.8], ['#0a192f', '#64ffda']);
-	const fontColor = useTransform(scrollYProgress, [0.6, 0.8], ['#ccd6f6', '#0a192f']);
+	const StripBackgroundColor = useTransform(scrollYProgress, [0.7, 0.8], ['#0a192f', '#64ffda']);
+	const fontColor = useTransform(scrollYProgress, [0.7, 0.8], ['#ccd6f6', '#64ffda']);
 
 	//initiate animation when in view
 	const controls = useAnimation();
@@ -66,9 +66,16 @@ function MovingStrip() {
 				type: 'spring',
 				stiffness: 100,
 				ease: [0.17, 0.67, 0.83, 0.67],
+				staggerChildren: 0.2,
+				delayChildren: 1.5,
 			},
 		},
-		hidden: { opacity: 0, scale: 0 },
+		hidden: { opacity: 0, scale: 1 },
+	};
+
+	const navItemAnimation = {
+		hidden: { y: -10, opacity: 0 },
+		visible: { y: 0, opacity: 1 },
 	};
 	const StripVariants = {
 		visible: {
@@ -91,18 +98,43 @@ function MovingStrip() {
 	}, [controls, inView]);
 	return (
 		<Strip
-			style={{ backgroundColor: StripBackgroundColor }}
 			ref={ref}
-			// ref={inputRef}
-			animate={controls}
+			// animate="visible"
 			initial="hidden"
-			variants={StripVariants}
+			variants={itemVariants}
+			// ref={ref}
+			animate={controls}
+			// initial="hidden"
+			// variants={StripVariants}
 		>
-			{tech.map((el) => {
+			<Item variants={navItemAnimation} style={{ color: fontColor }}>
+				REACT
+			</Item>
+			<Item variants={navItemAnimation} style={{ color: fontColor }}>
+				NEXT.js
+			</Item>
+			<Item variants={navItemAnimation} style={{ color: fontColor }}>
+				{' '}
+				NODE.js
+			</Item>
+			<Item variants={navItemAnimation} style={{ color: fontColor }}>
+				{' '}
+				TYPESCRIPT
+			</Item>
+			<Item variants={navItemAnimation} style={{ color: fontColor }}>
+				{' '}
+				ADOBEE CREATIVE SUITE
+			</Item>
+			<Item variants={navItemAnimation} style={{ color: fontColor }}>
+				{' '}
+				FIGMA
+			</Item>
+			{/* {tech.map((el) => {
 				return (
 					<Item
 						ref={ref}
-						animate={controls}
+						// animate={controls}
+						animate="visible"
 						initial="hidden"
 						variants={itemVariants}
 						style={{ paddingLeft: '10px', color: fontColor }}
@@ -110,7 +142,7 @@ function MovingStrip() {
 						{el}{' '}
 					</Item>
 				);
-			})}
+			})} */}
 		</Strip>
 	);
 }

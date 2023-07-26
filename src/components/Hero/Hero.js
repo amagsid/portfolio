@@ -39,7 +39,11 @@ const Hero = (props) => {
 					[-550, -150, -100, 0, 100, 150, 500],
 					['#64ffda', '#64ffda', '#FC7273', '#ccd6f6', '#FC7273', '#64ffda', '#64ffda']
 			  )
-			: useTransform(x, [-350, 0, 350], ['#fff678', '#FD6723', '#FC7273']);
+			: useTransform(
+					x,
+					[-550, -150, -100, 0, 100, 150, 500],
+					['#d7ec66', '#d7ec66', '#FC7273', '#342b5f', '#FC7273', '#d7ec66', '#d7ec66']
+			  );
 
 	const prevxCount = usePrevious(mousePos.x);
 	const prevyCount = usePrevious(mousePos.y);
@@ -73,7 +77,7 @@ const Hero = (props) => {
 		if (!isSm) {
 			divRef.current.addEventListener('mousemove', handleMouseMove);
 			window.addEventListener('drag', handleDrag);
-			window.addEventListener('mousemove', handleMouseMove);
+			// window.addEventListener('mousemove', handleMouseMove);
 		}
 
 		return () => {
@@ -109,11 +113,11 @@ const Hero = (props) => {
 	});
 
 	const greetingOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-	const greetingScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.4]);
+	const greetingScale = useTransform(scrollYProgress, [0.3, 0.7], [1, 0.5]);
 	const nameOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0]);
-	const nameScale = useTransform(scrollYProgress, [0, 0.8], [1, 2.9]);
+	const nameScale = useTransform(scrollYProgress, [0.0, 0.1], [1, 1.4]);
 
-	const letterSpacing = useTransform(scrollYProgress, [0, 0.5], ['-5px', '30px']);
+	const letterSpacing = useTransform(scrollYProgress, [0, 0.4], ['-5px', '30px']);
 
 	const myNameIsYposition = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
@@ -127,6 +131,7 @@ const Hero = (props) => {
 					<motion.div
 						style={{
 							opacity: greetingOpacity,
+							// scale: greetingScale,
 						}}
 					>
 						<Section
@@ -137,40 +142,43 @@ const Hero = (props) => {
 								display: 'flex',
 								justifyContent: 'center',
 								alignItems: 'center',
-								overflow: 'visible',
 								position: 'relative',
 							}}
 						>
-							{/* <motion.div style={{ scale: greetingScale }}> */}
-							<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
-							{!isDragging && <SwipeLeftRight></SwipeLeftRight>}
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									position: 'fixed',
+								}}
+							>
+								{/* <motion.div style={{ scale: greetingScale }}> */}
+								<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
+								{!isDragging && <SwipeLeftRight></SwipeLeftRight>}
 
-							<motion.div whileHover={{ scale: 1.05 }}>
-								<DragMeSection
-									dragElastic={0.2}
-									dragSnapToOrigin={true}
-									className="dragme"
-									onDragEnd={handleDrag}
-									ref={divRef}
-									drag="x"
-									style={{
-										x: x,
-										scale: scale,
-										cursor: 'grabbing',
-										color,
-										letterSpacing: GreetingLetterSpacing,
-									}}
-									dragControls={dragControls}
-									dragConstraints={{
-										top: -125,
-										right: 500,
-										bottom: 10,
-										left: -500,
-									}}
-									dragTransition={{ bounceStiffness: 600, bounceDamping: 15 }}
-									whileTap={{ scale: 0.9 }}
-								>
-									<div>
+								<motion.div whileHover={{ scale: 1.05 }}>
+									<DragMeSection
+										dragElastic={0.2}
+										dragSnapToOrigin={true}
+										className="dragme"
+										onDragEnd={handleDrag}
+										ref={divRef}
+										drag="x"
+										style={{
+											x: x,
+											scale: greetingScale,
+											cursor: 'grabbing',
+											color,
+											letterSpacing: GreetingLetterSpacing,
+										}}
+										dragControls={dragControls}
+										dragConstraints={{
+											right: 500,
+											left: -500,
+										}}
+										dragTransition={{ bounceStiffness: 600, bounceDamping: 15 }}
+										whileTap={{ scale: 0.9 }}
+									>
 										{count == 0 && (
 											<BigHeading
 												variants={container}
@@ -244,31 +252,32 @@ const Hero = (props) => {
 												{/* <span style={{ color: 'grey' }}> pronounced Ahlan</span> */}
 											</div>
 										)}
-									</div>
-								</DragMeSection>
-							</motion.div>
-							{/* </motion.div> */}
-							<div
-								style={{
-									display: 'flex',
-									flexDirection: 'column',
-									position: 'sticky',
-								}}
-							>
-								<HighlightedText main style={{ translateY: myNameIsYposition }}>
-									my name is
-								</HighlightedText>
-								<MedHeading
+									</DragMeSection>
+								</motion.div>
+								{/* </motion.div> */}
+								<div
 									style={{
-										letterSpacing,
-										scale: nameScale,
-										position: 'relative',
-										color: titleColor,
-										opacity: nameOpacity,
+										display: 'flex',
+										flexDirection: 'column',
+
+										// position: 'fixed',
+										// transform: ' translate(-50%, 50%)',
 									}}
 								>
-									Ahmad Magdy
-								</MedHeading>
+									<HighlightedText main style={{ translateY: myNameIsYposition }}>
+										my name is
+									</HighlightedText>
+									<MedHeading
+										style={{
+											letterSpacing,
+											scale: nameScale,
+											// position: 'relative',
+											// opacity: nameOpacity,
+										}}
+									>
+										Ahmad Magdy
+									</MedHeading>
+								</div>
 							</div>
 						</Section>
 					</motion.div>

@@ -19,7 +19,7 @@ export const Item = styled(motion.h3)`
 	display: inline;
 	font-size: ${(props) => (props.emailSent ? '1.5rem' : '3rem')};
 	color: ${(props) =>
-		props.emailSent ? props.theme.colors.colorPop : props.theme.colors.heading};
+		props.emailSent ? props.theme.colors.colorPop : props.theme.colors.secondaryHeading};
 	font-weight: ${(props) => (props.emailSent ? '500' : '300')};
 	letter-spacing: ${(props) => (props.emailSent ? '5px' : '7px')};
 

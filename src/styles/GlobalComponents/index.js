@@ -5,7 +5,7 @@ export const Section = styled.section`
 	display: ${(props) => (props.grid ? 'grid' : 'flex')};
 	flex-direction: ${(props) => (props.row ? 'row' : 'column')};
 	padding: ${(props) => (props.nopadding ? '0' : '0px 160px 0')};
-	margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
+	// margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
 	height: 100%;
 	align-items: ${(props) => (props.center ? 'center' : props.end ? 'flex-end' : 'unset')};
 	box-sizing: border-box;
@@ -19,9 +19,9 @@ export const Section = styled.section`
 		flex-direction: column;
 	}
 
-	@media ${(props) => props.theme.breakpoints.sm} {
+	 @media ${(props) => props.theme.breakpoints.sm} {
 		padding: 0px;
-		// width: calc(100vw - 32px);
+		margin:0px;
 		flex-direction: column;
 	}
 `;
@@ -107,11 +107,18 @@ export const Number = styled.span`
 `;
 
 export const SectionText = styled.p`
-	max-width: 70%;
 	font-size: clamp(2rem, 2.5vw, 1rem);
-	line-height: 1.5em;
+	line-height: 2.3em;
+	text-align: justify;
+
 	font-weight: 300;
 	color: ${(props) => props.theme.colors.paragraphHeading};
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 100%;
+	}
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		max-width: 670px;
@@ -121,8 +128,10 @@ export const SectionText = styled.p`
 
 	@media ${(props) => props.theme.breakpoints.sm} {
 		font-size: 16px;
-		line-height: 24px;
+		line-height: 34px;
 		padding-bottom: 16px;
+		text-align: left;
+		padding: 0 3em 0 3em;
 	}
 `;
 

@@ -15,15 +15,12 @@ export default {
 		bgMain: '#0a192f',
 		links: '#64ffda', //links and nav numbers
 		colorPop: '#64ffda', //links and nav numbers
-		heading: '#ccd6f6',
-		secondaryHeading: '#8892b0',
+		secondaryHeading: '#ccd6f6',
 		paragraphHeading: '#8892b0',
 		buttonText: '#0a192f',
-
-		paleGreen: '#b0ddd2',
 		inputField: '#233044',
 
-		slate: '#8892b0', //secondary title
+		paleGreen: '#b0ddd2',
 		lightestSlate: '#ccd6f6', //main title
 
 		// accent1: 'hsl(34.9,98.6%,72.9%)',
@@ -32,7 +29,7 @@ export default {
 	},
 	// Breakpoints for responsive design
 	breakpoints: {
-		xs: 'screen and (max-width: 375px)',
+		// xs: 'screen and (max-width: 375px)',
 		sm: 'screen and (max-width: 640px)',
 		md: 'screen and (max-width: 768px)',
 		lg: 'screen and (max-width: 1024px)',

@@ -33,15 +33,13 @@ function Header() {
 	};
 
 	return (
-		<Container>
+		<Container className="sticky top-0 left-0 right-0">
 			<LogoContainer>
 				<motion.h4
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 2 }}
-					style={{ color: '#d25276' }}
 				>
-					{' '}
 					handwritten signature goes here{' '}
 				</motion.h4>
 			</LogoContainer>

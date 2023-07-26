@@ -98,11 +98,10 @@ function swipeLeftRight() {
 			fill={fill}
 			style={{
 				position: 'absolute',
-				verticalAlign: 'middle',
+				// verticalAlign: 'middle',
 				width: '4em',
-				height: '3.5m',
+				height: '3.5em',
 				top: '18%',
-				left: '20%',
 			}}
 			viewBox="0 0 1024 1024"
 			xmlns="http://www.w3.org/2000/svg"

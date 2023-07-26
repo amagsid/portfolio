@@ -36,24 +36,24 @@ const HoveringBanner = (props) => {
 			>
 				{props.position == 'left' && <SocialIcons />}
 				{props.position == 'right' && (
-					<a href="https://www.w3schools.com" target="_blank">
-						<motion.h5
-							variants={containerAnimation}
-							initial="hidden"
-							animate="show"
-							whileHover={{
-								scale: 1.09,
-								originY: 1,
-								letterSpacing: '8px',
-								color: theme == 'dark' ? '#64ffda' : '#d25276',
-							}}
-							transition={{
-								type: 'spring',
-								stiffness: 400,
-								duration: 0.2,
-							}}
-							className="email-link"
-						>
+					<motion.h5
+						variants={containerAnimation}
+						initial="hidden"
+						animate="show"
+						whileHover={{
+							scale: 1.09,
+							originY: 1,
+							letterSpacing: '8px',
+							color: theme == 'dark' ? '#64ffda' : '#d25276',
+						}}
+						transition={{
+							type: 'spring',
+							stiffness: 400,
+							duration: 0.2,
+						}}
+						className="email-link"
+					>
+						<a href="https://www.w3schools.com" target="_blank">
 							<motion.span variants={ItemAnimation}>a</motion.span>
 							<motion.span variants={ItemAnimation}>m</motion.span>
 							<motion.span variants={ItemAnimation}>a</motion.span>
@@ -71,8 +71,8 @@ const HoveringBanner = (props) => {
 							<motion.span variants={ItemAnimation}>c</motion.span>
 							<motion.span variants={ItemAnimation}>o</motion.span>
 							<motion.span variants={ItemAnimation}>m</motion.span>
-						</motion.h5>
-					</a>
+						</a>
+					</motion.h5>
 				)}
 			</div>
 			<Line> </Line>

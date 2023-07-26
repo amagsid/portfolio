@@ -5,6 +5,7 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
 	padding: 2rem 5rem;
+	z-index: 100;
 
 	// @media ${(props) => props.theme.breakpoints.sm} {
 	// 	display: grid;
@@ -37,6 +38,7 @@ export const NavLink = styled.a`
 `;
 
 export const LogoContainer = styled.div`
+color: ${(props) => props.theme.colors.colorPop};
 	display: flex;
 	flex: 1;
 	flex-direction: row;
@@ -104,10 +106,11 @@ export const NavProductsIcon = styled(IoIosArrowDropdown)`
 export const ResumeButton = styled.button`
 	color: ${(props) => props.theme.colors.colorPop};
 	border: solid 1px;
+	backgroundcolor: ${(props) => props.theme.colors.colorPop};
 	&:hover {
 		background-color: ${(props) => props.theme.colors.colorPop}50;
 		text-shadow: 2px 2px 20px ${(props) => props.theme.colors.colorPop};
-		// color: white;
+		color: ${(props) => props.theme.colors.buttonHoverColor};
 		// -khtml-opacity: 0.5;
 		// -moz-opacity: 0.5;
 		// -ms-filter: ”alpha(opacity=50) ”;

@@ -11,7 +11,7 @@ import {
 	useMotionValue,
 	useMotionTemplate,
 } from 'framer-motion';
-import { Container } from './LayoutStyles';
+import { Container, StatusBar } from './LayoutStyles';
 
 export const Layout = ({ children }) => {
 	const { scrollYProgress } = useScroll();
@@ -32,20 +32,13 @@ export const Layout = ({ children }) => {
 
 	return (
 		<motion.div>
+			<StatusBar
+				style={{
+					scaleX: scrollYProgress,
+				}}
+			/>
 			<Container>
 				<>
-					<motion.div
-						style={{
-							position: '-webkit-sticky' /* Safari */,
-							position: 'fixed',
-							zIndex: 100,
-							top: 0,
-							height: '7px',
-							width: '100%',
-							backgroundColor: '#64ffda',
-							scaleX: scrollYProgress,
-						}}
-					/>
 					<Header />
 					<main>{children}</main>
 					<div className="hidden lg:inline md:inline ">

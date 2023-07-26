@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 export const SkillsList = styled.ul`
 	display: grid;
@@ -26,5 +27,21 @@ export const SkillsListItem = styled.li`
 		color: ${(props) => props.theme.colors.indexNumbers};
 		font-size: 15px;
 		font-weight: 100;
+	}
+`;
+
+export const StyledImage = styled(Image)`
+	color: #fff;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0, 255, 255, 0.5);
+		transition: all 0.3s linear;
 	}
 `;

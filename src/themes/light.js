@@ -7,21 +7,21 @@ export default {
 	},
 	// Colors for layout
 	colors: {
-		navItems: '#0a192f',
+		navItems: '#342b5f',
 		horizontlLine: '#d25276',
-		bgMain: '#fffcf6',
+		// bgMain: '#fffcf6',
+		bgMain: '#fff',
 		links: '#d25276', //links and nav numbers
+		// colorPop: '#5c4ca3', //links and nav numbers
+		// colorPop: '#d7ec66', //links and nav numbers
+		buttonHoverColor: '#d7ec66',
 		colorPop: '#d25276', //links and nav numbers
-		heading: '#40659a',
-		secondaryHeading: '#e77878',
+		secondaryHeading: '#5c4ca3',
 		paragraphHeading: '#e77878',
 		buttonText: '#0a192f',
 		inputField: '#f2f2f2',
 
-		// slate: '#30568e',
-
 		paleGreen: '#b0ddd2',
-
 		lightestSlate: '#30568e',
 
 		// accent1: 'hsl(34.9,98.6%,72.9%)',
