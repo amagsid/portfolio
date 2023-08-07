@@ -21,7 +21,7 @@ const AboutMe = () => {
 	const ImageScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.7]);
 	const ImagePos = useTransform(scrollYProgress, [0, 0.3, 1], ['0%', '0%', '-10%']);
 	return (
-		<Section id="about">
+		<Section background id="about">
 			<MovingSectionTitle sectionTitle="MORE ABOUT ME"></MovingSectionTitle>
 			{/* <MobileSection style={{ height: '80%' }}> */}
 

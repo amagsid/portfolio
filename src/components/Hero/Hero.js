@@ -42,7 +42,16 @@ const Hero = (props) => {
 			: useTransform(
 					x,
 					[-550, -150, -100, 0, 100, 150, 500],
-					['#d7ec66', '#d7ec66', '#FC7273', '#342b5f', '#FC7273', '#d7ec66', '#d7ec66']
+					[
+						'#d7ec66',
+						'#d7ec66',
+						'#FC7273',
+						// '#1e1b4b'
+						'#2C1438',
+						'#FC7273',
+						'#d7ec66',
+						'#d7ec66',
+					]
 			  );
 
 	const prevxCount = usePrevious(mousePos.x);

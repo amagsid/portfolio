@@ -35,7 +35,7 @@ export const MedHeading = styled(motion.h2)`
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
 	animation-timing-function: linear;
 
-	color: ${(props) => props.theme.colors.secondaryHeading};
+	color: ${(props) => props.theme.colors.nameHeading};
 	line-height: 95px;
 `;
 export const DragMeSection = styled(motion.div)`

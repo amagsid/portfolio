@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const ExperienceListItem = styled.li`
-	padding: 2em;
 	color: ${(props) => props.theme.colors.secondaryHeading};
-	border-left: 2.5px solid ${(props) => props.theme.colors.colorPop};
-	letter-spacing: 2px;
+	// border-left: 2.5px solid ${(props) => props.theme.colors.colorPop};
+	font-weight: 100;
+	padding-left: 10px;
+	// text-align: center;
 	// @media ${(props) => props.theme.breakpoints.lg} {
 	// 	background-image: none;
 	// 	padding: 0;

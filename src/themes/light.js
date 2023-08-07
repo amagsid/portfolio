@@ -16,7 +16,9 @@ export default {
 		// colorPop: '#d7ec66', //links and nav numbers
 		buttonHoverColor: '#d7ec66',
 		colorPop: '#d25276', //links and nav numbers
+		colorPop: '#d25276', //links and nav numbers
 		secondaryHeading: '#5c4ca3',
+		nameHeading: '#492E55',
 		paragraphHeading: '#e77878',
 		buttonText: '#0a192f',
 		inputField: '#f2f2f2',

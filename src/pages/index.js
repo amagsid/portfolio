@@ -4,7 +4,7 @@ import Acomplishments from '../components/Acomplishments/Acomplishments';
 import Hero from '../components/Hero/Hero';
 import PastWork from '../components/PastWork/PastWork';
 import Experience from '../components/Experience/Experience';
-import Timeline from '../components/AboutMe/AboutMe';
+import AboutMe from '../components/AboutMe/AboutMe';
 import { Layout } from '../layout/Layout';
 import { Section } from '../styles/GlobalComponents';
 import { motion } from 'framer-motion';
@@ -22,9 +22,9 @@ const Home = () => {
 				<Hero />
 			</motion.div>
 
-			<MusicContainer className="pt-4" />
+			{/* <MusicContainer className="pt-4" /> */}
 
-			<Timeline />
+			<AboutMe />
 
 			<PastWork />
 			<Experience />

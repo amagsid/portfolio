@@ -5,6 +5,7 @@ export const Section = styled.section`
 	display: ${(props) => (props.grid ? 'grid' : 'flex')};
 	flex-direction: ${(props) => (props.row ? 'row' : 'column')};
 	padding: ${(props) => (props.nopadding ? '0' : '0px 160px 0')};
+	background-color: ${(props) => props.background && props.theme.colors.bgMain};
 	// margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
 	height: 100%;
 	align-items: ${(props) => (props.center ? 'center' : props.end ? 'flex-end' : 'unset')};
@@ -36,13 +37,13 @@ export const HighlightedText = styled(motion.h1)`
 	font-size: ${(props) => (props.main ? 'clamp(1rem,2vw,2.5rem);' : 'clamp(1rem, 1.5vw, 2rem)')};
 	font-family: ${(props) => props.theme.fonts.mono};
 	text-align: center;
-	letter-spacing: 27.5px;
+	letter-spacing: 37.5px;
 
 	position:relative;
 
 	margin:  ${(props) => (props.main ? ' 0 auto' : 'unset')}; 
 	text-align:  (props.main ? 'left' : 'unset')};
-	font-weight: 500;
+	font-weight: 900;
 	word-spacing: 5px;
 	color: ${(props) => props.theme.colors.colorPop};
 
