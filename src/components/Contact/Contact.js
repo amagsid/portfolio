@@ -7,6 +7,7 @@ import { Section, SectionText } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 import { Form, Container, Col, Row } from 'react-bootstrap';
 import { Input, CharAlert, CharCount, Placeholder } from './ContactStyles';
+import { ResumeButton } from '../Header/HeaderStyles';
 import Button from '../../elements/SendButton/Button';
 import Confetti from '../../elements/confetti/confetti';
 
@@ -109,13 +110,25 @@ function Contact() {
 								as="textarea"
 								rows={3}
 								required={true}
-							/>
-							{/* charachter count */}
+							>
+								{' '}
+								{/* charachter count */}
+							</Input>
+
 							<CharAlert className="message-chars-left">
 								<CharCount>{messageCharsLeft} </CharCount> characeters left
 							</CharAlert>
+							<div style={{ display: 'flex' }}>
+								{/* <Button /> */}
 
-							<Button />
+								<ResumeButton
+									className="px-20 py-3 rounded-md text-[20px]"
+									style={{ fontWeight: 200, letterSpacing: '1px' }}
+								>
+									{' '}
+									Send
+								</ResumeButton>
+							</div>
 						</Form.Group>
 					</Row>
 				</Form>

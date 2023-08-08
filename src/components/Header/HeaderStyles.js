@@ -2,10 +2,13 @@ import { IoIosArrowDropdown } from 'react-icons/io';
 import styled from 'styled-components';
 
 export const Container = styled.div`
+	font-family: ${(props) => props.theme.fonts.Nav};
+	letter-spacing: 2px;
 	display: flex;
+	font-weight: 300;
 	justify-content: space-between;
-	padding: 2rem 5rem;
-	z-index: 100;
+	padding: 2rem 5rem 0.5rem 5rem;
+	z-index: 10;
 
 	// @media ${(props) => props.theme.breakpoints.sm} {
 	// 	display: grid;
@@ -23,14 +26,17 @@ export const Span = styled.span`
 // Navigation Links
 export const NavLink = styled.a`
 	font-size: 1.5rem;
-	font-weight: 300;
+
 	line-height: 32px;
+	transition: all 0.3s ease-in-out;
 	color: ${(props) => props.theme.colors.navItems};
-	transition: 0.4s ease;
+	transition: 0.3s ease-in-out;
 	&:hover {
 		color: #fff;
 		opacity: 1;
+		font-weight: 300;
 		cursor: pointer;
+		text-shadow: ${(props) => props.theme.colors.colorPop} 1px 0 10px;
 	}
 	@media ${(props) => props.theme.breakpoints.sm} {
 		padding: 0.5rem;
@@ -48,7 +54,7 @@ color: ${(props) => props.theme.colors.colorPop};
 	}
 `;
 export const NavLinksContainer = styled.div`
-	font-family: ${(props) => props.theme.fonts.mono};
+	
 	display: flex;
 	align-items: center;
 	flex: 2;

@@ -38,7 +38,7 @@ const AboutMe = () => {
 					</SectionText>
 					<SectionText>
 						As part of the creative automation team{' '}
-						<a href="https://www.ambassadors.com/" target="_blank">
+						<a href="https://www.ambassadors.com/solutions/cube" target="_blank">
 							Cube
 						</a>
 						, I build custom web UIs that serve as the building blocks for clients to

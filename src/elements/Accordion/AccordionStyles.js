@@ -8,16 +8,26 @@ export const Header = styled(motion.header)`
 	// justify-content: center;
 	padding-left: 0.8em;
 `;
-export const Section = styled(motion.section)``;
+export const Section = styled(motion.section)`
+	overflow: visible;
+`;
 export const AccordionContainer = styled(motion.div)`
 	margin: 0 auto;
 	width: 60%;
 `;
 export const ExperienceText = styled(motion.p)`
-	text-align: center;
 	color: ${(props) => props.theme.colors.paragraphHeading};
 `;
 export const ExperienceName = styled(motion.h3)`
 	color: ${(props) => props.theme.colors.paragraphHeading};
 `;
-// export const Arrow = styled.FiChevronRight``;
+export const BulletPoint = styled(motion.h4)`
+	color: ${(props) => props.theme.colors.paragraphHeading};
+	font-weight: 300;
+	padding-bottom: 1rem;
+`;
+export const Years = styled(motion.span)`
+	color: ${(props) => props.theme.colors.paragraphHeading};
+	font-size: 1.2rem;
+	padding-left: 1.5rem;
+`;

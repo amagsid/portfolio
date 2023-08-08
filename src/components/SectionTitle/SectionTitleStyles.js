@@ -7,7 +7,7 @@ export const SectionTitle = styled(motion.div)`
 	text-overflow: clip;
 	overflow: hidden;
 	white-space: nowrap;
-	z-index: 90;
+	// z-index: 90;
 
 	//small mobile
 	@media ${(props) => props.theme.breakpoints.sm} {

@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ContentPlaceholder } from './ContentPlaceholder';
 import { FiChevronRight } from 'react-icons/fi';
 import { FiChevronDown } from 'react-icons/fi';
-import { IoIosClose } from 'react-icons/io';
+import { IoCloseSharp } from 'react-icons/io5';
 
 import {
 	Header,
@@ -12,11 +11,12 @@ import {
 	AccordionContainer,
 	ExperienceText,
 	ExperienceName,
+	BulletPoint,
+	Years,
 } from './AccordionStyles';
 
 const Accordion = ({ i, expanded, setExpanded }) => {
 	const isOpen = i === expanded;
-	console.log(i);
 
 	// By using `AnimatePresence` to mount and unmount the contents, we can animate
 	// them in and out while also only rendering the contents of open accordions
@@ -28,12 +28,25 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 				onClick={() => setExpanded(isOpen ? false : i)}
 			>
 				{isOpen ? (
-					<IoIosClose style={{ color: '#8892b0' }} />
+					<motion.div
+						animate={{ rotate: 360, scale: [1, 2, 1] }}
+						transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
+					>
+						<IoCloseSharp style={{ color: isOpen ? '#233044' : '#8892b0' }} />{' '}
+					</motion.div>
 				) : (
-					<FiChevronRight style={{ color: '#8892b0' }} />
+					<motion.div>
+						{' '}
+						<FiChevronRight
+							animate={{ rotate: 360 }}
+							transition={{ duration: 0.4, type: 'spring', stiffness: 200 }}
+							style={{ color: '#8892b0' }}
+						/>{' '}
+					</motion.div>
 				)}
 
-				<ExperienceName className="company"> {i.company}</ExperienceName>
+				<ExperienceName style={{ color: isOpen && '#233044' }}> {i.company}</ExperienceName>
+				<Years style={{ color: isOpen && '#233044' }}> {i.years} </Years>
 			</Header>
 			<AnimatePresence initial={false}>
 				{isOpen && (
@@ -50,7 +63,34 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 					>
 						{/* <ContentPlaceholder /> */}
 
-						<ExperienceText> {i.text}</ExperienceText>
+						<motion.div
+							variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
+							transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
+						>
+							<ExperienceText style={{ paddingBottom: '1rem' }}>
+								{' '}
+								{i.text}
+							</ExperienceText>
+							{i.bulletPoints.map((point) => {
+								return (
+									<div style={{ display: 'flex' }}>
+										<motion.div>
+											{' '}
+											<FiChevronRight
+												animate={{ rotate: 360 }}
+												transition={{
+													duration: 0.4,
+													type: 'spring',
+													stiffness: 200,
+												}}
+												style={{ color: '#64ffda' }}
+											/>{' '}
+										</motion.div>
+										<BulletPoint> {point}</BulletPoint>
+									</div>
+								);
+							})}
+						</motion.div>
 					</Section>
 				)}
 			</AnimatePresence>
@@ -77,18 +117,39 @@ export const Example = () => {
 const experience = [
 	{
 		company: ' Ambassadors',
-		years: '2021 - current',
-		text: 'Ambassadors is my',
+		role: 'Front-end Developer',
+		years: 'Nov 2021 - current',
+		text: 'As part of the creative automation team Cube Compose™, I build scalable web-based UI templates that help brands automate, create, manage, distribute and scale up their marketing material smarter and more effeciently.',
+		bulletPoints: [
+			`Working on Cube's dynamic templating system Compose™, I build custom web templates using HTML5, CSS3+, ES6/ES2015 and React.`,
+			`Wireframing web templates using Figma, Sketch and Photoshop with UX
+and user friendliness in mind`,
+			`Testing throughout the development phase and taking part in the QC
+process to make sure templates scale up according to client’s needs.`,
+		],
 	},
 	{
 		company: ' HackYourFuture',
 		years: '2020 - 2021',
-		text: 'During HYF...',
+		text: 'Pursuing my dream of becoming a programmer, I pursued a 10 month full stack development study programme with modules on HTML, CSS, JavaScript, NodeJS, ExpressJS, MySQL and React.js. ',
+		bulletPoints: [
+			`I was selected as one of 12 people for the 2020 class, from among 200+ applicants based on a selection process and an assignment test`,
+			`The programme consisted of 2 semesters each with multiple modules, covering both front-end and back-end technologies, with graduation tests for both`,
+			`After graduating, the programme helps graduate land internshios with a prospect of it turning into a job after 6 months, I was the only graduate to land a job as a front-end developer`,
+		],
 	},
 	,
 	{
 		company: ' Project V',
+		role: 'UX Designer',
 		years: '2014 - 2020',
-		text: 'During HYF...',
+		text: 'Co-founded a creative agency that started as an effort top venture into the creative field, shifting from my porevious career. During this role as a UX designer, my passion for programming became so clear and undeniable that I believe it served as the seed for pusuing my programming study as HackYourFuture',
+		bulletPoints: [
+			`Managing client proposals from typesetting through to design,
+print and production.`,
+			`Developing and maintaining design wireframes and specifications.`,
+			`Working with creative directors to incorporate a visual or brand
+identity into the finished product.`,
+		],
 	},
 ];

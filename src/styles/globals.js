@@ -129,11 +129,14 @@ color: ${(props) => props.theme.colors.secondaryHeading};
     
   }
 
+
+  
+
 //links after paragraphs
   p > a {
     position: relative;
     text-decoration: none;
-    font-weight: 400;
+ 
     color: ${(props) => props.theme.colors.links};
     transition: all .05s ease;
 
@@ -226,10 +229,10 @@ color: ${(props) => props.theme.colors.secondaryHeading};
   cursor: pointer;
 }
 
-.content-placeholder {
-  padding: 20px;
-  transform-origin: top center;
-}
+// .content-placeholder {
+//   padding: 20px;
+//   transform-origin: top center;
+// }
 
 header {
   background: #0055ff;
@@ -240,43 +243,43 @@ header {
   margin-bottom: 20px;
 }
 
-.word {
-  height: 18px;
-  border-radius: 10px;
-  display: inline-block;
-  margin-bottom: 8px;
-  margin-right: 8px;
-  background: #0055ff;
-  border-radius: 10px;
-  display: inline-block;
-}
+// .word {
+//   height: 18px;
+//   border-radius: 10px;
+//   display: inline-block;
+//   margin-bottom: 8px;
+//   margin-right: 8px;
+//   background: #0055ff;
+//   border-radius: 10px;
+//   display: inline-block;
+// }
 
-.paragraph {
-  margin-bottom: 20px;
-}
+// .paragraph {
+//   margin-bottom: 20px;
+// }
 
-section {
-  overflow: hidden;
-}
+// section {
+//   overflow: hidden;
+// }
 
-@media (max-width: 600px) {
-  .content-placeholder {
-    padding-left: 20px;
-  }
+// @media (max-width: 600px) {
+//   .content-placeholder {
+//     padding-left: 20px;
+//   }
 
-  .header .word {
-    height: 30px;
-  }
+  // .header .word {
+  //   height: 30px;
+  // }
 
-  .word {
-    height: 14px;
-    margin-bottom: 5px;
-    margin-right: 5px;
-  }
+  // .word {
+  //   height: 14px;
+  //   margin-bottom: 5px;
+  //   margin-right: 5px;
+  // }
 
-  .paragraph {
-    margin-bottom: 20px;
-  }
+  // .paragraph {
+  //   margin-bottom: 20px;
+  // }
 
 
   @media only screen and (max-width: 400px) {
@@ -290,6 +293,16 @@ section {
       padding-right: 2px;
     }
     }
+
+
+    .nav-animation {
+   background-color: #fff;
+    background-color: rgba(10,25,47,0.3);
+  backdrop-filter: blur(20px);
+
+    }
+
+
 `;
 
 export default GlobalStyles;

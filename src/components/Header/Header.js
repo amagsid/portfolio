@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
-import { motion } from 'framer-motion';
+import { calcLength, motion } from 'framer-motion';
 
 import {
 	Container,
@@ -16,6 +16,7 @@ import {
 import { Number } from '../../styles/GlobalComponents/index';
 
 function Header() {
+	const [isNavScrolled, setNavScrolled] = useState(false);
 	const navContainerAnimation = {
 		hidden: { opacity: 0 },
 		show: {
@@ -27,13 +28,32 @@ function Header() {
 		},
 	};
 
+	console.log(isNavScrolled);
 	const navItemAnimation = {
 		hidden: { y: -10, opacity: 0 },
 		show: { y: 0, opacity: 1 },
 	};
 
+	window.onscroll = () => {
+		scrollNavbar();
+	};
+
+	const scrollNavbar = () => {
+		let navBar = document.querySelector('.nav');
+		if (document.documentElement.scrollTop > 50) {
+			console.log('scrolled 100');
+			navBar.classList.add('nav-animation');
+			setNavScrolled(true);
+		}
+		if (document.documentElement.scrollTop < 50) {
+			console.log('scrolled back from 100');
+			navBar.classList.remove('nav-animation');
+			setNavScrolled(false);
+		}
+	};
+
 	return (
-		<Container className="sticky top-0 left-0 right-0">
+		<Container className="sticky top-0 left-0 right-0 nav">
 			<LogoContainer>
 				<motion.h4
 					initial={{ opacity: 0 }}
@@ -44,63 +64,63 @@ function Header() {
 				</motion.h4>
 			</LogoContainer>
 			<div className="hidden mdl:inline-flex items-center gap-7">
-				<NavLinksContainer>
-					<motion.ul
-						style={{ display: 'flex', alignItems: 'center' }}
-						variants={navContainerAnimation}
-						initial="hidden"
-						animate="show"
+				{/* <NavLinksContainer> */}
+				<motion.ul
+					style={{ display: 'flex', alignItems: 'center' }}
+					variants={navContainerAnimation}
+					initial="hidden"
+					animate="show"
+				>
+					<li
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignnavItemAnimations: 'center',
+							flexDirection: 'row',
+						}}
 					>
-						<li
-							style={{
-								display: 'flex',
-								justifyContent: 'center',
-								alignnavItemAnimations: 'center',
-								flexDirection: 'row',
-							}}
-						>
-							 <ThemeSwitch />
-						</li>
-						<motion.li variants={navItemAnimation}>
-							<Link href="#about">
-								<NavLink>
-									{/* <Number>01. </Number> */}
-									About
-								</NavLink>
-							</Link>
-						</motion.li>
-						<motion.li variants={navItemAnimation}>
-							<Link href="#pastwork">
-								<NavLink>Clients</NavLink>
-							</Link>
-						</motion.li>
-						<motion.li variants={navItemAnimation}>
-							<Link href="#experience">
-								<NavLink>Experience</NavLink>
-							</Link>
-						</motion.li>
-						<motion.li variants={navItemAnimation}>
-							<Link href="#contact">
-								<NavLink>Contact</NavLink>
-							</Link>
-						</motion.li>
-						<motion.li variants={navItemAnimation}>
-							{' '}
+						 <ThemeSwitch />
+					</li>
+					<motion.li variants={navItemAnimation}>
+						<Link href="#about">
 							<NavLink>
-								{' '}
-								<a href="/Ahmad_Resume.pdf" target="_blank">
-									{' '}
-									<ResumeButton className="px-4 py-2 rounded-md text-[13px]">
-										{' '}
-										Resume{' '}
-									</ResumeButton>{' '}
-								</a>
+								{/* <Number>01. </Number> */}
+								About
 							</NavLink>
-						</motion.li>
+						</Link>
+					</motion.li>
+					<motion.li variants={navItemAnimation}>
+						<Link href="#pastwork">
+							<NavLink>Clients</NavLink>
+						</Link>
+					</motion.li>
+					<motion.li variants={navItemAnimation}>
+						<Link href="#experience">
+							<NavLink>Experience</NavLink>
+						</Link>
+					</motion.li>
+					<motion.li variants={navItemAnimation}>
+						<Link href="#contact">
+							<NavLink>Contact</NavLink>
+						</Link>
+					</motion.li>
+					<motion.li variants={navItemAnimation}>
+						{' '}
+						<NavLink>
+							{' '}
+							<a href="/Ahmad_Resume.pdf" target="_blank">
+								{' '}
+								<ResumeButton className="px-4 py-2 rounded-md text-[13px]">
+									{' '}
+									Resume{' '}
+								</ResumeButton>{' '}
+							</a>
+						</NavLink>
+					</motion.li>
 
-						{/* </motion.li> */}
-					</motion.ul>
-				</NavLinksContainer>
+					{/* </motion.li> */}
+				</motion.ul>
+				{/* </NavLinksContainer> */}
 			</div>
 			{/* burger menu button */}
 			{/* <motion.li> */}{' '}
