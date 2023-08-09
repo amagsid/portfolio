@@ -264,30 +264,29 @@ const Hero = (props) => {
 									</DragMeSection>
 								</motion.div>
 								{/* </motion.div> */}
-								<div
+								{/* <div
 									style={{
 										display: 'flex',
 										flexDirection: 'column',
 
-										// position: 'fixed',
-										// transform: ' translate(-50%, 50%)',
+								
+									}}
+								> */}
+								<HighlightedText main style={{ translateY: myNameIsYposition }}>
+									my name is
+								</HighlightedText>
+								<MedHeading
+									style={{
+										letterSpacing,
+										scale: nameScale,
+										// position: 'relative',
+										// opacity: nameOpacity,
 									}}
 								>
-									<HighlightedText main style={{ translateY: myNameIsYposition }}>
-										my name is
-									</HighlightedText>
-									<MedHeading
-										style={{
-											letterSpacing,
-											scale: nameScale,
-											// position: 'relative',
-											// opacity: nameOpacity,
-										}}
-									>
-										Ahmad Magdy
-									</MedHeading>
-								</div>
+									Ahmad Magdy
+								</MedHeading>
 							</div>
+							{/* </div> */}
 						</Section>
 					</motion.div>
 				</StyleRoot>

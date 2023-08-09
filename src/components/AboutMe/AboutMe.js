@@ -18,54 +18,61 @@ const AboutMe = () => {
 	});
 
 	const ImageOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-	const ImageScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.7]);
-	const ImagePos = useTransform(scrollYProgress, [0, 0.3, 1], ['0%', '0%', '-10%']);
+	const ImageScale = useTransform(scrollYProgress, [0, 0.6, 1], [0.85, 1.1, 0.8]);
+	// const ImagePos = useTransform(scrollYProgress, [0, 0.3, 1], ['0%', '0%', '-10%']);
 	return (
 		<Section background id="about">
-			<MovingSectionTitle sectionTitle="MORE ABOUT ME"></MovingSectionTitle>
+			<MovingSectionTitle sectionTitle="WHO IS AHMAD?"></MovingSectionTitle>
 			{/* <MobileSection style={{ height: '80%' }}> */}
-
-			<div className="flex flex-col items-stretch justify-between h-full lgl:flex-row gap-16 ">
-				<div className="flex flex-col justify-evenly">
+			<div className="py-12">
+				<div className="flex flex-col h-full lgl:flex-row gap-5 ">
 					<SectionText>
 						Front-end developer specializing in UI. Currently, I’m helping brands
 						automate their creative workflow by building custom scalable web-editable
 						video templates at{' '}
 						<a href="https://www.ambassadors.com/" target="_blank">
 							Ambassadors{' '}
-						</a>
-						<a></a>
-					</SectionText>
-					<SectionText>
-						As part of the creative automation team{' '}
+						</a>{' '}
+						as part of the creative automation team{' '}
 						<a href="https://www.ambassadors.com/solutions/cube" target="_blank">
 							Cube
 						</a>
-						, I build custom web UIs that serve as the building blocks for clients to
-						scale up their marketing materials, providing custom and scalable templates
-						to create videos and images on the fly.
+					</SectionText>
+
+					<motion.div
+						style={{
+							scale: ImageScale,
+							// x: ImagePos,
+							// opacity: ImageOpacity,
+						}}
+					>
+						<div>
+							<a
+								style={{
+									backgroundColor: '#64ffda',
+									display: 'inline-block',
+									borderRadius: '8px',
+								}}
+							>
+								<StyledImage
+									ref={targetRef}
+									src={Portrait}
+									className=" h-auto lg:max-w-[350px]  object-cover shadow-l dark:shadow-gray-800"
+								/>
+							</a>
+						</div>
+					</motion.div>
+					<SectionText right>
+						<span>
+							but who <span style={{ fontStyle: 'italic' }}>really </span> is Ahmad?
+						</span>{' '}
+						<br></br> I value change and reaching for the uncertain. It comes clear when
+						looking at the major personal and professional development journey I went
+						through that led to achieving my dream of becoming a programmer. <br />
+						<span>motto: do it with passion or not at all</span>{' '}
 					</SectionText>
 				</div>
-
-				<motion.div
-					style={{
-						scale: ImageScale,
-						x: ImagePos,
-						// opacity: ImageOpacity,
-					}}
-				>
-					<div>
-						<StyledImage
-							style={{
-								opacity: ImageOpacity,
-								zIndex: '1',
-							}}
-							ref={targetRef}
-							src={Portrait}
-							className="rounded-lg h-auto lg:max-w-[500px] sm:bg-green-500 object-cover shadow-xl dark:shadow-gray-800"
-						/>
-					</div>
-				</motion.div>
+				<h3 style={{ color: 'white' }}></h3>
 			</div>
 
 			{/* </MobileSection> */}

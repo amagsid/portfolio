@@ -32,25 +32,19 @@ export const MobileSection = styled.section`
 	}
 `;
 
-export const HighlightedText = styled(motion.h1)`
+export const HighlightedText = styled(motion.h3)`
 	font-size: ${(props) => (props.main ? '20px' : '15px')};
-	font-size: ${(props) => (props.main ? 'clamp(1rem,2vw,2.5rem);' : 'clamp(1rem, 1.5vw, 2rem)')};
+	font-size: ${(props) =>
+		props.main ? 'clamp(1rem,2.5rem,2.5rem);' : 'clamp(1rem, 1.8rem, 3rem)'};
 	font-family: ${(props) => props.theme.fonts.mono};
 	text-align: center;
 	letter-spacing: 37.5px;
-
-	position:relative;
-
-	margin:  ${(props) => (props.main ? ' 0 auto' : 'unset')}; 
-	text-align:  (props.main ? 'left' : 'unset')};
-	font-weight: 900;
-	word-spacing: 5px;
+	position: relative;
+	word-spacing: 10px;
 	color: ${(props) => props.theme.colors.colorPop};
-
-	// padding-left: ${(props) => (props.main ? '10px' : '0')};
+	padding-bottom: 1rem;
 
 	@media ${(props) => props.theme.breakpoints.md} {
-	
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
@@ -109,9 +103,9 @@ export const Number = styled.span`
 
 export const SectionText = styled.p`
 	font-size: clamp(2rem, 2.5vw, 1rem);
-	line-height: 2.3em;
-	text-align: justify;
-
+	line-height: 2.1em;
+	width: 50vw;
+	text-align: ${(props) => (props.right ? 'right' : 'left')};
 	font-weight: 300;
 	color: ${(props) => props.theme.colors.paragraphHeading};
 

@@ -32,6 +32,8 @@ export const SkillsListItem = styled.li`
 
 export const StyledImage = styled(Image)`
 	color: #fff;
+	opacity: 0.8;
+	border-radius: 10px;
 
 	&:before {
 		content: '';
