@@ -19,6 +19,8 @@ export default {
 		secondaryHeading: '#ccd6f6',
 		nameHeading: '#ccd6f6',
 		paragraphHeading: '#8892b0',
+		mainText: '#ccd6f6',
+		secondaryText: '#8892b0',
 		buttonText: '#0a192f',
 		inputField: '#233044',
 

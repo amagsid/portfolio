@@ -20,6 +20,8 @@ export default {
 		secondaryHeading: '#5c4ca3',
 		nameHeading: '#492E55',
 		paragraphHeading: '#e77878',
+		mainText: '#ccd6f6',
+		secondaryText: '#8892b0',
 		buttonText: '#0a192f',
 		inputField: '#f2f2f2',
 

@@ -10,23 +10,22 @@ import {
 	CarouselItemText,
 	CarouselItemTitle,
 	CarouselMobileScrollNode,
-} from '../Carousel/CarouselSTyles';
+} from './TimeLineStyles';
+import { Section, SectionDivider, SectionText, SectionTitle } from '../../styles/GlobalComponents';
 import { TimeLineData } from '../../constants/constants';
 
 const TOTAL_CAROUSEL_COUNT = TimeLineData.length;
 
-function Carousel() {
+const TimeLine = () => {
 	const [activeItem, setActiveItem] = useState(0);
 	const carouselRef = useRef();
 
-	const scroll = (window, left) => {
-		return window.scrollTo({ left, behavior: 'smooth' });
+	const scroll = (node, left) => {
+		return node.scrollTo({ left, behavior: 'smooth' });
 	};
 
-	const handleClick = (event, i) => {
-		if (event && event.preventDefault) {
-			event.preventDefault();
-		}
+	const handleClick = (e, i) => {
+		e.preventDefault();
 
 		if (carouselRef.current) {
 			const scrollLeft = Math.floor(
@@ -48,8 +47,8 @@ function Carousel() {
 		}
 	};
 
-	// // snap back to beginning of scroll when window is resized
-	// // avoids a bug where content is covered up if coming from smaller screen
+	// snap back to beginning of scroll when window is resized
+	// avoids a bug where content is covered up if coming from smaller screen
 	useEffect(() => {
 		const handleResize = () => {
 			scroll(carouselRef.current, 0);
@@ -57,9 +56,10 @@ function Carousel() {
 
 		window.addEventListener('resize', handleResize);
 	}, []);
+
 	return (
 		<>
-			<CarouselContainer className="mt-5 mb-5" ref={carouselRef} onScroll={handleScroll}>
+			<CarouselContainer ref={carouselRef} onScroll={handleScroll}>
 				<>
 					{TimeLineData.map((item, index) => (
 						<CarouselMobileScrollNode
@@ -70,11 +70,10 @@ function Carousel() {
 								index={index}
 								id={`carousel__item-${index}`}
 								active={activeItem}
-								onClick={(event) => handleClick(event.index)}
+								onClick={(e) => handleClick(e, index)}
 							>
 								<CarouselItemTitle>
-									{item.year}
-
+									{`${item.year}`}
 									<CarouselItemImg
 										width="208"
 										height="6"
@@ -115,20 +114,22 @@ function Carousel() {
 				</>
 			</CarouselContainer>
 			<CarouselButtons>
-				{TimeLineData.map((item, index) => (
-					<CarouselButton
-						key={index}
-						index={index}
-						active={activeItem}
-						onClick={(event) => handleClick(event.index)}
-						type="button"
-					>
-						<CarouselButtonDot active={activeItem} />
-					</CarouselButton>
-				))}
+				{TimeLineData.map((item, index) => {
+					return (
+						<CarouselButton
+							key={index}
+							index={index}
+							active={activeItem}
+							onClick={(e) => handleClick(e, index)}
+							type="button"
+						>
+							<CarouselButtonDot active={activeItem} />
+						</CarouselButton>
+					);
+				})}
 			</CarouselButtons>
 		</>
 	);
-}
+};
 
-export default Carousel;
+export default TimeLine;

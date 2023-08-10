@@ -47,3 +47,7 @@ export const StyledImage = styled(Image)`
 		transition: all 0.3s linear;
 	}
 `;
+export const Motto = styled.span`
+	color: ${(props) => props.theme.colors.mainText};
+	text-decoration: italic;
+`;

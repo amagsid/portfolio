@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 
-import { StyledImage } from './AboutMeStyles';
+import { StyledImage, Motto } from './AboutMeStyles';
 import Portrait from '../../../public/images/portrait.jpg';
 import { Section, SectionText, MobileSection } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 import MovingStrip from '../../elements/MovingStrip/MovingStrip';
 import { AnimatePresence } from 'framer-motion';
 import { motion, useTransform, useScroll } from 'framer-motion';
+import Timeline from '../TimeLine/TimeLine';
 
 const AboutMe = () => {
 	//parallex scroll animation
@@ -63,16 +64,18 @@ const AboutMe = () => {
 						</div>
 					</motion.div>
 					<SectionText right>
-						<span>
-							but who <span style={{ fontStyle: 'italic' }}>really </span> is Ahmad?
-						</span>{' '}
-						<br></br> I value change and reaching for the uncertain. It comes clear when
-						looking at the major personal and professional development journey I went
-						through that led to achieving my dream of becoming a programmer. <br />
-						<span>motto: do it with passion or not at all</span>{' '}
+						<span>Okay enough with the CV talk!</span> <br></br> I'm into anything
+						tech-related. over the years, this drive pushed my to achieve my dream of
+						becoming a programmer. Other than that, you can find me at the gym,
+						meal-prepping or looking for a sunny spot daytime and the stars at night.{' '}
+						<br />
+						<Motto style={{ fontSize: '15px' }}>
+							motto: do it with passion or not at all
+						</Motto>{' '}
 					</SectionText>
 				</div>
-				<h3 style={{ color: 'white' }}></h3>
+
+				<Timeline />
 			</div>
 
 			{/* </MobileSection> */}
