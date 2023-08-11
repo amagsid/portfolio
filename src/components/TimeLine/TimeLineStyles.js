@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const CarouselContainer = styled.ul`
 	max-width: 1040px;
@@ -6,6 +7,8 @@ export const CarouselContainer = styled.ul`
 	display: flex;
 	justify-content: space-between;
 	padding: 7rem 0 0 0;
+	margin: 0;
+	margin-right: 0 !important;
 	/* overflow-x: hidden; */
 
 	&:first-of-type {
@@ -36,9 +39,9 @@ export const CarouselMobileScrollNode = styled.div`
 	}
 `;
 
-export const CarouselItem = styled.div`
+export const CarouselItem = styled(motion.div)`
 	border-radius: 3px;
-	max-width: 196px;
+	width: 205px;
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		max-width: 124px;
@@ -100,9 +103,32 @@ export const CarouselItemImg = styled.svg`
 
 export const CarouselItemText = styled.p`
 	font-size: 14px;
-	line-height: 22px;
+
 	letter-spacing: 0.02em;
+	line-height: 1.2em;
+	padding-top: 0.6em;
+	margin-bottom: 0;
 	color: ${(props) => props.theme.colors.secondaryText};
+
+	@media ${(props) => props.theme.breakpoints.md} {
+		font-size: 12px;
+		line-height: 18px;
+		padding-right: 32px;
+	}
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 10px;
+		line-height: 16px;
+		padding-right: 0;
+	}
+`;
+export const CarouselItemExperience = styled(motion.h4)`
+	font-size: 1.4rem;
+	font-weight:100;
+	font-family:  ${(props) => props.theme.fonts.main}
+	line-height: 22px;
+	padding:0;
+	letter-spacing: .6rem;
+	color: ${(props) => props.theme.colors.mainText};
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 12px;
@@ -151,3 +177,14 @@ export const CarouselButtonDot = styled.div`
 	width: 3px;
 	height: 3px;
 `;
+
+export const experienceTitleStyle = {
+	fontSize: '18px',
+
+	fontWeight: 100,
+	color: '#ccd6f6',
+
+	lineHeight: '22px',
+	letterSpacing: '1rem',
+	overflow: 'visible',
+};

@@ -46,10 +46,18 @@ export const projects = [
 export const TimeLineData = [
 	{
 		year: 2015,
+		experience: ['ADOBE CC SUITE', 'FIGMA'],
 		text: 'co-founded a digital marketing agency and worked in UX',
 	},
-	{ year: 2018, text: 'Moved to The Netherlands' },
-	{ year: 2019, text: 'started my full-stack development study' },
-	{ year: 2020, text: 'Graduated and obtained my cerificate' },
-	{ year: 2021, text: 'Started working as a freelance front-end developer' },
+	{ year: 2018, experience: ['MERN STACK', 'GRAPH QL'], text: 'Moved to The Netherlands' },
+	{
+		year: 2019,
+		experience: ['SENCHA.JS', 'TYPESCRIPT'],
+		text: 'started my full-stack development study',
+	},
+	{
+		year: 2020,
+		experience: ['NEXT.JS', 'FRAMER MOTION'],
+		text: 'Graduated and obtained my cerificate',
+	},
 ];

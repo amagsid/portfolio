@@ -1,4 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { ThemeContext } from '../../pages/_app';
+import { motion, useAnimation, useTransform, useScroll } from 'framer-motion';
+
+import { useInView } from 'framer-motion';
 
 import {
 	CarouselButton,
@@ -10,15 +14,25 @@ import {
 	CarouselItemText,
 	CarouselItemTitle,
 	CarouselMobileScrollNode,
+	CarouselItemExperience,
 } from './TimeLineStyles';
 import { Section, SectionDivider, SectionText, SectionTitle } from '../../styles/GlobalComponents';
+
+import { experienceTitleStyle } from './TimeLineStyles';
 import { TimeLineData } from '../../constants/constants';
+import AnimatedTextWord from '../../elements/AnimatedTextWord/AnimatedTextWord';
 
 const TOTAL_CAROUSEL_COUNT = TimeLineData.length;
 
 const TimeLine = () => {
+	const { scrollYProgress } = useScroll();
 	const [activeItem, setActiveItem] = useState(0);
 	const carouselRef = useRef();
+
+	const ref = useRef(null);
+	const isInView = useInView(ref);
+
+	const { theme } = useContext(ThemeContext);
 
 	const scroll = (node, left) => {
 		return node.scrollTo({ left, behavior: 'smooth' });
@@ -57,6 +71,42 @@ const TimeLine = () => {
 		window.addEventListener('resize', handleResize);
 	}, []);
 
+	const exoerienceAnimation = {
+		hidden: { scale: 1, translateX: -50, opacity: 0 },
+		visible: { scale: 1, translateX: 0, opacity: 1 },
+	};
+	const containerAnimation = {
+		visible: {
+			scale: 1,
+
+			transition: {
+				duration: 0.3,
+				type: 'spring',
+				stiffness: 200,
+				ease: [0.17, 0.67, 0.83, 0.67],
+				staggerChildren: 0.09,
+				delayChildren: 0.4,
+			},
+		},
+
+		hidden: { scale: 1 },
+	};
+
+	const listItem = {
+		hidden: { scale: 0, y: -20, opacity: 1 },
+		visible: { scale: 1, y: 0, opacity: 1 },
+	};
+
+	useEffect(() => {
+		console.log('Element is in view: ', isInView);
+	}, [isInView]);
+
+	const fontColor = useTransform(
+		scrollYProgress,
+		[0, 0.4, 0.8, 1],
+		['#ccd6f6', '#ccd6f6', '#64ffda', '#ccd6f6']
+	);
+
 	return (
 		<>
 			<CarouselContainer ref={carouselRef} onScroll={handleScroll}>
@@ -67,6 +117,11 @@ const TimeLine = () => {
 							final={index === TOTAL_CAROUSEL_COUNT - 1}
 						>
 							<CarouselItem
+								initial="hidden"
+								whileInView="visible"
+								viewport={{ once: true }}
+								variants={exoerienceAnimation}
+								transition={{ duration: 0.3, delay: index * 0.1 }}
 								index={index}
 								id={`carousel__item-${index}`}
 								active={activeItem}
@@ -107,6 +162,59 @@ const TimeLine = () => {
 										</defs>
 									</CarouselItemImg>
 								</CarouselItemTitle>
+
+								{/* <motion.div
+									// ref={ref}
+									initial="hidden"
+									whileInView="visible"
+									viewport={{ once: false }}
+									transition={{ duration: 0.3 }}
+									variants={containerAnimation}
+								>
+									<CarouselItemExperience variants={listItem}>
+										{item.experience[0]}
+									</CarouselItemExperience>
+
+									<CarouselItemExperience variants={listItem}>
+										{item.experience[1]}
+									</CarouselItemExperience>
+								</motion.div> */}
+
+								<motion.div
+									// ref={ref}
+									initial="hidden"
+									whileInView="visible"
+									viewport={{ once: false }}
+									transition={{ duration: 0.3 }}
+									variants={containerAnimation}
+								>
+									{/* <motion.ul style={{ padding: '0' }}> */}
+									<CarouselItemExperience
+										style={{ color: fontColor }}
+										variants={listItem}
+									>
+										{item.experience[0]}
+									</CarouselItemExperience>
+
+									<CarouselItemExperience
+										style={{ color: fontColor }}
+										variants={listItem}
+									>
+										{item.experience[1]}
+									</CarouselItemExperience>
+
+									{/* {item.experience.map((i) => (
+											<CarouselItemExperience
+												key={i}
+												variants={listItem}
+												ref={ref}
+											>
+												{i}
+											</CarouselItemExperience>
+										))} */}
+									{/* </motion.ul> */}
+								</motion.div>
+
 								<CarouselItemText>{item.text}</CarouselItemText>
 							</CarouselItem>
 						</CarouselMobileScrollNode>

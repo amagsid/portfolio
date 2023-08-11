@@ -79,9 +79,9 @@ const AboutMe = () => {
 			</div>
 
 			{/* </MobileSection> */}
-			<AnimatePresence>
+			{/* <AnimatePresence>
 				<MovingStrip />
-			</AnimatePresence>
+			</AnimatePresence> */}
 		</Section>
 	);
 };
