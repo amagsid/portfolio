@@ -12,6 +12,17 @@ export const ClientsLogoContainer = styled.div`
 	color: ${(props) => props.theme.colors.paragraphHeading};
 	justify-content: space-around;
 	align-items: center;
+
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+	    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+	}
+
+
+
+}
 `;
 
 export const GridContainer = styled.section`

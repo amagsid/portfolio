@@ -51,6 +51,7 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 			<AnimatePresence initial={false}>
 				{isOpen && (
 					<Section
+						className="m-4"
 						key="content"
 						initial="collapsed"
 						animate="open"
@@ -61,8 +62,6 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 						}}
 						transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
 					>
-						{/* <ContentPlaceholder /> */}
-
 						<motion.div
 							variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
 							transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
@@ -105,7 +104,7 @@ export const Example = () => {
 
 	return (
 		<>
-			<AccordionContainer>
+			<AccordionContainer style={{ padding: '2.5rem 0rem 2.5rem 0rem' }}>
 				{experience.map((i) => (
 					<Accordion i={i} expanded={expanded} setExpanded={setExpanded} />
 				))}

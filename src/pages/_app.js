@@ -4,6 +4,7 @@ import styles2 from '../components/HoveringBanner/Socialicons.css';
 import confetti from '../elements/confetti/confettiStyles.css';
 import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'react-feather';
+import Signature from '../../../portfolio_website/public/images/signature';
 
 import { createContext } from 'react';
 
@@ -23,7 +24,7 @@ export default function App({ Component, pageProps }) {
 
 	return (
 		<ThemeContext.Provider value={{ theme, toggleTheme }}>
-			<Theme>{loading ? <Sun /> : <Component {...pageProps} />}</Theme>
+			<Theme>{loading ? <Signature /> : <Component {...pageProps} />}</Theme>
 		</ThemeContext.Provider>
 	);
 }

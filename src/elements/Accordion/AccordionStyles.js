@@ -13,7 +13,7 @@ export const Section = styled(motion.section)`
 `;
 export const AccordionContainer = styled(motion.div)`
 	margin: 0 auto;
-	width: 60%;
+	width: 100%;
 `;
 export const ExperienceText = styled(motion.p)`
 	color: ${(props) => props.theme.colors.paragraphHeading};

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { calcLength, motion } from 'framer-motion';
+import Signature from '../../../public/images/signature.js';
 
 import {
 	Container,
@@ -11,9 +12,8 @@ import {
 	NavLink,
 	BurgerIcon,
 	ResumeButton,
+	StyledImage,
 } from './HeaderStyles';
-
-import { Number } from '../../styles/GlobalComponents/index';
 
 function Header() {
 	const [isNavScrolled, setNavScrolled] = useState(false);
@@ -40,28 +40,27 @@ function Header() {
 
 	const scrollNavbar = () => {
 		let navBar = document.querySelector('.nav');
-		if (document.documentElement.scrollTop > 50) {
-			console.log('scrolled 100');
+		let Svg = document.querySelector('.signature');
+		if (document.documentElement.scrollTop > 800) {
 			navBar.classList.add('nav-animation');
+			Svg.classList.add('svg-scroll');
 			setNavScrolled(true);
 		}
-		if (document.documentElement.scrollTop < 50) {
-			console.log('scrolled back from 100');
+		if (document.documentElement.scrollTop < 800) {
 			navBar.classList.remove('nav-animation');
+			Svg.classList.remove('svg-scroll');
 			setNavScrolled(false);
 		}
 	};
 
 	return (
-		<Container className="sticky top-0 left-0 right-0 nav">
+		<Container
+			// style={{ width: '100vw', position: 'relative', left: ' calc(-50vw + 50%)' }}
+			className=" sticky top-0 left-0 right-0 nav"
+		>
 			<LogoContainer>
-				<motion.h4
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 2 }}
-				>
-					handwritten signature goes here{' '}
-				</motion.h4>
+				{' '}
+				<Signature isNavScrolled />
 			</LogoContainer>
 			<div className="hidden mdl:inline-flex items-center gap-7">
 				{/* <NavLinksContainer> */}
@@ -117,13 +116,9 @@ function Header() {
 							</a>
 						</NavLink>
 					</motion.li>
-
-					{/* </motion.li> */}
 				</motion.ul>
-				{/* </NavLinksContainer> */}
 			</div>
 			{/* burger menu button */}
-			{/* <motion.li> */}{' '}
 			<BurgerIcon className=" w-10 flex flex-col justify-between items-center mdl:hidden text-4xl cursor-pointer overflow-hidden group">
 				<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-0 group-hover:translate-x-4 transition-all ease-in-out duration-300">
 					{' '}

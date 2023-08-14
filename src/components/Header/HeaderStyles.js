@@ -1,5 +1,6 @@
 import { IoIosArrowDropdown } from 'react-icons/io';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 export const Container = styled.div`
 	font-family: ${(props) => props.theme.fonts.Nav};
@@ -18,6 +19,8 @@ export const Container = styled.div`
 	// 	grid-row-gap: 0.5rem;
 	// }
 `;
+
+export const StyledImage = styled(Image)``;
 
 export const Span = styled.span`
 	font-size: 2rem;

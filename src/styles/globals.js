@@ -296,12 +296,18 @@ header {
 
 
     .nav-animation {
-   background-color: #fff;
-    background-color: rgba(10,25,47,0.3);
-  backdrop-filter: blur(20px);
+      background-color: #fff;
+      background-color: rgba(10,25,47,0.3);
+      backdrop-filter: blur(20px);
 
     }
 
+
+    .svg-scroll {
+      height: 50px;
+      transition: height .3s;
+            transition-timing-function: ease-in-out;
+    }
 
 `;
 

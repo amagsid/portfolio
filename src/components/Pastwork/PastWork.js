@@ -1,36 +1,19 @@
 import React from 'react';
-import Marquee from '../../elements/Marquee/Marquee';
-
 import SlideShow from '../Ticker/SlideShow';
-
-import {
-	BlogCard,
-	CardInfo,
-	ExternalLinks,
-	GridContainer,
-	HeaderThree,
-	Hr,
-	Tag,
-	TagList,
-	TitleContent,
-	UtilityList,
-	Img,
-} from './PastWorkStyles';
 import { Section } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
+import Logos from '../../elements/Logos/logos';
 
 const PastWork = () => (
 	<Section id="pastwork">
-		<MovingSectionTitle sectionTitle="PAST WORK & CLIENTS" />
+		<MovingSectionTitle sectionTitle="PAST WORK & PROJECTS" />
 		<div
 			className="carousel"
 			style={{ width: '100%', color: 'white', textAlign: 'center', fontSize: '30px' }}
-		>
-			{' '}
-		</div>
-
+		></div>
 		<SlideShow></SlideShow>
-		<Marquee></Marquee>
+
+		<Logos> </Logos>
 	</Section>
 );
 
