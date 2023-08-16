@@ -35,6 +35,7 @@ const TimeLine = () => {
 	const { theme } = useContext(ThemeContext);
 
 	const scroll = (node, left) => {
+		console.log(node, 'node', left);
 		return node.scrollTo({ left, behavior: 'smooth' });
 	};
 
@@ -101,11 +102,18 @@ const TimeLine = () => {
 		console.log('Element is in view: ', isInView);
 	}, [isInView]);
 
-	const fontColor = useTransform(
-		scrollYProgress,
-		[0, 0.4, 0.8, 1],
-		['#ccd6f6', '#ccd6f6', '#64ffda', '#ccd6f6']
-	);
+	const fontColor =
+		theme == 'dark'
+			? useTransform(
+					scrollYProgress,
+					[0, 0.4, 0.8, 1],
+					['#ccd6f6', '#ccd6f6', '#64ffda', '#ccd6f6']
+			  )
+			: useTransform(
+					scrollYProgress,
+					[0, 0.4, 0.8, 1],
+					['#ccd6f6', '#191911', '#FF3333', '#191911']
+			  );
 
 	return (
 		<>

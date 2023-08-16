@@ -29,7 +29,7 @@ scroll-behavior: smooth!important;
   }
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.secondaryHeading};
+    color: ${(props) => props.theme.colors.textPale};
   }
   .music-container {
     display: flex;
@@ -38,7 +38,7 @@ scroll-behavior: smooth!important;
     justify-content: space-around;
 
   height: 85vh;
-color: ${(props) => props.theme.colors.secondaryHeading};
+color: ${(props) => props.theme.colors.textPale};
   }
 
   .music-container div {
@@ -82,7 +82,7 @@ color: ${(props) => props.theme.colors.secondaryHeading};
 
 
   .social-container a {
-      // color: ${(props) => props.theme.colors.secondaryHeading};
+      // color: ${(props) => props.theme.colors.textPale};
     text-decoration: none;
     	 -webkit-transition: transform .1s ease-in-out;
        
@@ -90,7 +90,7 @@ color: ${(props) => props.theme.colors.secondaryHeading};
     &:hover {
     transform: translateY(-6px);
 	 -webkit-transition: transform .3s ease-in-out;
-    color: ${(props) => props.theme.colors.links};
+    color: ${(props) => props.theme.colors.colorPop};
     }
     
   }
@@ -229,59 +229,6 @@ color: ${(props) => props.theme.colors.secondaryHeading};
   cursor: pointer;
 }
 
-// .content-placeholder {
-//   padding: 20px;
-//   transform-origin: top center;
-// }
-
-header {
-  background: #0055ff;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-  height: 40px;
-  margin-bottom: 20px;
-}
-
-// .word {
-//   height: 18px;
-//   border-radius: 10px;
-//   display: inline-block;
-//   margin-bottom: 8px;
-//   margin-right: 8px;
-//   background: #0055ff;
-//   border-radius: 10px;
-//   display: inline-block;
-// }
-
-// .paragraph {
-//   margin-bottom: 20px;
-// }
-
-// section {
-//   overflow: hidden;
-// }
-
-// @media (max-width: 600px) {
-//   .content-placeholder {
-//     padding-left: 20px;
-//   }
-
-  // .header .word {
-  //   height: 30px;
-  // }
-
-  // .word {
-  //   height: 14px;
-  //   margin-bottom: 5px;
-  //   margin-right: 5px;
-  // }
-
-  // .paragraph {
-  //   margin-bottom: 20px;
-  // }
-
-
   @media only screen and (max-width: 400px) {
     .portrait {
       width: 75px;
@@ -293,7 +240,6 @@ header {
       padding-right: 2px;
     }
     }
-
 
     .nav-animation {
       background-color: #fff;

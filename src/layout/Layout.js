@@ -37,9 +37,9 @@ export const Layout = ({ children }) => {
 					scaleX: scrollYProgress,
 				}}
 			/>
+			<Header />
 			<Container>
 				<>
-					<Header />
 					<main>{children}</main>
 					<div className="hidden lg:inline md:inline ">
 						<HoveringBanners />

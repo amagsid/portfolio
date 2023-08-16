@@ -38,8 +38,7 @@ export const BigHeading = styled(motion.h2)`
 	font-size: clamp(20rem, 30vw, 32rem);
 	line-height: 250px;
 	max-width: 100%;
-	color: ${(props) =>
-		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading};
+	color: ${(props) => (props.main ? props.theme.colors.heading : props.theme.colors.textPale)};
 
 	@media ${(props) => props.theme.breakpoints.md} {
 	}

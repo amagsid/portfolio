@@ -2,7 +2,9 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const SectionTitle = styled(motion.div)`
-	border-top: 1px solid ${(props) => props.theme.colors.secondaryHeading};
+	border-top: 1px solid ${(props) => props.theme.colors.textPale};
+
+	color: #fff;
 	height: 70px;
 	text-overflow: clip;
 	overflow: hidden;
@@ -19,7 +21,7 @@ export const Item = styled(motion.h3)`
 	display: inline;
 	font-size: ${(props) => (props.emailSent ? '1.5rem' : '3rem')};
 	color: ${(props) =>
-		props.emailSent ? props.theme.colors.colorPop : props.theme.colors.secondaryHeading};
+		props.emailSent ? props.theme.colors.colorPop : props.theme.colors.textPale};
 	font-weight: ${(props) => (props.emailSent ? '500' : '300')};
 	letter-spacing: ${(props) => (props.emailSent ? '5px' : '7px')};
 

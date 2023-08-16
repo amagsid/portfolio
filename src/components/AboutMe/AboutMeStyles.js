@@ -48,6 +48,11 @@ export const StyledImage = styled(Image)`
 	}
 `;
 export const Motto = styled.span`
-	color: ${(props) => props.theme.colors.mainText};
+	color: ${(props) => props.theme.colors.textPale};
 	text-decoration: italic;
+`;
+export const PictureTent = styled.a`
+	display: inline-block;
+	border-radius: 10px;
+	opacity: 1;
 `;

@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 
-import { StyledImage, Motto } from './AboutMeStyles';
+import { StyledImage, Motto, PictureTent } from './AboutMeStyles';
 import Portrait from '../../../public/images/portrait.jpg';
 import { Section, SectionText, MobileSection } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
@@ -8,8 +8,10 @@ import MovingStrip from '../../elements/MovingStrip/MovingStrip';
 import { AnimatePresence } from 'framer-motion';
 import { motion, useTransform, useScroll } from 'framer-motion';
 import Timeline from '../TimeLine/TimeLine';
+import { ThemeContext } from '../../pages/_app';
 
 const AboutMe = () => {
+	const { theme } = useContext(ThemeContext);
 	//parallex scroll animation
 	const targetRef = useRef();
 
@@ -48,11 +50,9 @@ const AboutMe = () => {
 						}}
 					>
 						<div>
-							<a
+							<PictureTent
 								style={{
-									backgroundColor: '#64ffda',
-									display: 'inline-block',
-									borderRadius: '8px',
+									backgroundColor: theme === 'dark' ? '#64ffda' : 'unset',
 								}}
 							>
 								<StyledImage
@@ -60,7 +60,7 @@ const AboutMe = () => {
 									src={Portrait}
 									className=" h-auto lg:max-w-[350px]  object-cover shadow-l dark:shadow-gray-800"
 								/>
-							</a>
+							</PictureTent>
 						</div>
 					</motion.div>
 					<SectionText right>

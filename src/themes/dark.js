@@ -11,18 +11,18 @@ export default {
 	},
 	// Colors for layout
 	colors: {
-		navItems: '#ccd6f6',
+		textPale: '#ccd6f6',
 		horizontlLine: lightestNavy,
 		bgMain: '#0a192f',
+		sectionTitleBorderColor: '#ccd6f6',
 		links: '#64ffda', //links and nav numbers
 		colorPop: '#64ffda', //links and nav numbers
-		secondaryHeading: '#ccd6f6',
-		nameHeading: '#ccd6f6',
 		paragraphHeading: '#8892b0',
 		mainText: '#ccd6f6',
 		secondaryText: '#8892b0',
 		buttonText: '#0a192f',
 		inputField: '#233044',
+		textGradient: '#8892b0',
 
 		paleGreen: '#b0ddd2',
 		lightestSlate: '#ccd6f6', //main title

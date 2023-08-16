@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ExperienceListItem = styled.li`
-	color: ${(props) => props.theme.colors.secondaryHeading};
+	color: ${(props) => props.theme.colors.textPale};
 	// border-left: 2.5px solid ${(props) => props.theme.colors.colorPop};
 	font-weight: 100;
 	padding-left: 10px;

@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   letter-spacing: 2px;
   padding: 13px 20px 13px;
   outline: 0;
-  border: 1px solid ${(props) => props.theme.colors.secondaryHeading};
+  border: 1px solid ${(props) => props.theme.colors.textPale};
   cursor: pointer;
   position: relative;
   background-color: rgba(0, 0, 0, 0);

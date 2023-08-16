@@ -32,7 +32,7 @@ export const NavLink = styled.a`
 
 	line-height: 32px;
 	transition: all 0.3s ease-in-out;
-	color: ${(props) => props.theme.colors.navItems};
+	color: ${(props) => props.theme.colors.textPale};
 	transition: 0.3s ease-in-out;
 	&:hover {
 		color: #fff;
@@ -119,13 +119,8 @@ export const ResumeButton = styled.button`
 	&:hover {
 		background-color: ${(props) => props.theme.colors.colorPop}50;
 		text-shadow: 2px 2px 20px ${(props) => props.theme.colors.colorPop};
-		color: ${(props) => props.theme.colors.buttonHoverColor};
-		// -khtml-opacity: 0.5;
-		// -moz-opacity: 0.5;
-		// -ms-filter: ”alpha(opacity=50) ”;
-		// filter: alpha(opacity=50);
-		// filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
-		// opacity: 0.2;
+		color: ${(props) => props.theme.colors.colorPop};
+		// color: #fff;
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {

@@ -11,8 +11,7 @@ export const BigHeading = styled(motion.h2)`
 	line-height: 250px;
 	max-width: 100%;
 	text-align: center;
-	// color: ${(props) =>
-		props.main ? props.theme.colors.heading : props.theme.colors.secondaryHeading};
+	// color: ${(props) => (props.main ? props.theme.colors.heading : props.theme.colors.textPale)};
 
 	@media ${(props) => props.theme.breakpoints.md} {
 	}
@@ -35,11 +34,18 @@ export const MedHeading = styled(motion.h2)`
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
 	animation-timing-function: linear;
 
-	color: ${(props) => props.theme.colors.nameHeading};
+	color: ${(props) => props.theme.colors.textPale};
 	line-height: 95px;
 `;
 export const DragMeSection = styled(motion.div)`
 	// border: 1px solid #fff;
+`;
+export const AhlanPhonemic = styled(motion.h5)`
+	letterspacing: 1px;
+	color: ${(props) => props.theme.colors.bgMain};
+	position: absolute;
+	bottom: 20px;
+	left: 95px;
 `;
 
 export const MusicButton = styled.button`

@@ -20,5 +20,5 @@ export const StatusBar = styled(motion.div)`
 	top: 0;
 	height: 7px;
 	width: 100%;
-	background-color: #64ffda;
+	background-color: ${(props) => props.theme.colors.colorPop};
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Banner, Line, Container } from './HoveringBannerStyles';
+import { Banner, Line, Container, LinkContainer, EmailLink } from './HoveringBannerStyles';
 import SocialIcons from './Socialicons';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useContext } from 'react';
@@ -36,7 +36,7 @@ const HoveringBanner = (props) => {
 			>
 				{props.position == 'left' && <SocialIcons />}
 				{props.position == 'right' && (
-					<motion.h5
+					<LinkContainer
 						variants={containerAnimation}
 						initial="hidden"
 						animate="show"
@@ -44,7 +44,6 @@ const HoveringBanner = (props) => {
 							scale: 1.09,
 							originY: 1,
 							letterSpacing: '8px',
-							color: theme == 'dark' ? '#64ffda' : '#d25276',
 						}}
 						transition={{
 							type: 'spring',
@@ -53,7 +52,7 @@ const HoveringBanner = (props) => {
 						}}
 						className="email-link"
 					>
-						<a href="https://www.w3schools.com" target="_blank">
+						<EmailLink href="mailto: amagsid@gmail.com" target="_blank">
 							<motion.span variants={ItemAnimation}>a</motion.span>
 							<motion.span variants={ItemAnimation}>m</motion.span>
 							<motion.span variants={ItemAnimation}>a</motion.span>
@@ -71,8 +70,8 @@ const HoveringBanner = (props) => {
 							<motion.span variants={ItemAnimation}>c</motion.span>
 							<motion.span variants={ItemAnimation}>o</motion.span>
 							<motion.span variants={ItemAnimation}>m</motion.span>
-						</a>
-					</motion.h5>
+						</EmailLink>
+					</LinkContainer>
 				)}
 			</div>
 			<Line> </Line>

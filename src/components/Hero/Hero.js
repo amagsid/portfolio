@@ -3,7 +3,7 @@ import Radium, { StyleRoot } from 'radium';
 import useBreakpoints from '../../hooks/useMediaQueryIndex';
 import { motion, useTransform, useScroll, useDragControls, useMotionValue } from 'framer-motion';
 import { Section, HighlightedText } from '../../styles/GlobalComponents';
-import { BigHeading, MedHeading, DragMeSection } from './HeroStyles';
+import { BigHeading, MedHeading, DragMeSection, AhlanPhonemic } from './HeroStyles';
 import PhoneHero from './PhoneHero';
 import { ThemeContext } from '../../pages/_app';
 import SwipeLeftRight from '../../elements/swipeLeftRight';
@@ -42,16 +42,7 @@ const Hero = (props) => {
 			: useTransform(
 					x,
 					[-550, -150, -100, 0, 100, 150, 500],
-					[
-						'#d7ec66',
-						'#d7ec66',
-						'#FC7273',
-						// '#1e1b4b'
-						'#2C1438',
-						'#FC7273',
-						'#d7ec66',
-						'#d7ec66',
-					]
+					['#FF3333', '#FF3333', '#FC7273', '#191911', '#FC7273', '#FF3333', '#FF3333']
 			  );
 
 	const prevxCount = usePrevious(mousePos.x);
@@ -229,7 +220,10 @@ const Hero = (props) => {
 											</BigHeading>
 										)}
 										{count == 3 && (
-											<div>
+											<div
+												className="ahlan-container"
+												style={{ position: 'relative' }}
+											>
 												<BigHeading
 													variants={container}
 													initial="hidden"
@@ -242,7 +236,12 @@ const Hero = (props) => {
 												>
 													أهلاً
 												</BigHeading>
-												{/* <span style={{ color: 'grey' }}> pronounced Ahlan</span> */}
+												{/* <AhlanPhonemic
+													className="ahlan"
+													style={{ letterSpacing: '1px', scale: 1 }}
+												>
+													/ahʰlan̪/
+												</AhlanPhonemic> */}
 											</div>
 										)}
 										{count == 4 && (
@@ -258,7 +257,6 @@ const Hero = (props) => {
 												>
 													Hoi
 												</BigHeading>
-												{/* <span style={{ color: 'grey' }}> pronounced Ahlan</span> */}
 											</div>
 										)}
 									</DragMeSection>

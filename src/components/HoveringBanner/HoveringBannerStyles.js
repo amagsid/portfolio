@@ -50,3 +50,16 @@ export const Container = styled.div`
 	display: flex;
 	flex-direcgtion: column;
 `;
+export const LinkContainer = styled(motion.h5)`
+	color: ${(props) => props.theme.colors.textPale};
+`;
+export const EmailLink = styled(motion.a)`
+	text-decoration: none;
+	-webkit-transition: transform 0.1s ease-in-out;
+
+	&:hover {
+		transform: translateY(-6px);
+		-webkit-transition: transform 0.3s ease-in-out;
+		color: ${(props) => props.theme.colors.links};
+	}
+`;

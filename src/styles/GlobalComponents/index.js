@@ -107,7 +107,7 @@ export const SectionText = styled.p`
 	width: 50vw;
 	text-align: ${(props) => (props.right ? 'right' : 'left')};
 	font-weight: 300;
-	color: ${(props) => props.theme.colors.paragraphHeading};
+	color: ${(props) => props.theme.colors.textPale};
 
 	&:after {
 		content: '';

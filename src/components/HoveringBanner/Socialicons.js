@@ -35,30 +35,16 @@ function Icons() {
 					stiffness: 1000,
 				}}
 			>
-				<motion.a variants={ItemAnimation} href="https://www.w3schools.com" target="_blank">
+				<motion.a
+					variants={ItemAnimation}
+					href="https://github.com/amagsid"
+					target="_blank"
+				>
 					<GitHub className="tech-icon-small" />
 				</motion.a>
 			</motion.div>
 
-			<motion.div
-				whileHover={{
-					scale: 1.2,
-					y: -5,
-					originY: 1,
-					// color: theme == 'dark' ? '#64ffda' : '#d25276',
-				}}
-				transition={{
-					type: 'spring',
-					stiffness: 1000,
-				}}
-			>
-				{' '}
-				<motion.a variants={ItemAnimation} href="https://www.w3schools.com" target="_blank">
-					<Instagram className="tech-icon-small" />
-				</motion.a>
-			</motion.div>
-
-			<motion.div
+			{/* <motion.div
 				whileHover={{
 					scale: 1.2,
 					y: -5,
@@ -74,7 +60,7 @@ function Icons() {
 				<motion.a variants={ItemAnimation} href="https://www.w3schools.com" target="_blank">
 					<Twitter className="tech-icon-small" />
 				</motion.a>
-			</motion.div>
+			</motion.div> */}
 
 			<motion.div
 				whileHover={{
@@ -89,7 +75,11 @@ function Icons() {
 				}}
 			>
 				{' '}
-				<motion.a variants={ItemAnimation} href="https://www.w3schools.com" target="_blank">
+				<motion.a
+					variants={ItemAnimation}
+					href="https://www.linkedin.com/in/ahmad-m-s/"
+					target="_blank"
+				>
 					<Linkedin className="tech-icon-small" />
 				</motion.a>
 			</motion.div>
@@ -107,7 +97,11 @@ function Icons() {
 				}}
 			>
 				{' '}
-				<motion.a variants={ItemAnimation} href="https://www.w3schools.com" target="_blank">
+				<motion.a
+					variants={ItemAnimation}
+					href="https://gitlab.com/ahmad.magdy"
+					target="_blank"
+				>
 					<Gitlab className="tech-icon-small" />
 				</motion.a>
 			</motion.div>

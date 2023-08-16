@@ -70,9 +70,9 @@ export const CarouselItemTitle = styled.h4`
 	display: flex;
 	/* This gradient is different due to the size of the Title container, it must transition sooner to be visible on the text */
 	background: linear-gradient(
-		121.57deg,
-		${(props) => props.theme.colors.mainText} 10%,
-		${(props) => props.theme.colors.secondaryText} 70.15%
+		161.57deg,
+		${(props) => props.theme.colors.textPale} 0%,
+		${(props) => props.theme.colors.textGradient} 60%
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -108,7 +108,7 @@ export const CarouselItemText = styled.p`
 	line-height: 1.2em;
 	padding-top: 0.6em;
 	margin-bottom: 0;
-	color: ${(props) => props.theme.colors.secondaryText};
+	color: ${(props) => props.theme.colors.textPale};
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 12px;
@@ -123,12 +123,12 @@ export const CarouselItemText = styled.p`
 `;
 export const CarouselItemExperience = styled(motion.h4)`
 	font-size: 1.4rem;
-	font-weight:100;
+	font-weight:400;
 	font-family:  ${(props) => props.theme.fonts.main}
 	line-height: 22px;
 	padding:0;
 	letter-spacing: .6rem;
-	color: ${(props) => props.theme.colors.mainText};
+	color: ${(props) => props.theme.colors.textPale};
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 12px;

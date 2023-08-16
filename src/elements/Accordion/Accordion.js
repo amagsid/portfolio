@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
+import { ThemeContext } from '../../pages/_app';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronRight } from 'react-icons/fi';
 import { FiChevronDown } from 'react-icons/fi';
@@ -16,7 +16,22 @@ import {
 } from './AccordionStyles';
 
 const Accordion = ({ i, expanded, setExpanded }) => {
+	const { theme } = useContext(ThemeContext);
 	const isOpen = i === expanded;
+	let openBackgroundColor = '';
+	let openTextColor = '';
+
+	if (theme == 'dark' && isOpen) {
+		openBackgroundColor = '#64ffda';
+	} else if (theme == 'light' && isOpen) {
+		openBackgroundColor = '#FF3333';
+	}
+
+	if (theme == 'dark' && isOpen) {
+		openTextColor = '#0a192f';
+	} else if (theme == 'light' && isOpen) {
+		openTextColor = '#FFF';
+	}
 
 	// By using `AnimatePresence` to mount and unmount the contents, we can animate
 	// them in and out while also only rendering the contents of open accordions
@@ -24,7 +39,7 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 		<>
 			<Header
 				initial={false}
-				animate={{ backgroundColor: isOpen ? '#64ffda' : '#233044' }}
+				animate={{ backgroundColor: openBackgroundColor }}
 				onClick={() => setExpanded(isOpen ? false : i)}
 			>
 				{isOpen ? (
@@ -32,7 +47,7 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 						animate={{ rotate: 360, scale: [1, 2, 1] }}
 						transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
 					>
-						<IoCloseSharp style={{ color: isOpen ? '#233044' : '#8892b0' }} />{' '}
+						<IoCloseSharp style={{ color: openTextColor }} />{' '}
 					</motion.div>
 				) : (
 					<motion.div>
@@ -45,8 +60,8 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 					</motion.div>
 				)}
 
-				<ExperienceName style={{ color: isOpen && '#233044' }}> {i.company}</ExperienceName>
-				<Years style={{ color: isOpen && '#233044' }}> {i.years} </Years>
+				<ExperienceName style={{ color: openTextColor }}> {i.company}</ExperienceName>
+				<Years style={{ color: openTextColor }}> {i.years} </Years>
 			</Header>
 			<AnimatePresence initial={false}>
 				{isOpen && (

@@ -56,7 +56,7 @@ function Header() {
 	return (
 		<Container
 			// style={{ width: '100vw', position: 'relative', left: ' calc(-50vw + 50%)' }}
-			className=" sticky top-0 left-0 right-0 nav"
+			className="sticky top-0 left-0 right-0 nav"
 		>
 			<LogoContainer>
 				{' '}
