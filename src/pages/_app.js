@@ -4,7 +4,7 @@ import styles2 from '../components/HoveringBanner/Socialicons.css';
 import confetti from '../elements/confetti/confettiStyles.css';
 import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'react-feather';
-import Signature from '../../../portfolio_website/public/images/signature';
+import Signature from '../../../portfolio_website/public/images/Signature';
 
 import { createContext } from 'react';
 
