@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { calcLength, motion } from 'framer-motion';
-import Signature from '../../../public/images/Signature.js';
+import Signature from '../../../public/images/Signature';
 
 import {
 	Container,
