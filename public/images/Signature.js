@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SvgItem, LoadingContainer } from './signatureStyles';
+import { SvgItem, LoadingContainer } from './SignatureStyles';
 
 const svgVariants = {
 	start: {
