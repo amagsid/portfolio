@@ -4,7 +4,6 @@ import { StyledImage, Motto, PictureTent } from './AboutMeStyles';
 import Portrait from '../../../public/images/portrait.jpg';
 import { Section, SectionText, MobileSection } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
-import MovingStrip from '../../elements/MovingStrip/MovingStrip';
 import { AnimatePresence } from 'framer-motion';
 import { motion, useTransform, useScroll } from 'framer-motion';
 import Timeline from '../TimeLine/TimeLine';
@@ -77,11 +76,6 @@ const AboutMe = () => {
 
 				<Timeline />
 			</div>
-
-			{/* </MobileSection> */}
-			{/* <AnimatePresence>
-				<MovingStrip />
-			</AnimatePresence> */}
 		</Section>
 	);
 };

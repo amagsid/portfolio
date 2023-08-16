@@ -34,9 +34,9 @@ function Header() {
 		show: { y: 0, opacity: 1 },
 	};
 
-	window.onscroll = () => {
-		scrollNavbar();
-	};
+	// window.onscroll = () => {
+	// 	scrollNavbar();
+	// };
 
 	const scrollNavbar = () => {
 		let navBar = document.querySelector('.nav');
@@ -52,6 +52,8 @@ function Header() {
 			setNavScrolled(false);
 		}
 	};
+
+	window.addEventListener('scroll', () => scrollNavbar());
 
 	return (
 		<Container
