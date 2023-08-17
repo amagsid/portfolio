@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { calcLength, motion } from 'framer-motion';
 import Signature from '../../../public/images/Signature';
@@ -28,32 +28,29 @@ function Header() {
 		},
 	};
 
-	console.log(isNavScrolled);
 	const navItemAnimation = {
 		hidden: { y: -10, opacity: 0 },
 		show: { y: 0, opacity: 1 },
 	};
 
-	// window.onscroll = () => {
-	// 	scrollNavbar();
-	// };
-
 	const scrollNavbar = () => {
 		let navBar = document.querySelector('.nav');
 		let Svg = document.querySelector('.signature');
-		if (document.documentElement.scrollTop > 800) {
+		if (document.documentElement.scrollTop > 100) {
 			navBar.classList.add('nav-animation');
 			Svg.classList.add('svg-scroll');
 			setNavScrolled(true);
 		}
-		if (document.documentElement.scrollTop < 800) {
+		if (document.documentElement.scrollTop < 100) {
 			navBar.classList.remove('nav-animation');
 			Svg.classList.remove('svg-scroll');
 			setNavScrolled(false);
 		}
 	};
 
-	window.addEventListener('scroll', () => scrollNavbar());
+	useEffect(() => {
+		window.addEventListener('scroll', () => scrollNavbar());
+	}, []);
 
 	return (
 		<Container
@@ -64,6 +61,8 @@ function Header() {
 				{' '}
 				<Signature isNavScrolled />
 			</LogoContainer>
+			{/* --------------------------------------------------------------- */}
+			{/* problerm is here  */}
 			<div className="hidden mdl:inline-flex items-center gap-7">
 				{/* <NavLinksContainer> */}
 				<motion.ul
@@ -83,43 +82,41 @@ function Header() {
 						 <ThemeSwitch />
 					</li>
 					<motion.li variants={navItemAnimation}>
-						<Link href="#about">
-							<NavLink>
-								{/* <Number>01. </Number> */}
-								About
-							</NavLink>
-						</Link>
+						{/* <Link href="#about" scroll={false}> */}
+						<NavLink href="#about">About</NavLink>
+						{/* </Link> */}
 					</motion.li>
 					<motion.li variants={navItemAnimation}>
-						<Link href="#pastwork">
-							<NavLink>Clients</NavLink>
-						</Link>
+						{/* <Link href="#pastwork" scroll={false}> */}
+						<NavLink href="#pastwork">Clients</NavLink>
+						{/* </Link> */}
 					</motion.li>
 					<motion.li variants={navItemAnimation}>
-						<Link href="#experience">
-							<NavLink>Experience</NavLink>
-						</Link>
+						{/* <Link href="#experience" scroll={false}> */}
+						<NavLink href="#experience">Experience</NavLink>
+						{/* </Link> */}
 					</motion.li>
 					<motion.li variants={navItemAnimation}>
-						<Link href="#contact">
-							<NavLink>Contact</NavLink>
-						</Link>
+						{/* <Link href="#contact" scroll={false}> */}
+						<NavLink href="#contact">Contact</NavLink>
+						{/* </Link> */}
 					</motion.li>
 					<motion.li variants={navItemAnimation}>
 						{' '}
-						<NavLink>
+						{/* <NavLink> */}{' '}
+						<a href="/Ahmad_Resume.pdf" target="_blank">
 							{' '}
-							<a href="/Ahmad_Resume.pdf" target="_blank">
+							<ResumeButton className="px-4 py-2 rounded-md text-[13px]">
 								{' '}
-								<ResumeButton className="px-4 py-2 rounded-md text-[13px]">
-									{' '}
-									Resume{' '}
-								</ResumeButton>{' '}
-							</a>
-						</NavLink>
+								Resume{' '}
+							</ResumeButton>{' '}
+						</a>
+						{/* </NavLink> */}
 					</motion.li>
 				</motion.ul>
 			</div>
+			{/* problerm is here  */}
+			{/* --------------------------------------------------------------- */}
 			{/* burger menu button */}
 			<BurgerIcon className=" w-10 flex flex-col justify-between items-center mdl:hidden text-4xl cursor-pointer overflow-hidden group">
 				<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-0 group-hover:translate-x-4 transition-all ease-in-out duration-300">

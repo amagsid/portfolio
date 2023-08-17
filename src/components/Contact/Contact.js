@@ -31,7 +31,6 @@ function Contact() {
 	};
 
 	const onSubmit = (data) => {
-		console.log(data);
 		generateContactNumber();
 		sendForm('portfolio_contact_form', 'template_9whli67', '#contact-form').then(
 			function (response) {

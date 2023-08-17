@@ -52,8 +52,6 @@ const Experience = () => {
 		setHYF(false);
 	};
 
-	console.log(isAmbaddadors);
-
 	return (
 		<Section id="experience">
 			<MovingSectionTitle sectionTitle="EXPERIENCE" />

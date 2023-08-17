@@ -35,7 +35,6 @@ const TimeLine = () => {
 	const { theme } = useContext(ThemeContext);
 
 	const scroll = (node, left) => {
-		console.log(node, 'node', left);
 		return node.scrollTo({ left, behavior: 'smooth' });
 	};
 
@@ -98,9 +97,7 @@ const TimeLine = () => {
 		visible: { scale: 1, y: 0, opacity: 1 },
 	};
 
-	useEffect(() => {
-		console.log('Element is in view: ', isInView);
-	}, [isInView]);
+	useEffect(() => {}, [isInView]);
 
 	const fontColor =
 		theme == 'dark'
