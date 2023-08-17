@@ -16,6 +16,11 @@ export const Header = styled(motion.header)`
 export const Section = styled(motion.section)`
 	overflow: visible;
 `;
+
+export const ArrowBulletIcon = styled(FiChevronRight)`
+	stroke: ${(props) => props.theme.colors.colorPop};
+`;
+
 export const AccordionContainer = styled(motion.div)`
 	margin: 0 auto;
 	width: 100%;

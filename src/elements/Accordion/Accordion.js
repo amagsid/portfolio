@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronRight } from 'react-icons/fi';
 import { FiChevronDown } from 'react-icons/fi';
 import { IoCloseSharp } from 'react-icons/io5';
+import { ArrowBulletIcon } from './AccordionStyles';
 
 import {
 	Header,
@@ -66,7 +67,6 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 			<AnimatePresence initial={false}>
 				{isOpen && (
 					<Section
-						className="m-4"
 						key="content"
 						initial="collapsed"
 						animate="open"
@@ -85,25 +85,26 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 								{' '}
 								{i.text}
 							</ExperienceText>
-							{i.bulletPoints.map((point) => {
-								return (
-									<div style={{ display: 'flex' }}>
-										<motion.div>
-											{' '}
-											<FiChevronRight
-												animate={{ rotate: 360 }}
-												transition={{
-													duration: 0.4,
-													type: 'spring',
-													stiffness: 200,
-												}}
-												style={{ color: '#64ffda' }}
-											/>{' '}
-										</motion.div>
-										<BulletPoint> {point}</BulletPoint>
-									</div>
-								);
-							})}
+							<div className="pb-4">
+								{i.bulletPoints.map((point) => {
+									return (
+										<div style={{ display: 'flex' }}>
+											<motion.div>
+												{' '}
+												<ArrowBulletIcon
+													animate={{ rotate: 360 }}
+													transition={{
+														duration: 0.4,
+														type: 'spring',
+														stiffness: 200,
+													}}
+												/>{' '}
+											</motion.div>
+											<BulletPoint> {point}</BulletPoint>
+										</div>
+									);
+								})}
+							</div>
 						</motion.div>
 					</Section>
 				)}

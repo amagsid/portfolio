@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Banner, Line, Container, LinkContainer, EmailLink } from './HoveringBannerStyles';
 import SocialIcons from './Socialicons';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useContext } from 'react';
 import { ThemeContext } from '../../pages/_app';
+import ScrollToTopButton from '../../elements/ScrollToTopButton/ScrollToTopButton';
 
 const HoveringBanner = (props) => {
 	const { theme, toggleTheme } = useContext(ThemeContext);
+	const { scrollYProgress } = useScroll();
+	const [isLineScrolled, setLineScrolled] = useState(false);
+
+	const arrowUpHeight = useTransform(scrollYProgress, [0.5, 1], ['0px', '100px']);
 
 	const containerAnimation = {
 		hidden: { opacity: 0 },
@@ -26,15 +31,33 @@ const HoveringBanner = (props) => {
 		show: { y: 0, opacity: 1 },
 	};
 
+	const scrollLine = () => {
+		// let navBar = document.querySelector('.nav');
+		if (document.documentElement.scrollTop > 1000) {
+			// navBar.classList.add('nav-animation');
+			setLineScrolled(true);
+		}
+		if (document.documentElement.scrollTop < 1000) {
+			// navBar.classList.remove('nav-animation');
+			setLineScrolled(false);
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener('scroll', () => scrollLine());
+	}, []);
+
+	console.log(isLineScrolled, 'isLineScrolled');
 	return (
 		<Banner className="social-container" position={props.position}>
 			<div
-				className="pb-5"
+				className="pb-4"
 				style={{
 					writingMode: props.orientation == 'vertical' ? 'vertical-rl' : 'horizontal-tb',
 				}}
 			>
 				{props.position == 'left' && <SocialIcons />}
+
 				{props.position == 'right' && (
 					<LinkContainer
 						variants={containerAnimation}
@@ -74,7 +97,19 @@ const HoveringBanner = (props) => {
 					</LinkContainer>
 				)}
 			</div>
-			<Line> </Line>
+			{/* {isLineScrolled ? <ScrollToTopButton></ScrollToTopButton> : <Line> </Line>} */}
+
+			<motion.div
+				style={{
+					// scaleY: scrollYProgress,
+					// transformOrigin: 'bottom',
+					// height: scrollYProgress,
+					// height: '100px',
+					height: arrowUpHeight,
+				}}
+			>
+				<ScrollToTopButton></ScrollToTopButton>
+			</motion.div>
 		</Banner>
 	);
 };
