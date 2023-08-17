@@ -154,7 +154,9 @@ const Hero = (props) => {
 							>
 								{/* <motion.div style={{ scale: greetingScale }}> */}
 								<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
-								{!isDragging && <SwipeLeftRight></SwipeLeftRight>}
+								{!isDragging && (
+									<SwipeLeftRight style={{ zIndex: 80 }}></SwipeLeftRight>
+								)}
 
 								<motion.div whileHover={{ scale: 1.05 }}>
 									<DragMeSection
