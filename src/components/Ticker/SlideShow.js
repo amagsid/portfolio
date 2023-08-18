@@ -3,6 +3,7 @@ import Ticker from 'framer-motion-ticker';
 import { motion } from 'framer-motion';
 import Bol from '../../../public/images/bol.png';
 import BDC from '../../../public/images/BDC.png';
+import BDCSerenity from '../../../public/images/BDCSerenity.png';
 import SqSp from '../../../public/images/SqSp.png';
 
 import { StyledImage } from './SlideShowStyles';
@@ -23,7 +24,7 @@ function Slides() {
 
 		{
 			name: 'bol',
-			img: Bol,
+			img: BDCSerenity,
 			hovered: false,
 		},
 		{

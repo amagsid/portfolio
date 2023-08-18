@@ -162,6 +162,18 @@ const Hero = (props) => {
 
 								<motion.div whileHover={{ scale: 1.05 }}>
 									<DragMeSection
+										initial={{ x: 0 }}
+										animate={{ x: [-500, 0] }}
+										transition={{
+											type: 'spring',
+											bounce: 0.6,
+											duration: 1,
+											ease: 'easeInOut',
+											// repeat: 2,
+											repeatType: 'mirror',
+											// delay: 1,
+										}}
+										//
 										dragElastic={0.2}
 										dragSnapToOrigin={true}
 										className="dragme"
