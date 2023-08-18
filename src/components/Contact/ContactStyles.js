@@ -5,13 +5,22 @@ import { Form, Container } from 'react-bootstrap';
 export const Input = styled(Form.Control)`
 	background-color: ${(props) => props.theme.colors.inputField};
 	// background-color: transparent;
-	color: ${(props) => props.theme.colors.paragraphHeading};
+	color: ${(props) => props.theme.colors.textPale};
 	font-size: 1.5rem;
 	padding: 10px;
 	line-height: unset;
 	border: none;
 	appearance: none;
 	outline: none;
+
+	::placeholder {
+		color: white;
+		opacity: 0.2;
+		letter-spacing: 0.9px;
+		font-weight: 100;
+
+		font-family: ${(props) => props.theme.fonts.title};
+	}
 
 	&:focus {
 		box-shadow: none;
@@ -20,7 +29,7 @@ export const Input = styled(Form.Control)`
 	}
 	&:focus::placeholder {
 		color: transparent;
-		transition: color 0.5s ease;
+		transition: color 0.3s ease-in-out;
 	}
 `;
 export const Placeholder = styled.span``;

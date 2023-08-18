@@ -12,6 +12,7 @@ export const Header = styled(motion.header)`
 	margin-bottom: 20px;
 	padding-left: 0.8em;
 	color: ${(props) => props.theme.colors.textPale};
+	font-family: ${(props) => props.theme.fonts.title};
 `;
 export const Section = styled(motion.section)`
 	overflow: visible;
@@ -30,6 +31,8 @@ export const ExperienceText = styled(motion.p)`
 `;
 export const ExperienceName = styled(motion.h3)`
 	color: ${(props) => props.theme.colors.textPale};
+	font-family: ${(props) => props.theme.fonts.title};
+	font-weight: 350;
 `;
 export const BulletPoint = styled(motion.h4)`
 	color: ${(props) => props.theme.colors.textPale};

@@ -1,5 +1,4 @@
 import React from 'react';
-import { CgArrowLongUp } from 'react-icons/cg';
 import ArrowIcon from './ArrowIcon';
 import { motion, useScroll, useTransform } from 'framer-motion';
 

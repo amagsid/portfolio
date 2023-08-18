@@ -60,78 +60,73 @@ function Contact() {
 			{/* </div>
 			{/* </Confetti> */}
 
-			<Container style={{ height: 220 }} fluid>
-				{/* {emailSent && <p> Your message was sent , I'll get back to you shortly!</p>} */}
+			{/* <Container> */}
+			<Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
+				<input type="hidden" name="contact_number" value={contactNumber} />
 
-				<Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
-					<input type="hidden" name="contact_number" value={contactNumber} />
+				<Row>
+					<Col style={{ paddingLeft: 0, paddingRight: 2 }} className="mb-2">
+						{/* name */}
 
-					<Row>
-						<Col style={{ paddingLeft: 0, paddingRight: 2 }} className="mb-2">
-							{/* name */}
-
-							<Form.Group controlId="formBasicText">
-								<Input
-									// size="lg"
-									type="text"
-									name="user_name"
-									placeholder="name"
-									{...register('user_name')}
-									maxLength="30"
-									aria-invalid={errors.user_name ? 'true' : 'false'}
-									required={true}
-								/>
-							</Form.Group>
-						</Col>
-
-						<Col style={{ paddingRight: 0, paddingLeft: 2 }}>
-							{/* email */}
-							<Form.Group controlId="exampleForm.ControlInput1">
-								<Input
-									type="email"
-									name="user_email"
-									placeholder="email@example.com"
-									{...register('user_email')}
-									required={true}
-								/>
-							</Form.Group>
-						</Col>
-					</Row>
-
-					<Row>
-						{/* message */}
-						<Form.Group className=" p-0" controlId="exampleForm.ControlTextarea1">
+						<Form.Group controlId="formBasicText">
 							<Input
-								name="enter your message"
-								{...register('message')}
-								maxLength="1500"
-								placeholder="Message"
-								as="textarea"
-								rows={3}
+								// size="lg"
+								type="text"
+								name="user_name"
+								placeholder="name"
+								{...register('user_name')}
+								maxLength="30"
+								aria-invalid={errors.user_name ? 'true' : 'false'}
 								required={true}
+							/>
+						</Form.Group>
+					</Col>
+
+					<Col style={{ paddingRight: 0, paddingLeft: 2 }}>
+						{/* email */}
+						<Form.Group controlId="exampleForm.ControlInput1">
+							<Input
+								type="email"
+								name="user_email"
+								placeholder="email@example.com"
+								{...register('user_email')}
+								required={true}
+							/>
+						</Form.Group>
+					</Col>
+				</Row>
+
+				<Row>
+					{/* message */}
+					<Form.Group className="p-0 input" controlId="exampleForm.ControlTextarea1">
+						<Input
+							name="message"
+							{...register('message')}
+							maxLength="1500"
+							placeholder="say hi"
+							as="textarea"
+							rows={4}
+							required={true}
+							style={{ maxHeight: '300px' }}
+						></Input>
+
+						<CharAlert className="message-chars-left">
+							<CharCount>{messageCharsLeft} </CharCount> characeters left
+						</CharAlert>
+						<div style={{ display: 'flex' }}>
+							{/* <Button /> */}
+							<ResumeButton
+								className="px-20 py-3 rounded-md text-[20px]"
+								style={{ fontWeight: 200, letterSpacing: '1px' }}
 							>
 								{' '}
-								{/* charachter count */}
-							</Input>
-
-							<CharAlert className="message-chars-left">
-								<CharCount>{messageCharsLeft} </CharCount> characeters left
-							</CharAlert>
-							<div style={{ display: 'flex' }}>
-								{/* <Button /> */}
-
-								<ResumeButton
-									className="px-20 py-3 rounded-md text-[20px]"
-									style={{ fontWeight: 200, letterSpacing: '1px' }}
-								>
-									{' '}
-									Send
-								</ResumeButton>
-							</div>
-						</Form.Group>
-					</Row>
-				</Form>
-			</Container>
+								Send
+							</ResumeButton>
+						</div>
+					</Form.Group>
+				</Row>
+			</Form>
+			{/* </Container> */}
 		</Section>
 	);
 }

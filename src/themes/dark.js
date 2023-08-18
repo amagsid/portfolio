@@ -7,7 +7,6 @@ export default {
 		title: 'Fjalla One, sans-serif',
 		main: 'Space Grotesk, sans-serif',
 		mono: 'Noto Sans Mono, monospace',
-		Nav: 'Lato, sans-serif',
 	},
 	// Colors for layout
 	colors: {

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 
 export const Container = styled.div`
-	font-family: ${(props) => props.theme.fonts.Nav};
+	font-family: ${(props) => props.theme.fonts.title};
 	letter-spacing: 2px;
 	display: flex;
 	font-weight: 300;
@@ -33,9 +33,9 @@ export const NavLink = styled.a`
 	line-height: 32px;
 	transition: all 0.3s ease-in-out;
 	color: ${(props) => props.theme.colors.textPale};
-	transition: 0.3s ease-in-out;
+	transition: 0.1s ease-in-out;
 	&:hover {
-		color: #fff;
+		color: ${(props) => props.theme.colors.colorPop};
 		opacity: 1;
 		font-weight: 300;
 		cursor: pointer;

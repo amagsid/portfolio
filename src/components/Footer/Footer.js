@@ -41,6 +41,7 @@ const Footer = () => {
 					alignItems: 'center',
 					justifyContent: 'center',
 					fontWeight: '100',
+					paddingTop: '3px',
 				}}
 			>
 				<div
@@ -48,7 +49,6 @@ const Footer = () => {
 						display: 'flex',
 						alignItems: 'center',
 						justifyContent: 'center',
-						paddingTop: '3px',
 					}}
 				>
 					<CopyRight> </CopyRight> <NameYearCopyRight> 2023 - </NameYearCopyRight>

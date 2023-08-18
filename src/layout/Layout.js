@@ -20,15 +20,14 @@ export const Layout = ({ children }) => {
 	let mouseX = useMotionValue(0);
 	let mouseY = useMotionValue(0);
 
-	function handleMouseMove({ clientX, clientY, currentTarget }) {
-		let { left, top } = currentTarget.getBoundingClientRect();
-		let xPosition = clientX - left;
-		let YPosition = clientY - top;
+	// function handleMouseMove({ clientX, clientY, currentTarget }) {
+	// 	let { left, top } = currentTarget.getBoundingClientRect();
+	// 	let xPosition = clientX - left;
+	// 	let YPosition = clientY - top;
 
-		// setMousePosition({ x: xPosition, y: YPosition });
-		mouseX.set(xPosition);
-		mouseY.set(YPosition);
-	}
+	// 	mouseX.set(xPosition);
+	// 	mouseY.set(YPosition);
+	// }
 
 	return (
 		<motion.div>
@@ -44,9 +43,9 @@ export const Layout = ({ children }) => {
 					<div className="hidden lg:inline md:inline ">
 						<HoveringBanners />
 					</div>
-					<Footer />
 				</>
 			</Container>
+			<Footer />
 		</motion.div>
 	);
 };

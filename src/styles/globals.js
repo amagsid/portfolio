@@ -171,6 +171,7 @@ color: ${(props) => props.theme.colors.textPale};
   }
 
 
+
   textarea {
     width: 100%;
   }
