@@ -30,6 +30,9 @@ export default class MyDocument extends Document {
 		return (
 			<Html lang="en-GB">
 				<Head>
+					<script type="text/javascript">{console.log('hello world')}</script>
+					<script src="https://rawcdn.githack.com/akzhy/Vara/16e30acca2872212e28735cfdbaba696a355c780/src/vara.min.js"></script>
+
 					<link
 						href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
 						rel="stylesheet"

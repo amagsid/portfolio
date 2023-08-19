@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FiChevronRight } from 'react-icons/fi';
+import { TbPoint } from 'react-icons/tb';
 
 export const Header = styled(motion.header)`
 	display: flex;
@@ -19,6 +20,9 @@ export const Section = styled(motion.section)`
 `;
 
 export const ArrowBulletIcon = styled(FiChevronRight)`
+	stroke: ${(props) => props.theme.colors.colorPop};
+`;
+export const PointIcon = styled(TbPoint)`
 	stroke: ${(props) => props.theme.colors.colorPop};
 `;
 

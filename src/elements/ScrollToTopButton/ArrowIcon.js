@@ -16,7 +16,7 @@ function ArrowIcon() {
 				duration: 0.4,
 				repeat: Infinity,
 				repeatType: 'reverse',
-				repeatDelay: 1,
+				repeatDelay: 2,
 				ease: 'easeInOut',
 			},
 		},

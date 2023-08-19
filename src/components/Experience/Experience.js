@@ -56,37 +56,6 @@ const Experience = () => {
 		<Section id="experience">
 			<MovingSectionTitle sectionTitle="EXPERIENCE" />
 			<Example />
-
-			{/* <ExperienceListItem
-						onClick={handleAmbassadors}
-						style={{ backgroundColor: isAmbaddadors ? 'red' : 'yellow' }}
-					>
-						Ambassadors
-					</ExperienceListItem> */}
-			{/* <ExperienceListItem onClick={handleHYF}> </ExperienceListItem> */}
-			{/* <ExperienceListItem onClick={handlePV}> PV </ExperienceListItem> */}
-
-			{/* {experience.map((item) => {
-						return (
-							<ExperienceListItem
-								onClick={() => {
-									setSelected(true);
-
-									setActiveJob(item);
-								}}
-								className={`${
-									isSelected ? 'border-l-[#64ffda]' : 'border-l-[#64ff]'
-								}`}
-								// className={` ${
-								// 	theme == 'dark'
-								// 		? 'hover:border-[#64ffda] hover:bg-[#112240]'
-								// 		: 'hover:border-[#d25276] hover:bg-[#fff7]'
-								// }  hover:border-l-2  border-l-[#94a3b8] py-5  cursor-pointer duration-00`}
-							>
-								{item.name}
-							</ExperienceListItem>
-						);
-					})} */}
 		</Section>
 	);
 };

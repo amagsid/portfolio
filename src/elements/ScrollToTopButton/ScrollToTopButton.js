@@ -12,8 +12,6 @@ function ScrollToTopButton() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 
-	const style = { color: 'white', fontSize: '1.5em' };
-
 	return (
 		<motion.button onClick={scrollToTop}>
 			{' '}

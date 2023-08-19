@@ -47,70 +47,73 @@ const HoveringBanner = (props) => {
 		window.addEventListener('scroll', () => scrollLine());
 	}, []);
 
-	console.log(isLineScrolled, 'isLineScrolled');
 	return (
-		<Banner className="social-container" position={props.position}>
-			<div
-				className="pb-4"
-				style={{
-					writingMode: props.orientation == 'vertical' ? 'vertical-rl' : 'horizontal-tb',
-				}}
-			>
-				{props.position == 'left' && <SocialIcons />}
+		<>
+			<Banner className="social-container" position={props.position}>
+				<motion.div
+					style={{
+						scaleY: scrollYProgress,
+						transformOrigin: 'bottom',
+						// height: scrollYProgress,
 
-				{props.position == 'right' && (
-					<LinkContainer
-						variants={containerAnimation}
-						initial="hidden"
-						animate="show"
-						whileHover={{
-							scale: 1.09,
-							originY: 1,
-							letterSpacing: '8px',
-						}}
-						transition={{
-							type: 'spring',
-							stiffness: 400,
-							duration: 0.2,
-						}}
-						className="email-link"
-					>
-						<EmailLink href="mailto: amagsid@gmail.com" target="_blank">
-							<motion.span variants={ItemAnimation}>a</motion.span>
-							<motion.span variants={ItemAnimation}>m</motion.span>
-							<motion.span variants={ItemAnimation}>a</motion.span>
-							<motion.span variants={ItemAnimation}>g</motion.span>
-							<motion.span variants={ItemAnimation}>s</motion.span>
-							<motion.span variants={ItemAnimation}>i</motion.span>
-							<motion.span variants={ItemAnimation}>d</motion.span>
-							<motion.span variants={ItemAnimation}>@</motion.span>
-							<motion.span variants={ItemAnimation}>g</motion.span>
-							<motion.span variants={ItemAnimation}>m</motion.span>
-							<motion.span variants={ItemAnimation}>a</motion.span>
-							<motion.span variants={ItemAnimation}>i</motion.span>
-							<motion.span variants={ItemAnimation}>l</motion.span>
-							<motion.span variants={ItemAnimation}>.</motion.span>
-							<motion.span variants={ItemAnimation}>c</motion.span>
-							<motion.span variants={ItemAnimation}>o</motion.span>
-							<motion.span variants={ItemAnimation}>m</motion.span>
-						</EmailLink>
-					</LinkContainer>
-				)}
-			</div>
-			{/* {isLineScrolled ? <ScrollToTopButton></ScrollToTopButton> : <Line> </Line>} */}
+						height: arrowUpHeight,
+						marginBottom: '4px',
+						overflow: 'hidden',
+					}}
+				>
+					<ScrollToTopButton></ScrollToTopButton>
+				</motion.div>
+				<div
+					className="pb-4"
+					style={{
+						writingMode:
+							props.orientation == 'vertical' ? 'vertical-rl' : 'horizontal-tb',
+					}}
+				>
+					{props.position == 'left' && <SocialIcons />}
 
-			<motion.div
-				style={{
-					// scaleY: scrollYProgress,
-					// transformOrigin: 'bottom',
-					// height: scrollYProgress,
-					// height: '100px',
-					height: arrowUpHeight,
-				}}
-			>
-				<ScrollToTopButton></ScrollToTopButton>
-			</motion.div>
-		</Banner>
+					{props.position == 'right' && (
+						<LinkContainer
+							variants={containerAnimation}
+							initial="hidden"
+							animate="show"
+							whileHover={{
+								scale: 1.09,
+								originY: 1,
+								letterSpacing: '8px',
+							}}
+							transition={{
+								type: 'spring',
+								stiffness: 400,
+								duration: 0.2,
+							}}
+							className="email-link"
+						>
+							<EmailLink href="mailto: amagsid@gmail.com" target="_blank">
+								<motion.span variants={ItemAnimation}>a</motion.span>
+								<motion.span variants={ItemAnimation}>m</motion.span>
+								<motion.span variants={ItemAnimation}>a</motion.span>
+								<motion.span variants={ItemAnimation}>g</motion.span>
+								<motion.span variants={ItemAnimation}>s</motion.span>
+								<motion.span variants={ItemAnimation}>i</motion.span>
+								<motion.span variants={ItemAnimation}>d</motion.span>
+								<motion.span variants={ItemAnimation}>@</motion.span>
+								<motion.span variants={ItemAnimation}>g</motion.span>
+								<motion.span variants={ItemAnimation}>m</motion.span>
+								<motion.span variants={ItemAnimation}>a</motion.span>
+								<motion.span variants={ItemAnimation}>i</motion.span>
+								<motion.span variants={ItemAnimation}>l</motion.span>
+								<motion.span variants={ItemAnimation}>.</motion.span>
+								<motion.span variants={ItemAnimation}>c</motion.span>
+								<motion.span variants={ItemAnimation}>o</motion.span>
+								<motion.span variants={ItemAnimation}>m</motion.span>
+							</EmailLink>
+						</LinkContainer>
+					)}
+				</div>
+				{/* {isLineScrolled ? <ScrollToTopButton></ScrollToTopButton> : <Line> </Line>} */}
+			</Banner>
+		</>
 	);
 };
 const HoveringBanners = () => {

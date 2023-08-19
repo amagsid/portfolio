@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronRight } from 'react-icons/fi';
 import { FiChevronDown } from 'react-icons/fi';
 import { IoCloseSharp } from 'react-icons/io5';
-import { ArrowBulletIcon } from './AccordionStyles';
 
 import {
 	Header,
@@ -14,6 +13,8 @@ import {
 	ExperienceName,
 	BulletPoint,
 	Years,
+	ArrowBulletIcon,
+	PointIcon,
 } from './AccordionStyles';
 
 const Accordion = ({ i, expanded, setExpanded }) => {
@@ -91,7 +92,15 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 										<div style={{ display: 'flex' }}>
 											<motion.div>
 												{' '}
-												<ArrowBulletIcon
+												{/* <ArrowBulletIcon
+													animate={{ rotate: 360 }}
+													transition={{
+														duration: 0.4,
+														type: 'spring',
+														stiffness: 200,
+													}}
+												/>{' '} */}
+												<PointIcon
 													animate={{ rotate: 360 }}
 													transition={{
 														duration: 0.4,

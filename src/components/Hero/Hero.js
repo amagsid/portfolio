@@ -7,6 +7,7 @@ import { BigHeading, MedHeading, DragMeSection, AhlanPhonemic } from './HeroStyl
 import PhoneHero from './PhoneHero';
 import { ThemeContext } from '../../pages/_app';
 import SwipeLeftRight from '../../elements/swipeLeftRight';
+import HandWritingAnimation from '../../elements/Handwriting/HandWritingAnimation';
 
 const Hero = (props) => {
 	const { theme } = useContext(ThemeContext);
@@ -29,7 +30,10 @@ const Hero = (props) => {
 
 	//hero effects based on greeting drag
 	const x = useMotionValue(0);
-	const scale = useTransform(x, [-550, 0, 550], [1.3, 1, 1.3]);
+	const dragPromptOpacity = useTransform(x, [0, 500], [1, 0]);
+	const input = [-200, 0, 200];
+	const output = [0, 1, 0];
+	const opacity = useTransform(x, input, output);
 	const GreetingLetterSpacing = useTransform(x, [-450, 0, 450], ['-33px', '15px', '-33px']);
 
 	const color =
@@ -56,6 +60,10 @@ const Hero = (props) => {
 	useEffect(() => {
 		const handleMouseMove = (event) => {
 			setMousePos({ x: event.clientX, y: event.clientY });
+			setIsMouseMoving(true);
+		};
+		const handleMouseLeave = (event) => {
+			setIsMouseMoving(false);
 		};
 
 		if (count === 5) {
@@ -76,6 +84,7 @@ const Hero = (props) => {
 
 		if (!isSm) {
 			divRef.current.addEventListener('mousemove', handleMouseMove);
+			// divRef.current.addEventListener('mouseleave', handleMouseLeave);
 			window.addEventListener('drag', handleDrag);
 			// window.addEventListener('mousemove', handleMouseMove);
 		}
@@ -122,6 +131,7 @@ const Hero = (props) => {
 	const myNameIsYposition = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
 	const titleColor = useTransform(scrollYProgress, [0, 0.5], ['#ccd6f6', '#64ffda']);
+	console.log(isMouseMoving);
 
 	return (
 		<>
@@ -145,6 +155,17 @@ const Hero = (props) => {
 								position: 'relative',
 							}}
 						>
+							{theme == 'dark' && isMouseMoving && !isDragging && (
+								<motion.div style={{ opacity }}>
+									<HandWritingAnimation color="#64ffda"> </HandWritingAnimation>
+								</motion.div>
+							)}
+							{theme == 'light' && isMouseMoving && !isDragging && (
+								<motion.div style={{ opacity }}>
+									<HandWritingAnimation color="#FF3333"> </HandWritingAnimation>
+								</motion.div>
+							)}
+
 							<div
 								style={{
 									display: 'flex',
@@ -154,11 +175,11 @@ const Hero = (props) => {
 							>
 								{/* <motion.div style={{ scale: greetingScale }}> */}
 								<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
-								{!isDragging && (
+								{/* {!isDragging && (
 									<SwipeLeftRight
 										style={{ zIndex: 80, mixBlendMode: 'hard-light' }}
 									></SwipeLeftRight>
-								)}
+								)} */}
 
 								<motion.div whileHover={{ scale: 1.05 }}>
 									<DragMeSection
