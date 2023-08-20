@@ -62,7 +62,7 @@ export const MedHeading = styled(motion.h2)`
 	animation-timing-function: linear;
 	// position: fixed;
 
-	color: ${(props) => props.theme.colors.heading};
+	color: ${(props) => props.theme.colors.textPale};
 	line-height: 95px;
 `;
 export const DragMeSection = styled(motion.div)`

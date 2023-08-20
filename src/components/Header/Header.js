@@ -61,8 +61,16 @@ function Header() {
 				{' '}
 				<Signature isNavScrolled />
 			</LogoContainer>
-			{/* --------------------------------------------------------------- */}
-			{/* problerm is here  */}
+			<div
+				style={{
+					display: 'flex',
+					justifyContent: 'center',
+					alignnavItemAnimations: 'center',
+					flexDirection: 'row',
+				}}
+			>
+				 <ThemeSwitch />
+			</div>
 			<div className="hidden mdl:inline-flex items-center gap-7">
 				{/* <NavLinksContainer> */}
 				<motion.ul
@@ -70,17 +78,8 @@ function Header() {
 					variants={navContainerAnimation}
 					initial="hidden"
 					animate="show"
+					className="mb-0"
 				>
-					<li
-						style={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignnavItemAnimations: 'center',
-							flexDirection: 'row',
-						}}
-					>
-						 <ThemeSwitch />
-					</li>
 					<motion.li variants={navItemAnimation}>
 						{/* <Link href="#about" scroll={false}> */}
 						<NavLink href="#about">About</NavLink>

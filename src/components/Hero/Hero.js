@@ -157,12 +157,22 @@ const Hero = (props) => {
 						>
 							{theme == 'dark' && isMouseMoving && !isDragging && (
 								<motion.div style={{ opacity }}>
-									<HandWritingAnimation color="#64ffda"> </HandWritingAnimation>
+									<HandWritingAnimation
+										text="drag me left or right"
+										color="#64ffda"
+									>
+										{' '}
+									</HandWritingAnimation>
 								</motion.div>
 							)}
 							{theme == 'light' && isMouseMoving && !isDragging && (
 								<motion.div style={{ opacity }}>
-									<HandWritingAnimation color="#FF3333"> </HandWritingAnimation>
+									<HandWritingAnimation
+										text="drag me left or right"
+										color="#FF3333"
+									>
+										{' '}
+									</HandWritingAnimation>
 								</motion.div>
 							)}
 

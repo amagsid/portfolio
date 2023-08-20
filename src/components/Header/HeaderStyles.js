@@ -6,6 +6,7 @@ export const Container = styled.div`
 	font-family: ${(props) => props.theme.fonts.title};
 	letter-spacing: 2px;
 	display: flex;
+	align-items: center;
 	font-weight: 300;
 	justify-content: space-between;
 	padding: 2rem 5rem 0.5rem 5rem;
@@ -132,9 +133,11 @@ export const ResumeButton = styled.button`
 // hamburger icon
 export const BurgerLine = styled.span`
 	background-color: ${(props) => props.theme.colors.colorPop};
+	margin-bottom: 3px;
 `;
 
 export const BurgerIcon = styled.div`
 	color: ${(props) => props.theme.colors.colorPop};
 	// background-color: ${(props) => props.theme.colors.colorPop};
+	margin-left: 22vw;
 `;

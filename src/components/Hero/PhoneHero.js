@@ -1,11 +1,14 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef, useContext } from 'react';
 import { Section } from '../../styles/GlobalComponents';
 import { BigHeading, MedHeading, DragMeSection } from './PhoneHeroStyles';
 import { HighlightedText } from '../Hero/PhoneHeroStyles';
 import useBreakpoints from '../../hooks/useMediaQueryIndex';
 import { motion, useTransform, useScroll, useDragControls } from 'framer-motion';
+import { ThemeContext } from '../../pages/_app';
+import HandWritingAnimation from '../../elements/Handwriting/HandWritingAnimation';
 
 function PhoneHero() {
+	const { theme } = useContext(ThemeContext);
 	const [mousePos, setMousePos] = useState({});
 	const [touchPos, setTouchPos] = useState({});
 	const [count, setCount] = useState(0);
@@ -43,7 +46,7 @@ function PhoneHero() {
 			setTouchPos({ x: event.clientX, y: event.clientY });
 			setCount(count + 1);
 		};
-		if (count === 4) {
+		if (count === 5) {
 			setCount(0);
 		}
 
@@ -56,7 +59,7 @@ function PhoneHero() {
 			// setCount((prev) => prev + 1);
 		}
 
-		if (count === 4) {
+		if (count === 5) {
 			setCount(0);
 		}
 
@@ -101,6 +104,20 @@ function PhoneHero() {
 					alignItems: 'center',
 				}}
 			>
+				{theme == 'dark' && (
+					<motion.div>
+						<HandWritingAnimation text="swipe me up and down" color="#64ffda">
+							{' '}
+						</HandWritingAnimation>
+					</motion.div>
+				)}
+				{theme == 'light' && (
+					<motion.div>
+						<HandWritingAnimation text="swipe me up and down" color="#FF3333">
+							{' '}
+						</HandWritingAnimation>
+					</motion.div>
+				)}
 				<motion.div style={{ scale: greetingScale }}>
 					<div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
 
@@ -122,62 +139,74 @@ function PhoneHero() {
 						dragTransition={{ bounceStiffness: 2000, bounceDamping: 10 }}
 						whileTap={{ cursor: 'grabbing' }}
 					>
-						<div style={{ color: '#fff' }}> swipe me </div>
-						<div>
-							{count == 0 && (
+						{count == 0 && (
+							<BigHeading
+								variants={container}
+								initial="hidden"
+								animate="show"
+								style={{
+									fontFamily: 'Poppins',
+									fontWeight: 700,
+								}}
+							>
+								Hello
+							</BigHeading>
+						)}
+						{count == 1 && (
+							<BigHeading
+								variants={container}
+								initial="hidden"
+								animate="show"
+								style={{
+									fontFamily: 'Poppins',
+									fontWeight: 100,
+									fontStyle: 'italic',
+								}}
+							>
+								Hola
+							</BigHeading>
+						)}
+						{count == 2 && (
+							<BigHeading
+								variants={container}
+								initial="hidden"
+								animate="show"
+								style={{
+									fontFamily: 'Chivo',
+									textAlign: 'center',
+								}}
+							>
+								CIAO
+							</BigHeading>
+						)}
+						{count == 3 && (
+							<BigHeading
+								variants={container}
+								initial="hidden"
+								animate="show"
+								style={{
+									fontFamily: 'Cairo',
+									fontWeight: 800,
+								}}
+							>
+								أهلاً
+							</BigHeading>
+						)}
+						{count == 4 && (
+							<div>
 								<BigHeading
 									variants={container}
 									initial="hidden"
 									animate="show"
 									style={{
 										fontFamily: 'Poppins',
-										fontWeight: 700,
-									}}
-								>
-									Hello
-								</BigHeading>
-							)}
-							{count == 1 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{
-										fontFamily: 'Poppins',
-										fontWeight: 100,
-										fontStyle: 'italic',
-									}}
-								>
-									Hola
-								</BigHeading>
-							)}
-							{count == 2 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{
-										fontFamily: 'Chivo',
-										textAlign: 'center',
-									}}
-								>
-									CIAO
-								</BigHeading>
-							)}
-							{count == 3 && (
-								<BigHeading
-									variants={container}
-									initial="hidden"
-									animate="show"
-									style={{
-										fontFamily: 'Cairo',
 										fontWeight: 800,
 									}}
 								>
-									أهلاً
+									Hoi
 								</BigHeading>
-							)}
-						</div>
+							</div>
+						)}
 					</DragMeSection>
 				</motion.div>
 

@@ -47,3 +47,8 @@ export const Years = styled(motion.span)`
 	font-size: 1.2rem;
 	padding-left: 1.5rem;
 `;
+export const City = styled(motion.h4)`
+	font-size: 1.2rem;
+	padding-left: 1.5rem;
+	color: ${(props) => props.theme.colors.textPale};
+`;

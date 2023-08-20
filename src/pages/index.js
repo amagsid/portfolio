@@ -26,8 +26,10 @@ const Home = () => {
 
 			<AboutMe />
 
-			<PastWork />
 			<Experience />
+
+			<PastWork />
+
 			<Contact />
 		</Layout>
 	);
