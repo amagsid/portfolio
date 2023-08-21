@@ -26,56 +26,45 @@ const AboutMe = () => {
 		<Section background id="about">
 			<MovingSectionTitle sectionTitle="WHO IS AHMAD?"></MovingSectionTitle>
 			{/* <MobileSection style={{ height: '80%' }}> */}
-			<div className="py-12">
-				<div className="flex flex-col h-full lgl:flex-row gap-5 ">
-					<SectionText>
-						Front-end developer specializing in UI. Currently, I’m helping brands
-						automate their creative workflow by building custom scalable web-editable
-						video templates at{' '}
-						<a href="https://www.ambassadors.com/" target="_blank">
-							Ambassadors{' '}
-						</a>{' '}
-						as part of the creative automation team{' '}
-						<a href="https://www.ambassadors.com/solutions/cube" target="_blank">
-							Cube
-						</a>
-					</SectionText>
 
-					<motion.div
-						style={{
-							scale: ImageScale,
-							// x: ImagePos,
-							// opacity: ImageOpacity,
-						}}
-					>
-						<div>
-							<PictureTent
-								style={{
-									backgroundColor: theme === 'dark' ? '#64ffda' : 'unset',
-								}}
-							>
-								<StyledImage
-									ref={targetRef}
-									src={Portrait}
-									className=" h-auto object-cover shadow-l dark:shadow-gray-800"
-								/>
-							</PictureTent>
-						</div>
-					</motion.div>
-					<SectionText right>
-						<span>Okay enough with the CV talk!</span> <br></br> I'm into anything
-						tech-related. over the years, this drive pushed my to achieve my dream of
-						becoming a programmer. Other than that, you can find me at the gym,
-						meal-prepping or looking for a sunny spot daytime and the stars at night.{' '}
-						<br />
-						<Motto style={{ fontSize: '15px' }}>
-							motto: do it with passion or not at all
-						</Motto>{' '}
-					</SectionText>
-				</div>
+			<div className=" py-12 flex items-center flex-col h-full lgl:flex-row gap-5 ">
+				<SectionText>
+					Front-end developer specializing in UI. Currently, I’m helping brands automate their creative workflow by building custom scalable web-editable video
+					templates at{' '}
+					<a href="https://www.ambassadors.com/" target="_blank">
+						Ambassadors{' '}
+					</a>{' '}
+					as part of the creative automation team{' '}
+					<a href="https://www.ambassadors.com/solutions/cube" target="_blank">
+						Cube
+					</a>
+				</SectionText>
 
-				<Timeline />
+				<motion.div
+					style={{
+						scale: ImageScale,
+						// x: ImagePos,
+						// opacity: ImageOpacity,
+					}}
+				>
+					<div>
+						<PictureTent
+							style={{
+								backgroundColor: theme === 'dark' ? '#64ffda' : 'unset',
+							}}
+						>
+							<StyledImage ref={targetRef} src={Portrait} className=" h-auto object-cover shadow-l dark:shadow-gray-800" />
+						</PictureTent>
+					</div>
+				</motion.div>
+				<SectionText right>
+					<span>Okay enough with the CV talk!</span> <br></br> I'm into anything tech-related. over the years, this drive pushed my to achieve my dream of
+					becoming a programmer. Other than that, you can find me at the gym, meal-prepping or looking for a sunny spot daytime and the stars at night. <br />
+					<Motto style={{ fontSize: '15px' }}>motto: do it with passion or not at all</Motto>{' '}
+				</SectionText>
 			</div>
+
+			<Timeline />
 		</Section>
 	);
 };

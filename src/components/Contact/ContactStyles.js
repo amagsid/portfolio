@@ -33,18 +33,44 @@ export const Input = styled(Form.Control)`
 	}
 `;
 export const Placeholder = styled.span``;
+
 export const CharCount = styled(motion.span)`
 	color: ${(props) => props.theme.colors.colorPop};
 `;
+
 export const CharAlert = styled(motion.h4)`
 	font-weight: 300;
 	color: ${(props) => props.theme.colors.paragraphHeading};
+	margin-bottom: 5px;
 `;
+
 export const SendButton = styled(motion.h4)`
 color: ${(props) => props.theme.colors.colorPop};
 	border: solid 1px;
 	backgroundcolor: ${(props) => props.theme.colors.colorPop};
+
 	&:hover {
 		background-color: ${(props) => props.theme.colors.colorPop}50;
 		text-shadow: 2px 2px 20px ${(props) => props.theme.colors.colorPop};
-		color: ${(props) => props.theme.colors.buttonHoverColor};`;
+		color: ${(props) => props.theme.colors.buttonHoverColor};
+		display: flex;
+    	justifyContent: center;
+
+		//small mobile
+		@media ${(props) => props.theme.breakpoints.sm} {
+		width: 175px;
+	}
+
+		
+		`;
+
+export const SendCharLimitContainer = styled(motion.div)`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	//small mobile
+	@media ${(props) => props.theme.breakpoints.sm} {
+		align-items: center;
+	}
+`;

@@ -6,7 +6,7 @@ init('user_x4FGTrgTjdeEVdrn9HdcN');
 import { Section, SectionText } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 import { Form, Container, Col, Row } from 'react-bootstrap';
-import { Input, CharAlert, CharCount, Placeholder } from './ContactStyles';
+import { Input, CharAlert, CharCount, SendCharLimitContainer, SendButton } from './ContactStyles';
 import { ResumeButton } from '../Header/HeaderStyles';
 import Button from '../../elements/SendButton/Button';
 import Confetti from '../../elements/confetti/confetti';
@@ -45,18 +45,8 @@ function Contact() {
 
 	return (
 		<Section id="contact">
-			{/* <Confetti> */}
-			{/* <div> */}
-			<MovingSectionTitle
-				sectionTitle={!emailSent ? 'GET IN TOUCH' : `SENT🚀I'LL BE IN TOUCH SHORTLY `}
-				emailSent={emailSent}
-			></MovingSectionTitle>
-			{emailSent && (
-				<div
-					className="bg-confetti-animated"
-					style={{ position: 'absolute', width: '100%', height: ' 100%' }}
-				></div>
-			)}
+			<MovingSectionTitle sectionTitle={!emailSent ? 'GET IN TOUCH' : `SENT🚀I'LL BE IN TOUCH SHORTLY `} emailSent={emailSent}></MovingSectionTitle>
+			{emailSent && <div className="bg-confetti-animated" style={{ position: 'absolute', width: '100%', height: ' 100%' }}></div>}
 			{/* </div>
 			{/* </Confetti> */}
 
@@ -85,13 +75,7 @@ function Contact() {
 					<Col style={{ paddingRight: 0, paddingLeft: 2 }}>
 						{/* email */}
 						<Form.Group controlId="exampleForm.ControlInput1">
-							<Input
-								type="email"
-								name="user_email"
-								placeholder="email@example.com"
-								{...register('user_email')}
-								required={true}
-							/>
+							<Input type="email" name="user_email" placeholder="email@example.com" {...register('user_email')} required={true} />
 						</Form.Group>
 					</Col>
 				</Row>
@@ -110,19 +94,16 @@ function Contact() {
 							style={{ maxHeight: '300px' }}
 						></Input>
 
-						<CharAlert className="message-chars-left">
-							<CharCount>{messageCharsLeft} </CharCount> characeters left
-						</CharAlert>
-						<div style={{ display: 'flex' }}>
+						<SendCharLimitContainer style={{ display: 'flex' }}>
+							<CharAlert className="message-chars-left">
+								<CharCount>{messageCharsLeft} </CharCount> characeters left
+							</CharAlert>
 							{/* <Button /> */}
-							<ResumeButton
-								className="px-20 py-3 rounded-md text-[20px]"
-								style={{ fontWeight: 200, letterSpacing: '1px' }}
-							>
+							<SendButton className="px-20 py-3 rounded-md text-[20px]" style={{ fontWeight: 200, letterSpacing: '1px' }}>
 								{' '}
 								Send
-							</ResumeButton>
-						</div>
+							</SendButton>
+						</SendCharLimitContainer>
 					</Form.Group>
 				</Row>
 			</Form>

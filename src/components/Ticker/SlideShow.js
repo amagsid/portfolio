@@ -53,7 +53,7 @@ function Slides() {
 	}, [duration]);
 
 	return (
-		<div ref={ref} style={{ padding: '2.5em 0rem .5em 0rem' }}>
+		<div ref={ref} style={{ padding: '1em 0rem .5em 0rem' }}>
 			<Ticker duration={duration}>
 				{colors.map((item, index) => {
 					return (
