@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { BiMailSend } from 'react-icons/bi';
 import { init, sendForm } from 'emailjs-com';
 init('user_x4FGTrgTjdeEVdrn9HdcN');
 import { Section, SectionText } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 import { Form, Container, Col, Row } from 'react-bootstrap';
-import { Input, CharAlert, CharCount, SendCharLimitContainer, SendButton } from './ContactStyles';
-import { ResumeButton } from '../Header/HeaderStyles';
-import Button from '../../elements/SendButton/Button';
-import Confetti from '../../elements/confetti/confetti';
+import { Input, CharAlert, CharCount, SendCharLimitContainer, SendButton, FormContainer } from './ContactStyles';
 
 function Contact() {
 	const {
@@ -50,64 +46,64 @@ function Contact() {
 			{/* </div>
 			{/* </Confetti> */}
 
-			{/* <Container> */}
-			<Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
-				<input type="hidden" name="contact_number" value={contactNumber} />
+			<FormContainer>
+				<Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
+					<input type="hidden" name="contact_number" value={contactNumber} />
 
-				<Row>
-					<Col style={{ paddingLeft: 0, paddingRight: 2 }} className="mb-2">
-						{/* name */}
+					<Row>
+						<Col style={{ paddingLeft: 0, paddingRight: 2 }} className="mb-2">
+							{/* name */}
 
-						<Form.Group controlId="formBasicText">
+							<Form.Group controlId="formBasicText">
+								<Input
+									// size="lg"
+									type="text"
+									name="user_name"
+									placeholder="name"
+									{...register('user_name')}
+									maxLength="30"
+									aria-invalid={errors.user_name ? 'true' : 'false'}
+									required={true}
+								/>
+							</Form.Group>
+						</Col>
+
+						<Col style={{ paddingRight: 0, paddingLeft: 2 }}>
+							{/* email */}
+							<Form.Group controlId="exampleForm.ControlInput1">
+								<Input type="email" name="user_email" placeholder="email@example.com" {...register('user_email')} required={true} />
+							</Form.Group>
+						</Col>
+					</Row>
+
+					<Row>
+						{/* message */}
+						<Form.Group className="p-0 input" controlId="exampleForm.ControlTextarea1">
 							<Input
-								// size="lg"
-								type="text"
-								name="user_name"
-								placeholder="name"
-								{...register('user_name')}
-								maxLength="30"
-								aria-invalid={errors.user_name ? 'true' : 'false'}
+								name="message"
+								{...register('message')}
+								maxLength="1500"
+								placeholder="say hi"
+								as="textarea"
+								rows={4}
 								required={true}
-							/>
+								style={{ maxHeight: '300px' }}
+							></Input>
+
+							<SendCharLimitContainer style={{ display: 'flex' }}>
+								<CharAlert className="message-chars-left">
+									<CharCount>{messageCharsLeft} </CharCount> characeters left
+								</CharAlert>
+								{/* <Button /> */}
+								<SendButton className="px-20 py-3 rounded-md text-[20px]" style={{ fontWeight: 200, letterSpacing: '1px' }}>
+									{' '}
+									Send
+								</SendButton>
+							</SendCharLimitContainer>
 						</Form.Group>
-					</Col>
-
-					<Col style={{ paddingRight: 0, paddingLeft: 2 }}>
-						{/* email */}
-						<Form.Group controlId="exampleForm.ControlInput1">
-							<Input type="email" name="user_email" placeholder="email@example.com" {...register('user_email')} required={true} />
-						</Form.Group>
-					</Col>
-				</Row>
-
-				<Row>
-					{/* message */}
-					<Form.Group className="p-0 input" controlId="exampleForm.ControlTextarea1">
-						<Input
-							name="message"
-							{...register('message')}
-							maxLength="1500"
-							placeholder="say hi"
-							as="textarea"
-							rows={4}
-							required={true}
-							style={{ maxHeight: '300px' }}
-						></Input>
-
-						<SendCharLimitContainer style={{ display: 'flex' }}>
-							<CharAlert className="message-chars-left">
-								<CharCount>{messageCharsLeft} </CharCount> characeters left
-							</CharAlert>
-							{/* <Button /> */}
-							<SendButton className="px-20 py-3 rounded-md text-[20px]" style={{ fontWeight: 200, letterSpacing: '1px' }}>
-								{' '}
-								Send
-							</SendButton>
-						</SendCharLimitContainer>
-					</Form.Group>
-				</Row>
-			</Form>
-			{/* </Container> */}
+					</Row>
+				</Form>
+			</FormContainer>
 		</Section>
 	);
 }

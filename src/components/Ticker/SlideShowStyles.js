@@ -6,4 +6,17 @@ export const StyledImage = styled(Image)`
 
 	border-radius: 7px;
 	filter: saturate(0.3);
+	margin: 5px;
+	height: 400px;
+	width: 400px;
+
+	//small mobile
+	@media ${(props) => props.theme.breakpoints.sm} {
+		margin: 5px;
+		height: 250px;
+		width: 250px;
+	}
+`;
+export const SlideShowContainer = styled.div`
+	padding: 1em 0rem 1em 0rem;
 `;

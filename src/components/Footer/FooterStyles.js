@@ -13,10 +13,10 @@ export const FooterWrapper = styled.section`
 	flex-direction: column;
 	align-items: center;
 
-	// @media ${(props) => props.theme.breakpoints.sm} {
-	// 	padding: 0 16px 48px;
-	// 	width: calc(100vw - 32px);
-	// }
+	@media ${(props) => props.theme.breakpoints.sm} {
+		height: 10vh;
+		padding: 0 0rem 6rem 0;
+	}
 `;
 
 export const NameYearCopyRight = styled.h4`

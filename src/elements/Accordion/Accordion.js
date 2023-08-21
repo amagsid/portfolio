@@ -5,18 +5,7 @@ import { FiChevronRight } from 'react-icons/fi';
 import { FiChevronDown } from 'react-icons/fi';
 import { IoCloseSharp } from 'react-icons/io5';
 
-import {
-	Header,
-	Section,
-	AccordionContainer,
-	ExperienceText,
-	ExperienceName,
-	BulletPoint,
-	Years,
-	City,
-	ArrowBulletIcon,
-	PointIcon,
-} from './AccordionStyles';
+import { Header, Section, AccordionContainer, ExperienceText, ExperienceName, BulletPoint, Years, City, ArrowBulletIcon, PointIcon } from './AccordionStyles';
 
 const Accordion = ({ i, expanded, setExpanded }) => {
 	const { theme } = useContext(ThemeContext);
@@ -40,26 +29,15 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 	// them in and out while also only rendering the contents of open accordions
 	return (
 		<>
-			<Header
-				initial={false}
-				animate={{ backgroundColor: openBackgroundColor }}
-				onClick={() => setExpanded(isOpen ? false : i)}
-			>
+			<Header initial={false} animate={{ backgroundColor: openBackgroundColor }} onClick={() => setExpanded(isOpen ? false : i)}>
 				{isOpen ? (
-					<motion.div
-						animate={{ rotate: 360, scale: [1, 2, 1] }}
-						transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
-					>
+					<motion.div animate={{ rotate: 360, scale: [1, 2, 1] }} transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}>
 						<IoCloseSharp style={{ color: openTextColor }} />{' '}
 					</motion.div>
 				) : (
 					<motion.div>
 						{' '}
-						<FiChevronRight
-							animate={{ rotate: 360 }}
-							transition={{ duration: 0.4, type: 'spring', stiffness: 200 }}
-							style={{ color: '#8892b0' }}
-						/>{' '}
+						<FiChevronRight animate={{ rotate: 360 }} transition={{ duration: 0.4, type: 'spring', stiffness: 200 }} style={{ color: '#8892b0' }} />{' '}
 					</motion.div>
 				)}
 
@@ -80,14 +58,8 @@ const Accordion = ({ i, expanded, setExpanded }) => {
 						}}
 						transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
 					>
-						<motion.div
-							variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
-							transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
-						>
-							<ExperienceText style={{ paddingBottom: '1rem' }}>
-								{' '}
-								{i.text}
-							</ExperienceText>
+						<motion.div variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }} transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}>
+							<ExperienceText style={{ paddingBottom: '1rem' }}> {i.text}</ExperienceText>
 							<div className="pb-4">
 								{i.bulletPoints.map((point) => {
 									return (
@@ -131,7 +103,7 @@ export const Example = () => {
 
 	return (
 		<>
-			<AccordionContainer style={{ padding: '2.5rem 0rem 2.5rem 0rem' }}>
+			<AccordionContainer>
 				{experience.map((i) => (
 					<Accordion i={i} expanded={expanded} setExpanded={setExpanded} />
 				))}

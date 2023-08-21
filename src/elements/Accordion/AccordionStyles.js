@@ -29,6 +29,12 @@ export const PointIcon = styled(TbPoint)`
 export const AccordionContainer = styled(motion.div)`
 	margin: 0 auto;
 	width: 100%;
+	padding: 2rem 0rem 2rem 0rem;
+
+	//small mobile
+	@media ${(props) => props.theme.breakpoints.sm} {
+		padding: 1rem 1rem 1rem 1rem;
+	}
 `;
 export const ExperienceText = styled(motion.p)`
 	color: ${(props) => props.theme.colors.textPale};

@@ -15,9 +15,12 @@ export const ClientsLogoContainer = styled.div`
 
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-	    align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
+	height: 12rem;
+	align-content: space-between;
+    justify-content: space-evenly;
+	
 	}
 
 

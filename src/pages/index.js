@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Acomplishments from '../components/Acomplishments/Acomplishments';
 
 import Hero from '../components/Hero/Hero';
 import PastWork from '../components/PastWork/PastWork';
@@ -14,11 +13,7 @@ import Contact from '../components/Contact/Contact';
 const Home = () => {
 	return (
 		<Layout>
-			<motion.div
-				initial={{ x: '-100vw ' }}
-				animate={{ x: 0 }}
-				transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
-			>
+			<motion.div initial={{ x: '-100vw ' }} animate={{ x: 0 }} transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}>
 				<Hero />
 			</motion.div>
 

@@ -74,3 +74,9 @@ export const SendCharLimitContainer = styled(motion.div)`
 		align-items: center;
 	}
 `;
+export const FormContainer = styled(motion.div)`
+	//small mobile
+	@media ${(props) => props.theme.breakpoints.sm} {
+		padding: 0 2rem 0 2rem;
+	}
+`;

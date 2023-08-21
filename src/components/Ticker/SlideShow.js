@@ -6,7 +6,7 @@ import BDC from '../../../public/images/BDC.png';
 import BDCSerenity from '../../../public/images/BDCSerenity.png';
 import SqSp from '../../../public/images/SqSp.png';
 
-import { StyledImage } from './SlideShowStyles';
+import { StyledImage, SlideShowContainer } from './SlideShowStyles';
 import { CloudLightning } from 'react-feather';
 
 function Slides() {
@@ -53,41 +53,31 @@ function Slides() {
 	}, [duration]);
 
 	return (
-		<div ref={ref} style={{ padding: '1em 0rem .5em 0rem' }}>
+		<SlideShowContainer ref={ref}>
 			<Ticker duration={duration}>
 				{colors.map((item, index) => {
 					return (
-						<motion.div
+						<StyledImage
 							key={index}
-							style={{
-								backgroundColor: item,
-								margin: '5px',
-								height: '400px',
-								width: '400px',
+							onMouseEnter={() => {
+								setImgHovered(index);
+								setHovered(true);
 							}}
-						>
-							<StyledImage
-								onMouseEnter={() => {
-									setImgHovered(index);
-									setHovered(true);
-								}}
-								onMou
-								onMouseLeave={() => {
-									setHovered(false);
-									setImgHovered(null);
-								}}
-								src={item.img}
-								style={{
-									filter: isImgHovered == index ? 'saturate(.9)' : 'saturate(.5)',
-								}}
-								// style={{ width: '100%' }}
-								// className=" h-auto lg:max-w-[350px]  object-cover shadow-l dark:shadow-gray-800"
-							/>
-						</motion.div>
+							onMouseLeave={() => {
+								setHovered(false);
+								setImgHovered(null);
+							}}
+							src={item.img}
+							style={{
+								filter: isImgHovered == index ? 'saturate(.9)' : 'saturate(.5)',
+							}}
+							// style={{ width: '100%' }}
+							// className=" h-auto lg:max-w-[350px]  object-cover shadow-l dark:shadow-gray-800"
+						/>
 					);
 				})}
 			</Ticker>
-		</div>
+		</SlideShowContainer>
 	);
 }
 

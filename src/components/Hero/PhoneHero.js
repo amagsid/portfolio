@@ -50,11 +50,7 @@ function PhoneHero() {
 			setCount(0);
 		}
 
-		if (
-			mousePos.x - prevxCount >= 5 ||
-			prevxCount - mousePos.x >= 5 ||
-			mousePos.y - prevyCount >= 5
-		) {
+		if (mousePos.x - prevxCount >= 5 || prevxCount - mousePos.x >= 5 || mousePos.y - prevyCount >= 5) {
 			setCount(count + 1);
 			// setCount((prev) => prev + 1);
 		}
@@ -106,7 +102,7 @@ function PhoneHero() {
 			>
 				{theme == 'dark' && (
 					<motion.div>
-						<HandWritingAnimation text="swipe me up and down" color="#64ffda">
+						<HandWritingAnimation style={{ position: 'relative', top: '30vh' }} text="swipe me up and down" color="#64ffda">
 							{' '}
 						</HandWritingAnimation>
 					</motion.div>
@@ -127,13 +123,10 @@ function PhoneHero() {
 						drag="y"
 						dragSnapToOrigin={true}
 						dragControls={dragControls}
-						// dragConstraints={{ top: 50, bottom: 50 }}
-
 						dragConstraints={{
 							top: -25,
-							// right: 125,
+
 							bottom: 70,
-							// left: -125,
 						}}
 						dragElastic={0.2}
 						dragTransition={{ bounceStiffness: 2000, bounceDamping: 10 }}
@@ -210,28 +203,28 @@ function PhoneHero() {
 					</DragMeSection>
 				</motion.div>
 
-				<div
+				{/* <div
 					style={{
 						display: 'flex',
 						flexDirection: 'column',
 						position: 'sticky',
 					}}
+				> */}
+				<HighlightedText main style={{ translateY: myNameIsYposition }}>
+					my name is
+				</HighlightedText>
+				<MedHeading
+					style={{
+						letterSpacing,
+						scale: nameScale,
+						position: 'relative',
+						// color: titleColor,
+						opacity: nameOpacity,
+					}}
 				>
-					<HighlightedText main style={{ translateY: myNameIsYposition }}>
-						my name is
-					</HighlightedText>
-					<MedHeading
-						style={{
-							letterSpacing,
-							scale: nameScale,
-							position: 'relative',
-							// color: titleColor,
-							opacity: nameOpacity,
-						}}
-					>
-						Ahmad Magdy
-					</MedHeading>
-				</div>
+					Ahmad Magdy
+				</MedHeading>
+				{/* </div> */}
 			</Section>
 		</motion.div>
 	);
