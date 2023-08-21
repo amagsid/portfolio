@@ -34,6 +34,7 @@ export const StyledImage = styled(Image)`
 	color: #fff;
 	opacity: 0.8;
 	border-radius: 10px;
+	max-width: 350px;
 
 	&:before {
 		content: '';
@@ -45,6 +46,12 @@ export const StyledImage = styled(Image)`
 		right: 0;
 		background: rgba(0, 255, 255, 0.5);
 		transition: all 0.3s linear;
+	}
+
+	//small mobile
+	@media ${(props) => props.theme.breakpoints.sm} {
+		// padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+		width: 300px;
 	}
 `;
 export const Motto = styled.span`

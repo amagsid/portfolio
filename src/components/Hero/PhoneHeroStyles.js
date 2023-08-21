@@ -63,7 +63,7 @@ export const MedHeading = styled(motion.h2)`
 	// position: fixed;
 
 	color: ${(props) => props.theme.colors.textPale};
-	line-height: 95px;
+	line-height: 90px;
 `;
 export const DragMeSection = styled(motion.div)`
 	// border: 1px solid #fff;

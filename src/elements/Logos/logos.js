@@ -6,7 +6,7 @@ function Logos() {
 	return (
 		<ClientsLogoContainer className="pb-5">
 			{/* //booking */}
-			<motion.dov>
+			<motion.div>
 				<svg xmlns="http://www.w3.org/2000/svg" width="150" viewBox="0 0 118.5995 20.12286">
 					<defs>
 						<clipPath id="f">
@@ -74,7 +74,7 @@ function Logos() {
 						</g>
 					</g>
 				</svg>
-			</motion.dov>
+			</motion.div>
 
 			{/* Ahold */}
 			<svg

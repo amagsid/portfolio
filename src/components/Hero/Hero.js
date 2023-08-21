@@ -131,7 +131,6 @@ const Hero = (props) => {
 	const myNameIsYposition = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
 	const titleColor = useTransform(scrollYProgress, [0, 0.5], ['#ccd6f6', '#64ffda']);
-	console.log(isMouseMoving);
 
 	return (
 		<>

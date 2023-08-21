@@ -225,7 +225,7 @@ function PhoneHero() {
 							letterSpacing,
 							scale: nameScale,
 							position: 'relative',
-							color: titleColor,
+							// color: titleColor,
 							opacity: nameOpacity,
 						}}
 					>

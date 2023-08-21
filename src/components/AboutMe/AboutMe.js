@@ -57,7 +57,7 @@ const AboutMe = () => {
 								<StyledImage
 									ref={targetRef}
 									src={Portrait}
-									className=" h-auto lg:max-w-[350px]  object-cover shadow-l dark:shadow-gray-800"
+									className=" h-auto object-cover shadow-l dark:shadow-gray-800"
 								/>
 							</PictureTent>
 						</div>

@@ -5,7 +5,6 @@ import { TbBrandFramerMotion } from 'react-icons/tb';
 import { PiCopyrightLight } from 'react-icons/pi';
 
 export const FooterWrapper = styled.section`
-	width: 100%;
 	display: flex;
 	height: 20vh;
 	padding: 2rem 1rem 1.5rem 1rem;
