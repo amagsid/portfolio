@@ -6,7 +6,7 @@ export const CarouselContainer = styled.ul`
 	list-style: none;
 	display: flex;
 	justify-content: space-between;
-	padding: 7rem 0 0 0;
+	padding: 1rem 0 3rem 0;
 	margin: 0;
 	margin-right: 0 !important;
 	/* overflow-x: hidden; */
@@ -69,11 +69,7 @@ export const CarouselItemTitle = styled.h4`
 	letter-spacing: 0.02em;
 	display: flex;
 	/* This gradient is different due to the size of the Title container, it must transition sooner to be visible on the text */
-	background: linear-gradient(
-		161.57deg,
-		${(props) => props.theme.colors.textPale} 0%,
-		${(props) => props.theme.colors.textGradient} 60%
-	);
+	background: linear-gradient(161.57deg, ${(props) => props.theme.colors.textPale} 0%, ${(props) => props.theme.colors.textGradient} 60%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	margin-bottom: 8px;

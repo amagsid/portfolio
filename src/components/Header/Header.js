@@ -4,16 +4,7 @@ import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { calcLength, motion } from 'framer-motion';
 import Signature from '../../../public/images/Signature';
 
-import {
-	Container,
-	LogoContainer,
-	NavLinksContainer,
-	BurgerLine,
-	NavLink,
-	BurgerIcon,
-	ResumeButton,
-	StyledImage,
-} from './HeaderStyles';
+import { Container, LogoContainer, NavLinksContainer, BurgerLine, NavLink, BurgerIcon, ResumeButton, StyledImage } from './HeaderStyles';
 
 function Header() {
 	const [isNavScrolled, setNavScrolled] = useState(false);
@@ -56,30 +47,27 @@ function Header() {
 		<Container
 			// style={{ width: '100vw', position: 'relative', left: ' calc(-50vw + 50%)' }}
 			className="sticky top-0 left-0 right-0 nav"
+			variants={navContainerAnimation}
+			initial="hidden"
+			animate="show"
 		>
 			<LogoContainer>
 				{' '}
 				<Signature isNavScrolled />
 			</LogoContainer>
-			<div
+			{/* <div
 				style={{
 					display: 'flex',
 					justifyContent: 'center',
 					alignnavItemAnimations: 'center',
 					flexDirection: 'row',
 				}}
-			>
-				 <ThemeSwitch />
-			</div>
+			> */}
+			 <ThemeSwitch />
+			{/* </div> */}
 			<div className="hidden mdl:inline-flex items-center gap-7">
 				{/* <NavLinksContainer> */}
-				<motion.ul
-					style={{ display: 'flex', alignItems: 'center' }}
-					variants={navContainerAnimation}
-					initial="hidden"
-					animate="show"
-					className="mb-0"
-				>
+				<motion.ul style={{ display: 'flex', alignItems: 'center' }} variants={navContainerAnimation} initial="hidden" animate="show" className="mb-0">
 					<motion.li variants={navItemAnimation}>
 						{/* <Link href="#about" scroll={false}> */}
 						<NavLink href="#about">About</NavLink>
@@ -105,10 +93,7 @@ function Header() {
 						{/* <NavLink> */}{' '}
 						<a href="/Ahmad_Resume.pdf" target="_blank">
 							{' '}
-							<ResumeButton className="px-4 py-2 rounded-md text-[13px]">
-								{' '}
-								Resume{' '}
-							</ResumeButton>{' '}
+							<ResumeButton className="px-4 py-2 rounded-md text-[13px]"> Resume </ResumeButton>{' '}
 						</a>
 						{/* </NavLink> */}
 					</motion.li>
