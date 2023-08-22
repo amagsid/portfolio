@@ -117,14 +117,15 @@ function PhoneHero() {
 						className="dragme"
 						ref={divRef}
 						drag="y"
+						// drag
 						style={{ color }}
 						dragSnapToOrigin={true}
 						dragControls={dragControls}
 						dragConstraints={{
-							top: -45,
+							top: -25,
 							bottom: 70,
 						}}
-						dragElastic={0}
+						dragElastic={0.2}
 						dragTransition={{ bounceStiffness: 2000, bounceDamping: 15 }}
 						whileTap={{ cursor: 'grabbing' }}
 					>
