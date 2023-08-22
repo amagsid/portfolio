@@ -11,7 +11,7 @@ export const HighlightedText = styled(motion.h1)`
 	font-family: ${(props) => props.theme.fonts.mono};
 
 	letter-spacing: 10px;
-font-weight:300;
+	font-weight:300;
 	position:relative;
 	color: ${(props) => props.theme.colors.colorPop};
 
@@ -19,18 +19,11 @@ font-weight:300;
 	text-align:  (props.main ? 'left' : 'unset')};
 	font-weight: 500;
 	word-spacing: 5px;
-	color: ${(props) => props.theme.colors.colorPop};
 
-
-	@media ${(props) => props.theme.breakpoints.md} {
-	
-	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		// line-height: 40px;
-		// line-height: ${(props) => (props.main ? '32px' : '40px')};
-		// padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
-		// max-width: 100%;
+		color: ${(props) => props.theme.colors.colorPop};
+			font-family: ${(props) => props.theme.fonts.mono};
 	}
 `;
 
@@ -88,13 +81,7 @@ export const MusicButton = styled.button`
 		inset: -8px;
 		padding: 10px;
 		border-radius: 50%;
-		background: conic-gradient(
-			#ff53bb,
-			#0000 30deg 120deg,
-			#00f8d3 150deg 180deg,
-			#0000 210deg 300deg,
-			#ff53bb 330deg
-		);
+		background: conic-gradient(#ff53bb, #0000 30deg 120deg, #00f8d3 150deg 180deg, #0000 210deg 300deg, #ff53bb 330deg);
 		-webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
 		-webkit-mask-composite: xor;
 		mask-composite: intersect;
@@ -103,8 +90,7 @@ export const MusicButton = styled.button`
 		content: '';
 		position: absolute;
 		inset: -100px;
-		background: radial-gradient(200px at left 400px top 150px, #ff53bb 100%, #0000),
-			radial-gradient(200px at right 400px bottom 150px, #00f8d3 100%, #0000);
+		background: radial-gradient(200px at left 400px top 150px, #ff53bb 100%, #0000), radial-gradient(200px at right 400px bottom 150px, #00f8d3 100%, #0000);
 		filter: blur(120px);
 		opacity: 0.5;
 	}
