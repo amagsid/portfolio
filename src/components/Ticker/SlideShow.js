@@ -15,22 +15,26 @@ function Slides() {
 			name: 'BDC',
 			img: BDC,
 			hovered: false,
+			link: '',
 		},
 		{
 			name: 'bol',
 			img: Bol,
 			hovered: false,
+			link: 'https://www.linkedin.com/posts/cube-cloud_cube-x-dept-x-bolcom-bol-7-daagse-is-back-activity-7047152373227536384-rb-n?utm_source=share&utm_medium=member_desktop',
 		},
 
 		{
-			name: 'bol',
+			name: 'BDC',
 			img: BDCSerenity,
 			hovered: false,
+			link: '',
 		},
 		{
 			name: 'SqSp',
 			img: SqSp,
 			hovered: false,
+			link: '',
 		},
 	];
 
@@ -57,23 +61,25 @@ function Slides() {
 			<Ticker duration={duration}>
 				{colors.map((item, index) => {
 					return (
-						<StyledImage
-							key={index}
-							onMouseEnter={() => {
-								setImgHovered(index);
-								setHovered(true);
-							}}
-							onMouseLeave={() => {
-								setHovered(false);
-								setImgHovered(null);
-							}}
-							src={item.img}
-							style={{
-								filter: isImgHovered == index ? 'saturate(.9)' : 'saturate(.5)',
-							}}
-							// style={{ width: '100%' }}
-							// className=" h-auto lg:max-w-[350px]  object-cover shadow-l dark:shadow-gray-800"
-						/>
+						<a href={item.link}>
+							<StyledImage
+								key={index}
+								onMouseEnter={() => {
+									setImgHovered(index);
+									setHovered(true);
+								}}
+								onMouseLeave={() => {
+									setHovered(false);
+									setImgHovered(null);
+								}}
+								src={item.img}
+								style={{
+									filter: isImgHovered == index ? 'saturate(.9)' : 'saturate(.5)',
+								}}
+								// style={{ width: '100%' }}
+								// className=" h-auto lg:max-w-[350px]  object-cover shadow-l dark:shadow-gray-800"
+							/>
+						</a>
 					);
 				})}
 			</Ticker>

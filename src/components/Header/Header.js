@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { calcLength, motion } from 'framer-motion';
 import Signature from '../../../public/images/Signature';
@@ -7,7 +7,10 @@ import Signature from '../../../public/images/Signature';
 import { Container, LogoContainer, NavLinksContainer, BurgerLine, NavLink, BurgerIcon, ResumeButton, StyledImage } from './HeaderStyles';
 
 function Header() {
+	const ref = useRef();
+	const [showBurgerMenu, setBergurMenu] = useState(false);
 	const [isNavScrolled, setNavScrolled] = useState(false);
+
 	const navContainerAnimation = {
 		hidden: { opacity: 0 },
 		show: {
@@ -99,10 +102,11 @@ function Header() {
 					</motion.li>
 				</motion.ul>
 			</div>
-			{/* problerm is here  */}
-			{/* --------------------------------------------------------------- */}
 			{/* burger menu button */}
-			<BurgerIcon className=" w-10 flex flex-col justify-between items-center mdl:hidden text-4xl cursor-pointer overflow-hidden group">
+			<BurgerIcon
+				onClick={() => setBergurMenu(true)}
+				className=" w-10 flex flex-col justify-between items-center mdl:hidden text-4xl cursor-pointer overflow-hidden group"
+			>
 				<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-0 group-hover:translate-x-4 transition-all ease-in-out duration-300">
 					{' '}
 				</BurgerLine>
@@ -113,6 +117,12 @@ function Header() {
 					{' '}
 				</BurgerLine>
 			</BurgerIcon>{' '}
+			{showBurgerMenu && (
+				<div ref={ref} className="absolute mdl:hidden top-0 right-0 w-full h-screen bg-black bg-opacity-50 flex flex-col items-end">
+					{' '}
+					<motion.div> </motion.div>
+				</div>
+			)}
 		</Container>
 	);
 }
