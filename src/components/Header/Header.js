@@ -139,32 +139,32 @@ function Header() {
 					animate="show"
 					className="mb-0 px-12"
 				>
-					<motion.li variants={MobileNavItemAnimation}>
+					<motion.li onClick={() => setIsOpen(false)} className="py-4" variants={MobileNavItemAnimation}>
 						{/* <Link href="#about" scroll={false}> */}
 						<NavLink href="#about">About</NavLink>
 						{/* </Link> */}
 					</motion.li>
-					<motion.li variants={MobileNavItemAnimation}>
+					<motion.li onClick={() => setIsOpen(false)} className="py-4" variants={MobileNavItemAnimation}>
 						{/* <Link href="#pastwork" scroll={false}> */}
 						<NavLink href="#pastwork">Clients</NavLink>
 						{/* </Link> */}
 					</motion.li>
-					<motion.li variants={MobileNavItemAnimation}>
+					<motion.li onClick={() => setIsOpen(false)} className="py-4" variants={MobileNavItemAnimation}>
 						{/* <Link href="#experience" scroll={false}> */}
 						<NavLink href="#experience">Experience</NavLink>
 						{/* </Link> */}
 					</motion.li>
-					<motion.li variants={MobileNavItemAnimation}>
+					<motion.li onClick={() => setIsOpen(false)} className="py-4" variants={MobileNavItemAnimation}>
 						{/* <Link href="#contact" scroll={false}> */}
 						<NavLink href="#contact">Contact</NavLink>
 						{/* </Link> */}
 					</motion.li>
-					<motion.li variants={MobileNavItemAnimation}>
+					<motion.li onClick={() => setIsOpen(false)} variants={MobileNavItemAnimation}>
 						{' '}
 						{/* <NavLink> */}{' '}
 						<a href="/Ahmad_Resume.pdf" target="_blank">
 							{' '}
-							<ResumeButton style={{ width: '100px' }} className="px-4 py-2 rounded-md text-[13px]">
+							<ResumeButton style={{ width: '100px' }} className="mt-3 px-4 py-3 rounded-md text-[13px]">
 								{' '}
 								Resume{' '}
 							</ResumeButton>{' '}
