@@ -19,6 +19,20 @@ function Header() {
 			staggerChildren: 0.2,
 		},
 	};
+	const burgerLineVariant1 = {
+		open: { rotate: 45 },
+		closed: { rotate: 0 },
+		transition: {
+			duration: 0.1,
+		},
+	};
+	const burgerLineVariant2 = {
+		open: { rotate: -45 },
+		closed: { rotate: 0 },
+		transition: {
+			duration: 0.1,
+		},
+	};
 
 	const MobileNavItemAnimation = {
 		hidden: { x: -10, opacity: 0 },
@@ -118,16 +132,36 @@ function Header() {
 			</div>
 			{/* burger menu button */}
 			<BurgerIcon
+				animate={{
+					rotate: isOpen ? 45 : 0,
+				}}
 				onClick={() => setIsOpen((isOpen) => !isOpen)}
-				className=" w-10 flex flex-col justify-between items-center mdl:hidden text-4xl cursor-pointer overflow-hidden group"
+				className=" w-10 mdl:hidden text-4xl cursor-pointer overflow-hidden group"
 			>
-				<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-0 group-hover:translate-x-4 transition-all ease-in-out duration-300">
+				<BurgerLine
+					style={{ transformOrigin: '14px 7px' }}
+					animate={{
+						rotate: isOpen ? 50 : 0,
+						// transformOrigin: 'center',
+					}}
+					className=" w-full h-[2px] inline-flex  "
+				>
 					{' '}
 				</BurgerLine>
-				<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-4 group-hover:translate-x-0 transition-all ease-in-out duration-300">
-					{' '}
-				</BurgerLine>
-				<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-0 group-hover:translate-x-4 transition-all ease-in-out duration-300">
+				{!isOpen && (
+					<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-2 group-hover:translate-x-0 transition-all ease-in-out duration-300">
+						{' '}
+					</BurgerLine>
+				)}
+
+				<BurgerLine
+					style={{ transformOrigin: '10px -5px' }}
+					animate={{
+						rotate: isOpen ? -50 : 0,
+						transformOrigin: 0.2,
+					}}
+					className=" w-full h-[2px] inline-flex  "
+				>
 					{' '}
 				</BurgerLine>
 			</BurgerIcon>{' '}

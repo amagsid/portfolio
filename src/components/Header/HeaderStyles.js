@@ -132,12 +132,17 @@ export const ResumeButton = styled.button`
 `;
 
 // hamburger icon
-export const BurgerLine = styled.span`
+export const BurgerLine = styled(motion.span)`
 	background-color: ${(props) => props.theme.colors.colorPop};
 	margin-bottom: 3px;
 `;
 
 export const BurgerIcon = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100px;
+	padding: 10px 0px;
 	color: ${(props) => props.theme.colors.colorPop};
 	// background-color: ${(props) => props.theme.colors.colorPop};
 	margin-left: 22vw;
