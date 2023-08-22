@@ -116,18 +116,16 @@ function PhoneHero() {
 					<DragMeSection
 						className="dragme"
 						ref={divRef}
-						// drag="y"
-						drag
+						drag="y"
 						style={{ color }}
 						dragSnapToOrigin={true}
 						dragControls={dragControls}
 						dragConstraints={{
-							top: -25,
-
+							top: -45,
 							bottom: 70,
 						}}
-						dragElastic={0.2}
-						dragTransition={{ bounceStiffness: 2000, bounceDamping: 10 }}
+						dragElastic={0}
+						dragTransition={{ bounceStiffness: 2000, bounceDamping: 15 }}
 						whileTap={{ cursor: 'grabbing' }}
 					>
 						{count == 0 && (
