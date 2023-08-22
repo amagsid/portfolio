@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { calcLength, motion } from 'framer-motion';
 import Signature from '../../../public/images/Signature';
+import useBreakpoints from '../../hooks/useMediaQueryIndex';
 
 import { Container, LogoContainer, NavLinksContainer, BurgerLine, NavLink, BurgerIcon, ResumeButton, MobileNav } from './HeaderStyles';
 
@@ -11,6 +12,7 @@ function Header() {
 	const [showBurgerMenu, setBergurMenu] = useState(false);
 	const [isNavScrolled, setNavScrolled] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
+	const { isSm, isMd, isLg, active } = useBreakpoints();
 
 	const MobileNavVariants = {
 		open: { opacity: 1, x: 0 },
@@ -131,40 +133,42 @@ function Header() {
 				</motion.ul>
 			</div>
 			{/* burger menu button */}
-			<BurgerIcon
-				animate={{
-					rotate: isOpen ? 45 : 0,
-				}}
-				onClick={() => setIsOpen((isOpen) => !isOpen)}
-				className=" w-10 mdl:hidden text-4xl cursor-pointer overflow-hidden group"
-			>
-				<BurgerLine
-					style={{ transformOrigin: '14px 7px' }}
+			{isSm && (
+				<BurgerIcon
 					animate={{
-						rotate: isOpen ? 50 : 0,
-						// transformOrigin: 'center',
+						rotate: isOpen ? 45 : 0,
 					}}
-					className=" w-full h-[2px] inline-flex  "
+					onClick={() => setIsOpen((isOpen) => !isOpen)}
+					className="w-10 hidden text-4xl cursor-pointer overflow-hidden group"
 				>
-					{' '}
-				</BurgerLine>
-				{!isOpen && (
-					<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-2 group-hover:translate-x-0 transition-all ease-in-out duration-300">
+					<BurgerLine
+						style={{ transformOrigin: '14px 7px' }}
+						animate={{
+							rotate: isOpen ? 50 : 0,
+							// transformOrigin: 'center',
+						}}
+						className=" w-full h-[2px] inline-flex  "
+					>
 						{' '}
 					</BurgerLine>
-				)}
+					{!isOpen && (
+						<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-2 group-hover:translate-x-0 transition-all ease-in-out duration-300">
+							{' '}
+						</BurgerLine>
+					)}
 
-				<BurgerLine
-					style={{ transformOrigin: '10px -5px' }}
-					animate={{
-						rotate: isOpen ? -50 : 0,
-						transformOrigin: 0.2,
-					}}
-					className=" w-full h-[2px] inline-flex  "
-				>
-					{' '}
-				</BurgerLine>
-			</BurgerIcon>{' '}
+					<BurgerLine
+						style={{ transformOrigin: '10px -5px' }}
+						animate={{
+							rotate: isOpen ? -50 : 0,
+							transformOrigin: 0.2,
+						}}
+						className=" w-full h-[2px] inline-flex  "
+					>
+						{' '}
+					</BurgerLine>
+				</BurgerIcon>
+			)}
 			<MobileNav animate={isOpen ? 'open' : 'closed'} ref={ref} variants={MobileNavVariants}>
 				<motion.ul
 					style={{ padding: '100px 45px 0 0', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}
