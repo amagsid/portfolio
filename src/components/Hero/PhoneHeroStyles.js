@@ -36,7 +36,7 @@ export const MedHeading = styled(motion.h2)`
 	font-size: clamp(11rem, 11vw, 12rem);
 	width: 100%;
 	letter-spacing: -5px;
-	z-index: 100;
+
 	text-align: center;
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
 	animation-timing-function: linear;

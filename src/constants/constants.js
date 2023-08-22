@@ -22,8 +22,7 @@ export const projects = [
 
 	{
 		title: 'YumFarm',
-		description:
-			'Full-stack dietary plan subscription service. Built from thr ground up around user/diet preferences. Built using the MERN stack',
+		description: 'Full-stack dietary plan subscription service. Built from thr ground up around user/diet preferences. Built using the MERN stack',
 		image: '/images/3.png',
 		tags: ['MongoDB', 'Express', 'React', 'Node.js'],
 		source: 'https://github.com/amagsid/Farmy',
@@ -33,8 +32,7 @@ export const projects = [
 
 	{
 		title: 'COVID dashboard',
-		description:
-			'Real-time worldwide COVID-19 dashboard with interactive map and detailed stats for each country, built using Leaflet map.',
+		description: 'Real-time worldwide COVID-19 dashboard with interactive map and detailed stats for each country, built using Leaflet map.',
 		image: '/images/2.png',
 		tags: ['Gatsby', 'React'],
 		source: 'https://github.com/amagsid/COVID-world-dashboard',
@@ -45,19 +43,19 @@ export const projects = [
 
 export const TimeLineData = [
 	{
-		year: 2015,
+		year: 2016,
 		experience: ['ADOBE CC SUITE', 'FIGMA'],
-		text: 'co-founded a digital marketing agency and worked in UX',
+		text: 'Knowledge of creative design by working in UI/UX',
 	},
-	{ year: 2018, experience: ['MERN STACK', 'GRAPH QL'], text: 'Moved to The Netherlands' },
+	{ year: 2020, experience: ['MERN STACK', 'GRAPH QL'], text: 'Moved to The Netherlands and studied programming' },
 	{
-		year: 2019,
+		year: 2021,
 		experience: ['SENCHA.JS', 'TYPESCRIPT'],
-		text: 'started my full-stack development study',
+		text: 'Landed a job as front-end developer',
 	},
 	{
-		year: 2020,
+		year: 2023,
 		experience: ['NEXT.JS', 'FRAMER MOTION'],
-		text: 'Graduated and obtained my cerificate',
+		text: 'Knowledge in FE animation and chart libraries',
 	},
 ];

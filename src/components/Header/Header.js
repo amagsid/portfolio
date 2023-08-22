@@ -4,12 +4,26 @@ import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { calcLength, motion } from 'framer-motion';
 import Signature from '../../../public/images/Signature';
 
-import { Container, LogoContainer, NavLinksContainer, BurgerLine, NavLink, BurgerIcon, ResumeButton, StyledImage } from './HeaderStyles';
+import { Container, LogoContainer, NavLinksContainer, BurgerLine, NavLink, BurgerIcon, ResumeButton, MobileNav } from './HeaderStyles';
 
 function Header() {
 	const ref = useRef();
 	const [showBurgerMenu, setBergurMenu] = useState(false);
 	const [isNavScrolled, setNavScrolled] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
+
+	const MobileNavVariants = {
+		open: { opacity: 1, x: 0 },
+		closed: { opacity: 0, x: '100%' },
+		transition: {
+			staggerChildren: 0.2,
+		},
+	};
+
+	const MobileNavItemAnimation = {
+		hidden: { x: -10, opacity: 0 },
+		show: { x: 0, opacity: 1 },
+	};
 
 	const navContainerAnimation = {
 		hidden: { opacity: 0 },
@@ -104,7 +118,7 @@ function Header() {
 			</div>
 			{/* burger menu button */}
 			<BurgerIcon
-				onClick={() => setBergurMenu(true)}
+				onClick={() => setIsOpen((isOpen) => !isOpen)}
 				className=" w-10 flex flex-col justify-between items-center mdl:hidden text-4xl cursor-pointer overflow-hidden group"
 			>
 				<BurgerLine className=" w-full h-[2px] inline-flex transform translate-x-0 group-hover:translate-x-4 transition-all ease-in-out duration-300">
@@ -117,12 +131,49 @@ function Header() {
 					{' '}
 				</BurgerLine>
 			</BurgerIcon>{' '}
-			{showBurgerMenu && (
-				<div ref={ref} className="absolute mdl:hidden top-0 right-0 w-full h-screen bg-black bg-opacity-50 flex flex-col items-end">
-					{' '}
-					<motion.div> </motion.div>
-				</div>
-			)}
+			<MobileNav animate={isOpen ? 'open' : 'closed'} ref={ref} variants={MobileNavVariants}>
+				<motion.ul
+					style={{ padding: '100px 45px 0 0', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}
+					variants={navContainerAnimation}
+					initial="hidden"
+					animate="show"
+					className="mb-0 px-12"
+				>
+					<motion.li variants={MobileNavItemAnimation}>
+						{/* <Link href="#about" scroll={false}> */}
+						<NavLink href="#about">About</NavLink>
+						{/* </Link> */}
+					</motion.li>
+					<motion.li variants={MobileNavItemAnimation}>
+						{/* <Link href="#pastwork" scroll={false}> */}
+						<NavLink href="#pastwork">Clients</NavLink>
+						{/* </Link> */}
+					</motion.li>
+					<motion.li variants={MobileNavItemAnimation}>
+						{/* <Link href="#experience" scroll={false}> */}
+						<NavLink href="#experience">Experience</NavLink>
+						{/* </Link> */}
+					</motion.li>
+					<motion.li variants={MobileNavItemAnimation}>
+						{/* <Link href="#contact" scroll={false}> */}
+						<NavLink href="#contact">Contact</NavLink>
+						{/* </Link> */}
+					</motion.li>
+					<motion.li variants={MobileNavItemAnimation}>
+						{' '}
+						{/* <NavLink> */}{' '}
+						<a href="/Ahmad_Resume.pdf" target="_blank">
+							{' '}
+							<ResumeButton style={{ width: '100px' }} className="px-4 py-2 rounded-md text-[13px]">
+								{' '}
+								Resume{' '}
+							</ResumeButton>{' '}
+						</a>
+						{/* </NavLink> */}
+					</motion.li>
+				</motion.ul>
+				{/* <motion.div> </motion.div> */}
+			</MobileNav>
 		</Container>
 	);
 }

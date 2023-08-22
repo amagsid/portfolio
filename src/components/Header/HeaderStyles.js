@@ -1,6 +1,7 @@
 import { IoIosArrowDropdown } from 'react-icons/io';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export const Container = styled.div`
 	font-family: ${(props) => props.theme.fonts.title};
@@ -140,4 +141,22 @@ export const BurgerIcon = styled.div`
 	color: ${(props) => props.theme.colors.colorPop};
 	// background-color: ${(props) => props.theme.colors.colorPop};
 	margin-left: 22vw;
+	z-index: 100;
+`;
+
+export const MobileNav = styled(motion.div)`
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 50vw;
+	height: 100vh;
+	display: flex;
+	// background-color: red !important;
+
+	background-color: rgba(10, 25, 47, 0.5);
+	backdrop-filter: blur(15px) !important;
+
+	flex-direction: column;
+	align-items: end;
+	justify-content: flex-start;
 `;
