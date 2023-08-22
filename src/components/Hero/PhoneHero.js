@@ -3,14 +3,15 @@ import { Section } from '../../styles/GlobalComponents';
 import { BigHeading, MedHeading, DragMeSection } from './PhoneHeroStyles';
 import { HighlightedText } from '../Hero/PhoneHeroStyles';
 import useBreakpoints from '../../hooks/useMediaQueryIndex';
-import { motion, useTransform, useScroll, useDragControls } from 'framer-motion';
+import { motion, useTransform, useScroll, useDragControls, useMotionValue } from 'framer-motion';
 import { ThemeContext } from '../../pages/_app';
 import HandWritingAnimation from '../../elements/Handwriting/HandWritingAnimation';
 
 function PhoneHero() {
+	const x = useMotionValue(0);
 	const { theme } = useContext(ThemeContext);
-	const [mousePos, setMousePos] = useState({});
-	const [touchPos, setTouchPos] = useState({});
+	// const [touchPos, setTouchPos] = useState({});
+	const [isDragging, setIsDragging] = useState(false);
 	const [count, setCount] = useState(0);
 	//drag controls
 	const divRef = useRef(null);
@@ -19,9 +20,6 @@ function PhoneHero() {
 		controls.start(event, { snapToCursor: true });
 	}
 
-	const prevxCount = usePrevious(mousePos.x);
-	const prevyCount = usePrevious(mousePos.y);
-	const prevTouchxCount = usePrevious(touchPos.x);
 	//parallex scroll animation
 	const targetRef = useRef();
 
@@ -37,22 +35,19 @@ function PhoneHero() {
 
 	const letterSpacing = useTransform(scrollYProgress, [0, 0.5], ['-5px', '30px']);
 
-	const myNameIsYposition = useTransform(scrollYProgress, [0, 1], [0, 0]);
-
-	const titleColor = useTransform(scrollYProgress, [0, 0.5], ['#ccd6f6', '#64ffda']);
+	// const color =
+	// 	theme == 'dark'
+	// 		? useTransform(x, [-550, -150, -100, 0, 100, 150, 500], ['#64ffda', '#64ffda', '#FC7273', '#ccd6f6', '#FC7273', '#64ffda', '#64ffda'])
+	// 		: useTransform(x, [-550, -150, -100, 0, 100, 150, 500], ['#FF3333', '#FF3333', '#FC7273', '#191911', '#FC7273', '#FF3333', '#FF3333']);
+	const color = useTransform(x, ['-100px', '0px', '100px'], ['#FC7273', '#ccd6f6', '#64ffda']);
 
 	useEffect(() => {
 		const handleTouch = (event) => {
-			setTouchPos({ x: event.clientX, y: event.clientY });
 			setCount(count + 1);
+			setIsDragging(true);
 		};
 		if (count === 5) {
 			setCount(0);
-		}
-
-		if (mousePos.x - prevxCount >= 5 || prevxCount - mousePos.x >= 5 || mousePos.y - prevyCount >= 5) {
-			setCount(count + 1);
-			// setCount((prev) => prev + 1);
 		}
 
 		if (count === 5) {
@@ -65,7 +60,7 @@ function PhoneHero() {
 			// window.removeEventListener('touchmove', handleMouseMove);
 			// window.removeEventListener('drag', handleDrag);
 		};
-	}, [prevxCount, count, prevTouchxCount]);
+	}, [count]);
 
 	function usePrevious(value) {
 		const ref = useRef();
@@ -98,16 +93,17 @@ function PhoneHero() {
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
+					// position: 'fixed',
 				}}
 			>
-				{theme == 'dark' && (
+				{theme == 'dark' && !isDragging && (
 					<motion.div>
 						<HandWritingAnimation style={{ position: 'relative', top: '30vh' }} text="swipe me up and down" color="#64ffda">
 							{' '}
 						</HandWritingAnimation>
 					</motion.div>
 				)}
-				{theme == 'light' && (
+				{theme == 'light' && !isDragging && (
 					<motion.div>
 						<HandWritingAnimation text="swipe me up and down" color="#FF3333">
 							{' '}
@@ -120,7 +116,9 @@ function PhoneHero() {
 					<DragMeSection
 						className="dragme"
 						ref={divRef}
-						drag="y"
+						// drag="y"
+						drag
+						style={{ color }}
 						dragSnapToOrigin={true}
 						dragControls={dragControls}
 						dragConstraints={{
@@ -138,6 +136,7 @@ function PhoneHero() {
 								initial="hidden"
 								animate="show"
 								style={{
+									color,
 									fontFamily: 'Poppins',
 									fontWeight: 700,
 								}}
@@ -202,29 +201,17 @@ function PhoneHero() {
 						)}
 					</DragMeSection>
 				</motion.div>
-
-				{/* <div
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						position: 'sticky',
-					}}
-				> */}
-				<HighlightedText main style={{ translateY: myNameIsYposition }}>
-					my name is
-				</HighlightedText>
+				<HighlightedText main>my name is</HighlightedText>
 				<MedHeading
 					style={{
 						letterSpacing,
 						scale: nameScale,
 						position: 'relative',
-						// color: titleColor,
 						opacity: nameOpacity,
 					}}
 				>
 					Ahmad Magdy
 				</MedHeading>
-				{/* </div> */}
 			</Section>
 		</motion.div>
 	);

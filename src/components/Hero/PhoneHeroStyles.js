@@ -7,24 +7,11 @@ export const HeroWrapper = styled(motion.div)`
 `;
 
 export const HighlightedText = styled(motion.h1)`
-	font-size:  'clamp(1.5rem, 2vw, 2.5rem)');
 	font-family: ${(props) => props.theme.fonts.mono};
-
-	letter-spacing: 10px;
-	font-weight:300;
-	position:relative;
-	color: ${(props) => props.theme.colors.colorPop};
-
-	margin:  ${(props) => (props.main ? ' 0 auto' : 'unset')}; 
-	text-align:  (props.main ? 'left' : 'unset')};
+	letter-spacing: 7px;
+	margin: 0px;
 	font-weight: 500;
-	word-spacing: 5px;
-
-
-	@media ${(props) => props.theme.breakpoints.sm} {
-		color: ${(props) => props.theme.colors.colorPop};
-			font-family: ${(props) => props.theme.fonts.mono};
-	}
+	color: ${(props) => props.theme.colors.colorPop};
 `;
 
 export const BigHeading = styled(motion.h2)`

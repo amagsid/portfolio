@@ -38,16 +38,8 @@ const Hero = (props) => {
 
 	const color =
 		theme == 'dark'
-			? useTransform(
-					x,
-					[-550, -150, -100, 0, 100, 150, 500],
-					['#64ffda', '#64ffda', '#FC7273', '#ccd6f6', '#FC7273', '#64ffda', '#64ffda']
-			  )
-			: useTransform(
-					x,
-					[-550, -150, -100, 0, 100, 150, 500],
-					['#FF3333', '#FF3333', '#FC7273', '#191911', '#FC7273', '#FF3333', '#FF3333']
-			  );
+			? useTransform(x, [-550, -150, -100, 0, 100, 150, 500], ['#64ffda', '#64ffda', '#FC7273', '#ccd6f6', '#FC7273', '#64ffda', '#64ffda'])
+			: useTransform(x, [-550, -150, -100, 0, 100, 150, 500], ['#FF3333', '#FF3333', '#FC7273', '#191911', '#FC7273', '#FF3333', '#FF3333']);
 
 	const prevxCount = usePrevious(mousePos.x);
 	const prevyCount = usePrevious(mousePos.y);
@@ -70,11 +62,7 @@ const Hero = (props) => {
 			setCount(0);
 		}
 
-		if (
-			mousePos.x - prevxCount >= 5 ||
-			prevxCount - mousePos.x >= 5 ||
-			mousePos.y - prevyCount >= 5
-		) {
+		if (mousePos.x - prevxCount >= 5 || prevxCount - mousePos.x >= 5 || mousePos.y - prevyCount >= 5) {
 			setCount(count + 1);
 		}
 
@@ -156,20 +144,14 @@ const Hero = (props) => {
 						>
 							{theme == 'dark' && isMouseMoving && !isDragging && (
 								<motion.div style={{ opacity }}>
-									<HandWritingAnimation
-										text="drag me left or right"
-										color="#64ffda"
-									>
+									<HandWritingAnimation text="drag me left or right" color="#64ffda">
 										{' '}
 									</HandWritingAnimation>
 								</motion.div>
 							)}
 							{theme == 'light' && isMouseMoving && !isDragging && (
 								<motion.div style={{ opacity }}>
-									<HandWritingAnimation
-										text="drag me left or right"
-										color="#FF3333"
-									>
+									<HandWritingAnimation text="drag me left or right" color="#FF3333">
 										{' '}
 									</HandWritingAnimation>
 								</motion.div>
@@ -266,10 +248,7 @@ const Hero = (props) => {
 											</BigHeading>
 										)}
 										{count == 3 && (
-											<div
-												className="ahlan-container"
-												style={{ position: 'relative' }}
-											>
+											<div className="ahlan-container" style={{ position: 'relative' }}>
 												<BigHeading
 													variants={container}
 													initial="hidden"
