@@ -58,7 +58,7 @@ const AboutMe = () => {
 					</div>
 				</motion.div>
 				<SectionText right>
-					<span>Okay enough with the CV talk!</span> <br></br> I'm into anything tech-related. over the years, this drive pushed my to achieve my dream of
+					<span>Okay enough with the CV talk!</span> <br></br> I'm into anything tech-related. Over the years, this drive pushed my to achieve my dream of
 					becoming a programmer. Other than that, you can find me at the gym, meal-prepping or looking for a sunny spot daytime and the stars at night. <br />
 					<Motto style={{ fontSize: '15px' }}>motto: do it with passion or not at all</Motto>{' '}
 				</SectionText>

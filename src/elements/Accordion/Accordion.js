@@ -123,7 +123,7 @@ const experience = [
 			`Working on Cube's dynamic templating system Compose™, I build custom web templates using React and CSS`,
 			`Wireframing the templates using Figma to turn pre-made video briefs into UI elements.`,
 			`Testing throughout the project's cycle to make sure the project scales up according to the ckient's needs`,
-			`Working on fully migrating the platform from Sencha.js to Reacrt`,
+			`Working on fully migrating the platform from Sencha.js to React`,
 		],
 	},
 	{

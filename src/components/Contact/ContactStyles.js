@@ -44,7 +44,7 @@ export const CharAlert = styled(motion.h4)`
 	margin-bottom: 5px;
 `;
 
-export const SendButton = styled(motion.h4)`
+export const SendButton = styled(motion.button)`
 color: ${(props) => props.theme.colors.colorPop};
 	border: solid 1px;
 	backgroundcolor: ${(props) => props.theme.colors.colorPop};
@@ -52,7 +52,7 @@ color: ${(props) => props.theme.colors.colorPop};
 	&:hover {
 		background-color: ${(props) => props.theme.colors.colorPop}50;
 		text-shadow: 2px 2px 20px ${(props) => props.theme.colors.colorPop};
-		color: ${(props) => props.theme.colors.buttonHoverColor};
+		// color: ${(props) => props.theme.colors.buttonHoverColor};
 		display: flex;
     	justifyContent: center;
 
