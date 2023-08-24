@@ -111,7 +111,7 @@ const Hero = (props) => {
 
 	const greetingOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 	const greetingScale = useTransform(scrollYProgress, [0.3, 0.7], [1, 0.5]);
-	const nameOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0]);
+	const nameOpacity = useTransform(scrollYProgress, [0, 0.27], [1, 0]);
 	const nameScale = useTransform(scrollYProgress, [0.0, 0.1], [1, 1.4]);
 
 	const letterSpacing = useTransform(scrollYProgress, [0, 0.4], ['-5px', '30px']);
@@ -303,7 +303,7 @@ const Hero = (props) => {
 										letterSpacing,
 										scale: nameScale,
 										// position: 'relative',
-										// opacity: nameOpacity,
+										opacity: nameOpacity,
 									}}
 								>
 									Ahmad Magdy
