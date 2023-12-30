@@ -19,7 +19,8 @@ scroll-behavior: smooth!important;
     font-family: ${(props) => props.theme.fonts.main};
     font-size: 1.6rem;
     background: ${(props) => props.theme.colors.bgMain};
-    cursor: default;
+    cursor: none;
+
 
   }
   h1,h2,h3,h4,h5,h6{
@@ -97,11 +98,14 @@ color: ${(props) => props.theme.colors.textPale};
 
 
   .tech-icon {
-	width: 20px;
-	height: 20px;
+	width: 5px;
+	height: 5px;
 }
+
   .tech-icon-small {
-	stroke-width: 0.9;
+	stroke-width: 0.8;
+  width: 30px;
+	height: 30px;
 }
 
 .switch-icon {
@@ -243,18 +247,98 @@ color: ${(props) => props.theme.colors.textPale};
     }
 
     .nav-animation {
-      background-color: #fff;
       background-color: rgba(10,25,47,0.3);
       backdrop-filter: blur(20px);
+      z-index: 99;
+    }
+
+  
+  
+
+  }
+
+
+  body:has(.dragme) .custom-cursor {
+    transform: translate(-50%, -50%) scale(1);
+ 
+    transition: transform 400ms ease-in-out;
+  }
+
+
+  body:has(.dragme:hover) .custom-cursor {
+    transform: translate(-50%, -50%) scale(3.8);
+    transition: transform 200ms ease-in-out;
+
+  }
+
+
+    
+    .drag-prompt{
+
+      // display: none;
+      // opacity: 0.1;
+      // transform: translate(-50%, -50%) scale(0.1);
+      transition: transform 400ms ease-in-out;
+
+    }
+
+    .drag-prompt-in{
+      // display:flex;
+      // opacity: 1;
+      // transform: translate(-50%, -50%) scale(1);
+      transition: transform 200ms ease-in-out;
+ 
+    }
+    
+    .container a {
+      color: #f9fafb;
+      text-decoration: none;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin: 20px;
+    }
+    
+    .btn {
+      cursor: pointer;
+      margin: 1.25rem;
+      border: none;
+      padding: 0.5rem 1rem;
+      background-color: #f9fafb;
+    }
+     .flip-button{
+      -webkit-transform: scale(-1, 1);
 
     }
 
 
-    .svg-scroll {
-      height: 50px;
-      transition: height .3s;
-            transition-timing-function: ease-in-out;
+    .card {
+      width: 50vw;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 0px 10px 10px 10px;
+      margin: 20px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #333;
     }
+    
+    .card:nth-child(odd) {
+      align-self: flex-end;
+      background-color: #120443;
+    }
+    
+    .card-text {
+      font-size: 28px;
+      color: #fff;
+    }
+    
+
+
+
+
 
 `;
 

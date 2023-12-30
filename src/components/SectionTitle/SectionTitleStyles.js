@@ -2,37 +2,38 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const SectionTitle = styled(motion.div)`
-	border-top: 1px solid ${(props) => props.theme.colors.textPale};
+  border-top: 1px solid ${(props) => props.theme.colors.textPale};
 
-	color: #fff;
-	height: 70px;
-	text-overflow: clip;
-	overflow: hidden;
-	white-space: nowrap;
-	// z-index: 90;
+  color: #fff;
+  height: 70px;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
 
-	//small mobile
-	@media ${(props) => props.theme.breakpoints.sm} {
-		overflow: unset;
-	}
+  //small mobile
+  @media ${(props) => props.theme.breakpoints.sm} {
+    overflow: unset;
+  }
 `;
 export const Item = styled(motion.h3)`
-	line-height: 70px;
-	display: inline;
-	font-size: ${(props) => (props.emailSent ? '1.5rem' : '3rem')};
-	color: ${(props) =>
-		props.emailSent ? props.theme.colors.colorPop : props.theme.colors.textPale};
-	font-weight: ${(props) => (props.emailSent ? '500' : '300')};
-	letter-spacing: ${(props) => (props.emailSent ? '5px' : '7px')};
+  line-height: 70px;
+  display: inline;
+  font-size: ${(props) => (props.emailSent ? '1.5rem' : '3rem')};
+  color: ${(props) =>
+    props.emailSent
+      ? props.theme.colors.colorPop
+      : props.theme.colors.textPale};
+  font-weight: ${(props) => (props.emailSent ? '500' : '300')};
+  letter-spacing: ${(props) => (props.emailSent ? '5px' : '7px')};
 
-	&:after {
-		content: '•';
-		padding-left: ${(props) => (props.emailSent ? '0px' : '12px')};
-	}
-	//small mobile
-	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 1.5rem;
-	}
+  &:after {
+    content: '•';
+    padding-left: ${(props) => (props.emailSent ? '0px' : '12px')};
+  }
+  //small mobile
+  @media ${(props) => props.theme.breakpoints.sm} {
+    font-size: 1.5rem;
+  }
 `;
 // export const SectionTitle = styled(motion.h2)`
 // 	font-weight: 800;
@@ -64,14 +65,14 @@ export const Item = styled(motion.h3)`
 // 	}
 // `;
 export const List = styled(motion.ul)`
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 `;
 export const ListItem = styled(motion.li)`
-	line-height: 100px;
-	color: white;
-	text-align: center;
-	display: inline;
+  line-height: 100px;
+  color: white;
+  text-align: center;
+  display: inline;
 `;

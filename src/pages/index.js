@@ -11,23 +11,27 @@ import MusicContainer from '../components/MusicContainer/MusicContainer';
 import Contact from '../components/Contact/Contact';
 
 const Home = () => {
-	return (
-		<Layout>
-			<motion.div initial={{ x: '-100vw ' }} animate={{ x: 0 }} transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}>
-				<Hero />
-			</motion.div>
+  return (
+    <Layout>
+      <motion.div
+        initial={{ x: '-100vw ' }}
+        animate={{ x: 0 }}
+        transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
+      >
+        <Hero />
+      </motion.div>
 
-			{/* <MusicContainer className="pt-4" /> */}
+      {/* <MusicContainer className="pt-4" /> */}
 
-			<AboutMe />
+      <AboutMe />
 
-			<Experience />
+      {/* <Experience /> */}
 
-			<PastWork />
+      <PastWork />
 
-			<Contact />
-		</Layout>
-	);
+      <Contact />
+    </Layout>
+  );
 };
 
 export default Home;

@@ -30,12 +30,8 @@ export const Banner = styled.div`
   // }
 `;
 export const SocialContainer = styled(motion.ul)`
-  height: 180px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  margin: unset;
-  padding: unset;
 `;
 export const Line = styled.div`
   content: '';

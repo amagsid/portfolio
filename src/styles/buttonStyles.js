@@ -25,7 +25,6 @@ const GlobalStyles = createGlobalStyle`
   content: "";
   background-color:${(props) => props.theme.colors.colorPop};
   width: 100%;
-  z-index: -1;
   position: absolute;
   height: 100%;
   top: 7px;
