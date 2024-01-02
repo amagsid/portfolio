@@ -1,4 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
+import Hero from '../components/Hero/Hero';
+import PastWork from '../components/PastWork/PastWork';
+import Experience from '../components/Experience/Experience';
+import AboutMe from '../components/AboutMe/AboutMe';
+import { Section } from '../styles/GlobalComponents';
+import MusicContainer from '../components/MusicContainer/MusicContainer';
+import Contact from '../components/Contact/Contact';
+import Greeting from '../components/Hero/Greeting';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
@@ -8,6 +16,7 @@ import {
   motion,
   useAnimation,
   useScroll,
+  useSpring,
   useMotionValue,
   useMotionTemplate,
 } from 'framer-motion';
@@ -18,7 +27,7 @@ import { HoverContext } from '../components/Hero/Hero';
 export const Layout = ({ children }) => {
   const { theme } = useContext(ThemeContext);
   const { scrollYProgress } = useScroll();
-  let [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const scaleX = useSpring(scrollYProgress);
 
   const isHovered = useContext(HoverContext);
 
@@ -56,19 +65,36 @@ export const Layout = ({ children }) => {
     <motion.div>
       <StatusBar
         style={{
-          scaleX: scrollYProgress,
+          scaleX: scaleX,
         }}
       />
       <Header />
       <CirclePointer className='custom-cursor'> </CirclePointer>
-      <Container>
-        <>
-          <main>{children}</main>
-          <div className='hidden lg:inline md:inline '>
-            {/* <HoveringBanners /> */}
-          </div>
-        </>
-      </Container>
+      {/* <Container> */}
+
+      {/* <main>{children}</main> */}
+
+      <motion.div
+        initial={{ x: '-100vw ' }}
+        animate={{ x: 0 }}
+        transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
+      >
+        <Hero />
+      </motion.div>
+
+      {/* <div className='h-screen w-screen snap-start shrink-0 bg-white h-screen '> */}
+      <AboutMe />
+      {/* </div> */}
+
+      {/* <Experience /> */}
+
+      <PastWork />
+
+      {/* <div className='h-screen w-screen snap-start shrink-0 bg-white h-fit'> */}
+      <Contact />
+      {/* </div> */}
+
+      {/* </Container> */}
       <Footer />
     </motion.div>
   );

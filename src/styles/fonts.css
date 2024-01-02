@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'allrox';
+  /* src: url('Allrox.eot'); IE9 Compat Modes */
+  src: local('allrox'),
+    /* url('Allrox.eot?#iefix') format('embedded-opentype'), */ /* IE6-IE8 */
+      url('../fonts/Allrox.woff') format('woff'),
+    /* Modern Browsers */ url('../fonts/Allrox.woff2') format('woff2'),
+    /* Modern Browsers */ url('../fonts/Allrox.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}

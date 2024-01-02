@@ -13,7 +13,7 @@ import Contact from '../components/Contact/Contact';
 const Home = () => {
   return (
     <Layout>
-      <motion.div
+      {/* <motion.div
         initial={{ x: '-100vw ' }}
         animate={{ x: 0 }}
         transition={{ type: 'spring', duration: 0.7, bounce: 0.3 }}
@@ -21,15 +21,15 @@ const Home = () => {
         <Hero />
       </motion.div>
 
-      {/* <MusicContainer className="pt-4" /> */}
+
 
       <AboutMe />
 
-      {/* <Experience /> */}
+ 
 
       <PastWork />
 
-      <Contact />
+      <Contact /> */}
     </Layout>
   );
 };

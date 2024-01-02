@@ -5,9 +5,10 @@ export const Section = styled.section`
 	display: ${(props) => (props.grid ? 'grid' : 'flex')};
 	flex-direction: ${(props) => (props.row ? 'row' : 'column')};
 	padding: ${(props) => (props.nopadding ? '0' : '0px 160px 0')};
-	background-color: ${(props) => props.background && props.theme.colors.bgMain};
+	// background-color: ${(props) =>
+    props.background && props.theme.colors.bgMain};
 	// margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
-	height: 100%;
+	// height: 100%;
 	align-items: ${(props) =>
     props.center ? 'center' : props.end ? 'flex-end' : 'unset'};
 	box-sizing: border-box;
@@ -102,18 +103,17 @@ export const Number = styled.span`
 `;
 
 export const SectionText = styled.p`
-  font-size: clamp(2rem, 2.5vw, 1rem);
-  line-height: 2.1em;
-  width: 50vw;
-  text-align: ${(props) => (props.right ? 'right' : 'left')};
+  font-size: clamp(1.7rem, 2rem, 1rem);
+  line-height: 2em;
+
   font-weight: 300;
   color: ${(props) => props.theme.colors.textPale};
 
-  &:after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-  }
+  // &:after {
+  //   content: '';
+  //   display: inline-block;
+  //   width: 100%;
+  // }
 
   @media ${(props) => props.theme.breakpoints.md} {
     max-width: 670px;

@@ -15,8 +15,15 @@ const GlobalStyles = createGlobalStyle`
 scroll-behavior: smooth!important;
 
   }
+
+
+
+
+
+
   body {
     font-family: ${(props) => props.theme.fonts.main};
+    // font-family: 'allrox';
     font-size: 1.6rem;
     background: ${(props) => props.theme.colors.bgMain};
     cursor: none;
@@ -335,6 +342,57 @@ color: ${(props) => props.theme.colors.textPale};
       color: #fff;
     }
     
+    // footer {
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // display: flex;
+    // justify-content: flex-start;
+    // align-items: center;
+    // padding: 20px;
+    // background-image: radial-gradient(
+    //   rgba(0, 0, 0, 0) 1px,
+    //   rgba(100, 255, 218, 0.4) 1px
+    // );
+    // background-size: 4px 4px;
+    // backdrop-filter: blur(3px);
+    // -webkit-backdrop-filter: blur(3px);
+    // -moz-backdrop-filter: blur(3px);
+    // font-size: 14px;
+    // line-height: 14px;
+  // }
+
+  // footer::before {
+  //   display: block;
+  //   content: "";
+  //   position: absolute;
+  //   top: -1px;
+  //   left: 0;
+  //   right: 0;
+  //   height: 1px;
+  //   background:  rgba(100, 255, 218, 0.8);
+  //   opacity: 0.2;
+  // }
+
+
+  .box {
+    width: 150px;
+    height: 150px;
+    border-radius: 1em;
+    background-color: #f9f07e;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .magic {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 
 

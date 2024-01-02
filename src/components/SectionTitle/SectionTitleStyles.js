@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const SectionTitle = styled(motion.div)`
-  border-top: 1px solid ${(props) => props.theme.colors.textPale};
+  // border-top: 1px solid ${(props) => props.theme.colors.textPale};
 
   color: #fff;
   height: 70px;

@@ -7,10 +7,10 @@ export const HeroWrapper = styled(motion.div)`
 `;
 
 export const BigHeading = styled(motion.h2)`
-  font-size: clamp(20rem, 30vw, 32rem);
-  line-height: 250px;
+  font-size: clamp(5rem, 5vw, 15rem);
+
   max-width: 100%;
-  text-align: center;
+  // text-align: center;
   // color: ${(props) =>
     props.main ? props.theme.colors.heading : props.theme.colors.textPale};
 

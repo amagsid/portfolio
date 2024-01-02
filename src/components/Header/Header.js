@@ -93,7 +93,7 @@ function Header() {
     <Container
       className={`sticky ${
         isNavScrolled ? `px-[6%]` : `px-[14%]`
-      }  py-[5%] sticky top-0 left-0  h-[65px] transition-all`}
+      }  pt-[3%] sticky top-0 left-0  h-[65px] transition-all`}
       variants={navContainerAnimation}
       animate={isNavScrolled ? 'scrolled' : 'unscrolled'}
       style={{ zIndex: '99' }}
