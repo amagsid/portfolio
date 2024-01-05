@@ -17,7 +17,7 @@ import {
   DragMePromptContainer,
   DragMePromptText,
   IntroText,
-} from './GreetingStyles';
+} from './smallGreetingStyles';
 
 function Greeting() {
   const [isHovered, setHovered] = useState(false);
@@ -126,19 +126,15 @@ function Greeting() {
       setIsMouseMoving(false);
     };
 
-    if (count === 3) {
-      setCount(0);
-    }
-
     if (
-      mousePos.x - prevxCount >= 3 ||
-      prevxCount - mousePos.x >= 3 ||
-      mousePos.y - prevyCount >= 3
+      mousePos.x - prevxCount >= 6 ||
+      prevxCount - mousePos.x >= 6 ||
+      mousePos.y - prevyCount >= 6
     ) {
       setCount(count + 1);
     }
 
-    if (count === 3) {
+    if (count === 2) {
       setCount(0);
     }
 
@@ -157,8 +153,11 @@ function Greeting() {
       <div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
 
       <DragMeSection
-        initial={{ x: 0 }}
-        animate={{ x: [-500, 0] }}
+        // initial={{ x: 0 }}
+        // animate={{ x: [-500, 0] }}
+        onDragEnd={() =>
+          (document.location.href = 'https://www.ahmad-magdy.com/#pastwork')
+        }
         transition={{
           type: 'spring',
           bounce: 0.6,
@@ -171,15 +170,16 @@ function Greeting() {
         className='dragme'
         ref={divRef}
         drag='x'
-        style={{
-          x: x,
-
-          color,
-        }}
+        style={
+          {
+            // x: x,
+            // color,
+          }
+        }
         dragControls={dragControls}
         dragConstraints={{
-          right: 500,
-          left: -500,
+          right: 100,
+          left: -100,
         }}
         dragTransition={{
           bounceStiffness: 600,
@@ -187,15 +187,15 @@ function Greeting() {
         }}
         whileTap={{ scale: 0.9 }}
       >
-        <div
+        {/* <div
           ref={hoverRef}
           style={{
             position: 'absolute',
-            // width: '850px',
-            // height: '200px',
-            // left: '20px',
+            width: '850px',
+            height: '200px',
+            left: '20px',
           }}
-        ></div>
+        ></div> */}
         {count == 0 && (
           <BigHeading
             variants={container}
@@ -203,7 +203,7 @@ function Greeting() {
             animate='show'
             style={{
               fontFamily: 'Poppins',
-              fontWeight: 700,
+              fontWeight: 600,
             }}
           >
             Hello
@@ -225,19 +225,17 @@ function Greeting() {
         )}
 
         {count == 2 && (
-          <div>
-            <BigHeading
-              variants={container}
-              initial='hidden'
-              animate='show'
-              style={{
-                fontFamily: 'Poppins',
-                fontWeight: 800,
-              }}
-            >
-              Hoi
-            </BigHeading>
-          </div>
+          <BigHeading
+            variants={container}
+            initial='hidden'
+            animate='show'
+            style={{
+              fontFamily: 'Poppins',
+              fontWeight: 800,
+            }}
+          >
+            Hoi
+          </BigHeading>
         )}
       </DragMeSection>
     </>

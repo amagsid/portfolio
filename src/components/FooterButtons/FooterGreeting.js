@@ -9,6 +9,7 @@ import {
   useDragControls,
   useMotionValue,
 } from 'framer-motion';
+import { Section, HighlightedText } from '../../styles/GlobalComponents';
 import {
   BigHeading,
   MedHeading,
@@ -16,7 +17,7 @@ import {
   DragMePromptContainer,
   DragMePromptText,
   IntroText,
-} from './HeroStyles';
+} from './FooterGreetingStyles';
 
 function Greeting() {
   const [isHovered, setHovered] = useState(false);
@@ -105,8 +106,6 @@ function Greeting() {
   const prevyCount = usePrevious(mousePos.y);
   const prevTouchxCount = usePrevious(touchPos.x);
 
-  //cusotm cursor
-
   useEffect(() => {
     let dragSection = document.querySelector('.dragme');
 
@@ -130,14 +129,14 @@ function Greeting() {
     }
 
     if (
-      mousePos.x - prevxCount >= 5 ||
-      prevxCount - mousePos.x >= 5 ||
-      mousePos.y - prevyCount >= 5
+      mousePos.x - prevxCount >= 6 ||
+      prevxCount - mousePos.x >= 6 ||
+      mousePos.y - prevyCount >= 6
     ) {
       setCount(count + 1);
     }
 
-    if (count === 5) {
+    if (count === 4) {
       setCount(0);
     }
 
@@ -151,127 +150,115 @@ function Greeting() {
     };
   }, [prevxCount, count, prevTouchxCount]);
 
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+
+  function scrollToTop() {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   return (
     <>
       <div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
-      <motion.div whileHover={{ scale: 1.05 }}>
-        <DragMeSection
-          onDragEnd={() =>
-            (document.location.href = 'https://www.ahmad-magdy.com/#about')
-          }
-          initial={{ x: 0 }}
-          animate={{ x: [-500, 0] }}
-          transition={{
-            type: 'spring',
-            bounce: 0.6,
-            duration: 1,
-            ease: 'easeInOut',
-            repeatType: 'mirror',
-          }}
-          dragElastic={0.2}
-          dragSnapToOrigin={true}
-          className='dragme'
-          ref={divRef}
-          drag='x'
-          style={{
-            x: x,
 
-            color,
-            letterSpacing: GreetingLetterSpacing,
+      <DragMeSection
+        initial={{ x: 0 }}
+        animate={{ x: [-500, 0] }}
+        transition={{
+          type: 'spring',
+          bounce: 0.6,
+          duration: 1,
+          ease: 'easeInOut',
+          repeatType: 'mirror',
+        }}
+        dragElastic={0.2}
+        dragSnapToOrigin={true}
+        onDragEnd={scrollToTop}
+        className='dragme'
+        ref={divRef}
+        drag='x'
+        style={{
+          x: x,
+
+          color,
+          position: 'absolute',
+        }}
+        dragControls={dragControls}
+        dragConstraints={{
+          right: 1000,
+          left: -1000,
+        }}
+        dragTransition={{
+          bounceStiffness: 600,
+          bounceDamping: 15,
+        }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {/* <div
+          ref={hoverRef}
+          style={{
+            position: 'relative',
+            width: '200px',
+            height: '100px',
+            // left: '20px',
           }}
-          dragControls={dragControls}
-          dragConstraints={{
-            right: 500,
-            left: -500,
-          }}
-          dragTransition={{
-            bounceStiffness: 600,
-            bounceDamping: 15,
-          }}
-          whileTap={{ scale: 0.9 }}
-        >
-          {/* <div
-            ref={hoverRef}
+        ></div> */}
+        {count == 0 && (
+          <BigHeading
+            variants={container}
+            initial='hidden'
+            animate='show'
             style={{
-              position: 'absolute',
-              width: '850px',
-              height: '200px',
-              left: '20px',
+              fontFamily: 'Poppins',
+              fontWeight: 700,
             }}
-          ></div> */}
-          {count == 0 && (
-            <BigHeading
-              variants={container}
-              initial='hidden'
-              animate='show'
-              style={{
-                fontFamily: 'Poppins',
-                fontWeight: 700,
-              }}
-            >
-              Hello
-            </BigHeading>
-          )}
-          {count == 1 && (
-            <BigHeading
-              variants={container}
-              initial='hidden'
-              animate='show'
-              style={{
-                fontFamily: 'Poppins',
-                fontWeight: 100,
-                fontStyle: 'italic',
-              }}
-            >
-              Hola
-            </BigHeading>
-          )}
-          {/* {count == 2 && (
-            <BigHeading
-              variants={container}
-              initial='hidden'
-              animate='show'
-              style={{
-                fontFamily: 'Chivo',
-                textAlign: 'center',
-              }}
-            >
-              CIAO
-            </BigHeading>
-          )} */}
-          {count == 2 && (
-            <div className='ahlan-container' style={{ position: 'relative' }}>
-              <BigHeading
-                variants={container}
-                initial='hidden'
-                animate='show'
-                style={{
-                  fontFamily: 'Cairo',
-                  fontWeight: 800,
-                  letterSpacing: '0px',
-                }}
-              >
-                أهلاً
-              </BigHeading>
-            </div>
-          )}
-          {count == 3 && (
-            <div>
-              <BigHeading
-                variants={container}
-                initial='hidden'
-                animate='show'
-                style={{
-                  fontFamily: 'Poppins',
-                  fontWeight: 800,
-                }}
-              >
-                Hoi
-              </BigHeading>
-            </div>
-          )}
-        </DragMeSection>
-      </motion.div>
+          >
+            Bye
+          </BigHeading>
+        )}
+        {count == 1 && (
+          <BigHeading
+            variants={container}
+            initial='hidden'
+            animate='show'
+            style={{
+              fontFamily: 'Poppins',
+              fontWeight: 100,
+              fontStyle: 'italic',
+            }}
+          >
+            Adiós
+          </BigHeading>
+        )}
+
+        {count == 2 && (
+          <BigHeading
+            variants={container}
+            initial='hidden'
+            animate='show'
+            style={{
+              fontFamily: 'Poppins',
+              fontWeight: 800,
+            }}
+          >
+            Doei
+          </BigHeading>
+        )}
+        {count == 3 && (
+          <BigHeading
+            variants={container}
+            initial='hidden'
+            animate='show'
+            style={{
+              fontFamily: 'Cairo',
+              fontWeight: 800,
+              GreetingLetterSpacing,
+            }}
+          >
+            سلام
+          </BigHeading>
+        )}
+      </DragMeSection>
     </>
   );
 }

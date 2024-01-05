@@ -20,6 +20,7 @@ import PhoneHero from './PhoneHero';
 import { ThemeContext } from '../../pages/_app';
 import { createContext } from 'react';
 import Button from '../../elements/Button/Button';
+import { useInView } from 'react-intersection-observer';
 
 export const HoverContext = createContext();
 
@@ -37,6 +38,15 @@ const Hero = (props) => {
     },
   };
 
+  const [ref, inView, entry] = useInView({
+    /* Optional options */
+    threshold: 0.5,
+    triggerOnce: false,
+    // rootMargin: '600px',
+  });
+
+  console.log(inView, 'inView');
+
   //parallex scroll animation
   const scrollTarget = useRef();
 
@@ -47,9 +57,9 @@ const Hero = (props) => {
 
   const greetingOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const buttonsScale = useTransform(scrollYProgress, [0.0, 0.2], [1, 0.75]);
-  const button1Movement = useTransform(scrollYProgress, [0.0, 0.2], [0, 700]);
-  const button2Movement = useTransform(scrollYProgress, [0.0, 0.2], [0, -700]);
-  const nameScale = useTransform(scrollYProgress, [0.2, 0.4], [1, 0.0]);
+  const button1Movement = useTransform(scrollYProgress, [0.0, 0.2], [0, 1255]);
+  const button2Movement = useTransform(scrollYProgress, [0.0, 0.2], [0, -1255]);
+  const nameScale = useTransform(scrollYProgress, [0.0, 0.3], [1, 0.0]);
   const greetingScale = useTransform(scrollYProgress, [0.4, 0.6], [1, 0.0]);
   const nameOpacity = useTransform(scrollYProgress, [0, 0.27], [1, 0]);
   const titleColor = useTransform(
@@ -62,12 +72,10 @@ const Hero = (props) => {
   const handleDragPromptHoverIn = (e) => {
     console.log('hovered');
     setHovered(true);
-    // document.querySelector('.drag-prompt').classList.add('drag-prompt-in');
   };
   const handleDragPromptHoverOut = (e) => {
     console.log('UNhovered');
     setHovered(false);
-    // document.querySelector('.drag-prompt').classList.remove('drag-prompt-in');
   };
 
   useEffect(() => {
@@ -93,18 +101,18 @@ const Hero = (props) => {
       {!isSm && (
         <div>
           <DragMePromptContainer
-            style={{
-              transform: isHovered
-                ? 'translate(-50%, -50%) scale(1)'
-                : 'translate(-50%, -50%) scale(.15)',
-            }}
-            className='drag-prompt'
+            className='drag-prompt drag-prompt-in'
+
+            // style={{
+            //   transform: isHovered
+            //     ? 'translate(-50%, -50%) scale(1)'
+            //     : 'translate(-50%, -50%) scale(.15)',
+            // }}
+            // style={{
+            //   transform: 'translate(-50%, -50%) scale(.5)',
+            // }}
           >
-            <DragMePromptText
-              style={{
-                opacity: isHovered ? '1' : '0.1',
-              }}
-            >
+            <DragMePromptText className='drag-prompt-text'>
               {' '}
               drag me{' '}
             </DragMePromptText>
@@ -117,18 +125,17 @@ const Hero = (props) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              // position: 'relative',
-              zIndex: '50',
             }}
           >
+            {/* //fix this */}
             <div
               style={{
                 position: 'fixed',
+                zIndex: '1',
               }}
             >
-              {/* <Demo /> */}
               <motion.div
-                style={{ scale: greetingScale, height: '300px' }}
+                style={{ scale: greetingScale }}
                 onMouseEnter={handleDragPromptHoverIn}
                 onMouseLeave={handleDragPromptHoverOut}
               >
@@ -160,12 +167,6 @@ const Hero = (props) => {
                     scale: buttonsScale,
                   }}
                 >
-                  {/* <a href='/Ahmad_Resume.pdf' target='_blank'>
-                <ResumeButton className='px-4 py-2 rounded-md text-[13px]'>
-                  Download My Resume
-                </ResumeButton>
-              </a> */}
-
                   <motion.div
                     style={{ translateX: button2Movement }}
                     className='transition-all'

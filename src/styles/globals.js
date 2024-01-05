@@ -27,6 +27,7 @@ scroll-behavior: smooth!important;
     font-size: 1.6rem;
     background: ${(props) => props.theme.colors.bgMain};
     cursor: none;
+    overflow-x: hidden;
 
 
   }
@@ -105,14 +106,19 @@ color: ${(props) => props.theme.colors.textPale};
 
 
   .tech-icon {
-	width: 5px;
-	height: 5px;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
 }
 
   .tech-icon-small {
 	stroke-width: 0.8;
-  width: 30px;
-	height: 30px;
+
+
+}
+  .styled-components-icon {
+	stroke-width: 0.1;
+
 }
 
 .switch-icon {
@@ -279,23 +285,40 @@ color: ${(props) => props.theme.colors.textPale};
   }
 
 
-    
-    .drag-prompt{
+  body:has(.dragme:hover) .drag-prompt {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transition: transform 300ms ease-in-out;
+  }
 
-      // display: none;
-      // opacity: 0.1;
-      // transform: translate(-50%, -50%) scale(0.1);
-      transition: transform 400ms ease-in-out;
+  body:has(.dragme) .drag-prompt{
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(0.2);
+      transition: transform 300ms ease-in-out;
 
     }
 
-    .drag-prompt-in{
-      // display:flex;
-      // opacity: 1;
-      // transform: translate(-50%, -50%) scale(1);
-      transition: transform 200ms ease-in-out;
+
+    body:has(.dragme:hover) .drag-prompt-text {
+      opacity: 1;
+      transition: all 600ms ease-in-out;
+  
+  
+    }
+  
+     .drag-prompt-text {
+      opacity: 0.0;
+      transition: all 400ms ease-in-out;
+  
+    }
+
+    // .drag-prompt-in{
+    //   display:flex;
+    //   opacity: 1;
+    //   transform: translate(-50%, -50%) scale(1);
+    //   transition: transform 200ms ease-in-out;
  
-    }
+    // }
     
     .container a {
       color: #f9fafb;
@@ -319,12 +342,11 @@ color: ${(props) => props.theme.colors.textPale};
 
 
     .card {
-      width: 50vw;
+      width: 39vw;
       height: 50vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid #ccc;
       border-radius: 8px;
       padding: 0px 10px 10px 10px;
       margin: 20px 0;

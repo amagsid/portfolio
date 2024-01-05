@@ -6,13 +6,8 @@ import { Section, SectionText } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 import { AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Greeting from './Greeting';
-import {
-  motion,
-  useTransform,
-  useScroll,
-  useViewportScroll,
-} from 'framer-motion';
+import Greeting from './smallGreeting';
+import { motion, useTransform, useScroll } from 'framer-motion';
 import { ThemeContext } from '../../pages/_app';
 
 import SectionTitle from '../../elements/SectionTitle/SectionTitle';
@@ -55,36 +50,40 @@ const AboutMe = () => {
   );
 
   return (
-    <Section ref={scrollTarget} id='about'>
+    <Section ref={scrollTarget} id='about' className='h-[110vh]'>
       <motion.div
         animate={inView ? 'visible' : 'hidden'}
         variants={variants}
-        transition={{ duration: 1, ease: 'easeInOut' }}
+        transition={{ duration: 0.8, ease: 'easeInOut' }}
         ref={ref}
         // style={{ scale: sectionTitleScale }}
       >
         <SectionTitle section='About me' />
       </motion.div>
 
-      <div className=' flex flex-row items-center  h-full lgl:flex-col justify-between'>
+      <div className=' flex flex-row items-center  lgl:flex-col justify-between'>
         {' '}
+        h
         <div className='basis-1/2'>
           <h1> Image </h1>
         </div>
         <div className='flex flex-col basis-1/2'>
           <div style={{}}>
             {' '}
-            <Greeting style={{ height: '100%' }} />{' '}
+            <Greeting className='pb-6§§§§§§§  ' />{' '}
           </div>
 
-          <SectionText>
-            Front-end developer specializing in UI. Currently, I’m helping
-            brands automate their creative workflow by building custom scalable
-            web-editable video templates at{' '}
+          <SectionText className='pb-5'>
+            Back in 2011, I decided to try my hand at creating custom Tumblr
+            themes and tumbled head first into the rabbit hole of coding. That
+            sparked my interest in web development which led me to expirement
+            with wordpress templates. Fast-forward to today, I achieved my dream
+            of becoming a web developer and am currently helping brands at{' '}
             <a href='https://www.ambassadors.com/' target='_blank'>
               Ambassadors{' '}
             </a>{' '}
-            as part of the creative automation team{' '}
+            automate their creative workflow by creating custom-built UI
+            templates as part of the creative automation team{' '}
             <a
               href='https://www.ambassadors.com/solutions/cube'
               target='_blank'
@@ -92,17 +91,16 @@ const AboutMe = () => {
               Cube
             </a>
           </SectionText>
-          <div className=' flex flex-row lgl:flex-col  '>
+          <div className=' flex gap-12 flex-row lgl:flex-col  '>
             <SectionText>
-              <span>Okay enough with the CV talk!</span> I'm into anything
+              <span>Okay enough with the CV talk...</span> I'm into everything
               tech-related. Over the years, this drive pushed my to achieve my
-              dream of becoming a programmer.
+              dream and be where I am today.
             </SectionText>
 
             <SectionText>
-              I also take lots of pictures and usually chasing the sun when in
-              the Netherlands I also take lots of pictures and usually chasing
-              the sun when in the Netherlands
+              When I’m not at the computer, I’m usually working out, taking lots
+              of pictures and/or editing them, or chasing the sun.
             </SectionText>
           </div>
         </div>

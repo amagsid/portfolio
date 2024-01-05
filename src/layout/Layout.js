@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Hero from '../components/Hero/Hero';
-import PastWork from '../components/PastWork/PastWork';
+import Projects from '../components/Projects/Projects';
 import Experience from '../components/Experience/Experience';
 import AboutMe from '../components/AboutMe/AboutMe';
 import { Section } from '../styles/GlobalComponents';
 import MusicContainer from '../components/MusicContainer/MusicContainer';
 import Contact from '../components/Contact/Contact';
 import Greeting from '../components/Hero/Greeting';
+import FooterButtons from '../components/FooterButtons/FooterButtons';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
@@ -88,10 +89,11 @@ export const Layout = ({ children }) => {
 
       {/* <Experience /> */}
 
-      <PastWork />
+      <Projects />
+      <FooterButtons />
 
       {/* <div className='h-screen w-screen snap-start shrink-0 bg-white h-fit'> */}
-      <Contact />
+      {/* <Contact /> */}
       {/* </div> */}
 
       {/* </Container> */}

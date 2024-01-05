@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-function SlideInCard({ text, index }) {
+function SlideInCard({ text, index, img }) {
   return (
     <motion.div
       className='card'
@@ -19,7 +20,18 @@ function SlideInCard({ text, index }) {
       }}
       // viewport={{ once: false }}
     >
-      <p className='card-text'>{text}</p>
+      <Image
+        src={img}
+        alt='image'
+        style={{
+          height: '100%',
+          display: 'block',
+          margin: 'auto',
+          maxWidth: '100%',
+        }}
+        // width='500'
+        // height='600'
+      />
     </motion.div>
   );
 }

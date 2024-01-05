@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Hero from '../components/Hero/Hero';
-import PastWork from '../components/PastWork/PastWork';
 import Experience from '../components/Experience/Experience';
 import AboutMe from '../components/AboutMe/AboutMe';
 import { Layout } from '../layout/Layout';

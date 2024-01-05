@@ -7,22 +7,20 @@ export const HeroWrapper = styled(motion.div)`
 `;
 
 export const BigHeading = styled(motion.h2)`
-  font-size: clamp(20rem, 30vw, 32rem);
-  line-height: 250px;
-  max-width: 100%;
-  text-align: center;
-  // color: ${(props) =>
-    props.main ? props.theme.colors.heading : props.theme.colors.textPale};
+  font-size: clamp(3rem, 8vw, 15rem);
 
-  @media ${(props) => props.theme.breakpoints.md} {
-  }
+  color: ${(props) =>
+    props.main ? props.theme.colors.heading : props.theme.colors.colorPop};
+
+  // @media ${(props) => props.theme.breakpoints.md} {
+  // }
 
   //small mobile
-  @media ${(props) => props.theme.breakpoints.sm} {
-    font-size: clamp(15rem, 35vw, 42rem);
-    padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
-    max-width: 100%;
-  }
+  // @media ${(props) => props.theme.breakpoints.sm} {
+  //   font-size: clamp(15rem, 35vw, 42rem);
+  //   padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+  //   max-width: 100%;
+  // }
 `;
 export const DragMePromptContainer = styled(motion.div)`
   position: absolute;
@@ -38,6 +36,7 @@ export const DragMePromptContainer = styled(motion.div)`
 `;
 export const DragMePromptText = styled(motion.h3)`
   color: ${(props) => props.theme.colors.bgMain};
+  color: ${(props) => props.theme.colors.colorPopDark};
 
   color: ${(props) => props.theme.colors.colorPopDark};
   text-align: center;

@@ -25,8 +25,6 @@ const svgVariants = {
 };
 
 function Signature({ isNavScrolled }) {
-  console.log(isNavScrolled);
-
   const variants = {
     unscrolled: { scale: 1 },
     scrolled: { scale: 0.5 },
