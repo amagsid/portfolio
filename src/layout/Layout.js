@@ -69,7 +69,7 @@ export const Layout = ({ children }) => {
           scaleX: scaleX,
         }}
       />
-      <Header />
+      {/* <Header /> */}
       <CirclePointer className='custom-cursor'> </CirclePointer>
       {/* <Container> */}
 
