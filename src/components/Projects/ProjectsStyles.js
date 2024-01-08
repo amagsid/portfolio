@@ -6,6 +6,13 @@ export const Img = styled.img`
   object-fit: cover;
   overflow: hidden;
 `;
+export const ProjectName = styled.h3`
+  font-size: clamp(2.8rem, 3.5rem, 5rem);
+  // line-height: 1.8em;
+
+  font-weight: 600;
+  color: ${(props) => props.theme.colors.textLight};
+`;
 
 export const ClientsLogoContainer = styled.div`
 	display: flex;
@@ -22,8 +29,6 @@ export const ClientsLogoContainer = styled.div`
     justify-content: space-evenly;
 	
 	}
-
-
 
 }
 `;

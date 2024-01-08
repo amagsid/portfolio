@@ -15,6 +15,7 @@ import {
   MedHeading,
   DragMePromptContainer,
   DragMePromptText,
+  Iam,
 } from './HeroStyles';
 import PhoneHero from './PhoneHero';
 import { ThemeContext } from '../../pages/_app';
@@ -143,19 +144,40 @@ const Hero = (props) => {
               </motion.div>
 
               <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
+                style={
+                  {
+                    // display: 'flex',
+                    // flexDirection: 'column',
+                  }
+                }
               >
                 <motion.div
                   style={{
                     scale: nameScale,
                     flexDirection: 'column',
+                    display: 'flex',
                   }}
                 >
-                  <MedHeading className='py-14'>I'm Ahmad Magdy</MedHeading>
+                  {/* <Iam className='Iam'> I'm </Iam> */}
+                  {/* <motion.div
+                    initial={{
+                      fontVariationSettings: `"TRMA" 0, "WMX2" 0, "SKLA" 0`,
+                    }}
+                    whileHover={{
+                      fontVariationSettings: `"TRMA" 1000, "WMX2" 500, "SKLA" 500`,
+                    }}
+                    transition={{
+                      // type: 'spring',
+                      // bounce: 0.6,
+                      duration: 3,
+                      delay: 2,
+                      ease: 'easeInOut',
+                      // repeatType: 'mirror',
+                    }}
+                  > */}
+                  <MedHeading className='py-14'>Ahmad Magdy</MedHeading>
                 </motion.div>
+                {/* </motion.div> */}
 
                 <motion.div
                   style={{

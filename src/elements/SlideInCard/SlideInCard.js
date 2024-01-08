@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { SectionText } from '../../styles/GlobalComponents';
+import { ProjectName } from '../../components/Projects/ProjectsStyles';
 
-function SlideInCard({ text, index, img }) {
+function SlideInCard({ name, index, img, description }) {
   return (
     <motion.div
-      className='card'
       initial={{
         opacity: 0,
         // if odd index card,slide from right instead of left
@@ -18,19 +19,25 @@ function SlideInCard({ text, index, img }) {
           duration: 1, // Animation duration
         },
       }}
-      // viewport={{ once: false }}
+      // viewport={{ once: true }}
+      // style={{ width: '100%',  }}
+      className='card-container w-full flex items-center justify-between h-[54vh] mb-20 gap-[30px]'
     >
+      {/* project description */}
+      <div className='h-full flex flex-column justify-around'>
+        <ProjectName> {name}</ProjectName>
+        <SectionText> {description}</SectionText>
+      </div>
+      {/* prject image */}
       <Image
         src={img}
-        alt='image'
+        alt={name}
         style={{
           height: '100%',
-          display: 'block',
-          margin: 'auto',
+          width: '55%',
+          objectFit: 'cover',
           maxWidth: '100%',
         }}
-        // width='500'
-        // height='600'
       />
     </motion.div>
   );

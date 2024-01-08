@@ -134,7 +134,7 @@ function Greeting() {
       setCount(count + 1);
     }
 
-    if (count === 2) {
+    if (count === 3) {
       setCount(0);
     }
 
@@ -153,8 +153,8 @@ function Greeting() {
       <div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
 
       <DragMeSection
-        // initial={{ x: 0 }}
-        // animate={{ x: [-500, 0] }}
+        initial={{ x: 0 }}
+        animate={{ x: [-500, 0] }}
         onDragEnd={() =>
           (document.location.href = 'https://www.ahmad-magdy.com/#pastwork')
         }
@@ -170,12 +170,13 @@ function Greeting() {
         className='dragme'
         ref={divRef}
         drag='x'
-        style={
-          {
-            // x: x,
-            // color,
-          }
-        }
+        style={{
+          x: x,
+          color,
+          // zIndex: '99',
+          position: 'relative',
+          width: '100px',
+        }}
         dragControls={dragControls}
         dragConstraints={{
           right: 100,

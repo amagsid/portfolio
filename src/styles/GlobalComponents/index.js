@@ -103,11 +103,11 @@ export const Number = styled.span`
 `;
 
 export const SectionText = styled.p`
-  font-size: clamp(1.7rem, 2rem, 1rem);
-  line-height: 2em;
+  font-size: clamp(1rem, 1.8rem, 2rem);
+  line-height: 1.8em;
 
   font-weight: 300;
-  color: ${(props) => props.theme.colors.textPale};
+  color: ${(props) => props.theme.colors.textSlate};
 
   // &:after {
   //   content: '';

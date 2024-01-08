@@ -57,7 +57,7 @@ color: ${(props) => props.theme.colors.colorPop};
 	}
 `;
 export const NavLinksContainer = styled.div`
-	
+
 	display: flex;
 	align-items: center;
 	flex: 2;

@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 
 export const SideBar = styled(motion.aside)`
   display: flex;
+  font-family: ${(props) => props.theme.fonts.headings};
+  font-weight: 300;
   background-color: rgba(10, 25, 47, 0.3);
   backdrop-filter: blur(20px);
   justify-content: center;
@@ -29,5 +31,4 @@ export const SocialContainer = styled(motion.div)`
 `;
 export const Link = styled(motion.a)`
   font-size: clamp(3rem, 5vw, 6rem);
-  font-weight: 500;
 `;

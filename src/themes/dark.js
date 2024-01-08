@@ -7,13 +7,15 @@ export default {
     title: 'Fjalla One, sans-serif',
     main: 'Space Grotesk, sans-serif',
     mono: 'Noto Sans Mono, monospace',
-    greeting: 'allrox',
+    headings: 'InterVariable, sans-serif',
   },
   // Colors for layout
   colors: {
+    textLight: '#e9eefe',
     textPale: '#ccd6f6',
+    textSlate: '#94a3b8',
     horizontlLine: lightestNavy,
-    bgMain: '#0a192f',
+    bgMain: '#0f172a',
     sectionTitleBorderColor: '#ccd6f6',
     links: '#64ffda', //links and nav numbers
     // colorPop: '#64ffda', //links and nav numbers

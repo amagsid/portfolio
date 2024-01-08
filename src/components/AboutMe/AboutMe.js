@@ -1,7 +1,6 @@
 import React, { useRef, useContext } from 'react';
 
 import { StyledImage, Motto, PictureTent } from './AboutMeStyles';
-import Portrait from '../../../public/images/portrait.jpg';
 import { Section, SectionText } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 import { AnimatePresence } from 'framer-motion';
@@ -50,7 +49,7 @@ const AboutMe = () => {
   );
 
   return (
-    <Section ref={scrollTarget} id='about' className='h-[110vh]'>
+    <Section ref={scrollTarget} id='about' className='h-[120vh]'>
       <motion.div
         animate={inView ? 'visible' : 'hidden'}
         variants={variants}
@@ -70,37 +69,42 @@ const AboutMe = () => {
         <div className='flex flex-col basis-1/2'>
           <div style={{}}>
             {' '}
-            <Greeting className='pb-6§§§§§§§  ' />{' '}
+            <Greeting className='pb-6  ' />{' '}
           </div>
 
-          <SectionText className='pb-5'>
-            Back in 2011, I decided to try my hand at creating custom Tumblr
-            themes and tumbled head first into the rabbit hole of coding. That
-            sparked my interest in web development which led me to expirement
-            with wordpress templates. Fast-forward to today, I achieved my dream
-            of becoming a web developer and am currently helping brands at{' '}
+          <SectionText className='pb-5' style={{ zIndex: '90' }}>
+            Back in 2010, I decided to try my hand at creating custom Tumblr
+            themes, a month later, I was editing the HTML and CSS of wordpress
+            templates. That sparked my interest in web development and motivtaed
+            me to build on my skills. Fast-forward to today, I achieved my dream
+            of becoming a web developer and am currently helping brands automate
+            their creative workflow by creating custom-built UI templates at
             <a href='https://www.ambassadors.com/' target='_blank'>
+              {' '}
               Ambassadors{' '}
-            </a>{' '}
-            automate their creative workflow by creating custom-built UI
-            templates as part of the creative automation team{' '}
+            </a>
+            as part of the creative automation team
             <a
               href='https://www.ambassadors.com/solutions/cube'
               target='_blank'
             >
-              Cube
+              {' '}
+              Cube{' '}
             </a>
           </SectionText>
-          <div className=' flex gap-12 flex-row lgl:flex-col  '>
-            <SectionText>
-              <span>Okay enough with the CV talk...</span> I'm into everything
-              tech-related. Over the years, this drive pushed my to achieve my
-              dream and be where I am today.
+          <div className=' flex gap-12 flex-row lgl:flex-col'>
+            <SectionText className='w-[50%]  '>
+              <span>Okay enough with the CV talk...</span> <br /> I'm into
+              everything tech-related. Be it tech news, product laucnhes or just
+              being up-to-date with the current tech trends. Over the years,
+              this drive pushed my to achieve my dream and be where I am today.
             </SectionText>
 
-            <SectionText>
-              When I’m not at the computer, I’m usually working out, taking lots
-              of pictures and/or editing them, or chasing the sun.
+            <SectionText className='w-[50%]'>
+              When I’m not at the computer or learning a new skill, I’m usually
+              working out, taking lots of pictures and/or editing them, watching
+              the stars and looking up objects in the sky with my telescope or
+              chasing the sun.
             </SectionText>
           </div>
         </div>

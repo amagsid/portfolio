@@ -4,6 +4,7 @@ export default {
     title: 'Fjalla One, sans-serif',
     main: 'Space Grotesk, sans-serif',
     mono: 'Noto Sans Mono, monospace',
+    headings: 'InterVariable, sans-serif',
   },
   // Colors for layout
   colors: {

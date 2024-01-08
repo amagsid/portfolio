@@ -28,7 +28,7 @@ const icons = [
   {
     name: 'LinkedIn',
     icon: <Linkedin className='tech-icon-small' />,
-    href: 'https://github.com/amagsid',
+    href: 'https://www.linkedin.com/in/ahmad-m-s/',
     target: '_blank',
     id: 2,
   },
@@ -42,14 +42,14 @@ const icons = [
   {
     name: '  GitLab',
     icon: <Gitlab className='tech-icon-small' />,
-    href: 'https://github.com/amagsid',
+    href: 'https://gitlab.com/ahmad.magdy',
     target: '_blank',
     id: 4,
   },
   {
     name: 'Email',
     icon: <AtSign className='tech-icon-small' />,
-    href: 'https://github.com/amagsid',
+    href: 'mailto:amagsid@gmail.com',
     target: '_blank',
     id: 5,
   },
@@ -140,7 +140,8 @@ function SideNav() {
                     key={id}
                     href={href}
                     target={target}
-                    whileHover={{ scale: 1.03 }}
+                    whileHover={{ scale: 1.5, strokeWidth: '4' }}
+                    transition={{ duration: 0.2, ease: 'easeInOut' }}
                     variants={itemVariants}
                   >
                     {icon}

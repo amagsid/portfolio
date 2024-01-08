@@ -47,18 +47,29 @@ export const DragMePromptText = styled(motion.h3)`
   font-weight: 400;
 `;
 
+export const Iam = styled(motion.h2)`
+  font-weight: 100;
+  font-size: clamp(2rem, 3rem, 12rem);
+
+  text-align: center;
+  -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+  font-family: ${(props) => props.theme.fonts.headings};
+
+  color: ${(props) => props.theme.colors.textPale};
+`;
 export const MedHeading = styled(motion.h2)`
-  font-weight: 600;
-  font-size: clamp(6rem, 8rem, 12rem);
+  font-weight: 700;
+  font-size: clamp(6rem, 10rem, 12rem);
   width: 100%;
   text-align: center;
   -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-  font-family: ${(props) => props.theme.fonts.greeting};
+  font-family: ${(props) => props.theme.fonts.headings};
   animation-timing-function: linear;
 
   color: ${(props) => props.theme.colors.colorPop};
-  color: ${(props) => props.theme.colors.textPale};
-  // line-height: 85px;
+  // color: ${(props) => props.theme.colors.textPale};
+  line-height: 85px;
+  letter-spacing: -4px;
 `;
 export const IntroText = styled(motion.h3)`
   font-weight: 200;

@@ -4,6 +4,15 @@ import { normalize } from 'styled-normalize';
 const GlobalStyles = createGlobalStyle`
   ${normalize};
 
+
+  // :root {
+  //   font-family: Inter, sans-serif;
+  //   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+  // }
+  // @supports (font-variation-settings: normal) {
+  //   :root { font-family: InterVariable, sans-serif; }
+  // }
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -22,8 +31,9 @@ scroll-behavior: smooth!important;
 
 
   body {
-    font-family: ${(props) => props.theme.fonts.main};
-    // font-family: 'allrox';
+    // font-family: ${(props) => props.theme.fonts.main};
+   
+    font-family: InterVariable, sans-serif;
     font-size: 1.6rem;
     background: ${(props) => props.theme.colors.bgMain};
     cursor: none;
@@ -38,17 +48,19 @@ scroll-behavior: smooth!important;
   }
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.textPale};
+    color: ${(props) => props.theme.colors.textLight};
+    font-weight: 400;
+    letter-spacing:.5px;
   }
-  .music-container {
-    display: flex;
-        flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+//   .music-container {
+//     display: flex;
+//         flex-direction: column;
+//     align-items: center;
+//     justify-content: space-around;
 
-  height: 85vh;
-color: ${(props) => props.theme.colors.textPale};
-  }
+//   height: 85vh;
+// color: ${(props) => props.theme.colors.textPale};
+//   }
 
   .music-container div {
     width:100%
@@ -90,11 +102,10 @@ color: ${(props) => props.theme.colors.textPale};
 
 
 
-  .social-container a {
-      // color: ${(props) => props.theme.colors.textPale};
+ a {
+ 
     text-decoration: none;
     	 -webkit-transition: transform .1s ease-in-out;
-       
 
     &:hover {
     transform: translateY(-6px);
@@ -131,56 +142,41 @@ color: ${(props) => props.theme.colors.textPale};
 
 
 
-  .email-link {
-      color: ${(props) => props.theme.colors.navItems};
-    	font-family: Noto Sans Mono, monospace;
-      letter-spacing: .5rem;
-          -webkit-transition: all .01s ease-out;
-    // &:hover {
-    //    letter-spacing: .7rem;
-    //   padding-bottom: .8rem;
-    //       -webkit-transition: all .4s ease-out;
-    //        color: ${(props) => props.theme.colors.links};
-
-    // }
-    
-  }
-
 
   
 
 //links after paragraphs
-  p > a {
-    position: relative;
-    text-decoration: none;
+  // p > a {
+  //   position: relative;
+  //   text-decoration: none;
  
-    color: ${(props) => props.theme.colors.links};
-    transition: all .05s ease;
+  //   color: ${(props) => props.theme.colors.links};
+  //   transition: all .05s ease;
 
-    &::before {
-        content: ""; 
-        position: absolute;
-        width: 100%;
-        height: .5px;
-        bottom: 0;
-        left: 0;
-        background-color: ${(props) => props.theme.colors.links};
-        visibility: hidden;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transition: all 0.3s ease-in-out 0s; 
-    }   
+  //   &::before {
+  //       content: ""; 
+  //       position: absolute;
+  //       width: 100%;
+  //       height: .5px;
+  //       bottom: 0;
+  //       left: 0;
+  //       background-color: ${(props) => props.theme.colors.links};
+  //       visibility: hidden;
+  //       -webkit-transform: scaleX(0);
+  //       transform: scaleX(0);
+  //       -webkit-transition: all 0.3s ease-in-out 0s; 
+  //   }   
 
-    &:hover {
-     color: ${(props) => props.theme.colors.links};
+  //   &:hover {
+  //    color: ${(props) => props.theme.colors.links};
 
-        &::before {
-            visibility: visible;
-            -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-        }   
-    }   
-  }
+  //       &::before {
+  //           visibility: visible;
+  //           -webkit-transform: scaleX(1);
+  //           transform: scaleX(1);
+  //       }   
+  //   }   
+  // }
 
   
   li{
@@ -270,6 +266,8 @@ color: ${(props) => props.theme.colors.textPale};
 
   }
 
+  // styline to animate custom cursor on greeating hover
+
 
   body:has(.dragme) .custom-cursor {
     transform: translate(-50%, -50%) scale(1);
@@ -283,6 +281,9 @@ color: ${(props) => props.theme.colors.textPale};
     transition: transform 200ms ease-in-out;
 
   }
+
+
+  // styline to animate drag text prompt on greeating hover
 
 
   body:has(.dragme:hover) .drag-prompt {
@@ -299,10 +300,11 @@ color: ${(props) => props.theme.colors.textPale};
     }
 
 
+    // styline to animate drag text prompt on greeating hover
+
     body:has(.dragme:hover) .drag-prompt-text {
       opacity: 1;
       transition: all 600ms ease-in-out;
-  
   
     }
   
@@ -312,13 +314,16 @@ color: ${(props) => props.theme.colors.textPale};
   
     }
 
-    // .drag-prompt-in{
-    //   display:flex;
-    //   opacity: 1;
-    //   transform: translate(-50%, -50%) scale(1);
-    //   transition: transform 200ms ease-in-out;
- 
-    // }
+
+
+    //animate custom cursor on link hovers
+    body:has(a:hover) .custom-cursor {
+      transform: translate(-50%, -50%) scale(3);
+      transition: transform 200ms ease-in-out;
+      mix-blend-mode: overlay;
+  
+    }
+
     
     .container a {
       color: #f9fafb;
@@ -341,27 +346,8 @@ color: ${(props) => props.theme.colors.textPale};
     }
 
 
-    .card {
-      width: 39vw;
-      height: 50vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      padding: 0px 10px 10px 10px;
-      margin: 20px 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      background-color: #333;
-    }
-    
-    .card:nth-child(odd) {
-      align-self: flex-end;
-      background-color: #120443;
-    }
-    
-    .card-text {
-      font-size: 28px;
-      color: #fff;
+    .card-container:nth-child(even) {
+      flex-direction: row-reverse;
     }
     
     // footer {
