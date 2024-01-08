@@ -58,7 +58,7 @@ export const Iam = styled(motion.h2)`
   color: ${(props) => props.theme.colors.textPale};
 `;
 export const MedHeading = styled(motion.h2)`
-  font-weight: 700;
+  font-weight: 300;
   font-size: clamp(6rem, 10rem, 12rem);
   width: 100%;
   text-align: center;

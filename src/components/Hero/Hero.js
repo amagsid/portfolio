@@ -7,6 +7,7 @@ import {
   motion,
   useTransform,
   useScroll,
+  AnimatePresence,
   useDragControls,
   useMotionValue,
 } from 'framer-motion';
@@ -159,25 +160,20 @@ const Hero = (props) => {
                   }}
                 >
                   {/* <Iam className='Iam'> I'm </Iam> */}
-                  {/* <motion.div
-                    initial={{
-                      fontVariationSettings: `"TRMA" 0, "WMX2" 0, "SKLA" 0`,
+                  <motion.div
+                    // initial={{ fontVariationSettings: `"wght" 100` }}
+                    animate={{
+                      fontVariationSettings: `"wght" 700`,
+                      transition: {
+                        duration: 0.3,
+                        delay: 2,
+                        ease: 'easeInOut',
+                      },
                     }}
-                    whileHover={{
-                      fontVariationSettings: `"TRMA" 1000, "WMX2" 500, "SKLA" 500`,
-                    }}
-                    transition={{
-                      // type: 'spring',
-                      // bounce: 0.6,
-                      duration: 3,
-                      delay: 2,
-                      ease: 'easeInOut',
-                      // repeatType: 'mirror',
-                    }}
-                  > */}
-                  <MedHeading className='py-14'>Ahmad Magdy</MedHeading>
+                  >
+                    <MedHeading className='py-14'>Ahmad Magdy</MedHeading>
+                  </motion.div>
                 </motion.div>
-                {/* </motion.div> */}
 
                 <motion.div
                   style={{
