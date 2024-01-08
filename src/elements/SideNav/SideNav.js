@@ -140,7 +140,7 @@ function SideNav() {
                     key={id}
                     href={href}
                     target={target}
-                    whileHover={{ scale: 1.5, strokeWidth: '4' }}
+                    whileHover={{ scale: 1.3 }}
                     transition={{ duration: 0.2, ease: 'easeInOut' }}
                     variants={itemVariants}
                   >

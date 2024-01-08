@@ -62,9 +62,8 @@ const AboutMe = () => {
 
       <div className=' flex flex-row items-center  lgl:flex-col justify-between'>
         {' '}
-        h
         <div className='basis-1/2'>
-          <h1> Image </h1>
+          <h3 style={{ color: 'white' }}> portrait goes here </h3>
         </div>
         <div className='flex flex-col basis-1/2'>
           <div style={{}}>
