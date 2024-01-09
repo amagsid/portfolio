@@ -11,7 +11,7 @@ export default {
   },
   // Colors for layout
   colors: {
-    textLight: '#e9eefe',
+    textEmphasis: '#e9eefe',
     textPale: '#ccd6f6',
     textSlate: '#94a3b8',
     horizontlLine: lightestNavy,

@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
+import { ThemeContext } from '../../pages/_app';
 import BurgerButton from '../BurgerButton/BurgerButton';
 import {
   SideBar,
@@ -13,7 +14,7 @@ import Button from '../Button/Button';
 import SocialIcons from '../../elements/SocialIcons/Socialicons';
 const links = [
   { name: 'About', to: '#about', id: 1 },
-  { name: 'Projects', to: '#pastwork', id: 2 },
+  { name: 'Projects', to: '#projects', id: 2 },
   { name: 'Contact', to: '#contact', id: 3 },
   // { name: 'Blog', to: '#', id: 4 },
 ];
@@ -78,6 +79,7 @@ const sideVariants = {
 
 function SideNav() {
   const [open, cycleOpen] = useCycle(false, true);
+  const { theme } = useContext(ThemeContext);
 
   const handleClickExitSideNav = (e) => {
     // if (e.target == e.currentTarget) {
@@ -90,102 +92,117 @@ function SideNav() {
       <AnimatePresence>
         {open && (
           <SideBar
+            // onClick={(e) => {
+            //   e.target(sstyle);
+            // }}
+            theme={theme}
+            className=' flex justify-center'
             initial={{ width: 0, height: 0 }}
             animate={{
               width: '100%',
               height: '100%',
             }}
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.3,
-              ease: 'easeInOut',
-            }}
+            // transition={{
+            //   type: 'spring',
+            //   bounce: 0,
+            //   duration: 0.3,
+            //   ease: 'easeInOut',
+            // }}
             onClick={handleClickExitSideNav}
             exit={{
               width: 0,
               height: 0,
 
-              transition: { delay: 0.3, duration: 0.3 },
+              transition: {
+                delay: 0.3,
+              },
             }}
           >
-            <LinkesContainer
-              initial='closed'
-              animate='open'
-              exit='closed'
-              variants={sideVariants}
-            >
-              {links.map(({ name, to, id }) => (
-                <Link
-                  key={id}
-                  href={to}
-                  whileHover={{ scale: 1.03 }}
-                  variants={itemVariants}
-                >
-                  {name}
-                </Link>
-              ))}
-            </LinkesContainer>
+            <div className='side-nav w-[50%] flex flex-column items-center justify-center h-[35vh] justify-evenly'>
+              <LinkesContainer
+                className=' flex w-full justify-around'
+                initial='closed'
+                animate='open'
+                exit='closed'
+                // variants={sideVariants}
+              >
+                {links.map(({ name, to, id }) => (
+                  <Link
+                    // className='w-200 text-center'
+                    style={{ width: '200px', textAlign: 'center' }}
+                    key={id}
+                    href={to}
+                    initial={{ fontVariationSettings: `"wght" 100` }}
+                    whileHover={{
+                      // scale: 1.02,
+                      fontVariationSettings: `"wght" 200`,
+                    }}
+                    transition={{ duration: 0.2, ease: 'easeInOut' }}
+                    variants={itemVariants}
+                  >
+                    {name}
+                  </Link>
+                ))}
+              </LinkesContainer>
 
-            <motion.div
-              initial='closed'
-              animate='open'
-              exit='closed'
-              variants={sideVariants}
-              style={{ width: '60%' }}
-            >
-              <SocialContainer>
+              <SocialContainer
+                className='flex w-[100%] justify-evenly'
+                initial='closed'
+                animate='open'
+                exit='closed'
+                variants={sideVariants}
+              >
                 {icons.map(({ name, icon, href, target, id }) => (
                   <motion.a
                     key={id}
                     href={href}
                     target={target}
-                    whileHover={{ scale: 1.3 }}
-                    transition={{ duration: 0.2, ease: 'easeInOut' }}
+                    whileHover={{ scale: 1.4 }}
+                    transition={{ duration: 0.01, ease: 'easeInOut' }}
                     variants={itemVariants}
                   >
                     {icon}
                   </motion.a>
                 ))}
               </SocialContainer>
-            </motion.div>
+            </div>
 
             <motion.div
-              style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                paddingTop: '14rem',
-              }}
+              style={{ width: '30%' }}
               initial='closed'
               animate='open'
               exit='closed'
               variants={sideVariants}
             >
-              <Button
-                variants={itemVariants}
-                width='40%'
-                // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
-                title={[
-                  'C',
-                  'H',
-                  'E',
-                  'C',
-                  'K',
-                  '',
-                  '',
-                  'M',
-                  'Y',
-                  '',
-                  '',
-                  'R',
-                  'E',
-                  'S',
-                  'U',
-                  'M',
-                  'E',
-                ]}
-              />
+              <a href='/Ahmad_Resume.pdf' download target='_blank'>
+                <Button
+                  variants={itemVariants}
+                  // width='30%'
+                  // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
+                  title={[
+                    'D',
+                    'O',
+                    'W',
+                    'N',
+                    'L',
+                    'O',
+                    'A',
+                    'D',
+                    '',
+                    '',
+                    'M',
+                    'Y',
+                    '',
+                    '',
+                    'R',
+                    'E',
+                    'S',
+                    'U',
+                    'M',
+                    'E',
+                  ]}
+                />
+              </a>
             </motion.div>
           </SideBar>
         )}

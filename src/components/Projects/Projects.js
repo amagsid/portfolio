@@ -74,7 +74,7 @@ const PastWork = () => {
     },
   };
   return (
-    <Section id='pastwork' ref={scrollTarget}>
+    <Section id='projects' ref={scrollTarget}>
       {/* <MovingSectionTitle sectionTitle='PAST WORK & PROJECTS' /> */}
 
       {/* <SlideShow></SlideShow> */}
@@ -85,6 +85,7 @@ const PastWork = () => {
         transition={{ duration: 0.8, ease: 'easeInOut' }}
         ref={ref}
         style={{ textAlign: 'right' }}
+        className='pb-16'
         // style={{ scale: sectionTitleScale }}
       >
         <SectionTitle style={{ textAlign: 'right' }} section='Projects' />

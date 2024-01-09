@@ -21,7 +21,7 @@ function SlideInCard({ name, index, img, description }) {
       }}
       // viewport={{ once: true }}
       // style={{ width: '100%',  }}
-      className='card-container w-full flex items-center justify-between h-[54vh] mb-20 gap-[30px]'
+      className='card-container w-full flex items-center justify-between h-[54vh] mb-[12rem] gap-[6rem]'
     >
       {/* project description */}
       <div className='h-full flex flex-column justify-around'>
@@ -34,7 +34,7 @@ function SlideInCard({ name, index, img, description }) {
         alt={name}
         style={{
           height: '100%',
-          width: '55%',
+          width: '50%',
           objectFit: 'cover',
           maxWidth: '100%',
         }}

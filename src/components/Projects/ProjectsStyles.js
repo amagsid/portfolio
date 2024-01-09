@@ -11,7 +11,7 @@ export const ProjectName = styled.h3`
   // line-height: 1.8em;
 
   font-weight: 600;
-  color: ${(props) => props.theme.colors.textLight};
+  color: ${(props) => props.theme.colors.textEmphasis};
 `;
 
 export const ClientsLogoContainer = styled.div`

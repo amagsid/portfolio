@@ -11,7 +11,6 @@ import FooterButtons from '../components/FooterButtons/FooterButtons';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
-import HoveringBanners from '../components/HoveringBanner/HoveringBanner';
 import {
   AnimatePresence,
   motion,

@@ -45,7 +45,7 @@ function FooterButtons() {
           className='transition-all'
         >
           <Button
-            width='25rem'
+            width='30rem'
             // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
             title={['C', 'O', 'N', 'T', 'A', 'C', 'T', '', 'M', 'E']}
           />
@@ -55,11 +55,29 @@ function FooterButtons() {
           style={{ translateX: button1Movement }}
           className='transition-all'
         >
-          <Button
-            width='25rem'
-            // title={['a', 'b', 'o', 'u', 't', '', '', 'm', 'e']}
-            title={['M', 'Y', '', 'R', 'E', 'S', 'U', 'M', 'E']}
-          />
+          <a href='/Ahmad_Resume.pdf' download target='_blank'>
+            <Button
+              width='30rem'
+              // title={['a', 'b', 'o', 'u', 't', '', '', 'm', 'e']}
+              title={[
+                'D',
+                'O',
+                'W',
+                'N',
+                'L',
+                'O',
+                'A',
+                'D',
+                '',
+                'R',
+                'E',
+                'S',
+                'U',
+                'M',
+                'E',
+              ]}
+            />
+          </a>
         </motion.div>
       </div>
     </>

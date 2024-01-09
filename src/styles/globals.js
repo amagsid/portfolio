@@ -46,9 +46,9 @@ scroll-behavior: smooth!important;
     font-family: ${(props) => props.theme.fonts.title};
   
   }
-  a {
+  aside a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.textLight};
+    color: ${(props) => props.theme.colors.textEmphasis};
     font-weight: 400;
     letter-spacing:.5px;
   }
@@ -108,10 +108,15 @@ scroll-behavior: smooth!important;
     	 -webkit-transition: transform .1s ease-in-out;
 
     &:hover {
-    transform: translateY(-6px);
+    // transform: translateY(-6px);
 	 -webkit-transition: transform .3s ease-in-out;
     color: ${(props) => props.theme.colors.colorPop};
     }
+    
+  }
+ p a {
+  color: ${(props) => props.theme.colors.textEmphasis};
+  font-weight:400;
     
   }
 
@@ -317,7 +322,7 @@ scroll-behavior: smooth!important;
 
 
     //animate custom cursor on link hovers
-    body:has(a:hover) .custom-cursor {
+    body:has(.side-nav a:hover) .custom-cursor {
       transform: translate(-50%, -50%) scale(3);
       transition: transform 200ms ease-in-out;
       mix-blend-mode: overlay;

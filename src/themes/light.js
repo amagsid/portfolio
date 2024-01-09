@@ -8,6 +8,7 @@ export default {
   },
   // Colors for layout
   colors: {
+    textEmphasis: '#000000',
     textPale: '#191911',
     horizontlLine: '#d25276',
     sectionTitleBorderColor: '#CCFF00',

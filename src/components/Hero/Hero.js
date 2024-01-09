@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import useBreakpoints from '../../hooks/useMediaQueryIndex';
 
 import Greeting from './Greeting';
-import Demo from '../inViewPortDemo/inViewPortDemo';
 import {
   motion,
   useTransform,
@@ -47,8 +46,6 @@ const Hero = (props) => {
     // rootMargin: '600px',
   });
 
-  console.log(inView, 'inView');
-
   //parallex scroll animation
   const scrollTarget = useRef();
 
@@ -72,11 +69,9 @@ const Hero = (props) => {
 
   //cusotm cursor
   const handleDragPromptHoverIn = (e) => {
-    console.log('hovered');
     setHovered(true);
   };
   const handleDragPromptHoverOut = (e) => {
-    console.log('UNhovered');
     setHovered(false);
   };
 
@@ -161,7 +156,7 @@ const Hero = (props) => {
                 >
                   {/* <Iam className='Iam'> I'm </Iam> */}
                   <motion.div
-                    // initial={{ fontVariationSettings: `"wght" 100` }}
+                    initial={{ fontVariationSettings: `"wght" 100` }}
                     animate={{
                       fontVariationSettings: `"wght" 700`,
                       transition: {
@@ -189,20 +184,25 @@ const Hero = (props) => {
                     style={{ translateX: button2Movement }}
                     className='transition-all'
                   >
-                    <Button
-                      width='25rem'
-                      // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
-                      title={['M', 'Y', '', '', 'R', 'E', 'S', 'U', 'M', 'E']}
-                    />
+                    <a href='/Ahmad_Resume.pdf' target='_blank'>
+                      <Button
+                        type='submit'
+                        width='25rem'
+                        // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
+                        title={['M', 'Y', '', '', 'R', 'E', 'S', 'U', 'M', 'E']}
+                      />
+                    </a>
                   </motion.div>
                   <motion.div
                     style={{ translateX: button1Movement }}
                     className='transition-all'
+                    onClick={() =>
+                      (document.location.href = 'https://www.ahmad-magdy.com/')
+                    }
                   >
                     <Button
                       width='25rem'
-                      // title={['a', 'b', 'o', 'u', 't', '', '', 'm', 'e']}
-                      title={['A', 'B', 'O', 'U', 'T', '', '', 'M', 'E']}
+                      title={['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S']}
                     />
                   </motion.div>
                 </motion.div>
