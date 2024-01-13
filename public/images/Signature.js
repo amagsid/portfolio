@@ -44,8 +44,9 @@ function Signature({ isNavScrolled }) {
         id='Layer_1'
         data-name='Layer 1'
         xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 100 100'
-        height='80'
+        viewBox='0 7 103 70'
+        height='60'
+        width='70'
       >
         <title>signature</title>
         <motion.path

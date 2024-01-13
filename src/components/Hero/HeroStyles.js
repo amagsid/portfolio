@@ -7,9 +7,9 @@ export const HeroWrapper = styled(motion.div)`
 `;
 
 export const BigHeading = styled(motion.h2)`
-  font-size: clamp(20rem, 30vw, 32rem);
-  line-height: 250px;
-  max-width: 100%;
+  font-size: clamp(10rem, 21rem, 22rem);
+  line-height: 95%;
+
   text-align: center;
   // color: ${(props) =>
     props.main ? props.theme.colors.heading : props.theme.colors.textPale};
@@ -58,8 +58,20 @@ export const Iam = styled(motion.h2)`
   color: ${(props) => props.theme.colors.textPale};
 `;
 export const MedHeading = styled(motion.h2)`
-  // font-weight: 300;
-  font-size: clamp(6rem, 10rem, 12rem);
+  font-size: clamp(6rem, 8rem, 10rem);
+  width: 100%;
+  text-align: center;
+  -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+  font-family: ${(props) => props.theme.fonts.headings};
+  animation-timing-function: linear;
+
+  color: ${(props) => props.theme.colors.textPale};
+  line-height: 90px;
+  height: 85px;
+  letter-spacing: -1px;
+`;
+export const Title = styled(motion.h3)`
+  font-size: clamp(3rem, 5rem, 6rem);
   width: 100%;
   text-align: center;
   -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
@@ -68,8 +80,8 @@ export const MedHeading = styled(motion.h2)`
 
   color: ${(props) => props.theme.colors.colorPop};
   // color: ${(props) => props.theme.colors.textPale};
-  line-height: 85px;
-  letter-spacing: -4px;
+  line-height: 50px;
+  height: 60px;
 `;
 export const IntroText = styled(motion.h3)`
   font-weight: 200;

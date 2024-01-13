@@ -51,7 +51,7 @@ function Greeting() {
   const GreetingLetterSpacing = useTransform(
     x,
     [-450, 0, 450],
-    ['-33px', '15px', '-33px']
+    ['-33px', '-5px', '-33px']
   );
 
   const color =

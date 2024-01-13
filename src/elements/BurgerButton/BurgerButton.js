@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useAnimation } from 'framer-motion';
 import { Path } from './BurgerButtonStyles';
 
-function BurgerButton({ isNavOpen }) {
+function BurgerButton({ isNavOpen, isPopUpOpen }) {
   const [isOpen, setOpen] = useState(false);
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
@@ -23,6 +23,7 @@ function BurgerButton({ isNavOpen }) {
     open: { d: 'M3.06061 2.99999L21.0606 21' },
     closed: { d: 'M0 20L24 20' },
   };
+
   const onClick = async () => {
     // change the internal state
     setOpen(!isOpen);
@@ -42,7 +43,16 @@ function BurgerButton({ isNavOpen }) {
   };
 
   useEffect(() => {
+    if (isPopUpOpen) {
+      setOpen(isOpen);
+    }
     const closeBurger = async () => {
+      if (!isPopUpOpen) {
+        path01Controls.start(path01Variants.closed);
+        path03Controls.start(path03Variants.closed);
+        await path02Controls.start(path02Variants.moving);
+        path02Controls.start(path02Variants.closed);
+      }
       if (!isNavOpen) {
         path01Controls.start(path01Variants.closed);
         path03Controls.start(path03Variants.closed);
@@ -57,7 +67,7 @@ function BurgerButton({ isNavOpen }) {
     };
 
     closeBurger();
-  }, [isOpen, isNavOpen]);
+  }, [isOpen, isNavOpen, isPopUpOpen]);
 
   return (
     <button

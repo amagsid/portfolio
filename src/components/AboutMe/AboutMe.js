@@ -19,7 +19,7 @@ const AboutMe = () => {
   const [ref, inView, entry] = useInView({
     /* Optional options */
     threshold: 0.5,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   const variants = {
@@ -49,7 +49,7 @@ const AboutMe = () => {
   );
 
   return (
-    <Section ref={scrollTarget} id='about' className='h-[120vh]'>
+    <Section ref={scrollTarget} id='about' className='h-screen'>
       <motion.div
         animate={inView ? 'visible' : 'hidden'}
         variants={variants}
@@ -73,11 +73,11 @@ const AboutMe = () => {
 
           <SectionText className='pb-5' style={{ zIndex: '90' }}>
             Back in 2010, I decided to try my hand at creating custom Tumblr
-            themes, a month later, I was editing the HTML and CSS of wordpress
-            templates. That sparked my interest in web development and motivtaed
-            me to build on my skills. Fast-forward to today, I achieved my dream
-            of becoming a web developer and am currently helping brands automate
-            their creative workflow by creating custom-built UI templates at
+            themes, a month later, I was editing HTML and CSS in wordpress
+            templates. Fast-forward to today while hoding a skillset ranging
+            from design to web development, I'm currently helping brands
+            automate their creative workflow by creating custom-built UI
+            templates at
             <a href='https://www.ambassadors.com/' target='_blank'>
               {' '}
               Ambassadors{' '}
@@ -95,15 +95,13 @@ const AboutMe = () => {
             <SectionText className='w-[50%]  '>
               <span>Okay enough with the CV talk...</span> <br /> I'm into
               everything tech-related. Be it tech news, product laucnhes or just
-              being up-to-date with the current tech trends. Over the years,
-              this drive pushed my to achieve my dream and be where I am today.
+              being up-to-date with the current tech trends.
             </SectionText>
 
             <SectionText className='w-[50%]'>
-              When I’m not at the computer or learning a new skill, I’m usually
-              working out, taking lots of pictures and/or editing them, watching
-              the stars and looking up objects in the sky with my telescope or
-              chasing the sun.
+              When I’m not at the computer or building on my skills, I’m either
+              working out, taking pictures, or looking up the nightsky using my
+              telescope.
             </SectionText>
           </div>
         </div>

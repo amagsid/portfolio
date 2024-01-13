@@ -9,10 +9,12 @@ function AnimatedClickButton({ title, width }) {
     animate([['.letter', { y: -25 }, { duration: 0.2, delay: stagger(0.05) }]]);
   };
   const onHover = () => {
-    animate([['.letter', { y: -21 }, { duration: 0.2, delay: stagger(0.04) }]]);
+    animate([
+      ['.letter', { y: -21 }, { duration: 0.06, delay: stagger(0.04) }],
+    ]);
   };
   const onLeve = () => {
-    animate([['.letter', { y: 0 }, { duration: 0.1, delay: stagger(0.03) }]]);
+    animate([['.letter', { y: 0 }, { duration: 0.03, delay: stagger(0.03) }]]);
   };
   return (
     <div style={{ width: width }} ref={scope}>

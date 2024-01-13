@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '../../elements/Button/Button';
 import Greeting from './FooterGreeting';
 import { Section } from '../../styles/GlobalComponents';
+import ContactPopUp from '../Contact/ContactPopUp';
 
 import {
   AnimatePresence,
@@ -14,6 +15,7 @@ import {
 } from 'framer-motion';
 
 function FooterButtons() {
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
   const scrollTarget = useRef();
 
   const { scrollYProgress } = useScroll({
@@ -43,11 +45,12 @@ function FooterButtons() {
         <motion.div
           style={{ translateX: button2Movement }}
           className='transition-all'
+          onClick={() => setIsPopUpOpen(true)}
         >
           <Button
             width='30rem'
             // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
-            title={['C', 'O', 'N', 'T', 'A', 'C', 'T', '', 'M', 'E']}
+            title={['S', 'A', 'Y', '', '', 'H', 'E', 'L', 'L', 'O', '?']}
           />
         </motion.div>
         <Greeting />
@@ -60,14 +63,14 @@ function FooterButtons() {
               width='30rem'
               // title={['a', 'b', 'o', 'u', 't', '', '', 'm', 'e']}
               title={[
-                'D',
-                'O',
-                'W',
-                'N',
-                'L',
-                'O',
-                'A',
-                'D',
+                'G',
+                'E',
+                'T',
+                '',
+                '',
+                'M',
+                'Y',
+                '',
                 '',
                 'R',
                 'E',
@@ -80,6 +83,10 @@ function FooterButtons() {
           </a>
         </motion.div>
       </div>
+
+      {/* {isPopUpOpen && ( */}
+      <ContactPopUp setIsPopUpOpen={setIsPopUpOpen} isPopUpOpen={isPopUpOpen} />
+      {/* )} */}
     </>
   );
 }

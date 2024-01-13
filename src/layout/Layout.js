@@ -29,9 +29,7 @@ export const Layout = ({ children }) => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress);
 
-  const isHovered = useContext(HoverContext);
-
-  console.log(isHovered, 'isHovered');
+  // const isHovered = useContext(HoverContext);
 
   // let mouseX = useMotionVsalue(0);
   // let mouseY = useMotionValue(0);
@@ -70,7 +68,6 @@ export const Layout = ({ children }) => {
       />
       <Header />
       <CirclePointer className='custom-cursor'> </CirclePointer>
-      {/* <Container> */}
 
       {/* <main>{children}</main> */}
 
@@ -82,20 +79,11 @@ export const Layout = ({ children }) => {
         <Hero />
       </motion.div>
 
-      {/* <div className='h-screen w-screen snap-start shrink-0 bg-white h-screen '> */}
       <AboutMe />
-      {/* </div> */}
-
-      {/* <Experience /> */}
 
       <Projects />
       <FooterButtons />
 
-      {/* <div className='h-screen w-screen snap-start shrink-0 bg-white h-fit'> */}
-      {/* <Contact /> */}
-      {/* </div> */}
-
-      {/* </Container> */}
       <Footer />
     </motion.div>
   );

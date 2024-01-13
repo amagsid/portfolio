@@ -92,9 +92,6 @@ function SideNav() {
       <AnimatePresence>
         {open && (
           <SideBar
-            // onClick={(e) => {
-            //   e.target(sstyle);
-            // }}
             theme={theme}
             className=' flex justify-center'
             initial={{ width: 0, height: 0 }}
@@ -102,12 +99,12 @@ function SideNav() {
               width: '100%',
               height: '100%',
             }}
-            // transition={{
-            //   type: 'spring',
-            //   bounce: 0,
-            //   duration: 0.3,
-            //   ease: 'easeInOut',
-            // }}
+            transition={{
+              type: 'spring',
+              bounce: 0,
+              duration: 0.3,
+              ease: 'easeInOut',
+            }}
             onClick={handleClickExitSideNav}
             exit={{
               width: 0,
@@ -121,14 +118,14 @@ function SideNav() {
             <div className='side-nav w-[50%] flex flex-column items-center justify-center h-[35vh] justify-evenly'>
               <LinkesContainer
                 className=' flex w-full justify-around'
-                initial='closed'
-                animate='open'
-                exit='closed'
-                // variants={sideVariants}
+                // initial='closed'
+                // animate='open'
+                // exit='closed'
+                // variants={itemVariants}
               >
                 {links.map(({ name, to, id }) => (
                   <Link
-                    // className='w-200 text-center'
+                    className='w-200 text-center'
                     style={{ width: '200px', textAlign: 'center' }}
                     key={id}
                     href={to}
@@ -137,8 +134,14 @@ function SideNav() {
                       // scale: 1.02,
                       fontVariationSettings: `"wght" 200`,
                     }}
-                    transition={{ duration: 0.2, ease: 'easeInOut' }}
-                    variants={itemVariants}
+                    transition={{
+                      duration: 1,
+                      delay: 0.2,
+                      ease: 'easeInOut',
+                    }}
+                    // initial='closed'
+                    // animate='open'
+                    // exit='closed'
                   >
                     {name}
                   </Link>

@@ -8,7 +8,6 @@ export const Section = styled.section`
 	// background-color: ${(props) =>
     props.background && props.theme.colors.bgMain};
 	// margin: ${(props) => (props.automargin ? '0 auto' : 'unset')};
-	// height: 100%;
 	align-items: ${(props) =>
     props.center ? 'center' : props.end ? 'flex-end' : 'unset'};
 	box-sizing: border-box;
