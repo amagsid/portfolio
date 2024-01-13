@@ -111,103 +111,103 @@ const Hero = (props) => {
 
   return (
     <div>
-      {isSm && <PhoneHero></PhoneHero>}
-      {!isSm && (
-        <div>
-          <DragMePromptContainer className='drag-prompt drag-prompt-in'>
-            <DragMePromptText className='drag-prompt-text'>
-              {' '}
-              drag me{' '}
-            </DragMePromptText>
-          </DragMePromptContainer>
-          <Section
-            ref={scrollTarget}
-            nopadding
-            className='h-screen'
+      {/* {isSm && <PhoneHero></PhoneHero>} */}
+      {/* {!isSm && ( */}
+      <div>
+        <DragMePromptContainer className='drag-prompt drag-prompt-in'>
+          <DragMePromptText className='drag-prompt-text'>
+            {' '}
+            drag me{' '}
+          </DragMePromptText>
+        </DragMePromptContainer>
+        <Section
+          ref={scrollTarget}
+          nopadding
+          className='h-screen'
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          {/* //fix this */}
+          <div
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
+              position: 'fixed',
+              zIndex: '1',
             }}
           >
-            {/* //fix this */}
-            <div
+            <motion.div
+              style={{ scale: greetingScale }}
+              onMouseEnter={handleDragPromptHoverIn}
+              onMouseLeave={handleDragPromptHoverOut}
+            >
+              <Greeting />
+            </motion.div>
+
+            <motion.div
+              className='pt-12'
               style={{
-                position: 'fixed',
-                zIndex: '1',
+                scale: nameScale,
               }}
             >
-              <motion.div
-                style={{ scale: greetingScale }}
-                onMouseEnter={handleDragPromptHoverIn}
-                onMouseLeave={handleDragPromptHoverOut}
-              >
-                <Greeting />
-              </motion.div>
-
-              <motion.div
-                className='pt-12'
-                style={{
-                  scale: nameScale,
+              <MedHeading
+                initial={{ fontVariationSettings: `"wght" 100` }}
+                animate={{
+                  fontVariationSettings: `"wght" 700`,
+                  transition: {
+                    duration: 0.3,
+                    delay: 2,
+                    ease: 'easeInOut',
+                  },
                 }}
               >
-                <MedHeading
-                  initial={{ fontVariationSettings: `"wght" 100` }}
-                  animate={{
-                    fontVariationSettings: `"wght" 700`,
-                    transition: {
-                      duration: 0.3,
-                      delay: 2,
-                      ease: 'easeInOut',
-                    },
-                  }}
-                >
-                  Ahmad Magdy
-                </MedHeading>
-                <Title className='font-medium'>Frontend Developer</Title>
-              </motion.div>
+                Ahmad Magdy
+              </MedHeading>
+              <Title className='font-medium'>Frontend Developer</Title>
+            </motion.div>
 
+            <motion.div
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '5rem',
+                scale: buttonsScale,
+              }}
+              className='pt-16'
+            >
               <motion.div
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  gap: '5rem',
-                  scale: buttonsScale,
-                }}
-                className='pt-16'
+                style={{ translateX: button2Movement }}
+                className='transition-all'
               >
-                <motion.div
-                  style={{ translateX: button2Movement }}
-                  className='transition-all'
-                >
-                  <a href='/Ahmad_Resume.pdf' target='_blank'>
-                    <Button
-                      type='submit'
-                      width='25rem'
-                      // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
-                      title={['M', 'Y', '', '', 'R', 'E', 'S', 'U', 'M', 'E']}
-                    />
-                  </a>
-                </motion.div>
-                <motion.div
-                  style={{ translateX: button1Movement }}
-                  className='transition-all'
-                  onClick={() =>
-                    (document.location.href = 'https://www.ahmad-magdy.com/')
-                  }
-                >
+                <a href='/Ahmad_Resume.pdf' target='_blank'>
                   <Button
+                    type='submit'
                     width='25rem'
-                    title={['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S']}
+                    // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
+                    title={['M', 'Y', '', '', 'R', 'E', 'S', 'U', 'M', 'E']}
                   />
-                </motion.div>
+                </a>
               </motion.div>
-            </div>
-          </Section>
-        </div>
-      )}
+              <motion.div
+                style={{ translateX: button1Movement }}
+                className='transition-all'
+                onClick={() =>
+                  (document.location.href = 'https://www.ahmad-magdy.com/')
+                }
+              >
+                <Button
+                  width='25rem'
+                  title={['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S']}
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+        </Section>
+      </div>
+      {/* )} */}
     </div>
   );
 };
