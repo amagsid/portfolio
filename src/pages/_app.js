@@ -1,6 +1,6 @@
 import Theme from '../styles/theme';
 import styles from '../components/Header/header.css';
-import confetti from '../elements/Confetti/ConfettiStyles.css';
+import confetti from '../elements/confetti/confettiStyles.css';
 import fonts from '../styles/fonts.css';
 import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'react-feather';
