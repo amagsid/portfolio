@@ -63,6 +63,8 @@ export const MedHeading = styled(motion.h2)`
   text-align: center;
   -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
   font-family: ${(props) => props.theme.fonts.headings};
+  font-weight: 600;
+
   animation-timing-function: linear;
 
   color: ${(props) => props.theme.colors.textPale};
@@ -77,6 +79,7 @@ export const Title = styled(motion.h3)`
   -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
   font-family: ${(props) => props.theme.fonts.headings};
   animation-timing-function: linear;
+  font-weight: 300;
 
   color: ${(props) => props.theme.colors.colorPop};
   // color: ${(props) => props.theme.colors.textPale};

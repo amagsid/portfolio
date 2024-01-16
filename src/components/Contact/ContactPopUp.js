@@ -2,12 +2,8 @@ import React, { useEffect, useContext } from 'react';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
 import { ThemeContext } from '../../pages/_app';
 import BurgerButton from '../../elements/BurgerButton/BurgerButton';
-import {
-  SideBar,
-  LinkesContainer,
-  SocialContainer,
-  Link,
-} from './ContactPopUpStyles';
+import { SideBar } from './ContactPopUpStyles';
+import Contact from './Contact';
 import { GitHub, Twitter, Linkedin, Gitlab, AtSign } from 'react-feather';
 // import Button from '../Button/Button';
 
@@ -48,7 +44,6 @@ function ContactPopUp({ setIsPopUpOpen, isPopUpOpen }) {
         <SideBar
           style={{ zIndex: '98' }}
           theme={theme}
-          className=' flex justify-center'
           initial={{ width: 0, height: 0 }}
           animate={{
             width: '100%',
@@ -70,70 +65,24 @@ function ContactPopUp({ setIsPopUpOpen, isPopUpOpen }) {
             },
           }}
         >
-          <div className='text-white side-nav w-full h-full flex flex-column items-center justify-center h-[35vh] justify-evenly'>
-            <motion.div
-              initial='closed'
-              animate='open'
-              exit='closed'
-              variants={sideVariants}
-            >
-              {/* <motion.h2
-                transition={{
-                  duration: 0.2,
-                  delay: 0.2,
-                  ease: 'easeInOut',
-                }}
-                variants={itemVariants}
-              >
-                1
-              </motion.h2>
-              <motion.h2
-                transition={{
-                  duration: 0.2,
-                  delay: 0.2,
-                  ease: 'easeInOut',
-                }}
-                variants={itemVariants}
-              >
-                2
-              </motion.h2>
-              <motion.h2
-                transition={{
-                  duration: 0.2,
-                  delay: 0.2,
-                  ease: 'easeInOut',
-                }}
-                variants={itemVariants}
-              >
-                3
-              </motion.h2>
-              <motion.h2
-                transition={{
-                  duration: 0.2,
-                  delay: 0.2,
-                  ease: 'easeInOut',
-                }}
-                variants={itemVariants}
-              >
-                4
-              </motion.h2> */}
-            </motion.div>
-            <div
-              onClick={handlecFormClickExit}
-              className='btn-container flip-button'
-            >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                }}
-                exit={{
-                  opacity: 0,
-                }}
-              >
-                <BurgerButton isNavOpen={open}></BurgerButton>
-              </motion.div>
-            </div>
+          <motion.div
+            onClick={handlecFormClickExit}
+            className='btn-container flip-button'
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
+          >
+            <BurgerButton isNavOpen={open}></BurgerButton>
+          </motion.div>
+
+          <div className='h-screen w-[65%] mx-auto my-0 flex flex-col items-center justify-center'>
+            {' '}
+            <Contact />
+            {/* <h1> icons</h1> */}
           </div>
         </SideBar>
       )}

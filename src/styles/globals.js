@@ -354,6 +354,25 @@ scroll-behavior: smooth!important;
     .card-container:nth-child(even) {
       flex-direction: row-reverse;
     }
+
+    /* Overriding styles */
+
+    ::-webkit-input-placeholder {
+       font-size: 12px!important;
+       font-weight: 200;
+    }
+    
+    :-moz-placeholder { /* Firefox 18- */
+          font-size: 12px!important;
+          font-weight: 200;
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+          font-size: 12px!important;
+          font-weight: 200;
+    }
+
+    
+    
     
     // footer {
     // position: fixed;

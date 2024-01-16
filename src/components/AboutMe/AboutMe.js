@@ -5,6 +5,8 @@ import { Section, SectionText } from '../../styles/GlobalComponents';
 import MovingSectionTitle from '../SectionTitle/SectionTitle';
 import { AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Portrait1 from '../../../public/images/portrait.JPEG';
+import Portrait2 from '../../../public/images/Subject.png';
 import Greeting from './smallGreeting';
 import { motion, useTransform, useScroll } from 'framer-motion';
 import { ThemeContext } from '../../pages/_app';
@@ -55,15 +57,17 @@ const AboutMe = () => {
         variants={variants}
         transition={{ duration: 0.8, ease: 'easeInOut' }}
         ref={ref}
+        className='pb-14'
         // style={{ scale: sectionTitleScale }}
       >
         <SectionTitle section='About me' />
       </motion.div>
 
-      <div className=' flex flex-row items-center  lgl:flex-col justify-between'>
+      <div className='flex flex-row items-center gap-[4rem] lgl:flex-col justify-between'>
         {' '}
-        <div className='basis-1/2'>
-          <h3 style={{ color: 'white' }}> portrait goes here </h3>
+        <div className='basis-1/2 h-full'>
+          <StyledImage className='w-[96%] object-cover' src={Portrait1} />
+          {/* <StyledImage src={Portrait2} /> */}
         </div>
         <div className='flex flex-col basis-1/2'>
           <div style={{}}>
@@ -76,8 +80,7 @@ const AboutMe = () => {
             themes, a month later, I was editing HTML and CSS in wordpress
             templates. Fast-forward to today while hoding a skillset ranging
             from design to web development, I'm currently helping brands
-            automate their creative workflow by creating custom-built UI
-            templates at
+            automate their creative workflow by creating custom UI templates at
             <a href='https://www.ambassadors.com/' target='_blank'>
               {' '}
               Ambassadors{' '}
@@ -94,7 +97,7 @@ const AboutMe = () => {
           <div className=' flex gap-12 flex-row lgl:flex-col'>
             <SectionText className='w-[50%]  '>
               <span>Okay enough with the CV talk...</span> <br /> I'm into
-              everything tech-related. Be it tech news, product laucnhes or just
+              everything tech-related. Be it tech news, product laucnhes or
               being up-to-date with the current tech trends.
             </SectionText>
 

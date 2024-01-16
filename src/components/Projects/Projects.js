@@ -66,11 +66,11 @@ const PastWork = () => {
   const button2Movement = useTransform(scrollYProgress, [0.85, 1], [-700, 0]);
 
   const variants = {
-    visible: { opacity: 1, scale: 1, x: 0 },
+    visible: { opacity: 1, scale: 1, y: 0 },
     hidden: {
       opacity: 0,
       scale: 0.65,
-      x: 500,
+      y: 50,
     },
   };
   return (
@@ -84,11 +84,14 @@ const PastWork = () => {
         variants={variants}
         transition={{ duration: 0.8, ease: 'easeInOut' }}
         ref={ref}
-        style={{ textAlign: 'right' }}
+        // style={{ textAlign: 'right' }}
         className='pb-16'
         // style={{ scale: sectionTitleScale }}
       >
-        <SectionTitle style={{ textAlign: 'right' }} section='Projects' />
+        <SectionTitle
+          // style={{ textAlign: 'right' }}
+          section='Projects'
+        />
       </motion.div>
 
       {Projects.map((project, i) => (

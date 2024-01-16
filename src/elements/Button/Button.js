@@ -17,12 +17,12 @@ function AnimatedClickButton({ title, width }) {
     animate([['.letter', { y: 0 }, { duration: 0.03, delay: stagger(0.03) }]]);
   };
   return (
-    <div style={{ width: width }} ref={scope}>
+    <div style={{ width: width }} ref={scope} className='transition-all'>
       <Button
         onClick={onLeve}
         onMouseEnter={onHover}
         onMouseLeave={onLeve}
-        className='px-4 text-3xl font-bold w-full h-[50px] rounded-full border-4 text-blue-600 transition-all'
+        className='px-4 text-3xl font-bold w-full h-[50px] rounded-full border-2 hover:border-4 text-blue-600 transition-all'
       >
         <span
           className='h-8 flex items-center justify-center overflow-hidden transition-all'

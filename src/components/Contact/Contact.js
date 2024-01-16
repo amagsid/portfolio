@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { init, sendForm } from 'emailjs-com';
+import Confetti from '../../elements/confetti/Confetti';
 init('user_x4FGTrgTjdeEVdrn9HdcN');
-import { Section, SectionText } from '../../styles/GlobalComponents';
-import MovingSectionTitle from '../SectionTitle/SectionTitle';
-import { Form, Container, Col, Row } from 'react-bootstrap';
+import Button from '../../elements/Button/Button';
+import { Form, Col, Row } from 'react-bootstrap';
 import {
   Input,
   CharAlert,
   CharCount,
   SendCharLimitContainer,
-  SendButton,
   FormContainer,
 } from './ContactStyles';
 
@@ -23,7 +22,8 @@ function Contact() {
   } = useForm();
 
   const message = watch('message') || '';
-  const messageCharsLeft = 1500 - message.length;
+  const charachterLimit = 500;
+  const messageCharsLeft = charachterLimit - message.length;
 
   const [contactNumber, setContactNumber] = useState('000000');
   const [emailSent, setEmailSent] = useState(false);
@@ -51,33 +51,37 @@ function Contact() {
   };
 
   return (
-    <Section id='contact'>
-      <MovingSectionTitle
-        sectionTitle={
-          !emailSent ? 'GET IN TOUCH' : `SENT🚀I'LL BE IN TOUCH SHORTLY `
-        }
-        emailSent={emailSent}
-      ></MovingSectionTitle>
+    <>
       {emailSent && (
-        <div
-          className='bg-confetti-animated'
-          style={{ position: 'absolute', width: '100%', height: ' 100%' }}
-        ></div>
+        <>
+          <div
+            className='bg-confetti-animated'
+            style={{
+              position: 'absolute',
+              top: '0',
+              width: '100%',
+              height: ' 60%',
+              scale: '1.3',
+            }}
+          ></div>
+        </>
       )}
-      {/* </div>
-			{/* </Confetti> */}
 
-      <FormContainer className='pt-16'>
-        <Form id='contact-form' onSubmit={handleSubmit(onSubmit)}>
+      <FormContainer className='w-full flex'>
+        <Form
+          className='w-full flex flex-col items-center'
+          id='contact-form'
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <input type='hidden' name='contact_number' value={contactNumber} />
 
-          <Row>
-            <Col style={{ paddingLeft: 0, paddingRight: 2 }} className='mb-2'>
+          <Row className='w-full gap-2'>
+            <Col className='flex flex-col justify-between p-0'>
               {/* name */}
 
               <Form.Group controlId='formBasicText'>
                 <Input
-                  // size="lg"
+                  // size='lg'
                   type='text'
                   name='user_name'
                   placeholder='name'
@@ -85,59 +89,84 @@ function Contact() {
                   maxLength='30'
                   aria-invalid={errors.user_name ? 'true' : 'false'}
                   required={true}
+                  className=' h-[53px]'
+                  style={{ borderRadius: ' 6px 0 0 0' }}
                 />
               </Form.Group>
-            </Col>
 
-            <Col style={{ paddingRight: 0, paddingLeft: 2 }}>
               {/* email */}
               <Form.Group controlId='exampleForm.ControlInput1'>
                 <Input
+                  // size='lg'
+                  style={{ borderRadius: '0 0 0 6px' }}
                   type='email'
                   name='user_email'
                   placeholder='email@example.com'
                   {...register('user_email')}
                   required={true}
+                  className='h-[53px] '
                 />
               </Form.Group>
             </Col>
-          </Row>
 
-          <Row>
             {/* message */}
-            <Form.Group
-              className='p-0 input'
-              controlId='exampleForm.ControlTextarea1'
-            >
-              <Input
-                name='message'
-                {...register('message')}
-                maxLength='1500'
-                placeholder='say hi'
-                as='textarea'
-                rows={4}
-                required={true}
-                style={{ maxHeight: '300px' }}
-              ></Input>
+            <Col style={{ flex: '1.9' }} className=' p-0'>
+              <Form.Group
+                className='p-0 input relative'
+                controlId='exampleForm.ControlTextarea1'
+              >
+                <Input
+                  name='message'
+                  {...register('message')}
+                  maxLength='500'
+                  // placeholder='say hi'
+                  as='textarea'
+                  rows={4}
+                  required={true}
+                  style={{ maxHeight: '150px', resize: 'none' }}
+                  className='flex pb-16 pb-[25px] rounded-r-xl'
+                ></Input>
+              </Form.Group>
 
-              <SendCharLimitContainer style={{ display: 'flex' }}>
-                <CharAlert className='message-chars-left'>
-                  <CharCount>{messageCharsLeft} </CharCount> characeters left
-                </CharAlert>
-                {/* <Button /> */}
-                <SendButton
-                  className='px-20 py-3 rounded-md text-[20px]'
-                  style={{ fontWeight: 200, letterSpacing: '1px' }}
-                >
-                  {' '}
-                  Send
-                </SendButton>
-              </SendCharLimitContainer>
-            </Form.Group>
+              {/* 
+              <h1 className='absolute bottom-0 p-0 m-0'> Char Count</h1> */}
+            </Col>
           </Row>
+          <SendCharLimitContainer className='transition-all self-end'>
+            <CharAlert>
+              <CharCount>{messageCharsLeft} </CharCount> / {charachterLimit}
+            </CharAlert>
+          </SendCharLimitContainer>
+
+          {/* <Button /> */}
+          <div className='py-8 transition-all max-w-screen max-w-0'>
+            <Button
+              className='transition-all max-w-screen max-w-0'
+              width={emailSent ? '40rem' : '30rem'}
+              title={
+                !emailSent
+                  ? ['S', '', 'E', '', 'N', '', 'D']
+                  : [
+                      `I'LL`,
+                      '',
+                      'GET',
+                      '',
+                      'BACK',
+                      '',
+                      'TO',
+                      '',
+                      'YOU',
+                      '',
+                      'SHORTLY',
+                      '',
+                      ':)',
+                    ]
+              }
+            />
+          </div>
         </Form>
       </FormContainer>
-    </Section>
+    </>
   );
 }
 

@@ -152,9 +152,9 @@ const Hero = (props) => {
               }}
             >
               <MedHeading
-                initial={{ fontVariationSettings: `"wght" 100` }}
+                initial={{ fontVariationSettings: `"wght" 200` }}
                 animate={{
-                  fontVariationSettings: `"wght" 700`,
+                  fontVariationSettings: `"wght" 400`,
                   transition: {
                     duration: 0.3,
                     delay: 2,
@@ -164,7 +164,7 @@ const Hero = (props) => {
               >
                 Ahmad Magdy
               </MedHeading>
-              <Title className='font-medium'>Frontend Developer</Title>
+              <Title>Frontend Engineer</Title>
             </motion.div>
 
             <motion.div
