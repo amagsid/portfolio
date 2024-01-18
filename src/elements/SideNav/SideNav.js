@@ -56,6 +56,33 @@ const icons = [
   },
 ];
 
+const linkContainerVariants = {
+  closed: {
+    opacity: 0,
+    y: -10,
+  },
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.2,
+    },
+  },
+};
+const navLinkVariant = {
+  closed: {
+    transition: {
+      staggerChildren: 0.1,
+      staggerDirection: -1,
+    },
+  },
+  open: {
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+    },
+  },
+};
 const itemVariants = {
   closed: {
     opacity: 0,
@@ -115,39 +142,39 @@ function SideNav() {
               },
             }}
           >
+            {/* page links */}
             <div className='side-nav w-[50%] flex flex-column items-center justify-center h-[35vh] justify-evenly'>
               <LinkesContainer
                 className=' flex w-full justify-around'
-                // initial='closed'
-                // animate='open'
-                // exit='closed'
-                // variants={itemVariants}
+                initial='closed'
+                animate='open'
+                exit='closed'
+                variants={linkContainerVariants}
               >
                 {links.map(({ name, to, id }) => (
                   <Link
-                    className='w-200 text-center'
+                    className='w-200 text-center font-extralight'
                     style={{ width: '200px', textAlign: 'center' }}
                     key={id}
                     href={to}
-                    initial={{ fontVariationSettings: `"wght" 100` }}
                     whileHover={{
-                      // scale: 1.02,
-                      fontVariationSettings: `"wght" 200`,
+                      scale: 1.02,
                     }}
                     transition={{
-                      duration: 1,
-                      delay: 0.2,
+                      duration: 0.001,
                       ease: 'easeInOut',
                     }}
-                    // initial='closed'
-                    // animate='open'
-                    // exit='closed'
+                    initial='closed'
+                    animate='open'
+                    exit='closed'
+                    variants={navLinkVariant}
                   >
                     {name}
                   </Link>
                 ))}
               </LinkesContainer>
 
+              {/* sovcial links */}
               <SocialContainer
                 className='flex w-[100%] justify-evenly'
                 initial='closed'
@@ -175,11 +202,9 @@ function SideNav() {
               initial='closed'
               animate='open'
               exit='closed'
-              variants={sideVariants}
             >
               <a href='/Ahmad_Resume.pdf' download target='_blank'>
                 <Button
-                  variants={itemVariants}
                   // width='30%'
                   // title={['m', 'y', '', '', 'R', 'e', 's', 'u', 'm', 'e']}
                   title={[

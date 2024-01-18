@@ -35,7 +35,7 @@ function SlideInCard({ name, index, img, description }) {
         style={{
           height: '100%',
           width: '50%',
-          objectFit: 'cover',
+          objectFit: 'contain',
           maxWidth: '100%',
         }}
       />
