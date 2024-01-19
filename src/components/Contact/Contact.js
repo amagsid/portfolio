@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { init, sendForm } from 'emailjs-com';
 import Confetti from '../../elements/confetti/Confetti';
@@ -139,7 +140,21 @@ function Contact() {
           </SendCharLimitContainer>
 
           {/* <Button /> */}
-          <div className='py-8 transition-all max-w-screen max-w-0'>
+          <motion.div
+            className='flex justify-center py-8 transition-all max-w-screen max-w-0'
+            initial={{ opacity: 0, width: 0 }}
+            animate={{
+              opacity: 1,
+              width: '100%',
+              transition: { delay: 0.1 },
+            }}
+            exit={{
+              width: 0,
+              opacity: 0,
+
+              transition: {},
+            }}
+          >
             <Button
               className='transition-all max-w-screen max-w-0'
               width={emailSent ? '40rem' : '30rem'}
@@ -163,7 +178,7 @@ function Contact() {
                     ]
               }
             />
-          </div>
+          </motion.div>
         </Form>
       </FormContainer>
     </>

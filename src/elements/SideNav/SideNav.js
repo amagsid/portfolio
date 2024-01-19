@@ -198,10 +198,21 @@ function SideNav() {
             </div>
 
             <motion.div
-              style={{ width: '30%' }}
-              initial='closed'
-              animate='open'
-              exit='closed'
+              // style={{ width: '30%' }}
+              // initial='closed'
+              // animate='open'
+              // exit='closed'
+
+              initial={{ opacity: 0, width: 0 }}
+              animate={{
+                opacity: 1,
+                width: '30%',
+                transition: { delay: 0.3 },
+              }}
+              exit={{
+                width: 0,
+                opacity: 0,
+              }}
             >
               <a href='/Ahmad_Resume.pdf' download target='_blank'>
                 <Button

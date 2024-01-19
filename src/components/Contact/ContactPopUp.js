@@ -55,7 +55,6 @@ function ContactPopUp({ setIsPopUpOpen, isPopUpOpen }) {
           //   duration: 0.3,
           //   ease: 'easeInOut',
           // }}
-
           exit={{
             width: 0,
             height: 0,
