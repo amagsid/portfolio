@@ -198,10 +198,12 @@ const Hero = (props) => {
                   (document.location.href = 'https://www.ahmad-magdy.com/')
                 }
               >
-                <Button
-                  width='25rem'
-                  title={['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S']}
-                />
+                <a href='https://www.ahmad-magdy.com/#projects'>
+                  <Button
+                    width='25rem'
+                    title={['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S']}
+                  />
+                </a>
               </motion.div>
             </motion.div>
           </div>
