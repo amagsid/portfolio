@@ -125,7 +125,7 @@ function Contact() {
                   rows={4}
                   required={true}
                   style={{ maxHeight: '150px', resize: 'none' }}
-                  className='flex pb-16 pb-[25px] rounded-r-xl'
+                  className='flex pb-16 rounded-r-xl'
                 ></Input>
               </Form.Group>
 

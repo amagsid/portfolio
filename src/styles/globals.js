@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 62.5%;
  --scroll-behavior: smooth!important;
 scroll-behavior: smooth!important;
+overflow-x: hidden;
 
   }
 
@@ -354,6 +355,16 @@ scroll-behavior: smooth!important;
     .card-container:nth-child(even) {
       flex-direction: row-reverse;
     }
+
+
+    @media only screen and (max-width: 450px) {
+      .card-container:nth-child(even) {
+        flex-direction: column;
+      }
+    @media only screen and (max-width: 450px) {
+      .card-container:nth-child(odd) {
+        flex-direction: column;
+      }
 
     /* Overriding styles */
 

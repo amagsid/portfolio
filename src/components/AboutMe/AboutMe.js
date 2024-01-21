@@ -57,13 +57,13 @@ const AboutMe = () => {
         variants={variants}
         transition={{ duration: 0.8, ease: 'easeInOut' }}
         ref={ref}
-        className='pb-14'
+        className='pb-7 sm:pb-14'
         // style={{ scale: sectionTitleScale }}
       >
         <SectionTitle section='About me' />
       </motion.div>
 
-      <div className='flex flex-row items-center gap-[4rem] lgl:flex-col justify-between'>
+      <div className='flex flex-col sm:flex-row items-center gap-[4rem] justify-between'>
         {' '}
         <div className='basis-1/2 h-full'>
           <StyledImage className='w-[96%] object-cover' src={Portrait1} />
@@ -72,7 +72,7 @@ const AboutMe = () => {
         <div className='flex flex-col basis-1/2'>
           <div style={{}}>
             {' '}
-            <Greeting className='pb-6  ' />{' '}
+            <Greeting className='pb-6' />{' '}
           </div>
 
           <SectionText className='pb-5' style={{ zIndex: '90' }}>
@@ -94,8 +94,8 @@ const AboutMe = () => {
               Cube{' '}
             </a>
           </SectionText>
-          <div className=' flex gap-12 flex-row lgl:flex-col'>
-            <SectionText className='w-[50%]  '>
+          <div className=' flex gap-12 flex-col md:flex-row'>
+            <SectionText className='w-[50%] hidden sm:block '>
               <span>Okay enough with the CV talk...</span> <br /> I'm into
               everything tech-related. Be it tech news, product laucnhes or
               being up-to-date with the current tech trends.

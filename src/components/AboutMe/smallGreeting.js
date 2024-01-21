@@ -150,7 +150,11 @@ function Greeting() {
 
   return (
     <>
-      <div onPointerDown={startDrag} style={{ touchAction: 'none' }} />
+      <div
+        className=''
+        onPointerDown={startDrag}
+        style={{ touchAction: 'none' }}
+      />
 
       <DragMeSection
         initial={{ x: 0 }}
@@ -167,7 +171,7 @@ function Greeting() {
         }}
         dragElastic={0.2}
         dragSnapToOrigin={true}
-        className='dragme'
+        className='dragme hidden md:block'
         ref={divRef}
         drag='x'
         style={{

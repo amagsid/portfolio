@@ -66,8 +66,10 @@ export const Layout = ({ children }) => {
           scaleX: scaleX,
         }}
       />
-      <Header />
-      <CirclePointer className='custom-cursor'> </CirclePointer>
+      <Header className='sticky' />
+      <CirclePointer className='custom-cursor hidden sm:absolute sm:block'>
+        {' '}
+      </CirclePointer>
 
       {/* <main>{children}</main> */}
 

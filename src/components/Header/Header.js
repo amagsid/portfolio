@@ -91,9 +91,9 @@ function Header() {
 
   return (
     <Container
-      className={`sticky ${
+      className={`fixed w-screen  ${
         isNavScrolled ? `px-[6%]` : `px-[14%]`
-      }  pt-3 sticky top-0 left-0
+      }  pt-3 top-0 left-0
       
       transition-all`}
       variants={navContainerAnimation}
@@ -122,121 +122,6 @@ function Header() {
       >
         <SideNav />
       </div>
-
-      {/* burger menu button */}
-      {isSm && (
-        <>
-          <BurgerIcon
-            animate={{
-              rotate: isOpen ? 45 : 0,
-            }}
-            onClick={() => setIsOpen((isOpen) => !isOpen)}
-            className='w-10 hidden text-4xl cursor-pointer overflow-hidden group'
-          >
-            <BurgerLine
-              style={{ transformOrigin: '14px 7px' }}
-              animate={{
-                rotate: isOpen ? 50 : 0,
-                // transformOrigin: 'center',
-              }}
-              className=' w-full h-[2px] inline-flex  '
-            >
-              {' '}
-            </BurgerLine>
-            {!isOpen && (
-              <BurgerLine className=' w-full h-[2px] inline-flex transform translate-x-2 group-hover:translate-x-0 transition-all ease-in-out duration-300'>
-                {' '}
-              </BurgerLine>
-            )}
-
-            <BurgerLine
-              style={{ transformOrigin: '10px -5px' }}
-              animate={{
-                rotate: isOpen ? -50 : 0,
-                transformOrigin: 0.2,
-              }}
-              className=' w-full h-[2px] inline-flex  '
-            >
-              {' '}
-            </BurgerLine>
-          </BurgerIcon>
-
-          <MobileNav
-            animate={isOpen ? 'open' : 'closed'}
-            ref={ref}
-            variants={MobileNavVariants}
-          >
-            <motion.ul
-              style={{
-                padding: '100px 45px 0 0',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-              }}
-              variants={navContainerAnimation}
-              initial='hidden'
-              animate='show'
-              className='mb-0 px-12'
-            >
-              <motion.li
-                onClick={() => setIsOpen(false)}
-                className='py-4'
-                variants={MobileNavItemAnimation}
-              >
-                {/* <Link href="#about" scroll={false}> */}
-                <NavLink href='#about'>About</NavLink>
-                {/* </Link> */}
-              </motion.li>
-              <motion.li
-                onClick={() => setIsOpen(false)}
-                className='py-4'
-                variants={MobileNavItemAnimation}
-              >
-                {/* <Link href="#pastwork" scroll={false}> */}
-                <NavLink href='#pastwork'>Clients</NavLink>
-                {/* </Link> */}
-              </motion.li>
-              <motion.li
-                onClick={() => setIsOpen(false)}
-                className='py-4'
-                variants={MobileNavItemAnimation}
-              >
-                {/* <Link href="#experience" scroll={false}> */}
-                <NavLink href='#experience'>Experience</NavLink>
-                {/* </Link> */}
-              </motion.li>
-              <motion.li
-                onClick={() => setIsOpen(false)}
-                className='py-4'
-                variants={MobileNavItemAnimation}
-              >
-                {/* <Link href="#contact" scroll={false}> */}
-                <NavLink href='#contact'>Contact</NavLink>
-                {/* </Link> */}
-              </motion.li>
-              <motion.li
-                onClick={() => setIsOpen(false)}
-                variants={MobileNavItemAnimation}
-              >
-                {' '}
-                {/* <NavLink> */}{' '}
-                <a href='/Ahmad_Resume.pdf' target='_blank'>
-                  {' '}
-                  <ResumeButton
-                    style={{ width: '100px' }}
-                    className='mt-3 px-4 py-3 rounded-md text-[13px]'
-                  >
-                    {' '}
-                    Resume{' '}
-                  </ResumeButton>{' '}
-                </a>
-                {/* </NavLink> */}
-              </motion.li>
-            </motion.ul>
-            {/* <motion.div> </motion.div> */}
-          </MobileNav>
-        </>
-      )}
     </Container>
   );
 }

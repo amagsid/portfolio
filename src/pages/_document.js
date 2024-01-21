@@ -31,6 +31,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en-GB'>
         <Head>
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
+
           <script src='https://rawcdn.githack.com/akzhy/Vara/16e30acca2872212e28735cfdbaba696a355c780/src/vara.min.js'></script>
 
           <link

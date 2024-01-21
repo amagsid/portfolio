@@ -102,30 +102,17 @@ export const Number = styled.span`
 `;
 
 export const SectionText = styled.p`
-  font-size: clamp(1rem, 1.8rem, 2rem);
+  // font-size: clamp(1rem, 1.8rem, 2rem);
   line-height: 1.8em;
 
   font-weight: 300;
   color: ${(props) => props.theme.colors.textSlate};
 
-  // &:after {
-  //   content: '';
-  //   display: inline-block;
-  //   width: 100%;
-  // }
-
-  @media ${(props) => props.theme.breakpoints.md} {
-    max-width: 670px;
-    font-size: 20px;
-    line-height: 32px;
-  }
-
   @media ${(props) => props.theme.breakpoints.sm} {
     width: unset;
     margin: 0;
-    font-size: 16px;
-    line-height: 34px;
-    text-align: center;
+    line-height: 25px;
+
     padding: 0 2em 0 2em;
   }
 `;

@@ -6,6 +6,10 @@ export const Title = styled(motion.h2)`
 
   color: ${(props) => props.theme.colors.textPale};
   font-family: ${(props) => props.theme.fonts.headings};
-  letter-spacing: -5px;
+  // letter-spacing: -5px;
   font-weight: 700;
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    text-align: center;
+  }
 `;

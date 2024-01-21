@@ -24,7 +24,7 @@ export const StatusBar = styled(motion.div)`
 `;
 export const CirclePointer = styled(motion.div)`
   background-color: ${(props) => props.theme.colors.pointer};
-  position: absolute;
+  // position: absolute;
   width: 20px;
   height: 20px;
   border-radius: 50%;

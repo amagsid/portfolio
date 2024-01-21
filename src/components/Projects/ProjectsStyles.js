@@ -8,10 +8,13 @@ export const Img = styled.img`
 `;
 export const ProjectName = styled.h3`
   font-size: clamp(2.8rem, 3.5rem, 5rem);
-  // line-height: 1.8em;
 
   font-weight: 600;
   color: ${(props) => props.theme.colors.textEmphasis};
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    padding-left: 30px;
+  }
 `;
 
 export const ClientsLogoContainer = styled.div`

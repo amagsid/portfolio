@@ -7,7 +7,6 @@ export const HeroWrapper = styled(motion.div)`
 `;
 
 export const HighlightedText = styled(motion.h1)`
-  font-family: ${(props) => props.theme.fonts.mono};
   letter-spacing: 7px;
   margin: 0px;
   font-weight: 500;
@@ -15,25 +14,31 @@ export const HighlightedText = styled(motion.h1)`
 `;
 
 export const BigHeading = styled(motion.h2)`
-  font-size: clamp(20rem, 30vw, 32rem);
-  line-height: 250px;
+  font-size: 12rem;
+  line-height: 100%;
   max-width: 100%;
+  text-align: center;
   color: ${(props) =>
     props.main ? props.theme.colors.heading : props.theme.colors.textPale};
+`;
 
-  @media ${(props) => props.theme.breakpoints.md} {
-  }
+export const Title = styled(motion.h3)`
+  font-size: clamp(3rem, 5rem, 6rem);
+  width: 100%;
+  text-align: center;
+  -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+  font-family: ${(props) => props.theme.fonts.headings};
+  animation-timing-function: linear;
+  font-weight: 900;
 
-  //small mobile
-  @media ${(props) => props.theme.breakpoints.sm} {
-    font-size: clamp(15rem, 35vw, 42rem);
-    padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
-    max-width: 100%;
-  }
+  color: ${(props) => props.theme.colors.colorPop};
+  // color: ${(props) => props.theme.colors.textPale};
+  line-height: 50px;
+  height: 60px;
 `;
 
 export const MedHeading = styled(motion.h2)`
-  font-weight: 600;
+  font-weight: 100;
   font-size: clamp(11rem, 11vw, 12rem);
   width: 100%;
   letter-spacing: -5px;
