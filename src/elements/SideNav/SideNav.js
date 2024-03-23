@@ -143,7 +143,7 @@ function SideNav() {
             }}
           >
             {/* page links */}
-            <div className='side-nav w-[50%] flex flex-column items-center justify-center h-[35vh] justify-evenly'>
+            <div className='side-nav w-[50%] flex flex-column items-center h-[35vh] justify-evenly'>
               <LinkesContainer
                 className=' flex w-full justify-around'
                 initial='closed'

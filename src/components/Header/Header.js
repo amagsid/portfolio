@@ -90,39 +90,41 @@ function Header() {
   };
 
   return (
-    <Container
-      className={`fixed w-screen  ${
-        isNavScrolled ? `px-[6%]` : `px-[14%]`
-      }  pt-3 top-0 left-0
+    <>
+      <Container
+        className={`fixed w-screen  ${
+          isNavScrolled ? `px-[6%]` : `px-[14%]`
+        }  pt-3 top-0 left-0
       
       transition-all`}
-      variants={navContainerAnimation}
-      animate={isNavScrolled ? 'scrolled' : 'unscrolled'}
-      style={{ zIndex: '98' }}
-    >
-      <LogoContainer>
-        {' '}
-        <Signature isNavScrolled={isNavScrolled} />
-      </LogoContainer>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '50px',
-        }}
-      >
-         <ThemeSwitch />
-      </div>
-      <div
         variants={navContainerAnimation}
-        initial='hidden'
-        animate='show'
-        className='hidden mdl:inline-flex items-center '
+        animate={isNavScrolled ? 'scrolled' : 'unscrolled'}
+        style={{ zIndex: '98' }}
       >
-        <SideNav />
-      </div>
-    </Container>
+        <LogoContainer>
+          {' '}
+          <Signature isNavScrolled={isNavScrolled} />
+        </LogoContainer>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '50px',
+          }}
+        >
+           <ThemeSwitch />
+        </div>
+        <div
+          variants={navContainerAnimation}
+          initial='hidden'
+          animate='show'
+          className='hidden mdl:inline-flex items-center '
+        >
+          <SideNav />
+        </div>
+      </Container>
+    </>
   );
 }
 

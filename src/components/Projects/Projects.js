@@ -10,17 +10,26 @@ import Bol from '../../../public/images/bol.gif';
 import Nike from '../../../public/images/Nike.gif';
 import SqSp from '../../../public/images/SqSp.gif';
 import BDCRightInd from '../../../public/images/RightInd.gif';
+import Spline from '../../../public/images/spline.gif';
 
 const PastWork = () => {
   let Projects = [
     {
-      name: 'Booking.com Top 5 Hotels',
-      img: BDCRightInd,
+      name: 'Insightful Landing Page',
+      img: Spline,
       description:
-        'Modular  UI template showcasing top stays in cities around the world. By creating this UI template that gets rendered into a video, client was able to demonstrate different accomodation and their attributes worldwide on the spot without having to create a different video for 50+ cities.',
+        'Landing page for a sales optimization platform powered by machine learning and AI',
       link: '',
       techStack: ['Figma', 'JavaScript', 'CSS', 'Nuke'],
     },
+    // {
+    //   name: 'Booking.com Top 5 Hotels',
+    //   img: BDCRightInd,
+    //   description:
+    //     'Modular  UI template showcasing top stays in cities around the world. By creating this UI template that gets rendered into a video, client was able to demonstrate different accomodation and their attributes worldwide on the spot without having to create a different video for 50+ cities.',
+    //   link: '',
+    //   techStack: ['Figma', 'JavaScript', 'CSS', 'Nuke'],
+    // },
 
     {
       name: 'Nike Landing Page Mockup',
@@ -75,17 +84,13 @@ const PastWork = () => {
   };
   return (
     <Section id='projects' ref={scrollTarget}>
-      {/* <MovingSectionTitle sectionTitle='PAST WORK & PROJECTS' /> */}
-
-      {/* <SlideShow></SlideShow> */}
-
       <motion.div
         animate={inView ? 'visible' : 'hidden'}
         variants={variants}
         transition={{ duration: 0.8, ease: 'easeInOut' }}
         ref={ref}
         // style={{ textAlign: 'right' }}
-        className='pb-16'
+        className='pb-11 pt-24'
         // style={{ scale: sectionTitleScale }}
       >
         <SectionTitle
